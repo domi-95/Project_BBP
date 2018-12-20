@@ -31,8 +31,8 @@
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="OnInputProcessing">Anmelden</button>
-      <button class="btn btn-lg btn-secondary btn-block" type="submit" name="OnInputProcessing">Registrieren</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
+      <button class="btn btn-lg btn-secondary btn-block" type="submit">Registrieren</button>
     </form>
   </body>
 </html>
