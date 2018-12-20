@@ -38,30 +38,35 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <button class="btn btn-lg btn-secondary btn-block" type="submit">Registrieren</button>
     </form>
-    
-    <%
-				String email = request.getParameter("email");
-				String password = request.getParameter("password");
 
-    		  if (email !=null && password !=null){
-    		  
-				// out.print(email + password);
+	<%
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 
-				User u = Dao.login(email, password);
+		if (email != null && password != null) {
 
-				if (u == null) {
-					out.print("Sorry, invalid Email or Password ");
-				}
-				
-				else{ 
-					session.setAttribute("objekt", u);
-					if (u.getRole().getId() == 1) {
+			// out.print(email + password);
+
+			User u = Dao.login(email, password);
+
+			if (u == null) {
+				out.print("Sorry, invalid Email or Password ");
+			}
+
+			else {
+				session.setAttribute("objekt", u);
+				if (u.getRole().getId() == 1) {
 					response.sendRedirect("welcome_buerger.jsp");
 				}
+				if (u.getRole().getId() == 2) {
+					response.sendRedirect("welcome_verwaltung.jsp");
 				}
-    		  }
-				
-			%>
-    
-  </body>
+				if (u.getRole().getId() == 3) {
+					response.sendRedirect("welcome_gemeinderat.jsp");
+				}
+			}
+		}
+	%>
+
+</body>
 </html>
