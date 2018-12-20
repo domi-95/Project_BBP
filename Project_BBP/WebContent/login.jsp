@@ -52,12 +52,10 @@
 				session.setAttribute("objekt", u);
 
 				if (u.getRole().getId() == 1) {
-					response.sendRedirect("anlaufstelle_dashboard.jsp");
+					response.sendRedirect("welcome_buerger.jsp");
 				}
 
-				if (u instanceof Beduerftiger) {
-					response.sendRedirect("beduerftigen_dashboard.jsp");
-				}
+				
 			%>
     
   </body>
