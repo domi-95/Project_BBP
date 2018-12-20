@@ -8,10 +8,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
+   <!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
     
-	<!-- Custom styles for this template -->
+	<!-- Custom styles -->
 	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen">
 	
 
@@ -32,6 +32,7 @@
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="OnInputProcessing">Anmelden</button>
+      <button class="btn btn-lg btn-secondary btn-block" type="submit" name="OnInputProcessing">Registrieren</button>
     </form>
   </body>
 </html>
