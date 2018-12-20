@@ -42,7 +42,7 @@
     <%
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
-    		  
+    		  if (email !=" " && password !=" "){
     		  
 				// out.print(email + password);
 
@@ -58,7 +58,7 @@
 					response.sendRedirect("welcome_buerger.jsp");
 				}
 				}
-    		  
+    		  }
 				
 			%>
     
