@@ -20,6 +20,10 @@
   </head>
 
  <body class="text-center">
+ 
+ <%@page import="database.*"%>
+	<%@page import="user.*"%>
+ 
     <form method="post" class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Anmelden</h1>
       <label for="inputEmail" class="sr-only">Email Adresse</label>
@@ -34,5 +38,27 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <button class="btn btn-lg btn-secondary btn-block" type="submit">Registrieren</button>
     </form>
+    
+    <%
+				String email = request.getParameter("email");
+				String password = request.getParameter("password");
+				// out.print(email + password);
+
+				User u = Dao.login(email, password);
+
+				if (u == null) {
+					out.print("Sorry, invalid Email or Password ");
+				}
+				session.setAttribute("objekt", u);
+
+				if (u instanceof Mitarbeiter) {
+					response.sendRedirect("anlaufstelle_dashboard.jsp");
+				}
+
+				if (u instanceof Beduerftiger) {
+					response.sendRedirect("beduerftigen_dashboard.jsp");
+				}
+			%>
+    
   </body>
 </html>

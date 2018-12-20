@@ -10,7 +10,7 @@ public class ConnectionProvider {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection("jdbc:mysql://server1.febas.net/bbp-db","bbp-admin","BBPJavaProject");
 		} catch (Exception e) {
-			System.out.println("Connection nicht möglich zum DB");
+			System.out.println("Verbindung zur Datenbank nicht mÃ¶glich");
 		}
 	}
 
