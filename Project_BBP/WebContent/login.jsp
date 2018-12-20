@@ -43,20 +43,22 @@
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
     		  
-    		  if (email != "" && password != ""){
+    		  
 				// out.print(email + password);
 
 				User u = Dao.login(email, password);
+				session.setAttribute("objekt", u);
 
 				if (u == null) {
 					out.print("Sorry, invalid Email or Password ");
 				}
-				session.setAttribute("objekt", u);
-
-				if (u.getRole().getId() == 1) {
+				
+				else{ 
+					if (u.getRole().getId() == 1) {
 					response.sendRedirect("welcome_buerger.jsp");
 				}
-    		  }
+				}
+    		  
 				
 			%>
     
