@@ -42,7 +42,8 @@
     <%
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
-    		  if (email !=" " && password !=" "){
+
+    		  if (email !=null && password !=null){
     		  
 				// out.print(email + password);
 
