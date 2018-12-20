@@ -8,18 +8,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+   
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+    
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen">
+	
 
-    <!-- Custom styles for this template -->
-    <link href="style/signin.css" rel="stylesheet">
     <title>Login</title>
 
   </head>
-
-
-
-
-
 
  <body class="text-center">
     <form method="post" class="form-signin">
@@ -32,7 +30,7 @@
         <label>
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
-      </div>"
+      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="OnInputProcessing">Anmelden</button>
     </form>
   </body>
