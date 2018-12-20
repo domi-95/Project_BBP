@@ -21,10 +21,10 @@ public class Dao {
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * from User where email = '"+ email + "' and password = '" + password + "'");
+					"SELECT * from user u, role r where u.email = '"+ email + "' and u.password = '" + password + "' and u.role_id = r.id");
 
 			if (myRs.next())
-				return new User(myRs.getInt("id"), myRs.getString("email"), myRs.getString("firstname"), myRs.getString("name"), role);
+				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"), myRs.getString("u.name"), new Role(myRs.getInt("r.id"), myRs.getString("r.description")));
 
 			else {
 				return null;
@@ -37,11 +37,12 @@ public class Dao {
 		return null;
 	}
 	
+
+	
 	public static void main(String[] args) {
 	
-	Dao.login("max.mustermann@bbp.de", "1234");
+	System.out.println(Dao.login("max.mustermann@bbp.de", "1234"));
 		
-	
 	}
 
 }

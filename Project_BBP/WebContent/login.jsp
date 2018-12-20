@@ -51,7 +51,7 @@
 				}
 				session.setAttribute("objekt", u);
 
-				if (u instanceof Mitarbeiter) {
+				if (u.getRole().getId() == 1) {
 					response.sendRedirect("anlaufstelle_dashboard.jsp");
 				}
 

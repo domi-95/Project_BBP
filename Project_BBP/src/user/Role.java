@@ -3,14 +3,16 @@ package user;
 public class Role {
 	
 	private int id;
-	private String bezeichnung;
+	private String description;
 	
-
 	
-	public Role(int id, String bezeichnung) {
+	
+	
+	
+	public Role(int id, String description) {
 		super();
 		this.id = id;
-		this.bezeichnung = bezeichnung;
+		this.description = description;
 	}
 	public int getId() {
 		return id;
@@ -18,17 +20,20 @@ public class Role {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getBezeichnung() {
-		return bezeichnung;
+	public String getDescription() {
+		return description;
 	}
-	public void setBezeichnung(String bezeichnung) {
-		this.bezeichnung = bezeichnung;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", bezeichnung=" + bezeichnung + "]";
-	} 
+		return "Role [id=" + id + ", description=" + description + "]";
+	}
+	
+
+	
+
 	
 	
 	
