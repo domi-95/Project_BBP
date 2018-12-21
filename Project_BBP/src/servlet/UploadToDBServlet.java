@@ -66,7 +66,7 @@ public class UploadToDBServlet extends HttpServlet {
             con.commit();
  
             // Upload successfully!.
-            response.sendRedirect(request.getContextPath() + "/uploadToDBResults");
+            response.sendRedirect(request.getContextPath() + "/uploadToDBResults.jsp");
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "Error: " + e.getMessage());
@@ -110,7 +110,7 @@ public class UploadToDBServlet extends HttpServlet {
  
     private void writeToDB(Connection con, String fileName, InputStream is, String description) throws SQLException {
  
-        String sql = "insert into test_blob (id, file_name, picture, description) " //
+        String sql = "insert into test_blob (file_name, picture, description) " //
                 + " values ('"+ fileName +"', '"+ is +"', '"+ description +"') ";
         Statement stm = con.createStatement();
         stm.executeUpdate(sql);
