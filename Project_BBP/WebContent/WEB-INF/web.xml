@@ -39,4 +39,14 @@
     <servlet-name>UploadToDBResultsServlet</servlet-name>
     <url-pattern>/UploadToDBResultsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>tear</display-name>
+    <servlet-name>tear</servlet-name>
+    <servlet-class>servlet.tear</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tear</servlet-name>
+    <url-pattern>/tear</url-pattern>
+  </servlet-mapping>
 </web-app>

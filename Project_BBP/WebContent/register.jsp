@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta firstname="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
@@ -26,47 +26,64 @@
  
     <form method="post" class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Registrieren</h1>
-      <label for="inputFirstname" class="sr-only">Vorname</label>
-      <input name="firstname" type="text" id="inputFirstname" class="form-control" placeholder="Vorname" required autofocus>
-      <label for="inputLastname" class="sr-only">Nachname</label>
-      <input name="lastname" type="text" id="inputLastname" class="form-control" placeholder="Nachname" required>
+      <label for="inputfirstname" class="sr-only">Vorname</label>
+      <input name="firstname" type="text" id="inputfirstname" class="form-control" placeholder="Vorname" required autofocus>
+      <label for="inputname" class="sr-only">Nachname</label>
+      <input name="name" type="text" id="inputname" class="form-control" placeholder="Nachname" required>
       <label for="inputEmail" class="sr-only">Email Adresse</label>
       <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Adresse" required>
       <label for="inputPassword1" class="sr-only">Passwort</label>
       <input name="password1" type="password" id="inputPassword1" class="form-control" placeholder="Passwort" required>
       <label for="inputPassword2" class="sr-only">Passwort bestätigen</label>
-      <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Passwort bestätigen" required>
+      <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Passwort wiederholen" required>
       
       <button class="btn btn-lg btn-secondary btn-block" type="submit">Registrieren</button>
     </form>
 
 	<%
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String firstname = request.getParameter("firstname");
+		String name = request.getParameter("name");
+    		String email = request.getParameter("email");
+    		String password1 = request.getParameter("password1");
+    		String password2 = request.getParameter("password2");
+    		int role_id = 1;
+    		//out.print(email + password1);
+    		
+    		//Check if all fields are filled
+		if (firstname != null && name != null && email != null && password1 != null && password2 != null) {
 
-		if (email != null && password != null) {
-
-			// out.print(email + password);
-
-			User u = Dao.login(email, password);
-
-			if (u == null) {
-				out.print("Sorry, invalid Email or Password ");
-			}
-
-			else {
-				session.setAttribute("objekt", u);
-				if (u.getRole().getId() == 1) {
-					response.sendRedirect("welcome_buerger.jsp");
-				}
-				if (u.getRole().getId() == 2) {
-					response.sendRedirect("welcome_verwaltung.jsp");
-				}
-				if (u.getRole().getId() == 3) {
-					response.sendRedirect("welcome_gemeinderat.jsp");
+			//out.print(firstname + email + password1);
+			
+			User u = Dao.searchUser(email);
+			//Check if user exists
+			if(u != null){
+				if(email == u.getEmail()){
+					out.print("Es gibt bereits einen Account mit der gleichen E-Mail Adresse");
 				}
 			}
+			else{
+				//Check if passwords match
+				if(!password1.equals(password2) ){
+					out.print("Passwörter stimmen nicht überein" + password1 + password2);
+				}
+				//Safe User and forward to Dashboard
+				else {
+					Dao.safeUser(email, name, firstname, password1, role_id);
+					User n = Dao.searchUser(email);
+					session.setAttribute("objekt", n);
+						if (n.getRole().getId() == 1) {
+							response.sendRedirect("welcome_buerger.jsp");
+						}
+						if (n.getRole().getId() == 2) {
+							response.sendRedirect("welcome_verwaltung.jsp");
+						}
+						if (n.getRole().getId() == 3) {
+							response.sendRedirect("welcome_gemeinderat.jsp");
+						}
+					}
+				}
 		}
+    		
 	%>
 
 </body>
