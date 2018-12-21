@@ -17,7 +17,7 @@ public class project {
 
 	public project(int id, String title, String category, String short_description, String description, String location,
 			int period, String investment_grade, byte picture, String phone_numer, boolean anonymous,
-			project.state state) {
+			state state) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -128,6 +128,9 @@ public class project {
 	public void setState(state state) {
 		this.state = state;
 	}
+	
+	public static createProject ()
+	
 
 	@Override
 	public String toString() {
@@ -136,6 +139,10 @@ public class project {
 				+ ", investment_grade=" + investment_grade + ", picture=" + picture + ", phone_numer=" + phone_numer
 				+ ", anonymous=" + anonymous + ", state=" + state + "]";
 	}
+	
+	
+	
+	
 	
 	
 

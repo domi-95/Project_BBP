@@ -1,5 +1,7 @@
 package user;
 
+import database.Dao;
+
 public class User {
 	
 	private int id;
@@ -48,11 +50,24 @@ public class User {
 	public void setname(String name) {
 		this.name = name;
 	}
+	
+	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
+
+		if (Dao.searchUser(email) != null) {
+			return false;
+		}
+		
+		return Dao.safeUser(email, name, firstname, password, role_id);
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", firstname=" + firstname + ", lastname=" + name + ", role="
 				+ role + "]";
 	}
+	
+	
 	
 	
 	
