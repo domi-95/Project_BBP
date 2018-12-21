@@ -9,4 +9,34 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>test_fileupload_servlet</display-name>
+    <servlet-name>test_fileupload_servlet</servlet-name>
+    <servlet-class>test_fileupload_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test_fileupload_servlet</servlet-name>
+    <url-pattern>/test_fileupload_servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UploadToDBServlet</display-name>
+    <servlet-name>UploadToDBServlet</servlet-name>
+    <servlet-class>servlet.UploadToDBServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadToDBServlet</servlet-name>
+    <url-pattern>/UploadToDBServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UploadToDBResultsServlet</display-name>
+    <servlet-name>UploadToDBResultsServlet</servlet-name>
+    <servlet-class>servlet.UploadToDBResultsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadToDBResultsServlet</servlet-name>
+    <url-pattern>/UploadToDBResultsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

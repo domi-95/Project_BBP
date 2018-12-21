@@ -74,6 +74,8 @@ public class Dao {
 		}
 		return null;
 	}
+	
+	//public static uploadFile ()
 		
 
 
@@ -88,6 +90,7 @@ public class Dao {
 	//System.out.println(Dao.searchUser("max.mustermann@bbp.de"));
 //	System.out.println(Dao.safeUser("test@test.de", "Test", "Test", "test123", 1));
 	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
+	//new File 
 	}
 
 }
