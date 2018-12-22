@@ -108,10 +108,10 @@ public static project searchRequest (int id) {
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * from project p where p.id = '"+ id );
+					"SELECT * from project p where p.id = "+ id +"");
 
 			if (myRs.next())
-				return new project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"), myRs.getString("p.shot_description"), myRs.getString("p.description"), myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"), myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"), null);
+				return new project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"), myRs.getString("p.short_description"), myRs.getString("p.description"), myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"), myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"), null);
 			else {
 				return null;
 			}
@@ -131,7 +131,7 @@ public static project searchRequest (int id) {
 	//System.out.println(Dao.login("max.mustermann@bbp.de", "1234"));
 	//System.out.println(Dao.searchUser("max.mustermann@bbp.de"));
 //	System.out.println(Dao.safeUser("test@test.de", "Test", "Test", "test123", 1));
-	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
+//	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
 	
 	System.out.println(searchRequest(3));
 	//new File 
