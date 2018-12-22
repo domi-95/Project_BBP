@@ -8,7 +8,7 @@ public class ConnectionProvider {
 	static {
 		try {
 			Class.forName(DRIVER);
-			con = DriverManager.getConnection("jdbc:mysql://server1.febas.net/bbp-db",USERNAME,PASSWORD);
+			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
 		} catch (Exception e) {
 			System.out.println("Verbindung zur Datenbank nicht möglich");
 		}
