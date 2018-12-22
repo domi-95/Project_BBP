@@ -6,7 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
- 
+import java.sql.Statement;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -53,9 +54,11 @@ public class FileUploadDBServlet extends HttpServlet {
             // connects to the database
            //DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             conn = ConnectionProvider.getCon();
- 
+
             // constructs SQL statement
-            String sql = "INSERT INTO contacts (first_name, last_name, photo) values (?, ?, ?)";
+            
+         
+           String sql = "INSERT INTO testupload (first_name, last_name, photo) values (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, firstName);
             statement.setString(2, lastName);
