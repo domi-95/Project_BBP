@@ -10,13 +10,13 @@ public class project {
 	private String location;
 	private int period;
 	private String investment_grade;
-	private byte picture;
+	private byte[] picture;
 	private String phone_numer;
 	private boolean anonymous;
 	private state state;
 
 	public project(int id, String title, String category, String short_description, String description, String location,
-			int period, String investment_grade, byte picture, String phone_numer, boolean anonymous,
+			int period, String investment_grade, byte[] picture, String phone_numer, boolean anonymous,
 			state state) {
 		super();
 		this.id = id;
@@ -97,11 +97,11 @@ public class project {
 		this.investment_grade = investment_grade;
 	}
 
-	public byte getPicture() {
+	public byte[] getPicture() {
 		return picture;
 	}
 
-	public void setPicture(byte picture) {
+	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
 

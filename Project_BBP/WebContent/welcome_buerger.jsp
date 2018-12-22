@@ -23,9 +23,10 @@ if (u == null){
 	
   	// User u = (User)session.getAttribute("objekt"); 
 	out.print(u);
-  
+	
 
  
   %>
+
 </body>
 </html>

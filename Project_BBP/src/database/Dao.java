@@ -9,8 +9,16 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.PreparedStatement;
+
+
+
 import database.*;
 import user.*;
+import project.*;
 
 public class Dao {
 	
@@ -45,7 +53,7 @@ public class Dao {
 				st.executeUpdate(sql);
 				}
 				catch (Exception e) {
-					System.out.println("Fehler beim Einfügen des Users");
+					System.out.println("Fehler beim Einfï¿½gen des Users");
 					e.printStackTrace();
 				}		
 
@@ -77,9 +85,43 @@ public class Dao {
 	
 	//public static uploadFile ()
 		
+	public static boolean createRequest (String title, String category, String shortDescription, String description, String location, String investmentGrade, String phoneNumber, int period, int anonymous, InputStream picture) {
+		try{
+			 Connection con = ConnectionProvider.getCon();
+				String sql ="INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id)" + 
+							"VALUES ('"+ title +"','" + category + "','" + shortDescription + "', '" + description + "', '"+ location +"'," + period + ",'"+ investmentGrade +"','"+ picture +"','" + phoneNumber + "'," + anonymous + "," + 1 + ")";
+				Statement st = con.createStatement();
+				st.executeUpdate(sql);
+				}
+				catch (Exception e) {
+					System.out.println("Fehler beim Einfï¿½gen der Anfrage");
+					e.printStackTrace();
+				}		
 
+		return true;
+	}
 
-	
+public static project searchRequest (int id) {
+		
+		try {
+			Connection con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from project p where p.id = '"+ id );
+
+			if (myRs.next())
+				return new project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"), myRs.getString("p.shot_description"), myRs.getString("p.description"), myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"), myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"), null);
+			else {
+				return null;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Connection failed");
+		}
+		return null;
+	}	
 	
 	
 
