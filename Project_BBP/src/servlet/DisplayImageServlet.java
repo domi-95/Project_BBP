@@ -43,7 +43,7 @@ public class DisplayImageServlet extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
-			project project = Dao.searchRequest(1);
+			project project = Dao.searchRequest(3);
 
 			if (project.getPicture().length == 0) {
 				// No record found, redirect to default image.
@@ -60,12 +60,12 @@ public class DisplayImageServlet extends HttpServlet {
 
 			response.setHeader("Content-Type", contentType);
 
-			response.setHeader("Content-Length", String.valueOf(spende.getBild().length));
+			response.setHeader("Content-Length", String.valueOf(project.getPicture().length));
 
 			response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
 
 			// Schreibe das Bild als Response
-			response.getOutputStream().write(spende.getBild());
+			response.getOutputStream().write(project.getPicture());
 
 		} catch (Exception e) {
 			throw new ServletException(e);

@@ -132,6 +132,8 @@ public static project searchRequest (int id) {
 	//System.out.println(Dao.searchUser("max.mustermann@bbp.de"));
 //	System.out.println(Dao.safeUser("test@test.de", "Test", "Test", "test123", 1));
 	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
+	
+	System.out.println(searchRequest(3));
 	//new File 
 	}
 
