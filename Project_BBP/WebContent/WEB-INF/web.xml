@@ -59,4 +59,34 @@
     <servlet-name>FileUploadDBServlet</servlet-name>
     <url-pattern>/FileUploadDBServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>createproject</display-name>
+    <servlet-name>createproject</servlet-name>
+    <servlet-class>project.createproject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createproject</servlet-name>
+    <url-pattern>/createproject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Createproject</display-name>
+    <servlet-name>Createproject</servlet-name>
+    <servlet-class>servlet.Createproject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Createproject</servlet-name>
+    <url-pattern>/Createproject</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>projectprocess</display-name>
+    <servlet-name>projectprocess</servlet-name>
+    <servlet-class>servlet.projectprocess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>projectprocess</servlet-name>
+    <url-pattern>/projectprocess</url-pattern>
+  </servlet-mapping>
 </web-app>
