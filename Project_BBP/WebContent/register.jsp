@@ -54,7 +54,7 @@
 
 			//out.print(firstname + email + password1);
 			
-			User u = Dao.searchUser(email);
+			User u = UserDao.searchUser(email);
 			//Check if user exists
 			if(u != null){
 				if(email == u.getEmail()){
@@ -68,8 +68,8 @@
 				}
 				//Safe User and forward to Dashboard
 				else {
-					Dao.safeUser(email, name, firstname, password1, role_id);
-					User n = Dao.searchUser(email);
+					UserDao.safeUser(email, name, firstname, password1, role_id);
+					User n = UserDao.searchUser(email);
 					session.setAttribute("objekt", n);
 						if (n.getRole().getId() == 1) {
 							response.sendRedirect("welcome_buerger.jsp");
