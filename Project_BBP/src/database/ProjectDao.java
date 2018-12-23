@@ -2,6 +2,7 @@ package database;
 
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,9 +21,15 @@ public class ProjectDao {
 			Connection con = ConnectionProvider.getCon();
 			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id)"
 					+ "VALUES ('" + title + "','" + category + "','" + shortDescription + "', '" + description + "', '"
-					+ location + "'," + period + ",'" + investmentGrade + "','" + picture + "','" + phoneNumber + "',"
+					+ location + "'," + period + ",'" + investmentGrade + "','" + "?" + "','" + phoneNumber + "',"
 					+ anonymous + "," + 1 + ")";
-			Statement st = con.createStatement();
+			PreparedStatement st = con.prepareStatement(sql);
+		//	if (inputStream != null) {
+				// fetche den input stream vom bild in ein blob column
+				st.setBlob(1, picture);
+		//	}
+			
+		//	Statement st = con.createStatement();
 			st.executeUpdate(sql);
 		} catch (Exception e) {
 			System.out.println("Fehler beim Einf�gen der Anfrage");
