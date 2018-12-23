@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Bootstrap style -->
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <title>Insert title here</title>
 </head>
 <body>
-<!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+
 <h2>Formular</h2>
 	<form id="regForm" method="post" action="CreateRequestProcess"
 		enctype="multipart/form-data">
@@ -23,23 +24,23 @@
 			<option value="Third Category">Dritte Kategorie</option>
 		</select>
 		<label for="inputShortDescription" class="sr-only">Kurzbeschreibung</label>
-      	<input name="shortDescrition" type="text" id="inputShortDescription" class="form-control" placeholder="Kurzbeschreibung" required>
+      	<input name="shortDescription" type="text" id="inputShortDescription" class="form-control" placeholder="Kurzbeschreibung" required>
 		<label for="inputDescription" class="sr-only">Beschreibung</label>
-      	<input name="descritption" type="text" id="inputDescription" class="form-control" placeholder="Beschreibung">
+      	<input name="description" type="text" id="inputDescription" class="form-control" placeholder="Beschreibung">
 		<label for="inputLocation" class="sr-only">Ort</label>
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
       	<input name="period" type="number" min="1" max="99" id="inputPeriod" class="form-control" placeholder="Zeitraum">
-		<label for="inputInvestmentGrade" class="sr-only">Investitionsgrad</label>
-      	<select id="inputInvestmentGrade" name="investmentGrade" class="form-control">
-			<option value="Choose Grade">Investitionsgrad auswählen</option>
-			<option value="First Grade">Erster Grad</option>
-			<option value="Second Grade">Zweiter Grad</option>
-			<option value="Third Grade">Dritter Grad</option>
+		<label for="inputInvestmentGrade" class="sr-only">Investitionsgrad</label>     	
+      	<select id="selectInvestmentGrade" name="investmentGrade" class="form-control" required>
+			<option value="Choose Grade" selected>Investitionsgrad auswählen</option>
+			<option value="Grad1">Erster Grad</option>
+			<option value="Grad2">Zweiter Grad</option>
+			<option value="Grad3">Dritter Grad</option>
 		</select>
 		<label for="inputPhoneNumber" class="sr-only">Telefonnummer</label>
       	<input name="phoneNumber" type="text" id="inputPhoneNumber" class="form-control" placeholder="Telefonnummer">
-		<label for="inputAnonymous" class="sr-only">Ananoym</label>
+		<label for="inputAnonymous" class="sr-only">Anonoym</label>
       	<input name="anonymous" type="checkbox" id="inputAnonymous" class="form-control" placeholder="Anonym">
 		
 		<input type="file" name="photo" size="50" class="form-control" /><br />
@@ -49,6 +50,6 @@
 
 	</form>
 	
-	  <img src="DisplayImageServlet?id=4" height="200px"/>
+	  <img src="DisplayImageServlet?id=3" height="200px"/>
 </body>
 </html>

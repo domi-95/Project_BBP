@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -38,16 +39,18 @@ public class CreateRequestProcess extends HttpServlet {
 		//Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlauf");
 
 		// gets values of text fields
-		String titel = request.getParameter("titel");
+		String titel = request.getParameter("title");
 		String category = request.getParameter("category");
 		String shortDescription = request.getParameter("shortDescription");
-		String description = request.getParameter("Description");
+		String description = request.getParameter("description");
 		String location = request.getParameter("location");
-		String investmentGrade = "";
+		String investmentGrade = request.getParameter("investmentGrade");
 		String phoneNumber = request.getParameter("phoneNumber");
 		int period = 0;
 		int anonymous = 0;
 		//int anl_id = a.getId();
+		System.out.println(description);
+		System.out.println(shortDescription);
 
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
@@ -75,9 +78,9 @@ public class CreateRequestProcess extends HttpServlet {
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
 			// prints out some information for debugging
-			//System.out.println(filePart.getName());
-			//System.out.println(filePart.getSize());
-			//System.out.println(filePart.getContentType());
+			System.out.println(filePart.getName());
+			System.out.println(filePart.getSize());
+			System.out.println(filePart.getContentType());
 
 			// bezieht den input stream vom bild
 
@@ -94,15 +97,22 @@ public class CreateRequestProcess extends HttpServlet {
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	        ImageIO.write(bi, "jpg", baos);
 	        is = new ByteArrayInputStream(baos.toByteArray());
+	        System.out.println(is);
+	        System.out.println("Try block Bild");
 
 	    } catch (IOException e) {
 	        System.out.println("Error");
 	    }
+	/*	finally {
+			// close input stream
+			if (inputStream != null) {
+				inputStream.close();
+			}*/
 		}
 		else {
 			is = inputStream;
+			System.out.println("else Block Bild");
 		}
-		
 		ProjectDao.safeProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
 	}
 
@@ -117,6 +127,6 @@ public class CreateRequestProcess extends HttpServlet {
 	    g.dispose();
 	    return scaledBI;
 	}
-	
+		
 
 }
