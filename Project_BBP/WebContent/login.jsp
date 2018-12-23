@@ -47,7 +47,7 @@
 
 			// out.print(email + password);
 
-			User u = Dao.login(email, password);
+			User u = User.getUserLogin(email, password);
 
 			if (u == null) {
 				out.print("Sorry, invalid Email or Password ");

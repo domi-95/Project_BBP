@@ -22,7 +22,7 @@ import project.*;
 
 public class Dao {
 	
-	public static User login (String email, String password) {
+	public static User searchUserWithPw (String email, String password) {
 
 		try {
 			Connection con = ConnectionProvider.getCon();

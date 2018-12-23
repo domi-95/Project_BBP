@@ -51,6 +51,11 @@ public class User {
 		this.name = name;
 	}
 	
+	public static User getUserLogin (String email, String password) {
+		return Dao.searchUserWithPw(email, password);
+		
+	}
+	
 	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
 
 		if (Dao.searchUser(email) != null) {

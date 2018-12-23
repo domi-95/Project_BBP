@@ -43,7 +43,7 @@ public class DisplayImageServlet extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
-			Project project = Dao.searchRequest(3);
+			Project project = Dao.searchRequest(id);
 
 			if (project.getPicture().length == 0) {
 				// No record found, redirect to default image.
