@@ -1,6 +1,6 @@
 package project;
 
-public class project {
+public class Project {
 
 	private int id;
 	private String title;
@@ -13,11 +13,11 @@ public class project {
 	private byte[] picture;
 	private String phone_numer;
 	private boolean anonymous;
-	private state state;
+	private State state;
 
-	public project(int id, String title, String category, String short_description, String description, String location,
+	public Project(int id, String title, String category, String short_description, String description, String location,
 			int period, String investment_grade, byte[] picture, String phone_numer, boolean anonymous,
-			state state) {
+			State state) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -121,11 +121,11 @@ public class project {
 		this.anonymous = anonymous;
 	}
 
-	public state getState() {
+	public State getState() {
 		return state;
 	}
 
-	public void setState(state state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 	

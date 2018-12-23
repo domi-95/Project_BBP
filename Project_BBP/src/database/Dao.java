@@ -101,17 +101,17 @@ public class Dao {
 		return true;
 	}
 
-public static project searchRequest (int id) {
+public static Project searchRequest (int id) {
 		
 		try {
 			Connection con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * from project p where p.id = "+ id +"");
+					"SELECT * from project p, state s where p.id = "+ id +" and p.state_id = s.id ");
 
 			if (myRs.next())
-				return new project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"), myRs.getString("p.short_description"), myRs.getString("p.description"), myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"), myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"), null);
+				return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"), myRs.getString("p.short_description"), myRs.getString("p.description"), myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"), myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"), new State(myRs.getInt("s.id"), myRs.getString("s.description")));
 			else {
 				return null;
 			}

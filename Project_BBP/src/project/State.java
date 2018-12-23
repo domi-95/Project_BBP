@@ -1,11 +1,11 @@
 package project;
 
-public class state {
+public class State {
 
 	private int id;
 	private String description;
 
-	public state(int id, String description) {
+	public State(int id, String description) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -25,6 +25,11 @@ public class state {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "State [id=" + id + ", description=" + description + "]";
 	}
 
 }

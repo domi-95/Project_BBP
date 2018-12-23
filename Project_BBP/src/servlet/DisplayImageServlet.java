@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import database.Dao;
-import project.project;
+import project.Project;
 
 /**
  * Servlet implementation class DisplayImageServelet
@@ -43,7 +43,7 @@ public class DisplayImageServlet extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
-			project project = Dao.searchRequest(3);
+			Project project = Dao.searchRequest(3);
 
 			if (project.getPicture().length == 0) {
 				// No record found, redirect to default image.

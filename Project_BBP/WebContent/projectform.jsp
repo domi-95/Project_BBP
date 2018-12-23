@@ -49,6 +49,6 @@
 
 	</form>
 	
-	  <img src="DisplayImageServlet?id=2" class="donImg" height="200px"/>
+	  <img src="DisplayImageServlet?id=3" class="donImg" height="200px"/>
 </body>
 </html>
