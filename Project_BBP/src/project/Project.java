@@ -1,5 +1,9 @@
 package project;
 
+import java.util.List;
+
+import database.Dao;
+
 public class Project {
 
 	private int id;
@@ -127,6 +131,10 @@ public class Project {
 
 	public void setState(State state) {
 		this.state = state;
+	}
+	
+	public static List<Project> getAll (int state_id) {
+		return Dao.getAllProject(state_id);
 	}
 	
 //	public static createProject ()
