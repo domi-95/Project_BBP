@@ -17,43 +17,12 @@ public class ProjectDao {
 	public static boolean safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
 			InputStream picture) {
-		System.out.println(picture);
-		System.out.println(title);
-		System.out.println(category);
-		System.out.println(shortDescription);
-		System.out.println(description);
-		System.out.println(location);
-		System.out.println(investmentGrade);
-		System.out.println(phoneNumber);
-		System.out.println(period);
-		System.out.println(anonymous);
-	/*	try {
-			Connection con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id)"
-					+ "VALUES ('" + title + "','" + category + "','" + shortDescription + "', '" + description + "', '"
-					+ location + "'," + period + ",'" + investmentGrade + "','" + picture + "','" + phoneNumber + "',"
-					+ anonymous + "," + 1 + ")";
-			//	PreparedStatement st = con.prepareStatement(sql);
-			//	if (inputStream != null) {
-			// fetche den input stream vom bild in ein blob column
-			//		st.setBlob(1, picture);
-			//	}
-			
-			Statement st = con.createStatement();
-			st.executeUpdate(sql);
-		} catch (Exception e) {
-			System.out.println("Fehler beim Einf�gen der Anfrage");
-			e.printStackTrace();
-		}*/
+	
 		try {
 			Connection con = ConnectionProvider.getCon();
 			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement st = con.prepareStatement(sql);
-			//	if (inputStream != null) {
-			// fetche den input stream vom bild in ein blob column
-			//		st.setBlob(1, picture);
-			//	}
-			
+
 				st.setString(1, title);
 				st.setString(2, category);
 				st.setString(3, shortDescription);
@@ -66,8 +35,6 @@ public class ProjectDao {
 				st.setInt(10, anonymous);
 				st.setInt(11, 1);
 			
-			//Statement st = con.createStatement();
-			//st.executeUpdate(sql);
 			st.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("Fehler beim Einf�gen der Anfrage");

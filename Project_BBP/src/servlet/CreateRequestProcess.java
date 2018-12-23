@@ -42,19 +42,44 @@ public class CreateRequestProcess extends HttpServlet {
 		String titel = request.getParameter("title");
 		String category = request.getParameter("category");
 		String shortDescription = request.getParameter("shortDescription");
-		String description = request.getParameter("description");
-		String location = request.getParameter("location");
-		String investmentGrade = request.getParameter("investmentGrade");
+		String description = "";
+		String location = "";
+		String investmentGrade = "";
 		String phoneNumber = request.getParameter("phoneNumber");
 		int period = 0;
 		int anonymous = 0;
 		//int anl_id = a.getId();
-		System.out.println(description);
-		System.out.println(shortDescription);
+
 
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
 
+		if("".equals(request.getParameter("description"))) {
+			description = "";
+		}
+		else {
+			description = request.getParameter("description");
+		}
+		if("".equals(request.getParameter("location"))) {
+			location = "";
+		}
+		else {
+			location = request.getParameter("location");
+		}
+		if("".equals(request.getParameter("investmentGrade"))) {
+			investmentGrade = "";
+		}
+		else {
+			investmentGrade = request.getParameter("investmentGrade");
+		}
+		if("".equals(request.getParameter("phoneNumber"))) {
+			phoneNumber = "";
+		}
+		else {
+			phoneNumber = request.getParameter("phoneNumber");
+		}
+		
+		
 		if ("on".equals(request.getParameter("anonymous"))) {
 			anonymous = 1;
 		} else {
@@ -78,9 +103,9 @@ public class CreateRequestProcess extends HttpServlet {
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
 			// prints out some information for debugging
-			System.out.println(filePart.getName());
-			System.out.println(filePart.getSize());
-			System.out.println(filePart.getContentType());
+			//System.out.println(filePart.getName());
+			//System.out.println(filePart.getSize());
+			//System.out.println(filePart.getContentType());
 
 			// bezieht den input stream vom bild
 
@@ -97,8 +122,6 @@ public class CreateRequestProcess extends HttpServlet {
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	        ImageIO.write(bi, "jpg", baos);
 	        is = new ByteArrayInputStream(baos.toByteArray());
-	        System.out.println(is);
-	        System.out.println("Try block Bild");
 
 	    } catch (IOException e) {
 	        System.out.println("Error");
@@ -111,7 +134,6 @@ public class CreateRequestProcess extends HttpServlet {
 		}
 		else {
 			is = inputStream;
-			System.out.println("else Block Bild");
 		}
 		ProjectDao.safeProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
 	}
