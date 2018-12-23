@@ -2,7 +2,7 @@ package project;
 
 import java.util.List;
 
-import database.Dao;
+import database.*;
 
 public class Project {
 
@@ -134,7 +134,7 @@ public class Project {
 	}
 	
 	public static List<Project> getAll (int state_id) {
-		return Dao.getAllProject(state_id);
+		return ProjectDao.getAllProject(state_id);
 	}
 	
 //	public static createProject ()

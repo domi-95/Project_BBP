@@ -1,6 +1,6 @@
 package user;
 
-import database.Dao;
+import database.*;
 
 public class User {
 	
@@ -52,17 +52,17 @@ public class User {
 	}
 	
 	public static User getUserLogin (String email, String password) {
-		return Dao.searchUserWithPw(email, password);
+		return UserDao.searchUserWithPw(email, password);
 		
 	}
 	
 	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
 
-		if (Dao.searchUser(email) != null) {
+		if (UserDao.searchUser(email) != null) {
 			return false;
 		}
 		
-		return Dao.safeUser(email, name, firstname, password, role_id);
+		return UserDao.safeUser(email, name, firstname, password, role_id);
 		
 	}
 	

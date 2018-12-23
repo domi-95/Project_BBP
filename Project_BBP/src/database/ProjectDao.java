@@ -10,77 +10,10 @@ import java.util.List;
 
 import project.Project;
 import project.State;
-import user.Role;
-import user.User;
 
-public class Dao {
-
-	public static User searchUserWithPw(String email, String password) {
-
-		try {
-			Connection con = ConnectionProvider.getCon();
-			Statement myst = con.createStatement();
-
-			ResultSet myRs = myst.executeQuery("SELECT * from user u, role r where u.email = '" + email
-					+ "' and u.password = '" + password + "' and u.role_id = r.id");
-
-			if (myRs.next())
-				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"),
-						myRs.getString("u.name"), new Role(myRs.getInt("r.id"), myRs.getString("r.description")));
-
-			else {
-				return null;
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Connection failed");
-		}
-		return null;
-	}
-
-	public static boolean safeUser(String email, String name, String firstname, String password, int role_id) {
-		try {
-			Connection con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO user (firstname, name, email, password, role_id)" + "VALUES ('" + firstname
-					+ "','" + name + "', '" + email + "', '" + password + "'," + role_id + ")";
-			Statement st = con.createStatement();
-			st.executeUpdate(sql);
-		} catch (Exception e) {
-			System.out.println("Fehler beim Einf�gen des Users");
-			e.printStackTrace();
-		}
-
-		return true;
-	}
-
-	public static User searchUser(String email) {
-
-		try {
-			Connection con = ConnectionProvider.getCon();
-			Statement myst = con.createStatement();
-
-			ResultSet myRs = myst
-					.executeQuery("SELECT * from user u, role r where u.email = '" + email + "' and u.role_id = r.id");
-
-			if (myRs.next())
-				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"),
-						myRs.getString("u.name"), new Role(myRs.getInt("r.id"), myRs.getString("r.description")));
-
-			else {
-				return null;
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Connection failed");
-		}
-		return null;
-	}
-
-	// public static uploadFile ()
-
-	public static boolean createRequest(String title, String category, String shortDescription, String description,
+public class ProjectDao {
+	
+	public static boolean safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
 			InputStream picture) {
 		try {
@@ -99,7 +32,7 @@ public class Dao {
 		return true;
 	}
 
-	public static Project searchRequest(int id) {
+	public static Project searchProject(int id) {
 
 		try {
 			Connection con = ConnectionProvider.getCon();
@@ -145,18 +78,6 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	public static void main(String[] args) {
-
-		// System.out.println(Dao.login("max.mustermann@bbp.de", "1234"));
-		// System.out.println(Dao.searchUser("max.mustermann@bbp.de"));
-//	System.out.println(Dao.safeUser("test@test.de", "Test", "Test", "test123", 1));
-//	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
-
-		//System.out.println(searchRequest(3));
-		System.out.println(Dao.getAllProject(1));
-		// new File
 	}
 
 }

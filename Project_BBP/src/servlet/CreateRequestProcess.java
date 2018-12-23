@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import database.Dao;
+import database.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -103,7 +103,7 @@ public class CreateRequestProcess extends HttpServlet {
 			is = inputStream;
 		}
 		
-		Dao.createRequest(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		ProjectDao.safeProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
 	}
 
 		BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
