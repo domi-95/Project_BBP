@@ -1,5 +1,7 @@
 package database;
 
+import project.*;
+
 public class TestMain {
 	public static void main(String[] args) {
 
@@ -9,8 +11,10 @@ public class TestMain {
 //	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
 
 		//System.out.println(searchRequest(3));
-		System.out.println(ProjectDao.getAllProject(1));
+		//System.out.println(ProjectDao.getAllProject(1));
 		// new File
+		Project project = ProjectDao.searchProject(25);
+		System.out.println(project.getPicture().toString());
 	}
 
 }

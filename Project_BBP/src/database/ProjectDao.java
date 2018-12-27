@@ -37,7 +37,7 @@ public class ProjectDao {
 			
 			st.executeUpdate();
 		} catch (Exception e) {
-			System.out.println("Fehler beim Einfï¿½gen der Anfrage");
+			System.out.println("Fehler beim Einfügen der Anfrage");
 			e.printStackTrace();
 		}
 
