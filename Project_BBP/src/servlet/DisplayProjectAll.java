@@ -1,12 +1,18 @@
 package servlet;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import database.ProjectDao;
+import project.Project;
 
 /**
  * Servlet implementation class DisplayProjectAll
@@ -29,9 +35,12 @@ public class DisplayProjectAll extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		List<Project> projectlist = ProjectDao.getAllProject(1);
+		
+		
 		//HTML Header
-		out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n" + 
-				"<html>\n" + 
+		out.println("<html>\n" + 
 				"<head>\n" + 
 				"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n" + 
 				"\n" + 
@@ -52,6 +61,49 @@ public class DisplayProjectAll extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1>Dies ist ein Test</h1>");
 		
+		for (Project p : projectlist){
+			try {
+
+				if (p.getPicture().length == 0) {
+					// No record found, redirect to default image.
+					out.println("<img src='" + "/Images/noimage.gif" + "' height= 200px");
+					return;
+				}
+
+				// trump.jpg, putin.png
+				String imageFileName = "test.png";
+				System.out.println("File Name: " + imageFileName);
+
+				String contentType = this.getServletContext().getMimeType(imageFileName);
+				System.out.println("Content Type: " + contentType);
+
+				response.setHeader("Content-Type", contentType);
+
+				response.setHeader("Content-Length", String.valueOf(p.getPicture().length));
+
+				response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
+
+				// Schreibe das Bild als Response
+				response.getOutputStream().write(p.getPicture());
+				byte[] imgData = p.getPicture();
+				String imgDataBase64=new String(Base64.getEncoder().encode(imgData));
+				out.println("<img src='data:image/gif;base64," + imgDataBase64 + "' hight= 200px");
+
+			} catch (Exception e) {
+				throw new ServletException(e);
+			}
+			
+			
+			
+			
+			
+			out.println("<img src='" + "' height= 200px");
+			
+			
+			out.println("<h2>" + "</h2");
+				
+			
+		}
 		
 		
 		
@@ -59,7 +111,13 @@ public class DisplayProjectAll extends HttpServlet {
 		out.println("</body>");
 		//HTML Tag ende
 		out.println("</html>");
+		
+		
+		
+		
+
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
