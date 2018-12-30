@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +28,9 @@ public class DisplayProjectAll extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		//HTML Header
-		System.out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n" + 
+		out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n" + 
 				"<html>\n" + 
 				"<head>\n" + 
 				"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n" + 
@@ -46,16 +49,16 @@ public class DisplayProjectAll extends HttpServlet {
 				"\n" + 
 				"  </head>");
 		//HTML Body beginn
-		System.out.println("<body>");
-		System.out.println("<h1>Dies ist ein Test</h1>");
+		out.println("<body>");
+		out.println("<h1>Dies ist ein Test</h1>");
 		
 		
 		
 		
 		//HTML Body ende
-		System.out.println("</body>");
+		out.println("</body>");
 		//HTML Tag ende
-		System.out.println("</html>");
+		out.println("</html>");
 	}
 
 	/**
