@@ -52,7 +52,8 @@ public class DisplayImageServletByteArray extends HttpServlet {
 				//picture = project.getPicture();
 				//byte[] picture = (byte[])request.get("id");
 			//picture = (byte[])request.getSession().getAttribute("picture");
-				picture = (byte[])request.getAttribute("picture");
+				System.out.println(request.getAttribute("picture"));
+				picture = (byte[]) request.getAttribute("picture");
 				
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
