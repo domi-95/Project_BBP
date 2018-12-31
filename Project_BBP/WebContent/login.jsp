@@ -62,7 +62,7 @@
 					response.sendRedirect("welcome_verwaltung.jsp");
 				}
 				if (u.getRole().getId() == 3) {
-					response.sendRedirect("welcome_gemeinderat.jsp");
+					response.sendRedirect("DisplayProjectAll");
 				}
 			}
 		}

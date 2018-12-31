@@ -1,12 +1,12 @@
 package servlet;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,6 +61,20 @@ public class DisplayProjectAll extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1>Dies ist ein Test</h1>");
 		
+		ServletOutputStream s = response.getOutputStream();
+		
+		String imageFileName = "test.png";
+		System.out.println("File Name: " + imageFileName);
+
+		String contentType = this.getServletContext().getMimeType(imageFileName);
+		System.out.println("Content Type: " + contentType);
+		
+		response.setHeader("Content-Type", contentType);
+
+	// setHeader("Content-Length", String.valueOf(p.getPicture().length));
+
+		response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
+		
 		for (Project p : projectlist){
 			try {
 
@@ -69,22 +83,17 @@ public class DisplayProjectAll extends HttpServlet {
 					out.println("<img src='" + "/Images/noimage.gif" + "' height= 200px");
 					return;
 				}
+				
+				
 
 				// trump.jpg, putin.png
-				String imageFileName = "test.png";
-				System.out.println("File Name: " + imageFileName);
+				
 
-				String contentType = this.getServletContext().getMimeType(imageFileName);
-				System.out.println("Content Type: " + contentType);
-
-				response.setHeader("Content-Type", contentType);
-
-				response.setHeader("Content-Length", String.valueOf(p.getPicture().length));
-
-				response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
+				
 
 				// Schreibe das Bild als Response
-				response.getOutputStream().write(p.getPicture());
+				
+				s.write(p.getPicture());
 				byte[] imgData = p.getPicture();
 				String imgDataBase64=new String(Base64.getEncoder().encode(imgData));
 				out.println("<img src='data:image/gif;base64," + imgDataBase64 + "' hight= 200px");
