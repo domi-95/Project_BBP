@@ -205,7 +205,7 @@ public class ProjectDao {
 				myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
 				myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 				new State(myRs.getInt("s.id"), myRs.getString("s.description")),
-				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), myRs.getInt("vote"),
+				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
 				myRs.getString("comment"));
 		} catch (Exception e) {
 			e.printStackTrace();

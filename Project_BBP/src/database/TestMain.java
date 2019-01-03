@@ -20,7 +20,8 @@ public class TestMain {
 		//List<Project> result = ProjectDao.getAllProject(1);
 		//System.out.println(result);
 		//project.setState(new State(2, "freigegeben"));
-		System.out.println(ProjectDao.countVotes(40));
+		//System.out.println(ProjectDao.countVotes(40));
+		//System.out.println(ProjectDao.getAllProject(1));
 	}
 
 }

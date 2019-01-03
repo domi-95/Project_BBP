@@ -1,6 +1,7 @@
 package project;
 
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 
 import database.*;
@@ -189,6 +190,17 @@ public class Project {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
 				phoneNumber, period, anonymous, picture);
 	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", title=" + title + ", category=" + category + ", short_description="
+				+ short_description + ", description=" + description + ", location=" + location + ", period=" + period
+				+ ", investment_grade=" + investment_grade + ", picture=" + Arrays.toString(picture) + ", phone_numer="
+				+ phone_numer + ", anonymous=" + anonymous + ", state=" + state + ", stamp_created=" + stamp_created
+				+ ", stamp_updated=" + stamp_updated + ", vote=" + vote + ", comment=" + comment + "]";
+	}
+	
+	
 
 
 }
