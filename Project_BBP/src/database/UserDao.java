@@ -10,13 +10,15 @@ import user.User;
 public class UserDao {
 	
 	public static User searchUserWithPw(String email, String password) {
+			Connection con = null;
 
 		try {
-			Connection con = ConnectionProvider.getCon();
+		    con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst.executeQuery("SELECT * from user u, role r where u.email = '" + email
 					+ "' and u.password = '" + password + "' and u.role_id = r.id");
+			
 
 			if (myRs.next())
 				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"),
@@ -25,17 +27,30 @@ public class UserDao {
 			else {
 				return null;
 			}
+			
 
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Connection failed");
+		}
+		
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
 		}
 		return null;
 	}
 
 	public static boolean safeUser(String email, String name, String firstname, String password, int role_id) {
+		Connection con = null;
 		try {
-			Connection con = ConnectionProvider.getCon();
+			con = ConnectionProvider.getCon();
 			String sql = "INSERT INTO user (firstname, name, email, password, role_id)" + "VALUES ('" + firstname
 					+ "','" + name + "', '" + email + "', '" + password + "'," + role_id + ")";
 			Statement st = con.createStatement();
@@ -44,14 +59,25 @@ public class UserDao {
 			System.out.println("Fehler beim Einf�gen des Users");
 			e.printStackTrace();
 		}
+		
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
 
 		return true;
 	}
 
 	public static User searchUser(String email) {
+		Connection con = null;
 
 		try {
-			Connection con = ConnectionProvider.getCon();
+			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst
@@ -68,6 +94,16 @@ public class UserDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Connection failed");
+		}
+		
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
 		}
 		return null;
 	}

@@ -17,9 +17,10 @@ public class ProjectDao {
 	public static boolean safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
 			InputStream picture) {
+		Connection con = null;
 	
 		try {
-			Connection con = ConnectionProvider.getCon();
+			con = ConnectionProvider.getCon();
 			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement st = con.prepareStatement(sql);
 
@@ -40,14 +41,24 @@ public class ProjectDao {
 			System.out.println("Fehler beim Einfügen der Anfrage");
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
 
 		return true;
 	}
 
 	public static Project searchProject(int id) {
+		Connection con = null;
 
 		try {
-			Connection con = ConnectionProvider.getCon();
+			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst
@@ -66,6 +77,16 @@ public class ProjectDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Connection failed");
+		}
+		
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
 		}
 		return null;
 	}
@@ -88,6 +109,16 @@ public class ProjectDao {
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim holen der Spende");
 			e.printStackTrace();
+		}
+		
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
 		}
 		return null;
 	}
