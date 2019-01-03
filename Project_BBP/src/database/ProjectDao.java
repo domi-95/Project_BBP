@@ -197,6 +197,30 @@ public class ProjectDao {
 		return true;
 
 	}
+	
+	public static boolean updateComment(Project project ,String comment) {
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "UPDATE project SET comment = '" + comment + "' WHERE id = '" + project.getId() + "'";
+			Statement st = con.createStatement();
+			st.execute(sql);
+
+		} catch (Exception e) {
+			System.out.println("Exception while updating comment");
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+
+		return false;
+	}
 
 	public static Project resultSetCreateProject (ResultSet myRs) {
 		try {
