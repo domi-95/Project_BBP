@@ -8,17 +8,16 @@ import user.Role;
 import user.User;
 
 public class UserDao {
-	
+
 	public static User searchUserWithPw(String email, String password) {
-			Connection con = null;
+		Connection con = null;
 
 		try {
-		    con = ConnectionProvider.getCon();
+			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
 			ResultSet myRs = myst.executeQuery("SELECT * from user u, role r where u.email = '" + email
 					+ "' and u.password = '" + password + "' and u.role_id = r.id");
-			
 
 			if (myRs.next())
 				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"),
@@ -27,14 +26,12 @@ public class UserDao {
 			else {
 				return null;
 			}
-			
 
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Connection failed");
+			System.out.println("Error while search user with password");
 		}
-		
+
 		finally {
 			try {
 				con.close();
@@ -56,10 +53,10 @@ public class UserDao {
 			Statement st = con.createStatement();
 			st.executeUpdate(sql);
 		} catch (Exception e) {
-			System.out.println("Fehler beim Einf�gen des Users");
+			System.out.println("Error while inserting user");
 			e.printStackTrace();
 		}
-		
+
 		finally {
 			try {
 				con.close();
@@ -93,9 +90,9 @@ public class UserDao {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Connection failed");
+			System.out.println("Error while searching user with email");
 		}
-		
+
 		finally {
 			try {
 				con.close();
