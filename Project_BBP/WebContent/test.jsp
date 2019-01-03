@@ -24,12 +24,12 @@
 	//session.setAttribute("picture", p.getPicture());
 	
 	//RequestDispatcher rd = request.getRequestDispatcher("/DisplayImageServlet2");
-    request.setAttribute("picture",p.getPicture());
+    //request.setAttribute("picture",p.getPicture());
     //rd.forward(request, response);
     
 	%>
 	
-	 <img src="DisplayImageServlet2" height="200px"/>  
+	  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
 	
 	<h2><%out.print(p.getTitle()); %></h2>
 	<% 

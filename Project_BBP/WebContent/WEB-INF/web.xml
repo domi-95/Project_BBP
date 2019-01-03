@@ -89,4 +89,14 @@
     <servlet-name>projectprocess</servlet-name>
     <url-pattern>/projectprocess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayProjectAll</display-name>
+    <servlet-name>DisplayProjectAll</servlet-name>
+    <servlet-class>servlet.DisplayProjectAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayProjectAll</servlet-name>
+    <url-pattern>/DisplayProjectAll</url-pattern>
+  </servlet-mapping>
 </web-app>
