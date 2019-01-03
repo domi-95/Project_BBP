@@ -97,7 +97,7 @@ public class ProjectDao {
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ");
 			while (myRs.next()) {
-//				result.add(resultSetCreateProject(myRs));
+				result.add(resultSetCreateProject(myRs));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -141,6 +141,35 @@ public class ProjectDao {
 		return false;
 	}
 	
+	public static boolean projectVote(int user_id, int project_id) {
+		Connection con = null;
+
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "INSERT INTO vote (project_id, user_id) VALUES (?,?)";
+			PreparedStatement st = con.prepareStatement(sql);
+
+			st.setInt(1, project_id);
+			st.setInt(2, user_id);
+
+			st.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("Error while inserting vote");
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+
+		return true;
+
+	}
+
 	public static Project resultSetCreateProject (ResultSet myRs) {
 		try {
 		return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
@@ -156,5 +185,7 @@ public class ProjectDao {
 		}
 		return null;
 	}
+	
+	
 
 }

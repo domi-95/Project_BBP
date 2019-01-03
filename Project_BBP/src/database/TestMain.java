@@ -1,6 +1,8 @@
 package database;
 
-import project.*;
+import java.util.List;
+
+import project.Project;
 
 public class TestMain {
 	public static void main(String[] args) {
@@ -13,8 +15,10 @@ public class TestMain {
 		//System.out.println(searchRequest(3));
 		//System.out.println(ProjectDao.getAllProject(1));
 		// new File
-		Project project = ProjectDao.searchProject(38);
+		Project project = ProjectDao.searchProject(39);
 		System.out.println(project);
+		//List<Project> result = ProjectDao.getAllProject(1);
+		//System.out.println(result);
 		//project.setState(new State(2, "freigegeben"));
 		
 	}
