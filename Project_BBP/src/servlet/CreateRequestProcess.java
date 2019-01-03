@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import database.*;
+import project.Project;
 
 import javax.servlet.http.HttpSession;
 
@@ -135,7 +136,7 @@ public class CreateRequestProcess extends HttpServlet {
 		else {
 			is = inputStream;
 		}
-		ProjectDao.safeProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
 	}
 
 		BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){

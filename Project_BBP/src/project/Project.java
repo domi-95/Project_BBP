@@ -1,5 +1,6 @@
 package project;
 
+import java.io.InputStream;
 import java.util.List;
 
 import database.*;
@@ -182,8 +183,12 @@ public class Project {
 		return ProjectDao.searchProject(id);
 	}
 
-//	public static createProject ()
-
+	public static boolean createProject(String title, String category, String shortDescription, String description,
+			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
+			InputStream picture) {
+		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
+				phoneNumber, period, anonymous, picture);
+	}
 
 
 }
