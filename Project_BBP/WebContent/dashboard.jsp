@@ -1,4 +1,3 @@
-<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +6,7 @@
 <%@page import="project.*"%>
 <%@page import="database.*"%>
 <%@page import="java.util.*"%>
+<%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
 	<!-- Bootstrap style -->
@@ -73,7 +73,5 @@
     response.getOutputStream().close(); */
 	%>
 	
-
-<!--  <img class='imagem_artigo' src="data:image/png;base64,<% //out.print(project.getPicture());%> %>" alt="IMG DESC">-->
 </body>
 </html>
