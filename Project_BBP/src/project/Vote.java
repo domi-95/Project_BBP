@@ -8,4 +8,6 @@ public class Vote {
 	private User user;
 	private String timestamp;
 	
+	
+	
 }
