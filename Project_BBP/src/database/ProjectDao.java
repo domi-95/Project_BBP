@@ -66,13 +66,7 @@ public class ProjectDao {
 					.executeQuery("SELECT * from project p, state s where p.id = " + id + " and p.state_id = s.id ");
 
 			if (myRs.next())
-				return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
-						myRs.getString("p.short_description"), myRs.getString("p.description"),
-						myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
-						myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
-						new State(myRs.getInt("s.id"), myRs.getString("s.description")),
-						myRs.getString("stamp_created"), myRs.getString("stamp_updated"), myRs.getInt("vote"),
-						myRs.getString("comment"));
+				return resultSetCreateProject(myRs);
 			else {
 				return null;
 			}
@@ -103,13 +97,7 @@ public class ProjectDao {
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ");
 			while (myRs.next()) {
-				result.add(new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
-						myRs.getString("p.short_description"), myRs.getString("p.description"),
-						myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
-						myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
-						new State(myRs.getInt("s.id"), myRs.getString("s.description")),
-						myRs.getString("stamp_created"), myRs.getString("stamp_updated"), myRs.getInt("vote"),
-						myRs.getString("comment")));
+//				result.add(resultSetCreateProject(myRs));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -151,6 +139,22 @@ public class ProjectDao {
 		}
 
 		return false;
+	}
+	
+	public static Project resultSetCreateProject (ResultSet myRs) {
+		try {
+		return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
+				myRs.getString("p.short_description"), myRs.getString("p.description"),
+				myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
+				myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
+				new State(myRs.getInt("s.id"), myRs.getString("s.description")),
+				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), myRs.getInt("vote"),
+				myRs.getString("comment"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error while creating project object");
+		}
+		return null;
 	}
 
 }
