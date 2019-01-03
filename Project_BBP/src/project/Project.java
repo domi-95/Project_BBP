@@ -138,6 +138,10 @@ public class Project {
 		this.setComment(comment);
 		this.setState(state);
 	}
+	
+	public void approve (State state) {
+		this.setState(state);
+	}
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,

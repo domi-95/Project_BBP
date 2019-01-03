@@ -33,13 +33,13 @@ public class ApproveProject extends HttpServlet {
 		Project p = Project.getProject(id);
 		if(request.getParameter("acceptreject").equals("approve")) {
 			
-			p.setState(new State(2,"freigegeben"));
+			p.approve(new State(2,"freigegeben"));
 			message = "Projekt wurde freigegeben";
 		}
 		else {
 			if(request.getParameter("acceptreject").equals("reject")) {
 				
-				p.setState(new State(3,"abgelehnt"));
+				p.decline( null ,new State(3,"abgelehnt"));			//give him here your comment with which is necessary
 				message = "Projekt wurde abgelehnt";
 			}
 			else {

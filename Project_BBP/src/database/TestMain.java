@@ -22,7 +22,7 @@ public class TestMain {
 		//project.setState(new State(2, "freigegeben"));
 		//System.out.println(ProjectDao.countVotes(46));
 		//System.out.println(ProjectDao.getAllProject(1));
-		project.setComment("ein test kommentar wurde eingefügt");
+		//project.setComment("ein test kommentar wurde eingefügt");
 		System.out.println(ProjectDao.searchProject(39));
 	}
 
