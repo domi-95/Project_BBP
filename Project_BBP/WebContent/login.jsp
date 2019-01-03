@@ -35,12 +35,12 @@
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
       </div>
+	<p>Message: ${message}</p>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
     </form>
-
 	
-	<%
+	<%/*
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
@@ -66,7 +66,7 @@
 					response.sendRedirect("DisplayProjectAll");
 				}
 			}
-		}
+		}*/
 	%>
 
 </body>

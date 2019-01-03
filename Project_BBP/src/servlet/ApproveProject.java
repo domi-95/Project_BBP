@@ -47,7 +47,7 @@ public class ApproveProject extends HttpServlet {
 			}
 		}
 		request.setAttribute("message", message);
-		request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
+		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}
 
 	/**
