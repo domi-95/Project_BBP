@@ -116,6 +116,34 @@ public class ProjectDao {
 		}
 		return null;
 	}
+	
+	public static int countVotes (int project_id) {
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT COUNT(project_id) from vote WHERE project_id = '"+project_id+"'");
+			if (myRs.next()) {
+				return myRs.getInt("count(project_id)");
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error while selecting all projects");
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+		return 0;
+	}
 
 	public static boolean updateState(Project p) {
 		Connection con = null;
