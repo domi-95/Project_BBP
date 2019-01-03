@@ -49,6 +49,7 @@ public class CreateRequestProcess extends HttpServlet {
 		int period = 0;
 		int anonymous = 0;
 		//int anl_id = a.getId();
+		String message = null;
 
 
 		InputStream inputStream = null; // input stream of the upload file
@@ -124,7 +125,8 @@ public class CreateRequestProcess extends HttpServlet {
 	        is = new ByteArrayInputStream(baos.toByteArray());
 
 	    } catch (IOException e) {
-	        System.out.println("Error");
+	    	message = "Es ist ein Fehler aufgetreten!";
+	        System.out.println("Error by resizing picture");
 	    }
 	/*	finally {
 			// close input stream
@@ -136,6 +138,13 @@ public class CreateRequestProcess extends HttpServlet {
 			is = inputStream;
 		}
 		ProjectDao.safeProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		message = "Das Projekt wurde erfolgreich erstellt";
+		// sets the message in request scope
+					request.setAttribute("Message", message);
+
+					// zur message page
+					getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
+				//}
 	}
 
 		BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
