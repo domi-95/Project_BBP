@@ -8,13 +8,18 @@
 <%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
+
+	<!-- Bootstrap style -->
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 <% 
-	List<Project> projectlist = ProjectDao.getAllProject(1);
+	List<Project> projectlist = Project.getAll(1);
+	
+	
 	//out.print (projectlist);
 	for (Project p : projectlist){
 	//Project project = ProjectDao.searchProject(3);
@@ -28,10 +33,34 @@
     //rd.forward(request, response);
     
 	%>
-	
-	  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
-	
-	<h2><%out.print(p.getTitle()); %></h2>
+
+	<div class="table-responsive-md">
+	<table class="table">
+		<thead>
+			<tr>
+			<form method="post" action="ApproveProject">
+				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
+				
+				<h2><%out.print(p.getTitle()); %></h2>
+				<p>Kategorie: <%out.print(p.getCategory()); %></p>
+				<p>Investitionsgrad: <%out.print(p.getInvestment_grade()); %></p>
+				<p>Zeitspanne: <%out.print(p.getPeriod()); %></p>
+				<p>Telefonnummer: <%out.print(p.getPhone_numer()); %></p>
+				<p>Ort: <%out.print(p.getLocation()); %></p>
+				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
+				<p>Beschreibung: <%out.print(p.getDescription()); %></p>
+
+				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
+				<button class="btn btn-lg btn-primary btn-block" type="submit" value="approve" name="acceptreject">Genehmigen</button>
+				<button class="btn btn-lg btn-secondary btn-block" type="submit" value="reject" name="acceptreject">Ablehnen</button>
+			
+			</form>	
+			<!-- <h3> Nachricht: ${message}</h3> -->
+
+			</tr>
+		</thead>
+	</table>
+	</div>
 	<% 
 	//session.invalidate();
 	}

@@ -99,4 +99,14 @@
     <servlet-name>DisplayProjectAll</servlet-name>
     <url-pattern>/DisplayProjectAll</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApproveProject</display-name>
+    <servlet-name>ApproveProject</servlet-name>
+    <servlet-class>servlet.ApproveProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApproveProject</servlet-name>
+    <url-pattern>/ApproveProject</url-pattern>
+  </servlet-mapping>
 </web-app>
