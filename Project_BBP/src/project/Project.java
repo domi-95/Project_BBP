@@ -131,10 +131,15 @@ public class Project {
 
 	public void setState(State state) {
 		this.state = state;
+		ProjectDao.updateState(this);
 	}
 	
 	public static List<Project> getAll (int state_id) {
 		return ProjectDao.getAllProject(state_id);
+	}
+	
+	public static Project getProject (int id) {
+		return ProjectDao.searchProject(id);
 	}
 	
 //	public static createProject ()

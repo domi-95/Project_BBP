@@ -15,6 +15,8 @@ public class TestMain {
 		// new File
 		Project project = ProjectDao.searchProject(25);
 		System.out.println(project.getPicture().toString());
+		project.setState(new State(2, "freigegeben"));
+		
 	}
 
 }

@@ -122,5 +122,29 @@ public class ProjectDao {
 		}
 		return null;
 	}
+	
+	public static boolean updateState(Project p) {
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "UPDATE project SET state_id = '" + p.getState().getId() + "' WHERE id = '" + p.getId() + "'";
+			Statement st = con.createStatement();
+			st.execute(sql);
+
+		} catch (Exception e) {
+			System.out.println("Exception while updating state");
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+
+		return false;
+	}
 
 }
