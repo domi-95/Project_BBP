@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 
 import project.Project;
 import project.State;
@@ -21,7 +23,7 @@ public class ProjectDao {
 	
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id, stamp_created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 				PreparedStatement st = con.prepareStatement(sql);
 
 				st.setString(1, title);
@@ -35,7 +37,8 @@ public class ProjectDao {
 				st.setString(9, phoneNumber);
 				st.setInt(10, anonymous);
 				st.setInt(11, 1);
-			
+				st.setTimestamp(12, new Timestamp(new Date().getTime()));
+				
 			st.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("Fehler beim Einfügen der Anfrage");
@@ -69,7 +72,8 @@ public class ProjectDao {
 						myRs.getString("p.short_description"), myRs.getString("p.description"),
 						myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
 						myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
-						new State(myRs.getInt("s.id"), myRs.getString("s.description")));
+						new State(myRs.getInt("s.id"), myRs.getString("s.description")), myRs.getString("stamp_created"), 
+						myRs.getString("stamp_updated"), myRs.getInt("vote"), myRs.getString("comment"));
 			else {
 				return null;
 			}
@@ -103,7 +107,8 @@ public class ProjectDao {
 						myRs.getString("p.short_description"), myRs.getString("p.description"),
 						myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
 						myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
-						new State(myRs.getInt("s.id"), myRs.getString("s.description"))));
+						new State(myRs.getInt("s.id"), myRs.getString("s.description")), myRs.getString("stamp_created"), 
+						myRs.getString("stamp_updated"), myRs.getInt("vote"), myRs.getString("comment")));
 			}
 			return result;
 		} catch (SQLException e) {

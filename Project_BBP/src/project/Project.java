@@ -18,10 +18,14 @@ public class Project {
 	private String phone_numer;
 	private boolean anonymous;
 	private State state;
+	private String stamp_created;
+	private String stamp_updated;
+	private int vote;
+	private String comment;
 
 	public Project(int id, String title, String category, String short_description, String description, String location,
-			int period, String investment_grade, byte[] picture, String phone_numer, boolean anonymous,
-			State state) {
+			int period, String investment_grade, byte[] picture, String phone_numer, boolean anonymous, State state,
+			String stamp_created, String stamp_updated, int vote, String comment) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -35,6 +39,10 @@ public class Project {
 		this.phone_numer = phone_numer;
 		this.anonymous = anonymous;
 		this.state = state;
+		this.stamp_created = stamp_created;
+		this.stamp_updated = stamp_updated;
+		this.vote = vote;
+		this.comment = comment;
 	}
 
 	public int getId() {
@@ -133,30 +141,49 @@ public class Project {
 		this.state = state;
 		ProjectDao.updateState(this);
 	}
-	
-	public static List<Project> getAll (int state_id) {
+
+	public String getStamp_created() {
+		return stamp_created;
+	}
+
+	public void setStamp_created(String stamp_created) {
+		this.stamp_created = stamp_created;
+	}
+
+	public String getStamp_updated() {
+		return stamp_updated;
+	}
+
+	public void setStamp_updated(String stamp_updated) {
+		this.stamp_updated = stamp_updated;
+	}
+
+	public int getVote() {
+		return vote;
+	}
+
+	public void setVote(int vote) {
+		this.vote = vote;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public static List<Project> getAll(int state_id) {
 		return ProjectDao.getAllProject(state_id);
 	}
-	
-	public static Project getProject (int id) {
+
+	public static Project getProject(int id) {
 		return ProjectDao.searchProject(id);
 	}
-	
-//	public static createProject ()
-	
 
-	@Override
-	public String toString() {
-		return "project [id=" + id + ", title=" + title + ", category=" + category + ", short_description="
-				+ short_description + ", description=" + description + ", location=" + location + ", period=" + period
-				+ ", investment_grade=" + investment_grade + ", picture=" + picture + ", phone_numer=" + phone_numer
-				+ ", anonymous=" + anonymous + ", state=" + state + "]";
-	}
-	
-	
-	
-	
-	
-	
+//	public static createProject ()
+
+
 
 }
