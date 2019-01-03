@@ -41,7 +41,7 @@ public class LoginProcess extends HttpServlet {
 			User u = User.getUserLogin(email, password);
 
 			if (u == null) {
-				message = "E-Mail Adresse oder Passwort falsch";
+				message = "Das hat leider nicht funktioniert. Versicheren Sie sich, dass Sie die richtige E-Mail-Adresse und das richtige Passwort verwenden.";
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 				System.out.println("Sorry, invalid Email or Password ");

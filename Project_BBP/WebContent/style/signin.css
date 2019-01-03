@@ -17,7 +17,7 @@ body {
 
 .form-signin {
   width: 100%;
-  max-width: 330px;
+  max-width: 480px;
   padding: 30px;
   margin: auto;
   background-color: #ffffff;
@@ -59,3 +59,14 @@ body {
   border-top-right-radius: 0;
 }
 
+.invalid{
+	color: #ce3535 ;
+	
+}
+
+.invalidbox{
+	background-color: #f2e2e1;
+    position: relative;
+
+    
+}

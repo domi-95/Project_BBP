@@ -35,7 +35,9 @@
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
       </div>
-	<p>${message}</p>
+      <div class="invalidbox">
+	<p class="invalid">${message}</p>
+		</div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
     </form>
