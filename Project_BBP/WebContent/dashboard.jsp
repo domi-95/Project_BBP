@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <% 
 	List<Project> projectlist = Project.getAll(1);
 	
