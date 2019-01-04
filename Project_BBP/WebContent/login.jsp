@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+ <%@page import="database.*"%>
+	<%@page import="user.*"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <meta charset="utf-8">
@@ -19,11 +22,10 @@
 
   </head>
 
- <body class="text-center">
- <jsp:include page="header.jsp"></jsp:include>
- <%@page import="database.*"%>
-	<%@page import="user.*"%>
- 
+ <body>
+ <jsp:include page="header.jsp"></jsp:include> 
+<div class="text-center">
+ <div class="flexlog">
     <form method="post" class="form-signin" action="login">
       <h1 class="h3 mb-3 font-weight-normal">Anmelden</h1>
       <label for="inputEmail" class="sr-only">Email Adresse</label>
@@ -70,6 +72,7 @@
 			}
 		}*/
 	%>
-
+	</div>
+</div>
 </body>
 </html>

@@ -41,8 +41,7 @@
 		<label for="inputPhoneNumber" class="sr-only">Telefonnummer</label>
       	<input name="phoneNumber" type="text" id="inputPhoneNumber" class="form-control" placeholder="Telefonnummer">
 		<label for="inputAnonymous" class="sr-only">Anonoym</label>
-      	<input name="anonymous" type="checkbox" id="inputAnonymous" class="form-control" placeholder="Anonym">
-		
+      	<input name="anonymous" type="checkbox" id="inputAnonymous"  placeholder="Anonym"> anonym
 		<input type="file" name="photo" size="50" class="form-control" /><br />
 		
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Absenden</button>

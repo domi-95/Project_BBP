@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+ <!-- Bootstrap style -->
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <title>Index BBP</title>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
