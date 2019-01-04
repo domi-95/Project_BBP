@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import database.*;
-import database.ProjectDao;
-import project.Project;
+import project.*;
 
 /**
  * Servlet implementation class DisplayImageServelet
@@ -44,9 +43,10 @@ public class DisplayImageServlet extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
-			Project project = ProjectDao.searchProject(id);
+			 //Project project = ProjectDao.searchProject(id);
+			File file = File.getFileProject(id);
 
-			if (project.getPicture().length == 0) {
+			if (file.getFile().length == 0) {
 				// No record found, redirect to default image.
 				response.sendRedirect(request.getContextPath() + "/Images/noimage.gif");
 				return;
@@ -61,12 +61,12 @@ public class DisplayImageServlet extends HttpServlet {
 
 			response.setHeader("Content-Type", contentType);
 
-			response.setHeader("Content-Length", String.valueOf(project.getPicture().length));
+			response.setHeader("Content-Length", String.valueOf(file.getFile().length));
 
 			response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
 
 			// Schreibe das Bild als Response
-			response.getOutputStream().write(project.getPicture());
+			response.getOutputStream().write(file.getFile());
 
 		} catch (Exception e) {
 			throw new ServletException(e);
