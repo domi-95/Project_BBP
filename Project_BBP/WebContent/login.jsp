@@ -22,10 +22,10 @@
 
   </head>
 
- <body class="text-center">
+ <body>
  <jsp:include page="header.jsp"></jsp:include> 
-
- 
+<div class="text-center">
+ <div class="flexlog">
     <form method="post" class="form-signin" action="login">
       <h1 class="h3 mb-3 font-weight-normal">Anmelden</h1>
       <label for="inputEmail" class="sr-only">Email Adresse</label>
@@ -72,6 +72,7 @@
 			}
 		}*/
 	%>
-
+	</div>
+</div>
 </body>
 </html>
