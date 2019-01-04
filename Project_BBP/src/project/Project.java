@@ -16,7 +16,6 @@ public class Project {
 	private String location;
 	private int period;
 	private String investment_grade;
-	private byte[] picture;
 	private String phone_numer;
 	private boolean anonymous;
 	private State state;
@@ -26,7 +25,7 @@ public class Project {
 	private String comment;
 
 	public Project(int id, String title, String category, String short_description, String description, String location,
-			int period, String investment_grade, byte[] picture, String phone_numer, boolean anonymous, State state,
+			int period, String investment_grade, String phone_numer, boolean anonymous, State state,
 			String stamp_created, String stamp_updated, int vote, String comment) {
 		super();
 		this.id = id;
@@ -37,7 +36,6 @@ public class Project {
 		this.location = location;
 		this.period = period;
 		this.investment_grade = investment_grade;
-		this.picture = picture;
 		this.phone_numer = phone_numer;
 		this.anonymous = anonymous;
 		this.state = state;
@@ -79,9 +77,6 @@ public class Project {
 		return investment_grade;
 	}
 
-	public byte[] getPicture() {
-		return picture;
-	}
 
 	public String getPhone_numer() {
 		return phone_numer;
@@ -142,6 +137,9 @@ public class Project {
 	public void approve (State state) {
 		this.setState(state);
 	}
+	
+	public void 
+	
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
@@ -150,13 +148,6 @@ public class Project {
 				phoneNumber, period, anonymous, picture);
 	}
 
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", title=" + title + ", category=" + category + ", short_description="
-				+ short_description + ", description=" + description + ", location=" + location + ", period=" + period
-				+ ", investment_grade=" + investment_grade + ", picture=" + Arrays.toString(picture) + ", phone_numer="
-				+ phone_numer + ", anonymous=" + anonymous + ", state=" + state + ", stamp_created=" + stamp_created
-				+ ", stamp_updated=" + stamp_updated + ", vote=" + vote + ", comment=" + comment + "]";
-	}
+	
 
 }

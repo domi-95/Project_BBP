@@ -227,7 +227,7 @@ public class ProjectDao {
 		return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
 				myRs.getString("p.short_description"), myRs.getString("p.description"),
 				myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
-				myRs.getBytes("p.picture"), myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
+				myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 				new State(myRs.getInt("s.id"), myRs.getString("s.description")),
 				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
 				myRs.getString("comment"));
