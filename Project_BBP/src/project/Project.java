@@ -138,7 +138,6 @@ public class Project {
 		this.setState(state);
 	}
 	
-	public void 
 	
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
