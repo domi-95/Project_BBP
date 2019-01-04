@@ -46,8 +46,8 @@ public class ApproveProject extends HttpServlet {
 				message = "Es ist ein Fehler aufgetreten";
 			}
 		}
-		request.setAttribute("message", message);
-		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+		//request.setAttribute("message", message);
+		//request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}
 
 	/**
