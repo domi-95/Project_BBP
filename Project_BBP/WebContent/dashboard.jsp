@@ -17,10 +17,31 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+
+<%int state = 1;
+if(request.getParameter("stateSelect") != null){
+	state = Integer.parseInt(request.getParameter("stateSelect"));
+	out.print(state);
+	}%>
+</br>
+<form method="post" action="dashboard.jsp">
+<select id="stateSelect" name="stateSelect" onchange="submit()">
+	<!-- <option value="1" <%if(state == 0){out.print(" selected");} %>>Bitte wähle einen Status</option>-->
+	<option value="1" <%if(state == 1){out.print(" selected");} %>>Angelegt</option>
+	<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben</option>
+	<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgeschlossen</option>
+</select>
+</form>
+
 <% 
-	List<Project> projectlist = Project.getAll(1);
+	if(request.getParameter("stateSelect") != null){
+	state = Integer.parseInt(request.getParameter("stateSelect"));
+	out.print(state);
+	}
+	List<Project> projectlist = Project.getAll(state);
 	
-	
+		
+
 	//out.print (projectlist);
 	for (Project p : projectlist){
 	//Project project = ProjectDao.searchProject(3);
@@ -50,11 +71,11 @@
 				<p>Ort: <%out.print(p.getLocation()); %></p>
 				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
 				<p>Beschreibung: <%out.print(p.getDescription()); %></p>
-
+	<% if(state==1){ %>
 				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<button class="btn btn-lg btn-primary btn-block" type="submit" value="approve" name="acceptreject">Genehmigen</button>
 				<button class="btn btn-lg btn-secondary btn-block" type="submit" value="reject" name="acceptreject">Ablehnen</button>
-			
+		<%} %>	
 			</form>	
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
