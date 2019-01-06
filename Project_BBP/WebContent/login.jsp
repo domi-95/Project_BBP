@@ -26,7 +26,7 @@
  <jsp:include page="header.jsp"></jsp:include> 
 <div class="text-center">
  <div class="flexlog">
-    <form method="post" class="form-signin" action="login">
+    <form method="post" class="form-signin" action="login.jsp">
       <h1 class="h3 mb-3 font-weight-normal">Anmelden</h1>
       <label for="inputEmail" class="sr-only">Email Adresse</label>
       <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Adresse" required autofocus>
@@ -44,8 +44,8 @@
       <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
     </form>
 	
-	<%/*
-		String email = request.getParameter("email");
+	<% 
+	 /*	String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
 		if (email != null && password != null) {
@@ -70,7 +70,7 @@
 					response.sendRedirect("DisplayProjectAll");
 				}
 			}
-		}*/
+		} */
 	%>
 	</div>
 </div>

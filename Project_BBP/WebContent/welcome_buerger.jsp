@@ -3,7 +3,6 @@ User u = (User)session.getAttribute("objekt");
 if (u == null){
 	response.sendRedirect("index.jsp");
 }
-
 %>
 
 
@@ -16,9 +15,11 @@ if (u == null){
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
+	<a href = "projectform.jsp">Projektantrag</a>
 <%
 	
   	// User u = (User)session.getAttribute("objekt"); 

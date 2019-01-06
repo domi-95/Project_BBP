@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <!-- Fontawesome style -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+<%@page import="user.*"%>
 <title>Insert title here</title>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="index.jsp"><img alt="test" src="Images/logoMos.jpg"></a>
@@ -25,9 +25,20 @@
         <a class="nav-link" href="#">So funktioniert's</a>
       </li>
     </ul>
-    
+    <%
+
+    if (session.getAttribute("objekt") == null){
+    %>
       <a class="btn btn-outline-success my-2 my-sm-0" href="login.jsp">Anmeldung</a>
-    
+      <%
+
+      }
+    else{
+      %>
+      <a class="btn btn-outline-success my-2 my-sm-0" href="javascript:logout();">Logout</a>
+    <%
+    }
+    %>
   </div>
 </nav>
 </head>
@@ -36,7 +47,15 @@
 <a href="dashboard.jsp">Dashboard</a>
 <a href="projectform.jsp">Projectform</a>
 <a href="register.jsp">Registrierung</a>
+<script>
+function logout(){
+	<%
+	session.invalidate();
+	%>
+	window.location = "index.jsp";
+}
 
+</script>
 
 </body>
 </html>
