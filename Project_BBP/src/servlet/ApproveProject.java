@@ -29,8 +29,9 @@ public class ApproveProject extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String message = null;
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("pId"));
 		Project p = Project.getProject(id);
+	//	p.approve(new State(2,"freigegeben"));
 		if(request.getParameter("acceptreject").equals("approve")) {
 			
 			p.approve(new State(2,"freigegeben"));
