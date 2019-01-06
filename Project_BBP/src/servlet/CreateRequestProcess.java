@@ -138,9 +138,14 @@ public class CreateRequestProcess extends HttpServlet {
 		else {
 			is = inputStream;
 		}
-
-		Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		
+		boolean successful = Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		if (successful == true) {
 		message = "Das Projekt wurde erfolgreich erstellt";
+		}
+		else {
+		message = "Das Projekt wurde nicht erfolgreich erstellt";
+		}
 		// sets the message in request scope
 					request.setAttribute("Message", message);
 

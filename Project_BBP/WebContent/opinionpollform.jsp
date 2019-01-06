@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 // Formularfelder dynamisch hinzufügen
 
-var feld = 1;
-var feldm = 1;
+var feld = 3;
+var feldm = 3;
 
 function feld_plus() {
  if (feld <= 10) {
@@ -142,9 +142,9 @@ function feld_minus() {
 Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type="button" value="+" onClick="feld_plus();"> <br><br>
 <form action = "opinionpollformtest.jsp" method = "post">
+<input type= "text" name = "n_1" value = "Feld 1"><br>
+<input type= "text" name = "n_2" value = "Feld 2">
 <div id="dynamic_input"></div>
-<input type= "text" name = "n_12" value = "eins"><br>
-<input type= "text" name = "n_11" value = "zwei">
 <button type = "submit">Weitergabe</button>
 </form>
 </body>
