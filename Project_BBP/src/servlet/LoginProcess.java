@@ -48,9 +48,9 @@ public class LoginProcess extends HttpServlet {
 			}
 			else {
 				HttpSession session = request.getSession();
-				session.setAttribute("objekt", u);
+				session.setAttribute("user", u);
 				if (u.getRole().getId() == 1) {
-					response.sendRedirect("welcome_buerger.jsp");
+					response.sendRedirect("projectform.jsp");
 				}
 				if (u.getRole().getId() == 2) {
 					response.sendRedirect("welcome_verwaltung.jsp");

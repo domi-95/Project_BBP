@@ -26,18 +26,20 @@
       </li>
     </ul>
     <%
-
-    if (session.getAttribute("objekt") == null){
+	
+    //if (session.getAttribute("objekt") == null){
+    	
     %>
       <a class="btn btn-outline-success my-2 my-sm-0" href="login.jsp">Anmeldung</a>
       <%
 
-      }
-    else{
+     // }
+    //else{
       %>
       <a class="btn btn-outline-success my-2 my-sm-0" href="javascript:logout();">Logout</a>
     <%
-    }
+    //}
+    ///*
     %>
   </div>
 </nav>

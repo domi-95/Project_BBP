@@ -15,7 +15,8 @@ if (u == null){
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<%@page import="user.*"%>
+<!--<jsp:include page="header.jsp"></jsp:include> -->
 
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
