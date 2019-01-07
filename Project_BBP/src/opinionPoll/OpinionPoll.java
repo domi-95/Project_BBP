@@ -1,6 +1,7 @@
 package opinionPoll;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class OpinionPoll {
 	
@@ -12,5 +13,8 @@ public class OpinionPoll {
 	Timestamp date_from;
 	Timestamp date_to;
 	
-
+	
+	public static boolean createProject (String title, String category, String short_description, String description, List<String> header) {
+	return false;
+}
 }
