@@ -243,19 +243,21 @@ if(request.getParameter("stateSelect") != null){
 				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
 				
 				<h2><%out.print(p.getTitle()); %></h2>
+				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
+				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
+				<div id="details<%out.print(z);%>" class="collapse">
 				<p>Kategorie: <%out.print(p.getCategory()); %></p>
 				<p>Investitionsgrad: <%out.print(p.getInvestment_grade()); %></p>
 				<p>Zeitspanne: <%out.print(p.getPeriod()); %></p>
 				<p>Telefonnummer: <%out.print(p.getPhone_numer()); %></p>
 				<p>Ort: <%out.print(p.getLocation()); %></p>
-				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
 				<p>Beschreibung: <%out.print(p.getDescription()); %></p>
 	<% if(state==1){ %>
 				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"> 
 				<input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
-		<%} %>	
-			</form>	
+		<%} %>	</div>
+			</form>
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
 			</tr>
