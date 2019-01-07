@@ -160,6 +160,7 @@ function doApprove(id, z) {
 }function doReject(id, z){
 	var a = 2;
 	var element = 'msgBox';
+	var element1 = 'overlay';
 	var rereason = ($.trim($("#rejectReason").val()));
 	if(rereason != ""){
 	$.ajax({
@@ -176,7 +177,8 @@ function doApprove(id, z) {
 						$('#'+element).addClass('animated fadeOut faster');
 						$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 							$('#'+element).removeClass('animated fadeOut faster');
-							$('#'+element).remove();	
+							$('#'+element).remove();
+							$('#'+element1).remove();
 						});
 					});
         	message(a);
