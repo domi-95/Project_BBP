@@ -10,9 +10,6 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   <!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
     
 	<!-- Custom styles -->
 	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen">
@@ -23,7 +20,7 @@
   </head>
 
  <body>
- <jsp:include page="/include/header.jsp"></jsp:include> 
+ <jsp:include page="include/header.jsp"></jsp:include> 
 <div class="text-center">
  <div class="flexlog">
     <form method="post" class="form-signin" action="login">
