@@ -20,7 +20,7 @@
   </head>
 
  <body class="text-center">
- <jsp:include page="header.jsp"></jsp:include>
+ <jsp:include page="/include/header.jsp"></jsp:include>
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
  

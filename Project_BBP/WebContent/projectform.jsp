@@ -16,7 +16,7 @@ User u = (User)session.getAttribute("user");
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="include/header.jsp"></jsp:include>
 <h2>Formular</h2>
 	<form id="regForm" method="post" action="CreateRequestProcess"
 		enctype="multipart/form-data">

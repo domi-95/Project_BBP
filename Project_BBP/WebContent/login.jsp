@@ -23,7 +23,7 @@
   </head>
 
  <body>
- <jsp:include page="header.jsp"></jsp:include> 
+ <jsp:include page="/include/header.jsp"></jsp:include> 
 <div class="text-center">
  <div class="flexlog">
     <form method="post" class="form-signin" action="login">

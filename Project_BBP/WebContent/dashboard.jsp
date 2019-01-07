@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="/include/header.jsp"></jsp:include>
 
 <style>
 #snackbar {
