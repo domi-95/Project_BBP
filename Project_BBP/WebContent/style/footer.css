@@ -1,9 +1,8 @@
-body {
-  padding-bottom:3em;
-}
+
 
 
 footer {
+  padding-bottom:3em;
   position: fixed;
   padding: 10px;
   bottom: 0;
@@ -13,6 +12,6 @@ footer {
   color:#fdfefe;
  
 }
-a{
+footer a{
 	color:#fdfefe;
 }
