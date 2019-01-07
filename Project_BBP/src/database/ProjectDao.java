@@ -16,12 +16,12 @@ public class ProjectDao {
 
 	public static boolean safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
-			InputStream picture) {
+			InputStream picture, int user_id) {
 		Connection con = null;
 
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id, stamp_created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO project (title, category, short_description, description, location, period, investment_grade, picture, phone_number, anonymous, state_id, stamp_created, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, title);
@@ -36,6 +36,7 @@ public class ProjectDao {
 			st.setInt(10, anonymous);
 			st.setInt(11, 1);
 			st.setTimestamp(12, new Timestamp(new Date().getTime()));
+			st.setInt(13, user_id);
 
 			st.executeUpdate();
 		} catch (Exception e) {

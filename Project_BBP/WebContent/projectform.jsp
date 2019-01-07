@@ -1,8 +1,8 @@
-<%@ page session="true" %>
 <%
 User u = (User)session.getAttribute("user"); 
-
-
+if (u == null){
+	response.sendRedirect("index.jsp");
+}
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -53,7 +53,7 @@ User u = (User)session.getAttribute("user");
 		
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Absenden</button>
 		<button class="btn btn-lg btn-secondary btn-block" type="reset">Formular zurücksetzen</button>
-
+		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 	</form>
 	<% out.print(u);%>
 </body>

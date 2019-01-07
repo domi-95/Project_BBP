@@ -142,9 +142,9 @@ public class Project {
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
-			InputStream picture) {
+			InputStream picture, int user_id) {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
-				phoneNumber, period, anonymous, picture);
+				phoneNumber, period, anonymous, picture, user_id);
 	}
 
 	

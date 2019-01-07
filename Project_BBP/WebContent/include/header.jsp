@@ -36,7 +36,7 @@
      // }
     //else{
       %>
-      <a class="btn btn-outline-success my-2 my-sm-0" href="javascript:logout();">Logout</a>
+      <a class="btn btn-outline-success my-2 my-sm-0" href="logout.jsp">Logout</a>
     <%
     //}
     ///*
@@ -49,15 +49,6 @@
 <a href="dashboard.jsp">Dashboard</a>
 <a href="projectform.jsp">Projectform</a>
 <a href="register.jsp">Registrierung</a>
-<script>
-function logout(){
-	<%
-	session.invalidate();
-	%>
-	window.location = "index.jsp";
-}
-
-</script>
 
 </body>
 </html>

@@ -51,11 +51,14 @@ public class CreateRequestProcess extends HttpServlet {
 		int anonymous = 0;
 		//int anl_id = a.getId();
 		String message = null;
+		int user_id = 0;
 
 
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
 
+		user_id = Integer.parseInt(request.getParameter("user"));
+		
 		if("".equals(request.getParameter("description"))) {
 			description = "";
 		}
@@ -139,7 +142,7 @@ public class CreateRequestProcess extends HttpServlet {
 			is = inputStream;
 		}
 		
-		boolean successful = Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is);
+		boolean successful = Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is, user_id);
 		if (successful == true) {
 		message = "Das Projekt wurde erfolgreich erstellt";
 		}

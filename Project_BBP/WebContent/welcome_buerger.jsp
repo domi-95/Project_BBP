@@ -1,5 +1,5 @@
 <%
-User u = (User)session.getAttribute("objekt"); 
+User u = (User)session.getAttribute("user"); 
 if (u == null){
 	response.sendRedirect("index.jsp");
 }
@@ -12,15 +12,14 @@ if (u == null){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Willkommen</title>
 </head>
 <body>
 <%@page import="user.*"%>
-<!--<jsp:include page="header.jsp"></jsp:include> -->
+<jsp:include page="/include/header.jsp"></jsp:include> -->
 
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
-	<a href = "projectform.jsp">Projektantrag</a>
 <%
 	
   	// User u = (User)session.getAttribute("objekt"); 
