@@ -3,8 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+
 	
 <link rel="stylesheet" type="text/css" href="style/footer.css" media="screen">
 	

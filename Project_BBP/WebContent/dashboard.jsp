@@ -14,7 +14,7 @@
 	<!-- Animate.css -->
 	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -57,6 +57,22 @@
     width: 600px;
     margin-left: -300px;
 }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: visible;
+  opacity: 1;
+}
+#overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
 </style>
 
 <script>
@@ -90,11 +106,14 @@ function message(ar) {
 	
 function rejectBox(id, z){
 	document.getElementById('rejectBox').innerHTML +=
+		"<div id='overlay' class='overlay'>"+
 		  "<div id='msgBox'><h3>Project ablehnen</h3><br><br>"+
 		"<p>Begründung: </p><br>"+
 		"<textarea id='rejectReason' name='rejectReason' cols='35' rows='4' autofocus></textarea> <br><br>"+
 		"<input type='button' value='Ablehnen' onClick='doReject("+id+","+ z+")'> <br><br>"+
-		"<input type='button' value='Abbrechen' onClick='doClose();'></div>";
+		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
+		"</div>";
+		
 }
 
 
@@ -141,6 +160,7 @@ function doApprove(id, z) {
 }function doReject(id, z){
 	var a = 2;
 	var element = 'msgBox';
+	var element1 = 'overlay';
 	var rereason = ($.trim($("#rejectReason").val()));
 	if(rereason != ""){
 	$.ajax({
@@ -157,7 +177,8 @@ function doApprove(id, z) {
 						$('#'+element).addClass('animated fadeOut faster');
 						$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 							$('#'+element).removeClass('animated fadeOut faster');
-							$('#'+element).remove();	
+							$('#'+element).remove();
+							$('#'+element1).remove();
 						});
 					});
         	message(a);
@@ -180,11 +201,13 @@ function doApprove(id, z) {
 
 function doClose(){
 	var element = 'msgBox';
+	var element1 = 'overlay';
 	$(function(){
 		$('#'+element).addClass('animated fadeOut faster');
 		$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 			$('#'+element).removeClass('animated fadeOut faster');
 			$('#'+element).remove();	
+			$('#'+element1).remove();
 		});
 	});
 }
@@ -202,6 +225,7 @@ if(request.getParameter("stateSelect") != null){
 
 <div id="successMsg"></div>
 <div id="rejectBox"></div>
+
 
 <form method="post" action="dashboard.jsp">
 <select id="stateSelect" name="stateSelect" onchange="submit()">
@@ -244,8 +268,8 @@ if(request.getParameter("stateSelect") != null){
 				
 				<h2><%out.print(p.getTitle()); %></h2>
 				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
-				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
-				<div id="details<%out.print(z);%>" class="collapse">
+			 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
+			 	<div id="details<%out.print(z);%>" class="collapse">
 				<p>Kategorie: <%out.print(p.getCategory()); %></p>
 				<p>Investitionsgrad: <%out.print(p.getInvestment_grade()); %></p>
 				<p>Zeitspanne: <%out.print(p.getPeriod()); %></p>
@@ -256,7 +280,7 @@ if(request.getParameter("stateSelect") != null){
 				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"> 
 				<input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
-		<%} %>	</div>
+		<%} %> 	</div> 
 			</form>
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
