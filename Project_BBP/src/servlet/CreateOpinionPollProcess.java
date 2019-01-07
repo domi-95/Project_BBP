@@ -13,16 +13,19 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import project.Project;
+import project.*;
+import opinionPoll.*;
 
 /**
  * Servlet implementation class CreateOpinionPollProcess
  */
+@WebServlet("/CreateOpinionPoll")
 public class CreateOpinionPollProcess extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,9 +49,14 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		int max_choice = 0;
 		List<String> result = new LinkedList<String>();
 		String message = null;
+		String date_from = null;
+		String date_to = null;
+		int user_id = 0;
 		
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
+		
+		//user_id = Integer.parseInt(request.getParameter("user"));
 
 		if ("".equals(request.getParameter("title"))) {
 			description = "";
@@ -71,10 +79,24 @@ public class CreateOpinionPollProcess extends HttpServlet {
 			title = request.getParameter("description");
 		}
 		
-		if ("".equals(request.getParameter("max_choice"))) {
+		/*if ("".equals(request.getParameter("max_choice"))) {
 			max_choice = 0;
 		} else {
 			max_choice = Integer.parseInt(request.getParameter("period"));
+		}*/
+		
+		if ("".equals(request.getParameter("date_from"))) {
+			date_from = "";
+
+		} else {
+			date_from = request.getParameter("date_from");
+		}
+		
+		if ("".equals(request.getParameter("date_to"))) {
+			date_to = "";
+
+		} else {
+			date_to = request.getParameter("date_to");
 		}
 		
 		for (int i = 1; i<11; i++){
@@ -95,6 +117,8 @@ public class CreateOpinionPollProcess extends HttpServlet {
 			inputStream = filePart.getInputStream();
 
 		}
+		
+		
 		if(filePart.getSize() > 6300) {
 		try {
 
@@ -119,7 +143,7 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		else {
 			is = inputStream;
 		}
-		boolean successful = true;
+		boolean successful = OpinionPoll.createProject(title, short_description, description, is, result, date_from, date_to, user_id);
 		if (successful == true) {
 		message = "Das Projekt wurde erfolgreich erstellt";
 		}
