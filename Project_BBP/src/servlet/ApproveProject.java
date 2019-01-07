@@ -30,6 +30,8 @@ public class ApproveProject extends HttpServlet {
 		// TODO Auto-generated method stub
 		String message = null;
 		int id = Integer.parseInt(request.getParameter("pId"));
+		String rejectReason = request.getParameter("rejectReason");
+		System.out.println(rejectReason);
 		Project p = Project.getProject(id);
 	//	p.approve(new State(2,"freigegeben"));
 		if(request.getParameter("acceptreject").equals("approve")) {
@@ -40,7 +42,7 @@ public class ApproveProject extends HttpServlet {
 		else {
 			if(request.getParameter("acceptreject").equals("reject")) {
 				
-				p.decline( null ,new State(3,"abgelehnt"));			//give him here your comment with which is necessary
+				p.decline( rejectReason ,new State(3,"abgelehnt"));			//give him here your comment with which is necessary
 				message = "Projekt wurde abgelehnt";
 			}
 			else {

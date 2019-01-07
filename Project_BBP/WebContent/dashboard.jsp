@@ -38,12 +38,37 @@
   bottom: 30px;
   font-size: 17px;
 }
+#msgBox {
+  visibility: visible;
+  border: solid 1px black;
+  background-color: #333;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  padding: 16px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+
+    height: 400px;
+    margin-top: -200px;
+
+    width: 600px;
+    margin-left: -300px;
+}
 </style>
 
 <script>
-function success_msg() {
+function message(ar) {
+	if(ar==1){
 	  document.getElementById('successMsg').innerHTML +=
 	  "<div id='snackbar' class=''>Projekt wurde genehmigt!</div>";
+	}
+	else{
+		document.getElementById('successMsg').innerHTML +=
+			  "<div id='snackbar' class=''>Projekt wurde abgelehnt!</div>";
+	}
 	  var element = 'snackbar';
 	  $(function(){
 			$(function(){
@@ -62,9 +87,19 @@ function success_msg() {
 			});
 		});
 	}
+	
+function rejectBox(id, z){
+	document.getElementById('rejectBox').innerHTML +=
+		  "<div id='msgBox'><h3>Project ablehnen</h3><br><br>"+
+		"<p>Begründung: </p><br>"+
+		"<textarea id='rejectReason' name='rejectReason' cols='35' rows='4' autofocus></textarea> <br><br>"+
+		"<input type='button' value='Ablehnen' onClick='doReject("+id+","+ z+")'> <br><br>"+
+		"<input type='button' value='Abbrechen' onClick='doClose();'></div>";
+}
+
 
 function remove_project(z) {
-	  success_msg();
+	  
 	
 	  var element = 'dynamic_divs' + z;
 	  
@@ -82,7 +117,7 @@ function remove_project(z) {
 	}
 
 function doApprove(id, z) {
-	
+	var a = 1;
     //var phoneNo = $("#phoneNumber").val();
     //var x = "40";
     $.ajax({
@@ -94,6 +129,7 @@ function doApprove(id, z) {
         },
         success: function(data) {
         //    alert('Update Success');
+        	message(a);
             remove_project(z);
         },
         failure: function(data) {
@@ -102,6 +138,55 @@ function doApprove(id, z) {
     });
     
 
+}function doReject(id, z){
+	var a = 2;
+	var element = 'msgBox';
+	var rereason = ($.trim($("#rejectReason").val()));
+	if(rereason != ""){
+	$.ajax({
+        url: 'ApproveProject',
+        type: 'POST',
+        data: {
+            pId: id,
+            acceptreject: "reject",
+            rejectReason: rereason
+        },
+        success: function(data) {
+        //    alert('Update Success');
+        $(function(){
+						$('#'+element).addClass('animated fadeOut faster');
+						$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+							$('#'+element).removeClass('animated fadeOut faster');
+							$('#'+element).remove();	
+						});
+					});
+        	message(a);
+            remove_project(z);
+        },
+        failure: function(data) {
+            alert('Update Failed');
+        }
+    });
+	}
+	else{
+		$(function(){
+			$('#'+element).addClass('animated shake');
+			$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+				$('#'+element).removeClass('animated shake');	
+			});
+		});
+	}
+}
+
+function doClose(){
+	var element = 'msgBox';
+	$(function(){
+		$('#'+element).addClass('animated fadeOut faster');
+		$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$('#'+element).removeClass('animated fadeOut faster');
+			$('#'+element).remove();	
+		});
+	});
 }
 
 </script>
@@ -116,6 +201,7 @@ if(request.getParameter("stateSelect") != null){
 </br>
 
 <div id="successMsg"></div>
+<div id="rejectBox"></div>
 
 <form method="post" action="dashboard.jsp">
 <select id="stateSelect" name="stateSelect" onchange="submit()">
@@ -167,7 +253,7 @@ if(request.getParameter("stateSelect") != null){
 	<% if(state==1){ %>
 				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"> 
-				<input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);">
+				<input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
 		<%} %>	
 			</form>	
 			<!-- <h3> Nachricht: ${message}</h3> -->
