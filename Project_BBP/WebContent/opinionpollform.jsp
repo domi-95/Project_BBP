@@ -1,5 +1,12 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u == null){
+	response.sendRedirect("index.jsp");
+}
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="user.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="include/header.jsp"></jsp:include>
 
 <!--  
  <select id="selectElement" size="5"></select>
@@ -142,10 +150,15 @@ function feld_minus() {
 Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type="button" value="+" onClick="feld_plus();"> <br><br>
 <form action = "opinionpollformtest.jsp" method = "post">
+<input type= "text" name = "title" placeholder="Titel">
+<input type= "text" name = "short_description"placeholder="Kurzbeschreibung">
+<textarea  name="description" cols="35" rows="4" placeholder="Beschreibung"></textarea>
+<input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten">
 <input type= "text" name = "n_1" value = "Feld 1"><br>
 <input type= "text" name = "n_2" value = "Feld 2">
 <div id="dynamic_input"></div>
 <button type = "submit">Weitergabe</button>
+<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
 </body>
 </html>

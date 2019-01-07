@@ -129,4 +129,14 @@
     <servlet-name>LoginProcess</servlet-name>
     <url-pattern>/LoginProcess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateOpinionPollProcess</display-name>
+    <servlet-name>CreateOpinionPollProcess</servlet-name>
+    <servlet-class>servlet.CreateOpinionPollProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateOpinionPollProcess</servlet-name>
+    <url-pattern>/CreateOpinionPollProcess</url-pattern>
+  </servlet-mapping>
 </web-app>
