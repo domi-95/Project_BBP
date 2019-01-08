@@ -1,6 +1,6 @@
 <%
 User u = (User)session.getAttribute("user"); 
-if (u == null){
+if (u == null || u.getRole().getId() != 3){
 	response.sendRedirect("index.jsp");
 }
 %>
@@ -146,14 +146,16 @@ function feld_minus() {
  }
 }
 </script>
-
 Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type="button" value="+" onClick="feld_plus();"> <br><br>
-<form action = "opinionpollformtest.jsp" method = "post">
+<form action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
 <input type= "text" name = "title" placeholder="Titel">
 <input type= "text" name = "short_description"placeholder="Kurzbeschreibung">
 <textarea  name="description" cols="35" rows="4" placeholder="Beschreibung"></textarea>
-<input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten">
+<input type= "date" name = "date_from"placeholder="Datum ab">
+<input type= "date" name = "date_to"placeholder="Datum bis">
+<!-- <input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten"> -->
+<input type="file" name="photo" size="50" class="form-control" /><br />
 <input type= "text" name = "n_1" value = "Feld 1"><br>
 <input type= "text" name = "n_2" value = "Feld 2">
 <div id="dynamic_input"></div>

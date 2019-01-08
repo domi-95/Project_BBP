@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="style/indon.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Message</title>
 </head>
 <body>
+<jsp:include page="include/header.jsp"></jsp:include>
 	<center>
 		<div class="login">
 			<center>

@@ -56,7 +56,7 @@ public class LoginProcess extends HttpServlet {
 					response.sendRedirect("welcome_verwaltung.jsp");
 				}
 				if (u.getRole().getId() == 3) {
-					response.sendRedirect("DisplayProjectAll");
+					response.sendRedirect("opinionpollform.jsp");
 				}
 			}
 		}
