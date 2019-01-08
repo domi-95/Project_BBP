@@ -11,10 +11,12 @@
 
 	<!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+	<!-- Bootstrap style -->
+	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen" />
 	<!-- Animate.css -->
 	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
 	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -225,16 +227,28 @@ if(request.getParameter("stateSelect") != null){
 
 <div id="successMsg"></div>
 <div id="rejectBox"></div>
+<div class="dropdown">
 
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Status der Anfragen
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Angelegt</a>
+    <a class="dropdown-item" href="#">Freigegeben</a>
+    <a class="dropdown-item" href="#">Abgeschlossen</a>
 
-<form method="post" action="dashboard.jsp">
-<select id="stateSelect" name="stateSelect" onchange="submit()">
+  </div>  
+</div>
+
+<form method="post" action="dashboard2.jsp">
+<select class="btn btn-info dropdown-toggle" id="stateSelect" name="stateSelect" onchange="submit()">
 	<!-- <option value="1" <%if(state == 0){out.print(" selected");} %>>Bitte wähle einen Status</option>-->
-	<option value="1" <%if(state == 1){out.print(" selected");} %>>Angelegt</option>
-	<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben</option>
-	<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgeschlossen</option>
+	<option value="1" <%if(state == 1){out.print(" selected");} %>><a class="dropdown-item" href="#">Angelegt</a></option>
+	<option value="2" <%if(state == 2){out.print(" selected");} %>><a class="dropdown-item" href="#">Freigegeben</a></option>
+	<option value="3" <%if(state == 3){out.print(" selected");} %>><a class="dropdown-item" href="#">Abgeschlossen</a></option>
 </select>
 </form>
+<!-- beginn der for -->
 
 <% 
 	if(request.getParameter("stateSelect") != null){
@@ -258,7 +272,7 @@ if(request.getParameter("stateSelect") != null){
     //rd.forward(request, response);
     
 	%>
-
+	<div class="card" style="width: 18rem;">
 	<div class="table-responsive-md" id="dynamic_divs<%out.print(z);%>">
 	<table class="table">
 		<thead>
@@ -287,7 +301,7 @@ if(request.getParameter("stateSelect") != null){
 			</tr>
 		</thead>
 	</table>
-	</div>
+	</div></div>
 	<% 
 	//session.invalidate();
 	z= z+1;
@@ -300,6 +314,7 @@ if(request.getParameter("stateSelect") != null){
     response.getOutputStream().flush();
     response.getOutputStream().close(); */
 	%>
+	<!--ende der for-->
 	
 </body>
 </html>

@@ -258,19 +258,20 @@ if(request.getParameter("stateSelect") != null){
     //rd.forward(request, response);
     
 	%>
-
-	<div class="table-responsive-md" id="dynamic_divs<%out.print(z);%>">
+	<div class="card mx-auto" style="width: 80%;">
+	<div class="table-responsive-md px-2" id="dynamic_divs<%out.print(z);%>">
 	<table class="table">
 		<thead>
 			<tr>
 			<form>
-				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
+				  <!--<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>-->
 				
-				<h2><%out.print(p.getTitle()); %></h2>
-				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
+				<h4><%out.print(p.getTitle()); %></h4>
+				<p>Kategorie: <%out.print(p.getCategory()); %><br>
+				Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
 			 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
 			 	<div id="details<%out.print(z);%>" class="collapse">
-				<p>Kategorie: <%out.print(p.getCategory()); %></p>
+				
 				<p>Investitionsgrad: <%out.print(p.getInvestment_grade()); %></p>
 				<p>Zeitspanne: <%out.print(p.getPeriod()); %></p>
 				<p>Telefonnummer: <%out.print(p.getPhone_numer()); %></p>
@@ -287,7 +288,7 @@ if(request.getParameter("stateSelect") != null){
 			</tr>
 		</thead>
 	</table>
-	</div>
+	</div></div><br>
 	<% 
 	//session.invalidate();
 	z= z+1;

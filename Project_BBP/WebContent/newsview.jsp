@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
- 
+ <!-- Custom styles -->
+<link rel="stylesheet" type="text/css" href="style/signin.css"
+	media="screen">
 <!-- BLOG-Custom styles -->
 <link rel="stylesheet" type="text/css" href="style/blog.css"
 	media="screen">
