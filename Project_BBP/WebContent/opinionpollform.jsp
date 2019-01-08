@@ -12,6 +12,13 @@ if (u == null || u.getRole().getId() != 3){
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+<link href="style/datepicker.min.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="script/datepicker.min.js"></script>
+
+        <!-- Include German language -->
+        <script src="script/i18n/datepicker.de.js"></script>
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
@@ -126,6 +133,7 @@ var feldm = 3;
 var date_from;
 var date_to;
 
+//Creates new answerfield
 function feld_plus() {
  if (feld <= 10) {
   var inhalt = "Antwortmöglichkeit " + feld;
@@ -135,6 +143,7 @@ function feld_plus() {
  }
 }
 
+//removes last added answerfield
 function feld_minus() {
  if (feld > feldm) {
  feld--;
@@ -147,7 +156,7 @@ function feld_minus() {
   }
  }
 }
-
+//Creates an Date in the format of the HTML5 Date inputfield and sets it as the value of the hidden fields for "date_from" and "date_to"
 function cutDate() {
 	   var date_from_to = document.getElementById('date').value;
 	   var day_from = date_from_to.substring(0, 2);
@@ -161,17 +170,7 @@ function cutDate() {
 	   
 	   document.getElementById("date_from").value = date_from;
 	   document.getElementById("date_to").value = date_to;
-	   
-	   test1 = document.getElementById("date_from").value;
-	   test2 = document.getElementById("date_to").value;
-	   //alert(document.getElementById("date_to2").value);
-	   alert('Date from: ' + test1 + 'Date to: ' + test2);
-	  // alert('Date from to: ' + date_from_to + 'Date from: ' + date_from + 'Date to: ' + date_to);  
-	   
-	//   $(function(){
-	//	   $('#date_form').addValue(date_from);
-	//	   $('#date_to').addValue(date_to);
-	 //  });
+	  
 	 }
 	 
 	 
@@ -182,15 +181,20 @@ function cutDate() {
 <input type= "text" name = "title" placeholder="Titel" required> <br>
 <input type= "text" name = "short_description" placeholder="Kurzbeschreibung" required> <br>
 <textarea  name="description" cols="35" rows="4" placeholder="Beschreibung" required></textarea> <br>
-<input type = "button" value="test" onclick="cutDate();">
+
 <input type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here" placeholder="Zeitspanne"  required/>
 <script>
 var minDate = new Date();
 //minDate.setDate(minDate.getDate() + 1);
 
 $('#date').datepicker({
-  minDate: minDate
+  minDate: minDate,
+  autoClose: true,
+  onHide: function(){
+	  cutDate();
+  }
 });
+
 </script>
 <input type="hidden" id="date_from" name="date_from">
 <input type="hidden" id="date_to" name="date_to">
