@@ -1,3 +1,9 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u == null || u.getRole().getId() != 2){
+	response.sendRedirect("index.jsp");
+}
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -264,7 +270,7 @@ if(request.getParameter("stateSelect") != null){
 		<thead>
 			<tr>
 			<form>
-				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>
+				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/>
 				
 				<h2><%out.print(p.getTitle()); %></h2>
 				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>

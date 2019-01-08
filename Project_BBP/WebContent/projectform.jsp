@@ -1,6 +1,6 @@
 <%
 User u = (User)session.getAttribute("user"); 
-if (u == null){
+if (u == null || u.getRole().getId() != 1){
 	response.sendRedirect("index.jsp");
 }
 %>
