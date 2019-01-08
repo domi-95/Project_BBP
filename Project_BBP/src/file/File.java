@@ -1,4 +1,4 @@
-package project;
+package file;
 
 import database.FileDao;
 
@@ -16,7 +16,11 @@ public class File {
 	}
 	
 	public static File getFileProject (int project_id) {
-		return FileDao.searchFile(project_id);
+		return FileDao.searchFile(project_id, 1);
+	}
+	
+	public static File getFileOp (int op_id) {
+		return FileDao.searchFile(op_id, 2);
 	}
 	
 	
