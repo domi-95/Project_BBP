@@ -7,11 +7,17 @@
 
  <!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+<!--  Custome style -->
+	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen" />
 <title>Index BBP</title>
 </head>
 <body>
+<div class="navbd">
 <jsp:include page="/include/header.jsp"></jsp:include>
+</div>
+<div class="spaceholder d-flex justify-content-center">
 <jsp:include page="/include/carousel.jsp"></jsp:include>
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
