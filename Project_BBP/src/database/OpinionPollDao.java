@@ -4,10 +4,15 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
+
+import opinionPoll.*;
+import user.User;
 
 public class OpinionPollDao {
 	
@@ -22,7 +27,7 @@ public class OpinionPollDao {
 
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO opinion_poll (title, short_description, description, picture, max_choice, date_from, date_to, choice_header_id, user_id) VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO opinion_poll (title, short_description, description, picture, max_choice, date_from, date_to, choice_header_id, user_id, state_op_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, title);
@@ -34,6 +39,7 @@ public class OpinionPollDao {
 			st.setTimestamp(7, new Timestamp(date_to.getTime()));
 			st.setInt(8, choice_header_id);
 			st.setInt(9, user_id);
+			st.setInt(10, 1);
 
 			st.executeUpdate();
 		} catch (Exception e) {
@@ -84,5 +90,89 @@ public class OpinionPollDao {
 
 		return -1;
 	}
+	
+	public static List<OpinionPoll> getAllProject(int state_id) {
+		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * FROM opinion_poll op, state st WHERE op.state_op_id = st.id and op.state_op_id = '"+state_id+"'");
+			while (myRs.next()) {
+				result.add(resultSetCreateOpinionPoll(myRs));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting all projects");
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+		return null;
 	}
+	
+	public static List<String> getHeader (int header_id) {
+		List<String> result = new LinkedList<String>();
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from choice_header WHERE id = '"+header_id+"'");
+			if (myRs.next()) {
+				for (int i = 1; i<11; i++) {
+					result.add(myRs.getString("choice"+i));
+				}
+			}
+			return result;
+			
+		} catch (SQLException e) {
+			System.out.println("Error while selecting choice_header");
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+		return null;
+	}
+	
+	public static OpinionPoll resultSetCreateOpinionPoll(ResultSet myRs) {
+		try {
+			return new OpinionPoll(myRs.getInt("id"), 
+					myRs.getString("title"), 
+					myRs.getString("short_description"), 
+					myRs.getString("description"), 
+					myRs.getBytes("picture"), 
+					myRs.getInt("max_choice"), 
+					myRs.getTimestamp("date_from"),
+					myRs.getTimestamp("date_to"), 
+					myRs.getTimestamp("created"), 
+					getHeader(myRs.getInt("choice_header_id")),
+					UserDao.searchUser(myRs.getInt("user_id")));
+		} catch (SQLException e) {
+			System.out.println("Error while creating opinionPoll object");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	}
+
+	
 

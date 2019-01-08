@@ -37,9 +37,6 @@ function neu()
 
 function check()
 {
-// ****** HIER ****** //
-// Ich möchte erst mal, dass ich den Inhalt eines erzeugten Feldes angezeigt bekomme, das geht schon mal nicht
-// Mit firstChild und lastChild geht es manchmal, wie erreiche ich die dazwischen?
 alert(document.getElementById('tab').lastChild.getElementsByTagName('inhalt[3][1]'));
 }
 

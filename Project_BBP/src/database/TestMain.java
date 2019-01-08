@@ -25,7 +25,7 @@ public class TestMain {
 		//project.setComment("ein test kommentar wurde eingefügt");
 		//System.out.println(ProjectDao.searchProject(39));
 		//System.out.println(FileDao.searchFile(39));
-		List<String>test = new LinkedList<String>();
+		/*List<String>test = new LinkedList<String>();
 		test.add("Spalte 1");
 		test.add("Spalte 2");
 		test.add("Spalte 3");
@@ -36,9 +36,13 @@ public class TestMain {
 		test.add("Spalte 8");
 		test.add("Spalte 9");
 		test.add("Spalte 10");
-		//System.out.println(OpinionPollDao.insertChoiceHeader(test));
+		System.out.println(OpinionPollDao.insertChoiceHeader(test));
 		
-		System.out.println(OpinionPollDao.safeOpinionPoll("hallo", "hallo", "hallo", null, new Date(), new Date(), test, 1));
+		System.out.println(OpinionPollDao.safeOpinionPoll("hallo", "hallo", "hallo", null, new Date(), new Date(), test, 1));*/
+		
+		System.out.println(OpinionPollDao.getAllProject(1));
+		
+		//System.out.println(OpinionPollDao.getHeader(4));
 	}
 
 }
