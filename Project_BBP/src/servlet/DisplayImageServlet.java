@@ -44,6 +44,8 @@ public class DisplayImageServlet extends HttpServlet {
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
 				select = Integer.parseInt(request.getParameter("select"));
+				System.out.println(id);
+				System.out.println(select);
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
@@ -52,8 +54,8 @@ public class DisplayImageServlet extends HttpServlet {
 			file = File.getFileProject(id);
 			}
 			
-			if( select ==2) {
-				file =File.getFileOp(id);
+			if( select == 2) {
+				file = File.getFileOp(id);
 			}
 
 			if (file.getFile().length == 0) {

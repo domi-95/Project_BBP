@@ -3,6 +3,7 @@ package database;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import file.*;
 
 public class TestMain {
 	public static void main(String[] args) {
@@ -43,7 +44,7 @@ public class TestMain {
 		//System.out.println(OpinionPollDao.getAllProject(1));
 		
 		//System.out.println(OpinionPollDao.getHeader(4));
-		List<String>header = OpinionPollDao.getHeader(5);
+		//List<String>header = OpinionPollDao.getHeader(5);
 		/*System.out.println(header);
 		
 		for(int i = 0; i<header.size(); i++) {
@@ -52,6 +53,9 @@ public class TestMain {
 		
 		//OpinionPollDao.voteSingle(1, 1, 1);
 		
+		File file = File.getFileOp(10);
+		System.out.println(file);
+		System.out.println(file.getFile());
 	}
 
 }

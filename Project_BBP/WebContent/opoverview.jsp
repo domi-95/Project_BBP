@@ -35,12 +35,13 @@ for ( OpinionPoll op: oplist){
 		%><input type="radio" name=<%out.print(op.getId()); %> value=<%out.print(i); %>><%out.print(header.get(i)); %> <br>
 		<input type = "hidden" name = "id" value = <%out.print(op.getId());%>>
 		<input type = "hidden" name = "user" value = <%out.print(u.getId());%>>
-		
 		<%
 				
 	}
 	
-	%><button class="btn btn-lg btn-primary btn-block" type="submit">Abstimmen</button></form><%
+	%>
+	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" height="200px"/>
+	<button class="btn btn-lg btn-primary btn-block" type="submit">Abstimmen</button></form><%
 }
 %>
 </body>
