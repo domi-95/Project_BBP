@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import database.*;
+import file.File;
 import project.*;
 
 /**
@@ -38,13 +39,22 @@ public class DisplayImageServlet extends HttpServlet {
 
 		try {
 			int id = 0;
+			int select = 0;
+			File file = null;
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
+				select = Integer.parseInt(request.getParameter("select"));
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
 			 //Project project = ProjectDao.searchProject(id);
-			File file = File.getFileProject(id);
+			if (select == 1) {
+			file = File.getFileProject(id);
+			}
+			
+			if( select ==2) {
+				file =File.getFileOp(id);
+			}
 
 			if (file.getFile().length == 0) {
 				// No record found, redirect to default image.
