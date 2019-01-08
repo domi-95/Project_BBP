@@ -13,6 +13,7 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,7 @@ import opinionPoll.*;
  * Servlet implementation class CreateOpinionPollProcess
  */
 @WebServlet("/CreateOpinionPoll")
+@MultipartConfig(maxFileSize = 1617721599) // upload file's size up to 16MB
 public class CreateOpinionPollProcess extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,7 +57,7 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
-		
+		System.out.println(request.getParameter("user"));
 		user_id = Integer.parseInt(request.getParameter("user"));
 
 		if ("".equals(request.getParameter("title"))) {

@@ -146,7 +146,8 @@ function feld_minus() {
  }
 }
 </script>
-
+<%out.print(u); %> <br>
+ID: <%out.print(u.getId()); %> <br>
 Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type="button" value="+" onClick="feld_plus();"> <br><br>
 <form action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
@@ -155,13 +156,14 @@ Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <textarea  name="description" cols="35" rows="4" placeholder="Beschreibung"></textarea>
 <input type= "date" name = "date_from"placeholder="Datum ab">
 <input type= "date" name = "date_to"placeholder="Datum bis">
-<input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten">
+<!-- <input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten"> -->
 <input type="file" name="photo" size="50" class="form-control" /><br />
 <input type= "text" name = "n_1" value = "Feld 1"><br>
 <input type= "text" name = "n_2" value = "Feld 2">
 <div id="dynamic_input"></div>
 <button type = "submit">Weitergabe</button>
-<input type="hidden" name="user" value= "<%if (u != null){out.print(u.getId());}; %>" />
+<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
+ID: <%out.print(u.getId()); %> <br>
 </body>
 </html>

@@ -36,10 +36,7 @@ public class CreateRequestProcess extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//HttpSession session = request.getSession();
-		//Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlauf");
-
-		// gets values of text fields
+	
 		String titel = request.getParameter("title");
 		String category = request.getParameter("category");
 		String shortDescription = request.getParameter("shortDescription");
@@ -49,7 +46,6 @@ public class CreateRequestProcess extends HttpServlet {
 		String phoneNumber = request.getParameter("phoneNumber");
 		int period = 0;
 		int anonymous = 0;
-		//int anl_id = a.getId();
 		String message = null;
 		int user_id = 0;
 
