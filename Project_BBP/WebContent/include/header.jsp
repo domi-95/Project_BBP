@@ -26,16 +26,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item col-sm-4">
+      <li class="nav-item">
         <a class="nav-link" href="projectform.jsp">Projekte vorschlagen</a>
       </li>
-      <li class="nav-item col-sm-4">
+      <li class="nav-item">
         <a class="nav-link" href="#">Projekte unterstützen</a>
       </li>
-      <li class="nav-item col-sm-4">
+      <li class="nav-item">
         <a class="nav-link" href="#">Abstimmungen</a>
       </li>
-      <li class="nav-item col-sm-4">
+      <li class="nav-item">
         <a class="nav-link" href="newsview.jsp">Blog</a>
       </li>
       
