@@ -14,6 +14,10 @@
 
 <%@page import="user.*"%>
 <title>Navigationbar</title>
+
+</head>
+<body>
+<div class="navbd">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(178, 204, 229, 0.6);">
   <a class="navbar-brand active col-sm-4" href="index.jsp"><img alt="test" src="Images/logoMos.png" height="50"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,9 +61,6 @@
   </div>
   
 </nav>
-</head>
-<body>
-
-
+</div>
 </body>
 </html>
