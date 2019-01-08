@@ -70,14 +70,14 @@ public class CreateOpinionPollProcess extends HttpServlet {
 			short_description = "";
 
 		} else {
-			title = request.getParameter("short_description");
+			short_description = request.getParameter("short_description");
 		}
 		
 		if ("".equals(request.getParameter("description"))) {
 			description = "";
 
 		} else {
-			title = request.getParameter("description");
+			description = request.getParameter("description");
 		}
 		
 		/*if ("".equals(request.getParameter("max_choice"))) {
