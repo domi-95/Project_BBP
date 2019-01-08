@@ -57,7 +57,6 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
-		System.out.println(request.getParameter("user"));
 		user_id = Integer.parseInt(request.getParameter("user"));
 
 		if ("".equals(request.getParameter("title"))) {

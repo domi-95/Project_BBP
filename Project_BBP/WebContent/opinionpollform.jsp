@@ -146,8 +146,6 @@ function feld_minus() {
  }
 }
 </script>
-<%out.print(u); %> <br>
-ID: <%out.print(u.getId()); %> <br>
 Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type="button" value="+" onClick="feld_plus();"> <br><br>
 <form action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
@@ -164,6 +162,5 @@ Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <button type = "submit">Weitergabe</button>
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
-ID: <%out.print(u.getId()); %> <br>
 </body>
 </html>
