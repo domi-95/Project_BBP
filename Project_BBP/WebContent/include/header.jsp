@@ -16,7 +16,7 @@ if((User)session.getAttribute("user") != null){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstr	apcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 <%@page import="user.*"%>
@@ -79,7 +79,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="#">Projekte einsehen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="opinionpallform.jsp">Abstimmung anlegen</a>
+        <a class="nav-link" href="opinionpollform.jsp">Abstimmung anlegen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Abstimmungen einsehen</a>

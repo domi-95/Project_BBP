@@ -9,9 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <title>Index BBP</title>
 </head>
-<body>
+<body class="bg">
+
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="spaceholder d-flex justify-content-center">
+
 <jsp:include page="/include/carousel.jsp"></jsp:include></div><br>
 <div class="container text-center">    
   <h3>Projektübersicht</h3><br>
@@ -30,6 +32,7 @@
     </div>
   </div>
 </div><br>
+
 <!--<jsp:include page="footer.jsp"></jsp:include>-->
 </body>
 </html>
