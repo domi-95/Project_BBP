@@ -70,6 +70,41 @@ public class UserDao {
 		return true;
 	}
 
+	public static User searchUser(int id) {
+		Connection con = null;
+
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+
+			ResultSet myRs = myst
+					.executeQuery("SELECT * from user u, role r where u.id = '" + id + "' and u.role_id = r.id");
+
+			if (myRs.next())
+				return new User(myRs.getInt("u.id"), myRs.getString("u.email"), myRs.getString("u.firstname"),
+						myRs.getString("u.name"), new Role(myRs.getInt("r.id"), myRs.getString("r.description")));
+
+			else {
+				return null;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error while searching user with email");
+		}
+
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+		return null;
+	}
+	
 	public static User searchUser(String email) {
 		Connection con = null;
 
@@ -104,5 +139,6 @@ public class UserDao {
 		}
 		return null;
 	}
+
 
 }
