@@ -126,8 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
 -->
 
 <script>
-// Formularfelder dynamisch hinzufügen
-
 var feld = 3;
 var feldm = 3;
 var date_from;
