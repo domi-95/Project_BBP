@@ -37,6 +37,9 @@ function neu()
 
 function check()
 {
+// ****** HIER ****** //
+// Ich möchte erst mal, dass ich den Inhalt eines erzeugten Feldes angezeigt bekomme, das geht schon mal nicht
+// Mit firstChild und lastChild geht es manchmal, wie erreiche ich die dazwischen?
 alert(document.getElementById('tab').lastChild.getElementsByTagName('inhalt[3][1]'));
 }
 
@@ -120,12 +123,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var feld = 3;
 var feldm = 3;
+var date_from;
+var date_to;
 
 function feld_plus() {
  if (feld <= 10) {
-  var inhalt = "Feld " + feld;
+  var inhalt = "Antwortmöglichkeit " + feld;
   document.getElementById('dynamic_input').innerHTML +=
-  "<input type='text' name='n_" + feld + "' value='" + inhalt + "'required><br>";
+  "<input type='text' name='n_" + feld + "' placeholder='" + inhalt + "'required><br>";
   feld++;
  }
 }
@@ -135,27 +140,68 @@ function feld_minus() {
  feld--;
   document.getElementById('dynamic_input').innerHTML = "";
   for (var zaehler = feldm; zaehler < feld; zaehler++) {
-    var inhalt = "Feld " + zaehler;
+    var inhalt = "Antwortmöglichkeit " + zaehler;
     document.getElementById('dynamic_input').innerHTML +=
-     "<input type='text' name='n_" + zaehler + "' value='" +
+     "<input type='text' name='n_" + zaehler + "' placeholder='" +
       inhalt + "'required><br>";
   }
  }
 }
+
+function cutDate() {
+	   var date_from_to = document.getElementById('date').value;
+	   var day_from = date_from_to.substring(0, 2);
+	   var month_from = date_from_to.substring(3, 5);
+	   var year_from = date_from_to.substring(6, 10);
+	   var day_to = date_from_to.substring(13, 15);
+	   var month_to = date_from_to.substring(16, 18);
+	   var year_to = date_from_to.substring(19, 23);
+	   date_from = year_from + '-' + month_from + '-' + day_from;
+	   date_to = year_to + '-' + month_to + '-' + day_to;
+	   
+	   document.getElementById("date_from").value = date_from;
+	   document.getElementById("date_to").value = date_to;
+	   
+	   test1 = document.getElementById("date_from").value;
+	   test2 = document.getElementById("date_to").value;
+	   //alert(document.getElementById("date_to2").value);
+	   alert('Date from: ' + test1 + 'Date to: ' + test2);
+	  // alert('Date from to: ' + date_from_to + 'Date from: ' + date_from + 'Date to: ' + date_to);  
+	   
+	//   $(function(){
+	//	   $('#date_form').addValue(date_from);
+	//	   $('#date_to').addValue(date_to);
+	 //  });
+	 }
+	 
+	 
 </script>
-Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
-<input type="button" value="+" onClick="feld_plus();"> <br><br>
+
+<h1>Abstimmung erstellen</h1>
 <form action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
-<input type= "text" name = "title" placeholder="Titel">
-<input type= "text" name = "short_description"placeholder="Kurzbeschreibung">
-<textarea  name="description" cols="35" rows="4" placeholder="Beschreibung"></textarea>
-<input type= "date" name = "date_from"placeholder="Datum ab">
-<input type= "date" name = "date_to"placeholder="Datum bis">
+<input type= "text" name = "title" placeholder="Titel" required> <br>
+<input type= "text" name = "short_description" placeholder="Kurzbeschreibung" required> <br>
+<textarea  name="description" cols="35" rows="4" placeholder="Beschreibung" required></textarea> <br>
+<input type = "button" value="test" onclick="cutDate();">
+<input type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here" placeholder="Zeitspanne"  required/>
+<script>
+var minDate = new Date();
+//minDate.setDate(minDate.getDate() + 1);
+
+$('#date').datepicker({
+  minDate: minDate
+});
+</script>
+<input type="hidden" id="date_from" name="date_from">
+<input type="hidden" id="date_to" name="date_to">
+
 <!-- <input type= "hidden" name = "max_choice"placeholder="Maximal Antwortmöglichkeiten"> -->
-<input type="file" name="photo" size="50" class="form-control" /><br />
-<input type= "text" name = "n_1" value = "Feld 1"><br>
-<input type= "text" name = "n_2" value = "Feld 2">
-<div id="dynamic_input"></div>
+<input type="file" name="photo" size="50" class="form-control" /><br>
+<input type="button" value="Abstimmfeld hinzufügen" onClick="feld_plus();" required>
+<input type="button" value="Abstimmfeld entfernen" onClick="feld_minus();" required> <br><br>
+<input type= "text" name = "n_1" placeholder = "Antwortmöglichkeit 1" required><br>
+<input type= "text" name = "n_2" placeholder = "Antwortmöglichkeit 2" required>
+<div id="dynamic_input"></div> <br>
 <button type = "submit">Weitergabe</button>
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
