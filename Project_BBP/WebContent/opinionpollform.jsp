@@ -161,7 +161,7 @@ Felder hinzufügen <input type="button" value="-" onClick="feld_minus();">
 <input type= "text" name = "n_2" value = "Feld 2">
 <div id="dynamic_input"></div>
 <button type = "submit">Weitergabe</button>
-<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
+<input type="hidden" name="user" value= "<%if (u != null){out.print(u.getId());}; %>" />
 </form>
 </body>
 </html>
