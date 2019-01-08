@@ -17,7 +17,7 @@ import user.User;
 public class OpinionPollDao {
 	
 	public static boolean safeOpinionPoll(String title, String short_description, 
-			String description, InputStream picture, Date date_from, Date date_to, List<String> header, int user_id) {
+			String description, InputStream picture, Date date_from, Date date_to, List<String> header, int user_id, int state_op_id) {
 		Connection con = null;
 		int choice_header_id = insertChoiceHeader(header);
 		if(choice_header_id == -1) {
@@ -39,7 +39,7 @@ public class OpinionPollDao {
 			st.setTimestamp(7, new Timestamp(date_to.getTime()));
 			st.setInt(8, choice_header_id);
 			st.setInt(9, user_id);
-			st.setInt(10, 1);
+			st.setInt(10, state_op_id);
 
 			st.executeUpdate();
 		} catch (Exception e) {
@@ -172,7 +172,38 @@ public class OpinionPollDao {
 		return null;
 	}
 	
+	public static boolean voteSingle (int column, int user_id, int opinion_poll_id) {
+		Connection con = null;
+		column++;
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "INSERT INTO choice (choice"+column+", user_id, opinion_poll_id) VALUES (?,?,?)";
+			PreparedStatement st = con.prepareStatement(sql);
+
+			st.setInt(1, 1);
+			st.setInt(2, user_id);
+			st.setInt(3, opinion_poll_id);		
+
+			st.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("Error while inserting op vote");
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+
+		return false;
 	}
+	}
+	
+	
 
 	
 

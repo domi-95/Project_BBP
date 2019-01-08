@@ -40,9 +40,18 @@ public class TestMain {
 		
 		System.out.println(OpinionPollDao.safeOpinionPoll("hallo", "hallo", "hallo", null, new Date(), new Date(), test, 1));*/
 		
-		System.out.println(OpinionPollDao.getAllProject(1));
+		//System.out.println(OpinionPollDao.getAllProject(1));
 		
 		//System.out.println(OpinionPollDao.getHeader(4));
+		List<String>header = OpinionPollDao.getHeader(5);
+		/*System.out.println(header);
+		
+		for(int i = 0; i<header.size(); i++) {
+			System.out.println(header.get(i));
+		}*/
+		
+		//OpinionPollDao.voteSingle(1, 1, 1);
+		
 	}
 
 }

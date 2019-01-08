@@ -119,6 +119,7 @@ public class OpinionPoll {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date startDate = null;
 		Date endDate = null;
+		int state_id = 1;
 		try {
 			// Weiterverarbeitung mit Datumsobjekt durchführen
 			startDate = sdf.parse(date_from);
@@ -127,8 +128,11 @@ public class OpinionPoll {
 			e.printStackTrace();
 			System.out.println("Error while parsing String to Date");
 		}
+		if (startDate.getDate() == new Date().getDate()) {
+			state_id = 2;
+		}
 		return OpinionPollDao.safeOpinionPoll(title, short_description, description, is, startDate, endDate, header,
-				user_id);
+				user_id, state_id);
 
 	}
 	

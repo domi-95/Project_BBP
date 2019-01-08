@@ -139,4 +139,14 @@
     <servlet-name>CreateOpinionPollProcess</servlet-name>
     <url-pattern>/CreateOpinionPollProcess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VoteOp</display-name>
+    <servlet-name>VoteOp</servlet-name>
+    <servlet-class>servlet.VoteOp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VoteOp</servlet-name>
+    <url-pattern>/VoteOp</url-pattern>
+  </servlet-mapping>
 </web-app>
