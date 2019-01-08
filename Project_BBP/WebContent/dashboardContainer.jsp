@@ -267,14 +267,14 @@ if(request.getParameter("stateSelect") != null){
 			<tr>
 			<form>
 				  <!--<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>-->
-				<table class="table table-hover table-borderless">
+				<table class=" table table-hover table-borderless" ">
 				<thead>
     			<tr>
-				<th scope="col" colspan="2"><h4><%out.print(p.getTitle()); %></h4></th>
+				<th scope="col" colspan="2" style="width: 100%;"><h4><%out.print(p.getTitle()); %></h4></tr>
 				</tr>
 				</thead>
 				<tbody >
-   				<tr><th scope="row">Kategorie:</th> <td><%out.print(p.getCategory()); %></td></tr>
+   				<tr><th scope="row" style="width: 50%;">Kategorie:</th> <td style="width: 50%;"><%out.print(p.getCategory()); %></td></tr>
 				<tr><th scope="row">Kurzbeschreibung:</th><td> <%out.print(p.getShort_description()); %></td></tr>
 			 	</tbody>	 	
 			 	<tr><th scope="row" colspan="2"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button></th></tr>
@@ -285,10 +285,10 @@ if(request.getParameter("stateSelect") != null){
 				<tr><th scope="row">Telefonnummer:</th><td><%out.print(p.getPhone_numer()); %></td></tr>
 				<tr><th scope="row">Ort:</th><td> <%out.print(p.getLocation()); %></td></tr>
 				<tr><th scope="row">Beschreibung:</th><td> <%out.print(p.getDescription()); %></td></tr>
+				</tbody>
 				
 				
-				
-	<% if(state==1){ %>
+	<% if(state==1){ %><tbody id="details<%out.print(z);%>" class="collapse" style="width: 100%;">
 				<tr><th scope="row"><input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"></th> 
 				<td><input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);"></td></tr>
