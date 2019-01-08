@@ -113,6 +113,7 @@ public class CreateOpinionPollProcess extends HttpServlet {
 			result.add(help);
 			}
 		
+		
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
 			inputStream = filePart.getInputStream();
