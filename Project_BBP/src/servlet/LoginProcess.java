@@ -50,13 +50,13 @@ public class LoginProcess extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", u);
 				if (u.getRole().getId() == 1) {
-					response.sendRedirect("welcome_buerger.jsp");
+					response.sendRedirect("index.jsp");
 				}
 				if (u.getRole().getId() == 2) {
-					response.sendRedirect("welcome_verwaltung.jsp");
+					response.sendRedirect("index.jsp");
 				}
 				if (u.getRole().getId() == 3) {
-					response.sendRedirect("opinionpollform.jsp");
+					response.sendRedirect("index.jsp");
 				}
 			}
 		}

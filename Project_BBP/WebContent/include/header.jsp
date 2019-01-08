@@ -1,3 +1,10 @@
+<%
+User u = null;
+if((User)session.getAttribute("user") != null){
+	u = (User)session.getAttribute("user"); 
+}
+
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,6 +30,8 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+<%if(u == null || u.getRole().getId() == 1 ){
+	%>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -40,22 +49,62 @@
       </li>
       
     </ul>
-    
+  <%}%>  
+<%if( u != null && u.getRole().getId() == 2){
+	%>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.jsp">Projekte freigeben</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Auswertung erstellen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blogeintrag erstellen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="newsview.jsp">Blog</a>
+      </li>
+      
+    </ul>
+  <%}%>  
+<%if(u != null && u.getRole().getId() == 3){
+	%>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Projekte einsehen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="opinionpallform.jsp">Abstimmung anlegen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Abstimmungen einsehen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="newsview.jsp">Blog</a>
+      </li>
+      
+    </ul>
+  <%}%>  
     <%
 	
-    //if (session.getAttribute("objekt") == null){
+    if (u == null){
     	
     %>
       <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="login.jsp">Anmeldung</a>
       
       <%
 
-     // }
-    //else{
+      }
+    else{
       %>
       <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
     <%
-    //}
+  	 }
     ///*
     %>
   </div>
