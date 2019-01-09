@@ -1,9 +1,14 @@
 package test;
 
 import java.util.Date;
+
 import java.util.LinkedList;
 import java.util.List;
 import file.*;
+import opinionPoll.*;
+import database.*;
+import servlet.*;
+import user.*;
 
 public class TestMain {
 	public static void main(String[] args) {
@@ -53,9 +58,44 @@ public class TestMain {
 		
 		//OpinionPollDao.voteSingle(1, 1, 1);
 		
-		File file = File.getFileOp(10);
+		/*File file = File.getFileOp(10);
 		System.out.println(file);
-		System.out.println(file.getFile());
+		System.out.println(file.getFile());*/
+		
+		List<OpinionPoll> result = OpinionPoll.getAll(1);
+		List<String> header = result.get(1).getHeader();
+		
+		System.out.print("[");
+		for (int i = 0; i<header.size();i++) {
+			
+			System.out.print("\""+header.get(i)+"\"");
+			if(i<header.size()-1) {
+			System.out.print(",");
+			}
+		}
+		System.out.print("]");
+		//String s = "null";
+		//System.out.println(s.equals("null"));
+		//System.out.println("test");
+		//System.out.println("\"\"");
+		//System.out.println(OpChoice.getChoice(1).getChoice()[1]);
+		System.out.println();
+		
+		int [] choice = result.get(6).getChoice().getChoice();
+		System.out.print("[");
+		for (int i = 0; i < header.size(); i++) {
+			System.out.print(choice[i]);
+			if(i<header.size()-1) {
+				System.out.print(",");
+				}
+		}
+		System.out.print("]");
+		
+		System.out.println(result.get(6).getId());
+		
+		
+		
+		
 	}
 
 }

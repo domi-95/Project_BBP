@@ -24,6 +24,7 @@ public class OpinionPoll {
 	Timestamp created;
 	List<String> header = new LinkedList<String>();
 	User creator;
+	OpChoice choice;
 	
 	
 	
@@ -31,7 +32,7 @@ public class OpinionPoll {
 	
 	public OpinionPoll(int id, String title, String short_description, String description, byte[] picture,
 			int max_choice, Timestamp date_from, Timestamp date_to, Timestamp created, List<String> header,
-			User creator) {
+			User creator, OpChoice choice) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -44,6 +45,7 @@ public class OpinionPoll {
 		this.created = created;
 		this.header = header;
 		this.creator = creator;
+		this.choice = choice;
 	}
 	
 	
@@ -110,6 +112,13 @@ public class OpinionPoll {
 
 	public User getCreator() {
 		return creator;
+	}
+
+	
+
+
+	public OpChoice getChoice() {
+		return choice;
 	}
 
 
