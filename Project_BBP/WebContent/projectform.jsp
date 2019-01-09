@@ -1,7 +1,8 @@
 <%
-User u = (User)session.getAttribute("user"); 
+User u = (User)session.getAttribute("user");
+
 if (u == null || u.getRole().getId() != 1){
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("login.jsp");
 }
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
