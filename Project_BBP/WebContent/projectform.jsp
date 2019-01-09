@@ -25,12 +25,13 @@ if (u == null || u.getRole().getId() != 1){
       	<input name="title" type="text" id="inputTitle" class="form-control" placeholder="Titel" required autofocus>
 		<label for="selectCategory" class="sr-only">Kategorie</label>
 		<select id="selectCategory" name="category" class="form-control" required>
-			<option value= "Sozial, Jugend und Gesundheit"	selected>Sozial, Jugend und Gesundheit</option>
-			<option value="Sonstiges">Sonstiges</option>
-			<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
+			<option value="Wirtschaft und Finanzen" selected>Wirtschaft und Finanzen</option>
+			<option value="Wirtschaft und Finanzen" >Bildung und Kultur</option>
 			<option value="Sicherheit">Sicherheit</option>
+			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
 			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
 			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
+			<option value="Sonstiges">Sonstiges</option>
 		</select>
 		<label for="inputShortDescription" class="sr-only">Kurzbeschreibung</label>
       	<input name="shortDescription" type="text" id="inputShortDescription" class="form-control" placeholder="Kurzbeschreibung" required>
@@ -39,7 +40,12 @@ if (u == null || u.getRole().getId() != 1){
 		<label for="inputLocation" class="sr-only">Ort</label>
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
-      	<input name="period" type="number" min="1" max="99" id="inputPeriod" class="form-control" placeholder="Zeitraum">
+		<select id="inputPeriod" name="period" class="form-control" required>
+			<option value="Choose Grade" selected>Investitionsgrad auswählen</option>
+			<option value="Kurz">Kurz</option>
+			<option value="Mittel">Mittel</option>
+			<option value="Lang">Lang</option>
+		</select>
 		<label for="inputInvestmentGrade" class="sr-only">Investitionsgrad</label>     	
       	<select id="selectInvestmentGrade" name="investmentGrade" class="form-control" required>
 			<option value="Choose Grade" selected>Investitionsgrad auswählen</option>
