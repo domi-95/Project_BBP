@@ -1,4 +1,4 @@
-package database;
+package test;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import database.ProjectDao;
 import project.Project;
 
 public class SerializeToDatabase {
