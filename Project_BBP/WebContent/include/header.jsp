@@ -105,9 +105,9 @@ if((User)session.getAttribute("user") != null){
       %>
       
         <div class="btn-group">
-        <a class="btn btn-info my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <i class="fas fa-user"></i> <%out.print(u.getFirstname()); %> </a>
+        <a class="btn btn-secondary my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" style="color: white">
+          <i class="fas fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
           <a class="dropdown-item" href="#">My account</a>
           <a class="dropdown-item" href="logout.jsp">Logout</a>
