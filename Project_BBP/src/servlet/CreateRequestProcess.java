@@ -44,7 +44,7 @@ public class CreateRequestProcess extends HttpServlet {
 		String location = "";
 		String investmentGrade = "";
 		String phoneNumber = request.getParameter("phoneNumber");
-		int period = 0;
+		String period = "";
 		int anonymous = 0;
 		String message = null;
 		int user_id = 0;
@@ -88,9 +88,9 @@ public class CreateRequestProcess extends HttpServlet {
 		}
 
 		if ("".equals(request.getParameter("period"))) {
-			period = 0;
+			period = "";
 		} else {
-			period = Integer.parseInt(request.getParameter("period"));
+			period = request.getParameter("period");
 		}
 /*
 		if ("2".equals(request.getParameter("lieferungabholung"))) {

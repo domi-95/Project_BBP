@@ -41,7 +41,7 @@ if (u == null || u.getRole().getId() != 1){
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
 		<select id="inputPeriod" name="period" class="form-control" required>
-			<option value="Choose Grade" selected>Investitionsgrad auswählen</option>
+			<option value="Choose Period" selected>Zeitraumf auswählen</option>
 			<option value="Kurz">Kurz</option>
 			<option value="Mittel">Mittel</option>
 			<option value="Lang">Lang</option>
@@ -63,6 +63,6 @@ if (u == null || u.getRole().getId() != 1){
 		<button class="btn btn-lg btn-secondary btn-block" type="reset">Formular zurücksetzen</button>
 		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 	</form>
-	<% out.print(u);%>
+	
 </body>
 </html>
