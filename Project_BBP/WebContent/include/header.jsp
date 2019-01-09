@@ -17,7 +17,8 @@ if((User)session.getAttribute("user") != null){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstr	apcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
 <%@page import="user.*"%>
 <title>Navigationbar</title>
@@ -82,7 +83,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="opinionpollform.jsp">Abstimmung anlegen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Abstimmungen einsehen</a>
+        <a class="nav-link" href="opoverview.jsp">Abstimmungen einsehen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="newsview.jsp">Blog</a>
@@ -102,7 +103,16 @@ if((User)session.getAttribute("user") != null){
       }
     else{
       %>
-      <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
+      
+        <div class="btn-group">
+        <a class="btn btn-info my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fas fa-user"></i> <%out.print(u.getFirstname()); %> </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="#">My account</a>
+          <a class="dropdown-item" href="logout.jsp">Logout</a>
+        </div>
+    </div>
     <%
   	 }
     ///*
