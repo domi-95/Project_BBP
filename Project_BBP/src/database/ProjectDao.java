@@ -15,7 +15,7 @@ import project.State;
 public class ProjectDao {
 
 	public static boolean safeProject(String title, String category, String shortDescription, String description,
-			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
+			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
 			InputStream picture, int user_id) {
 		Connection con = null;
 
@@ -29,7 +29,7 @@ public class ProjectDao {
 			st.setString(3, shortDescription);
 			st.setString(4, description);
 			st.setString(5, location);
-			st.setInt(6, period);
+			st.setString(6, period);
 			st.setString(7, investmentGrade);
 			st.setBlob(8, picture);
 			st.setString(9, phoneNumber);
@@ -226,7 +226,7 @@ public class ProjectDao {
 		try {
 		return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
 				myRs.getString("p.short_description"), myRs.getString("p.description"),
-				myRs.getString("p.location"), myRs.getInt("p.period"), myRs.getString("investment_grade"),
+				myRs.getString("p.location"), myRs.getString("p.period"), myRs.getString("investment_grade"),
 				myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 				new State(myRs.getInt("s.id"), myRs.getString("s.description")),
 				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),

@@ -14,7 +14,7 @@ public class Project {
 	private String short_description;
 	private String description;
 	private String location;
-	private int period;
+	private String period;
 	private String investment_grade;
 	private String phone_numer;
 	private boolean anonymous;
@@ -25,7 +25,7 @@ public class Project {
 	private String comment;
 
 	public Project(int id, String title, String category, String short_description, String description, String location,
-			int period, String investment_grade, String phone_numer, boolean anonymous, State state,
+			String period, String investment_grade, String phone_numer, boolean anonymous, State state,
 			String stamp_created, String stamp_updated, int vote, String comment) {
 		super();
 		this.id = id;
@@ -69,7 +69,7 @@ public class Project {
 		return location;
 	}
 
-	public int getPeriod() {
+	public String getPeriod() {
 		return period;
 	}
 
@@ -141,7 +141,7 @@ public class Project {
 	
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
-			String location, String investmentGrade, String phoneNumber, int period, int anonymous,
+			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
 			InputStream picture, int user_id) {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
 				phoneNumber, period, anonymous, picture, user_id);
