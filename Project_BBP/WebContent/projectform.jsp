@@ -36,7 +36,7 @@ if (u == null || u.getRole().getId() != 1){
 		<label for="inputShortDescription" class="sr-only">Kurzbeschreibung</label>
       	<input name="shortDescription" type="text" id="inputShortDescription" maxlength="200" class="form-control" placeholder="Kurzbeschreibung" required>
 		<label for="inputDescription" class="sr-only">Beschreibung</label>
-      	<input name="description" type="text" id="inputDescription" maxlength="1000" class="form-control" placeholder="Beschreibung">
+		<textarea  name="description" id="inputDescription" maxlength="1000" class="form-control" cols="35" rows="4" placeholder="Beschreibung" required></textarea>
 		<label for="inputLocation" class="sr-only">Ort</label>
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
