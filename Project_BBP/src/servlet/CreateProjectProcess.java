@@ -29,9 +29,9 @@ import project.Project;
 
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/CreateRequestProcess")
+@WebServlet("/CreateProjectProcess")
 @MultipartConfig(maxFileSize = 1617721599) // upload file's size up to 16MB
-public class CreateRequestProcess extends HttpServlet {
+public class CreateProjectProcess extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

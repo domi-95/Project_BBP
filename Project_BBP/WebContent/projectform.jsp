@@ -18,7 +18,7 @@ if (u == null || u.getRole().getId() != 1){
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
 <h2>Formular</h2>
-	<form id="regForm" method="post" action="CreateRequestProcess"
+	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
 		
 		<label for="inputTitle" class="sr-only">Titel</label>
@@ -41,10 +41,11 @@ if (u == null || u.getRole().getId() != 1){
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
 		<select id="inputPeriod" name="period" class="form-control" required>
-			<option value="Choose Period" selected>Zeitraumf ausw‰hlen</option>
+			<option value="Choose Period" selected>Zeitraum ausw‰hlen</option>
 			<option value="Kurz">Kurz</option>
 			<option value="Mittel">Mittel</option>
 			<option value="Lang">Lang</option>
+			<option value="Dauerhafte Maﬂnahme">Dauerhafte Maﬂnahme</option>
 		</select>
 		<label for="inputInvestmentGrade" class="sr-only">Investitionsgrad</label>     	
       	<select id="selectInvestmentGrade" name="investmentGrade" class="form-control" required>
@@ -52,6 +53,7 @@ if (u == null || u.getRole().getId() != 1){
 			<option value="Gering">Gering</option>
 			<option value="Mittel">Mittel</option>
 			<option value="Hoch">Hoch</option>
+			<option value="nicht absch‰tzbar">nicht absch‰tzbar</option>
 		</select>
 		<label for="inputPhoneNumber" class="sr-only">Telefonnummer</label>
       	<input name="phoneNumber" type="text" id="inputPhoneNumber" class="form-control" placeholder="Telefonnummer">
