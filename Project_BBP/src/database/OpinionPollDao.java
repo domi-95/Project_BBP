@@ -120,6 +120,40 @@ public class OpinionPollDao {
 		return null;
 	}
 	
+	public static OpChoice getChoice (int op_id) {
+		
+		Connection con = null;
+		
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT opinion_poll_id, sum(choice1), sum(choice2), sum(choice3), sum(choice4), sum(choice5), sum(choice6), sum(choice7),sum(choice8), sum(choice9), sum(choice10) FROM choice WHERE opinion_poll_id = '"+op_id+"' GROUP BY opinion_poll_id");
+			if (myRs.next()) {
+				int[] choice = {myRs.getInt("sum(choice1)"), myRs.getInt("sum(choice2)"), myRs.getInt("sum(choice3)"), myRs.getInt("sum(choice4)"), myRs.getInt("sum(choice5)"), myRs.getInt("sum(choice6)"), myRs.getInt("sum(choice7)"), myRs.getInt("sum(choice8)"), myRs.getInt("sum(choice9)"), myRs.getInt("sum(choice10)")};
+				return new OpChoice(myRs.getInt("opinion_poll_id"), choice);
+				
+				}
+			int[] choice = new int[9];
+			return new OpChoice(op_id, choice);
+			}
+		 catch (SQLException e) {
+			System.out.println("Error while selecting choice");
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}
+		return null;
+	}
+	
 	public static List<String> getHeader (int header_id) {
 		List<String> result = new LinkedList<String>();
 		Connection con = null;
@@ -130,7 +164,11 @@ public class OpinionPollDao {
 					"SELECT * from choice_header WHERE id = '"+header_id+"'");
 			if (myRs.next()) {
 				for (int i = 1; i<11; i++) {
-					result.add(myRs.getString("choice"+i));
+					String h = myRs.getString("choice"+i);
+					if (h == null) {
+						return result;
+					}
+					result.add(h);
 				}
 			}
 			return result;
@@ -164,7 +202,9 @@ public class OpinionPollDao {
 					myRs.getTimestamp("date_to"), 
 					myRs.getTimestamp("created"), 
 					getHeader(myRs.getInt("choice_header_id")),
-					UserDao.searchUser(myRs.getInt("user_id")));
+					UserDao.searchUser(myRs.getInt("user_id")),
+					getChoice(myRs.getInt("id"))
+					);
 		} catch (SQLException e) {
 			System.out.println("Error while creating opinionPoll object");
 			e.printStackTrace();
