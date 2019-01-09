@@ -21,8 +21,8 @@ if (u == null || u.getRole().getId() != 1){
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
 		
-		<label for="inputTitle" class="sr-only">Titel</label>
-      	<input name="title" type="text" id="inputTitle" class="form-control" placeholder="Titel" required autofocus>
+		<label for="inputTitle" class="sr-only" >Titel</label>
+      	<input name="title" type="text" id="inputTitle" class="form-control" maxlength="100" placeholder="Titel" required autofocus>
 		<label for="selectCategory" class="sr-only">Kategorie</label>
 		<select id="selectCategory" name="category" class="form-control" required>
 			<option value="Wirtschaft und Finanzen" selected>Wirtschaft und Finanzen</option>
@@ -34,9 +34,9 @@ if (u == null || u.getRole().getId() != 1){
 			<option value="Sonstiges">Sonstiges</option>
 		</select>
 		<label for="inputShortDescription" class="sr-only">Kurzbeschreibung</label>
-      	<input name="shortDescription" type="text" id="inputShortDescription" class="form-control" placeholder="Kurzbeschreibung" required>
+      	<input name="shortDescription" type="text" id="inputShortDescription" maxlength="200" class="form-control" placeholder="Kurzbeschreibung" required>
 		<label for="inputDescription" class="sr-only">Beschreibung</label>
-      	<input name="description" type="text" id="inputDescription" class="form-control" placeholder="Beschreibung">
+      	<input name="description" type="text" id="inputDescription" maxlength="1000" class="form-control" placeholder="Beschreibung">
 		<label for="inputLocation" class="sr-only">Ort</label>
       	<input name="location" type="text" id="inputLocation" class="form-control" placeholder="Ort">
 		<label for="inputPeriod" class="sr-only">Zeitraum</label>
@@ -56,7 +56,7 @@ if (u == null || u.getRole().getId() != 1){
 			<option value="nicht abschätzbar">nicht abschätzbar</option>
 		</select>
 		<label for="inputPhoneNumber" class="sr-only">Telefonnummer</label>
-      	<input name="phoneNumber" type="text" id="inputPhoneNumber" class="form-control" placeholder="Telefonnummer">
+      	<input name="phoneNumber" type="text" id="inputPhoneNumber" maxlength="20" class="form-control" placeholder="Telefonnummer">
 		<label for="inputAnonymous" class="sr-only">Anonoym</label>
       	<input name="anonymous" type="checkbox" id="inputAnonymous"  placeholder="Anonym"> anonym
 		<input type="file" name="photo" size="50" class="form-control" /><br />
