@@ -10,6 +10,14 @@
 <title>Index BBP</title>
 </head>
 <body class="bg">
+<style>
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+</style>
 
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="spaceholder d-flex justify-content-center">
@@ -32,7 +40,8 @@
     </div>
   </div>
 </div><br>
-
-<!-- <jsp:include page="include/footer.jsp"></jsp:include> -->
+<div>
+ <jsp:include page="/include/footer.jsp"></jsp:include>
+ </div>
 </body>
 </html>
