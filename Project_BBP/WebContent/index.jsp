@@ -5,19 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
- <!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
-	
 <title>Index BBP</title>
 </head>
 <body class="bg">
 <style>
 
 </style>
-<script>
-$(function(){
-	  $("#footer").load("include/footer.jsp"); 
-	});</script>
 
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="spaceholder d-flex justify-content-center">

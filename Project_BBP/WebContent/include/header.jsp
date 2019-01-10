@@ -12,7 +12,7 @@ if((User)session.getAttribute("user") != null){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  <!-- Bootstrap style -->
-<!-- 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />-->
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -20,14 +20,24 @@ if((User)session.getAttribute("user") != null){
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
+<!-- Custom style -->
+<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 <%@page import="user.*"%>
 <title>Navigationbar</title>
 
 </head>
 <body>
-<div class="navbd">
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(178, 204, 229, 0.6);">
-  <a class="navbar-brand active col-sm-4" href="index.jsp"><img alt="test" src="Images/logoMos.png" height="50"></a>
+<div>
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+<a class="navbar-brand active col-sm-1" href="https://www.mosbach.de"><img alt="Website Stadt Mosbach" src="Images/LogoMosbach_ohne_Text.png" height="30">
+<span class="navbar-dark-span" height="30">&nbsp;Mosbach Große Kreisstadt Neckar-Odenwald </span></a>
+</nav>
+</div>
+<div class="navbd sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+  <a class="navbar-brand active col-sm-4" href="index.jsp"><img alt="Startseite" src="Images/logoMos.png" height="50">
+  <span class="navbar-light-span">&nbsp;Bürgerbeteiligungsportal</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
