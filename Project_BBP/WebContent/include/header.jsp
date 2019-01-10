@@ -17,8 +17,7 @@ if((User)session.getAttribute("user") != null){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstr	apcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
 
 <!-- Custom style -->
 <link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
@@ -53,10 +52,10 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="#">Projekte unterstützen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Abstimmungen</a>
+        <a class="nav-link" href="opoverview.jsp">Abstimmungen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="newsview.jsp">Blog</a>
+        <a class="nav-link" href="blog.jsp">Blog</a>
       </li>
       
     </ul>
@@ -67,7 +66,7 @@ if((User)session.getAttribute("user") != null){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="dashboard.jsp">Projekte freigeben</a>
+        <a class="nav-link" href="projectapprove.jsp">Projekte freigeben</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Auswertung erstellen</a>
@@ -76,7 +75,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="#">Blogeintrag erstellen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="newsview.jsp">Blog</a>
+        <a class="nav-link" href="blog.jsp">Blog</a>
       </li>
       
     </ul>
@@ -90,13 +89,13 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="#">Projekte einsehen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="opinionpollform.jsp">Abstimmung anlegen</a>
+        <a class="nav-link" href="opform.jsp">Abstimmung anlegen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="opoverview.jsp">Abstimmungen einsehen</a>
+        <a class="nav-link" href="opanalysis.jsp">Abstimmungen einsehen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="newsview.jsp">Blog</a>
+        <a class="nav-link" href="blog.jsp">Blog</a>
       </li>
       
     </ul>
@@ -113,16 +112,7 @@ if((User)session.getAttribute("user") != null){
       }
     else{
       %>
-      
-        <div class="btn-group">
-        <a class="btn btn-secondary my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" style="color: white">
-          <i class="fas fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="#">My account</a>
-          <a class="dropdown-item" href="logout.jsp">Logout</a>
-        </div>
-    </div>
+      <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
     <%
   	 }
     ///*
