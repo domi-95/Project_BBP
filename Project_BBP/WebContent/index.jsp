@@ -5,18 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
- <!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 <title>Index BBP</title>
 </head>
 <body class="bg">
 <style>
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-}
+
 </style>
 
 <jsp:include page="/include/header.jsp"></jsp:include>
@@ -40,8 +33,6 @@
     </div>
   </div>
 </div><br>
-<div>
- <jsp:include page="/include/footer.jsp"></jsp:include>
- </div>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
