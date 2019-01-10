@@ -12,11 +12,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Index BBP</title>
+<style>
+.img-fluid {
+object-fit: cover !important;
+width: 100% !important;
+  height: 100% !important;
+}
+
+.imgCon{
+width: 100% !important;
+height: 85% !important;
+}
+.card-body{
+padding: 0.8rem;
+}
+</style>
 </head>
 <body class="bg">
-<style>
 
-</style>
 
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="spaceholder d-flex justify-content-center">
@@ -47,13 +60,13 @@
     
 	%>
 
-	<div class="col-sm-3 p-0 m-auto bordershadow">
-		<div  style="height: 260px;">
-      	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" style="width:auto" alt="Image">
+	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 300px;">
+		<div class="imgCon d-inline-block">
+      	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image">
       </div>
-      <div>
-      <h8><%out.print(p.getTitle()); %></h8>
-      
+      <div class="card-body">
+      <h7><%out.print(p.getTitle()); %></h7>
+
       
       </div>
     </div>
