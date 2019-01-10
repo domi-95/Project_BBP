@@ -16,7 +16,7 @@ if (u == null || u.getRole().getId() != 1){
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 	
 <!-- Custome style -->
-	<link rel="stylesheet" type="text/css" href="../style/signin.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../style/cstyle.css" media="screen" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -32,7 +32,7 @@ if (u == null || u.getRole().getId() != 1){
     </div>
   </div>
   <div class="form-row">
-  <div class="form-group col-md-4" >
+  <div class="form-group col-md-6" >
       <label for="inputCategory">Kategorie</label>
       <select id="inputCategory" class="form-control">
         <option selected>Kategorie wählen...</option>
@@ -114,6 +114,7 @@ if (u == null || u.getRole().getId() != 1){
 </div>
 <br>
 <br>
+
 <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="stayAnonym">
@@ -122,10 +123,10 @@ if (u == null || u.getRole().getId() != 1){
       </label>
     </div>
   </div>
- 
-<div class="text-center">
-  <button type="submit" class="btn btn-info col-md-4 " >Absenden</button>
-  <button class="btn btn-secondary col-md-4" type="reset">Formular zurücksetzen</button>
+
+<div class="text-left">
+  <button type="submit" class="btn btn-info col-md-3 " >Absenden</button>
+  <button class="btn btn-secondary col-md-3" type="reset">Formular zurücksetzen</button>
 		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 
 </div>

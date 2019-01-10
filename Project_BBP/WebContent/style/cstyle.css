@@ -115,3 +115,17 @@ body {
 .bg{
 	background-image: linear-gradient(to left bottom, #95b2cd, #b3c3d9, #ced4e4, #e6e7ef, #fbfbfb);
 }
+
+.formular-bd{
+    background-color: #f1f1f1;
+    padding: 0.01em 16px;
+    padding-bottom: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 50%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    
+
+	
+}
