@@ -113,7 +113,7 @@ public class CreateProjectProcess extends HttpServlet {
 			inputStream = filePart.getInputStream();
 
 		}
-		if(filePart.getSize() > 6300) {
+		if(filePart.getSize() > 63000) {
 		try {
 
 	        Image image = ImageIO.read(inputStream);
