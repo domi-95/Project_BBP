@@ -113,15 +113,28 @@ public class CreateProjectProcess extends HttpServlet {
 			inputStream = filePart.getInputStream();
 
 		}
-		if(filePart.getSize() > 16000000) {
+		//Resizing images which are bigger than 4MB
+		if(filePart.getSize() > 4000000) {
 		try {
-
-	        Image image = ImageIO.read(inputStream);
-
-	        BufferedImage bi = this.createResizedCopy(image, 200, 200, true);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			Image image = ImageIO.read(inputStream);
+			BufferedImage bimage = (BufferedImage)image;
+			double szf = 0.9; //Sizing factor for resizing the image
+			//Resizing image till it is smaller than 4MB
+			do {
+			baos = new ByteArrayOutputStream();
+	        int height = bimage.getHeight();
+	        int width = bimage.getWidth();
+	        height = (int)(height * szf);
+	        width = (int)(width * szf);
+	        System.out.println("Height : " + height);
+	        System.out.println("Width : " + width);
+	        BufferedImage bi = this.createResizedCopy(image, width, height, true);
 	       // ImageIO.write(bi, "jpg", new File("C:\\ImagenesAlmacen\\QR\\olaKeAse.jpg"));
-	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	        ImageIO.write(bi, "jpg", baos);
+	        System.out.println(baos.size());
+	        szf = szf - 0.1;
+			}while(baos.size() > 4000000);
 	        is = new ByteArrayInputStream(baos.toByteArray());
 
 	    } catch (IOException e) {
