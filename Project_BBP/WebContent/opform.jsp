@@ -22,7 +22,24 @@ if (u == null || u.getRole().getId() != 3){
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
+<div id="cover"></div>  
+<div id="loader"></div> 
+<script>
+$(window).bind("pageshow", function() {
+	$('#cover').removeClass('activate');
+	  $('#loader').removeClass('activate');
+});
+$(document).ready(function(){
+		  $('#cover').removeClass('activate');
+		  $('#loader').removeClass('activate');
+	$('#regForm').submit(function(){
+		  $('#cover').addClass('activate');
+		  $('#loader').addClass('activate');
+		});
 
+	
+	});
+</script>
 <!--  
  <select id="selectElement" size="5"></select>
   <script type="text/javascript">
@@ -175,7 +192,7 @@ function cutDate() {
 </script>
 
 <h1>Abstimmung erstellen</h1>
-<form action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
+<form id="regForm" action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
 <input type= "text" name = "title" placeholder="Titel" required> <br>
 <input type= "text" name = "short_description" placeholder="Kurzbeschreibung" required> <br>
 <textarea  name="description" cols="35" rows="4" placeholder="Beschreibung" required></textarea> <br>
