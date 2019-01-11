@@ -1,7 +1,7 @@
 <%
 User u = (User)session.getAttribute("user"); 
 if (u == null || u.getRole().getId() != 2){
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
 }
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

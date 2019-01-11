@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
 	<!-- Custom styles -->
-	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen">
 	
 
     <title>Login</title>
@@ -20,7 +20,9 @@
   </head>
 
  <body>
+ 
  <jsp:include page="include/header.jsp"></jsp:include> 
+ 
 <div class="text-center">
  <div class="flexlog">
     <form method="post" class="form-signin" action="login">
@@ -37,10 +39,11 @@
       <div class="invalidbox">
 	<p class="invalid">${message}</p>
 		</div>
+		<input type="hidden" id="prevUrl" name="prevUrl" value="<%out.print(request.getParameter("prevUrl"));%>">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
     </form>
-	
+
 	<% 
 	 /*	String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -71,5 +74,12 @@
 	%>
 	</div>
 </div>
+<script>
+var prevUrl = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/" + document.getElementById("prevUrl").value
+ alert(prevUrl);
+ alert(document.getElementById("prevUrl").value);
+ document.getElementById("prevUrl").value = prevUrl;
+ alert(document.getElementById("prevUrl").value);
+ </script>
 </body>
 </html>

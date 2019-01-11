@@ -33,7 +33,9 @@ public class LoginProcess extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String message = null;
-
+		String prevUrl = request.getParameter("prevUrl");
+		//String prevUrl = request.getHeader("Referer");
+		System.out.println("Vorherige URL: " + prevUrl);
 		if (email != null && password != null) {
 
 			// out.print(email + password);
@@ -50,13 +52,13 @@ public class LoginProcess extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", u);
 				if (u.getRole().getId() == 1) {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect(prevUrl);
 				}
 				if (u.getRole().getId() == 2) {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect(prevUrl);
 				}
 				if (u.getRole().getId() == 3) {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect(prevUrl);
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 <%
 User u = (User)session.getAttribute("user"); 
 if (u == null || u.getRole().getId() != 3){
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("login.jsp?prevUrl=opform.jsp");
 }
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
