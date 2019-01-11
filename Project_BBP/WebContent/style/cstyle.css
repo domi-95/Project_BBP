@@ -167,3 +167,23 @@ position: absolute;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.voteopBox {
+  display: none;
+  border: solid 1px black;
+  background-color: #333;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  padding: 16px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+
+    height: 400px;
+    margin-top: -200px;
+
+    width: 600px;
+    margin-left: -300px;
+}
