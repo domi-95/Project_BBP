@@ -14,10 +14,30 @@ if (u == null || u.getRole().getId() != 1){
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
+<div id="cover"></div>  
+<div id="loader"></div> 
+<script>
+$(window).bind("pageshow", function() {
+	$('#cover').removeClass('activate');
+	  $('#loader').removeClass('activate');
+});
+$(document).ready(function(){
+		  $('#cover').removeClass('activate');
+		  $('#loader').removeClass('activate');
+	$('#regForm').submit(function(){
+		  $('#cover').addClass('activate');
+		  $('#loader').addClass('activate');
+		});
+
+	
+	});
+</script>
 <h2>Formular</h2>
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
