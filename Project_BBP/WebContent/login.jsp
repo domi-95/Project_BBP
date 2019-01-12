@@ -40,7 +40,8 @@
       <div class="invalidbox">
 	<p class="invalid">${message}</p>
 		</div>
-		<input type="hidden" id="prevUrl" name="prevUrl" value="<%out.print(request.getParameter("prevUrl"));%>">
+		<input type="hidden" id="prevUrl2" name="prevUrl2" value="<%out.print(request.getParameter("prevUrl"));%>">
+		<input type="hidden" id="prevUrl1" name="prevUrl1" value="">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
       <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
     </form>
@@ -76,11 +77,14 @@
 	</div>
 </div>
 <script>
-var prevUrl = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/" + document.getElementById("prevUrl").value
- alert(prevUrl);
- alert(document.getElementById("prevUrl").value);
- document.getElementById("prevUrl").value = prevUrl;
- alert(document.getElementById("prevUrl").value);
+var prevUrl1 = "";
+var prevUrl2 = "";
+	prevUrl1 = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/";	
+
+	prevUrl2 = document.getElementById("prevUrl").value;	
+ document.getElementById("prevUrl2").value = prevUrl2;
+ document.getElementById("prevUrl1").value = prevUrl1;
+
  </script>
 </body>
 </html>

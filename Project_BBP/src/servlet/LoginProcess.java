@@ -33,9 +33,17 @@ public class LoginProcess extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String message = null;
-		String prevUrl = request.getParameter("prevUrl");
+		String prevUrlp2 = request.getParameter("prevUrl2");
+		String prevUrlp1 = request.getParameter("prevUrl1");
+		String prevUrl = "";
 		//String prevUrl = request.getHeader("Referer");
-		System.out.println("Vorherige URL: " + prevUrl);
+		if(prevUrlp2.equals("null")) {
+			prevUrlp2 = "index.jsp";
+			prevUrl = prevUrlp1 + prevUrlp2;			
+		}else {
+			prevUrl = prevUrlp1 + prevUrlp2;			
+		}
+
 		if (email != null && password != null) {
 
 			// out.print(email + password);
