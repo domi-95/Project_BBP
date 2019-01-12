@@ -54,24 +54,11 @@ if (u == null || u.getRole().getId() != 1){
     <label for="exampleFormControlDescription">Beschreibung</label>
     <textarea class="form-control col-md-6" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
- <div class="form-row">
-<div class="form-group col-md-4">
-      <label for="inputStreet">Straﬂe</label>
-      <input type="text" class="form-control" id="inputStreet" placeholder="Bsp. Beispielstraﬂe">
-    </div>
-<div class="form-group col-md-1">
-      <label for="inputHousenumber">Hausnummer</label>
-      <input type="text" class="form-control" id="inputHousenumber" placeholder="Bsp. 1">
-    </div>
-    </div>
+ 
     <div class="form-row">
- <div class="form-group col-md-2">
-      <label for="inputPLZ">Postleitzahl</label>
-      <input type="text" class="form-control" id="inputPLZ" placeholder="Bsp. 12345">
-    </div>
     <div class="form-group col-md-3">
       <label for="inputCity">Ort</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="Bsp. (max. 150 Zeichen)">
+      <input type="text" class="form-control" id="inputCity" placeholder="Bsp. (max. 20 Zeichen)">
     </div>
    </div>
     <div class="form-row">
@@ -103,9 +90,9 @@ if (u == null || u.getRole().getId() != 1){
       <input type="text" class="form-control" id="inputPhonenumber" placeholder="Bsp. 01234/56789">
     </div>
   </div>
-  
 
-  <div class="custom-file col-md-4">
+	<label for="chooseFile">Foto hochladen</label><br>
+  <div class="custom-file col-md-4" id="chooseFile">
   
   <label for="loadFile" class="custom-file-label">Datei ausw‰hlen</label>
   <input type="file" class="custom-file-input" id="loadFile">
