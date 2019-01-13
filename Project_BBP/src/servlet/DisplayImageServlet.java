@@ -44,8 +44,8 @@ public class DisplayImageServlet extends HttpServlet {
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
 				select = Integer.parseInt(request.getParameter("select"));
-				System.out.println(id);
-				System.out.println(select);
+			//	System.out.println(id);
+			//	System.out.println(select);
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
@@ -64,12 +64,12 @@ public class DisplayImageServlet extends HttpServlet {
 				return;
 			}
 
-			// trump.jpg, putin.png
+			
 			String imageFileName = "test.png";
-			System.out.println("File Name: " + imageFileName);
+			//System.out.println("File Name: " + imageFileName);
 
 			String contentType = this.getServletContext().getMimeType(imageFileName);
-			System.out.println("Content Type: " + contentType);
+			//System.out.println("Content Type: " + contentType);
 
 			response.setHeader("Content-Type", contentType);
 
