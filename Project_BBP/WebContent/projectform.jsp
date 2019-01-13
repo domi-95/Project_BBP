@@ -25,7 +25,8 @@ if (u == null || u.getRole().getId() != 1){
 <div class="formular-bd">
 <h2>Projektantrag erstellen:</h2>
 
-	<form>
+	<form id="regForm" method="post" action="CreateProjectProcess"
+		enctype="multipart/form-data">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputTitel">Titel</label>
@@ -49,7 +50,7 @@ if (u == null || u.getRole().getId() != 1){
     </div>
   <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-4" id="exampleFormControlShortdescription" rows="4" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-6" id="exampleFormControlShortdescription" rows="4" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
@@ -96,7 +97,7 @@ if (u == null || u.getRole().getId() != 1){
   <div class="custom-file col-md-4" id="chooseFile">
   
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
-  <input type="file" class="custom-file-input" id="loadFile">
+  <input type="file" class="form-control custom-file-input" name="photo" id="loadFile">
  
 
 </div>
