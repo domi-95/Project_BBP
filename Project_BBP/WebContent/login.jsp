@@ -3,36 +3,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
- <%@page import="database.*"%>
-	<%@page import="user.*"%>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style/util.css">
+	<link rel="stylesheet" type="text/css" href="style/login.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<jsp:include page="/include/header.jsp"></jsp:include>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-	<!-- Custom styles -->
-	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen">
-	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="Images/img-01.png" alt="IMG">
+				</div>
 
-    <title>Login</title>
+				<form class="login100-form validate-form" method="post" action="login">
+					<span class="login100-form-title">
+						Anmeldung
+					</span>
 
-  </head>
+					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Benutzername / E-Mail">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
- <body>
- 
- <jsp:include page="include/header.jsp"></jsp:include> 
- 
-<div class="text-center">
- <div class="flexlog" style="opacity: 0.8;">
-    <form method="post" class="form-signin" action="login">
-   
-      <h1 class="h3 mb-3 font-weight-normal ">Anmelden</h1> 
-      <label for="inputEmail" class="sr-only">Email Adresse</label>
-      <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Adresse" required autofocus>
-      <label for="inputPassword" class="sr-only">Passwort</label>
-      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Passwort" required>
-      <div class="checkbox mb-3">
+					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
+						<input class="input100" type="password" name="password" placeholder="Passwort">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="text-center p-t-12">
+					<div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
@@ -40,51 +53,52 @@
       <div class="invalidbox">
 	<p class="invalid">${message}</p>
 		</div>
-		<input type="hidden" id="prevUrl2" name="prevUrl2" value="<%out.print(request.getParameter("prevUrl"));%>">
-		<input type="hidden" id="prevUrl1" name="prevUrl1" value="">
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
-      <a class="btn btn-lg btn-secondary btn-block" href="register.jsp">Registrieren</a>	
-    </form>
+	<input type="hidden" id="prevUrl2" name="prevUrl2" value="<%out.print(request.getParameter("prevUrl"));%>">
+		<input type="hidden" id="prevUrl1" name="prevUrl1" value="">	
+		</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Anmelden
+						</button>
+					</div>
 
-	<% 
-	 /*	String email = request.getParameter("email");
-		String password = request.getParameter("password");
+					<div class="text-center p-t-12">
+						
+						<a class="txt2" href="#">
+							Benutzername oder Passwort vergessen? 
+						</a>
+					</div>
 
-		if (email != null && password != null) {
-
-			// out.print(email + password);
-
-			User u = User.getUserLogin(email, password);
-
-			if (u == null) {
-				out.print("Sorry, invalid Email or Password ");
-			}
-
-			else {
-				session.setAttribute("objekt", u);
-				if (u.getRole().getId() == 1) {
-					response.sendRedirect("welcome_buerger.jsp");
-				}
-				if (u.getRole().getId() == 2) {
-					response.sendRedirect("welcome_verwaltung.jsp");
-				}
-				if (u.getRole().getId() == 3) {
-					response.sendRedirect("DisplayProjectAll");
-				}
-			}
-		} */
-	%>
+					<div class="text-center p-t-136">
+						<a class="txt2" href="register.jsp">
+							Registrieren Sie sich jetzt
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
-</div>
+	
+!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+	<script src="script/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="script/cscript.js"></script>
+
+<!--===============================================================================================-->
 <script>
-var prevUrl1 = "";
-var prevUrl2 = "";
-	prevUrl1 = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/";	
-
-	prevUrl2 = document.getElementById("prevUrl").value;	
- document.getElementById("prevUrl2").value = prevUrl2;
- document.getElementById("prevUrl1").value = prevUrl1;
-
+var prevUrl = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/" + document.getElementById("prevUrl").value
+ alert(prevUrl);
+ alert(document.getElementById("prevUrl").value);
+ document.getElementById("prevUrl").value = prevUrl;
+ alert(document.getElementById("prevUrl").value);
  </script>
 </body>
 </html>

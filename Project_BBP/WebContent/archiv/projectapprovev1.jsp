@@ -1,3 +1,9 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u == null || u.getRole().getId() != 2){
+	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
+}
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -9,8 +15,6 @@
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
-	<!-- Custome style -->
-	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen" />
 	<!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 	<!-- Animate.css -->
@@ -260,45 +264,36 @@ if(request.getParameter("stateSelect") != null){
     //rd.forward(request, response);
     
 	%>
-	<div class="card mx-auto listbordershadow" style="width: 80%;">
-	<div class="table-responsive-md px-2" id="dynamic_divs<%out.print(z);%>">
+
+	<div class="table-responsive-md" id="dynamic_divs<%out.print(z);%>">
 	<table class="table">
 		<thead>
 			<tr>
 			<form>
-				  <!--<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>-->
-				<table class=" table table-hover table-borderless" ">
-				<thead>
-    			<tr>
-				<th scope="col" colspan="2" style="width: 100%;"><h4><%out.print(p.getTitle()); %></h4></tr>
-				</tr>
-				</thead>
-				<tbody >
-   				<tr><th scope="row" style="width: 50%;">Kategorie:</th> <td style="width: 50%;"><%out.print(p.getCategory()); %></td></tr>
-				<tr><th scope="row">Kurzbeschreibung:</th><td> <%out.print(p.getShort_description()); %></td></tr>
-			 	</tbody>	 	
-			 	<tr><th scope="row" colspan="2"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button></th></tr>
-			 	<tbody id="details<%out.print(z);%>" class="collapse">
+				  <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/>
 				
-				<tr><th scope="row">Investitionsgrad:</th><td><%out.print(p.getInvestment_grade()); %></td></tr>
-				<tr><th scope="row">Zeitspanne:</th><td><%out.print(p.getPeriod());%></td></tr>
-				<tr><th scope="row">Telefonnummer:</th><td><%out.print(p.getPhone_numer()); %></td></tr>
-				<tr><th scope="row">Ort:</th><td> <%out.print(p.getLocation()); %></td></tr>
-				<tr><th scope="row">Beschreibung:</th><td> <%out.print(p.getDescription()); %></td></tr>
-				</tbody>
-				
-				
-	<% if(state==1){ %><tbody id="details<%out.print(z);%>" class="collapse" style="width: 100%;">
-				<tr><th scope="row"><input type="hidden" name="id" value="<%out.print(p.getId());%>">
-				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"></th> 
-				<td><input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);"></td></tr>
-		<%} %> 	</tbody></table>
-		 
+				<h2><%out.print(p.getTitle()); %></h2>
+				<p>Kurzbeschreibung: <%out.print(p.getShort_description()); %></p>
+			 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
+			 	<div id="details<%out.print(z);%>" class="collapse">
+				<p>Kategorie: <%out.print(p.getCategory()); %></p>
+				<p>Investitionsgrad: <%out.print(p.getInvestment_grade()); %></p>
+				<p>Zeitspanne: <%out.print(p.getPeriod()); %></p>
+				<p>Telefonnummer: <%out.print(p.getPhone_numer()); %></p>
+				<p>Ort: <%out.print(p.getLocation()); %></p>
+				<p>Beschreibung: <%out.print(p.getDescription()); %></p>
+	<% if(state==1){ %>
+				<input type="hidden" name="id" value="<%out.print(p.getId());%>">
+				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"> 
+				<input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
+		<%} %> 	</div> 
 			</form>
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
-			
-	</div></div><br>
+			</tr>
+		</thead>
+	</table>
+	</div>
 	<% 
 	//session.invalidate();
 	z= z+1;
