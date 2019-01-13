@@ -15,6 +15,7 @@ if (u == null || u.getRole().getId() != 1){
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/cscript.js"></script>
 </head>
 <body>
     <jsp:include page="include/header.jsp"></jsp:include> 
@@ -24,36 +25,26 @@ $(window).on('load', function(){
 	  $('#loader').removeClass('activate');
 	});
 
-function voteopBox(id, action){
-	var ac = action;
-	var cover = 'cover';
-	var voteopBox = 'voteopBox' + id
-	if((ac.localeCompare('open')) == 0){
-	  $('#'+cover).addClass('activate');
-	  $('#'+ voteopBox).addClass('activate');
-	}
-	if((ac.localeCompare('close')) == 0){
-	  $('#'+cover).removeClass('activate');
-	  $('#'+ voteopBox).removeClass('activate');		
-	}	
-}
+
 
 </script>
 <h1>Abstimmungen</h1> 
   <div id="cover" class="activate"></div>
 <div id="loader" class="activate"></div> 
-<form action = "voteop" method = "post">
+<div id="snackbar_message"></div>
+<form>
 <%
 List<OpinionPoll> oplist= OpinionPoll.getAll(1);
 for ( OpinionPoll op: oplist){
 %>
+	<div id="dynamic_divs<%out.print(op.getId());%>">
 	Titel: <%out.print(op.getTitle()); %><br/>
 	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
 	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
 	<input class="btn btn-lg btn-primary btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
 	<!-- only show when button "Abstimmen" was clicked -->
 	<div class="voteopBox" id="voteopBox<%out.print(op.getId());%>">
-	<form action = "voteop" method = "post">
+	<form>
 	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" height="200px"/><br>
 	Titel: <%out.print(op.getTitle()); %><br/>
 	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
@@ -62,17 +53,18 @@ for ( OpinionPoll op: oplist){
 	//List<String> header = new LinkedList<String>();
 	List<String> header = op.getHeader();
 	for(int i = 0; i<header.size() && header.get(i)!= null; i++){
-		%><input type="radio" name=<%out.print(op.getId()); %> value=<%out.print(i); %>><%out.print(header.get(i)); %> <br>
-		<input type = "hidden" name = "id" value = <%out.print(op.getId());%>>
-		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
+		%><input type="radio" class="selection<%out.print(op.getId()); %>" name="selection<%out.print(op.getId()); %>" value="<%out.print(i); %>"><%out.print(header.get(i)); %> <br>
+		<input type = "hidden" name = "id" value ="<%out.print(op.getId());%>">
+		<input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 		<%
 				
 	}
 	
 	%>
-	<input id="voteopsend" class="btn btn-lg btn-primary btn-block" value="Abstimmung senden" type="submit" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
+	<input id="voteopsend" class="btn btn-lg btn-primary btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
 	<input class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
 	</form>
+	</div>
 	</div>
 <%
 }
