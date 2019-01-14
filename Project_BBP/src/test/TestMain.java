@@ -63,7 +63,8 @@ public class TestMain {
 		System.out.println(file.getFile());*/
 		
 		List<OpinionPoll> result = OpinionPoll.getAll(1);
-		List<String> header = result.get(1).getHeader();
+		System.out.println(result);
+		/*List<String> header = result.get(1).getHeader();
 		
 		System.out.print("[");
 		for (int i = 0; i<header.size();i++) {
@@ -91,7 +92,7 @@ public class TestMain {
 		}
 		System.out.print("]");
 		
-		System.out.println(result.get(6).getId());
+		System.out.println(result.get(6).getId()); */
 		
 		
 		
