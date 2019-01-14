@@ -20,12 +20,12 @@
 	<%@page import="user.*"%>
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100" style="padding-top: 2%;">
+			<div class="wrap-login100 shadow rounded" style="padding-top: 2%;">
 				<div class="login100-pic js-tilt text-center" data-tilt style="margin-top:10%;">
 					<img src="Images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="post" action="login" >
+				<form class="login100-form validate-form" method="post" >
 					<span class="login100-form-title">
 						Registrierung
 					</span>
@@ -117,13 +117,13 @@
 					User n = UserDao.searchUser(email);
 					session.setAttribute("objekt", n);
 						if (n.getRole().getId() == 1) {
-							response.sendRedirect("welcome_buerger.jsp");
+							response.sendRedirect("index.jsp");
 						}
 						if (n.getRole().getId() == 2) {
-							response.sendRedirect("welcome_verwaltung.jsp");
+							response.sendRedirect("index.jsp");
 						}
 						if (n.getRole().getId() == 3) {
-							response.sendRedirect("welcome_gemeinderat.jsp");
+							response.sendRedirect("index.jsp");
 						}
 					}
 				}
@@ -131,7 +131,7 @@
     		
 	%>
 	
-!--===============================================================================================-->
+<!--===============================================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 	<script src="script/tilt.jquery.min.js"></script>
