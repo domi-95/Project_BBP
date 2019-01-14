@@ -11,6 +11,7 @@
 
 <jsp:include page="/include/header.jsp"></jsp:include><br>
 <head>
+<title>Projektübersicht</title>
 <style>
 .card-text{
     font-size:19px;
