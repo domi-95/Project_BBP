@@ -72,13 +72,13 @@
 					User n = UserDao.searchUser(email);
 					session.setAttribute("objekt", n);
 						if (n.getRole().getId() == 1) {
-							response.sendRedirect("welcome_buerger.jsp");
+							response.sendRedirect("index.jsp");
 						}
 						if (n.getRole().getId() == 2) {
-							response.sendRedirect("welcome_verwaltung.jsp");
+							response.sendRedirect("index.jsp");
 						}
 						if (n.getRole().getId() == 3) {
-							response.sendRedirect("welcome_gemeinderat.jsp");
+							response.sendRedirect("index.jsp");
 						}
 					}
 				}
