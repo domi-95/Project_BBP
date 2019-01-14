@@ -91,7 +91,7 @@ public class OpinionPollDao {
 		return -1;
 	}
 	
-	public static List<OpinionPoll> getAllProject(int state_id) {
+	public static List<OpinionPoll> getAllOp(int state_id) {
 		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
 		Connection con = null;
 		try {

@@ -34,8 +34,8 @@ if((User)session.getAttribute("user") != null){
 </nav>
 </div>
 <div class="navbd sticky-top">
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
-  <a class="navbar-brand active col-sm-4" href="index.jsp"><img alt="Startseite" src="Images/logoMos.png" height="50">
+<nav class="navbar navbar-expand-lg navbar-dark navdesign" >
+  <a class="navbar-brand active col-sm-4" href="index.jsp">
   <span class="navbar-light-span">&nbsp;Bürgerbeteiligungsportal</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,14 +105,14 @@ if((User)session.getAttribute("user") != null){
     if (u == null){
     	
     %>
-      <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="login.jsp">Anmeldung</a>
+      <a class="btn btn-outline-light my-2 my-sm-0 col-sm-2" href="login.jsp">Anmeldung</a>
       
       <%
 
       }
     else{
       %>
-      <a class="btn btn-info my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
+      <a class="btn btn-outline-light my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
     <%
   	 }
     ///*
