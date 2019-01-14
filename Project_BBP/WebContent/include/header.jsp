@@ -77,6 +77,9 @@ if((User)session.getAttribute("user") != null){
       <li class="nav-item">
         <a class="nav-link" href="blog.jsp">Blog</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="register.jsp">Registrieren</a>
+      </li>
       
     </ul>
   <%}%>  
