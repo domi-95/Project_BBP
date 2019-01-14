@@ -17,7 +17,16 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}</style>
+}
+.card {
+    min-height: 450px;
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
 </head>
@@ -36,14 +45,17 @@
 
 
 
-<div class="col-sm-3">
-<div class="card" style=" width:250px; margin:30px">
-  <img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>" alt="Card image">
+<div class="col-sm-4">
+<div class="card" style=" width:275px; margin:30px">
+  <img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image">
   <div class="card-body">
     <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
     <p class="card-text">Kategorie: <%out.print(p.getCategory()); %></p>
     <p class="card-text"></p>
-    <a href="#" class="btn btn-primary">Projekt einsehen</a>
+  </div>
+  <div class="card-footer">
+      <a href="#" class="btn btn-primary">Projekt einsehen</a>
+      <a href="#" class="btn btn-success">Voten</a>
   </div>
 </div>
 </div>
