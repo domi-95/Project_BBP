@@ -2,31 +2,11 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.*"%>
     <%@page import="opinionPoll.*"%>
+    <jsp:include page="include/header.jsp"></jsp:include> 
 <!DOCTYPE html>
 
 <%
-/*
-List<String> header = new LinkedList<String>();
-header.add("column1");
-header.add("column1");
-header.add("column1");
-header.add("column1");
-header.add("column1");
-header.add("column1");
-out.print("[");
-
-
-for (int i = 0; i<header.size();i++) {
-	
-	out.print("\""+header.get(i)+"\"");
-	if(i<header.size()-1) {
-	out.print(",");
-	}
-}
-out.print("]"); 
-*/
 List<OpinionPoll>oplist = OpinionPoll.getAll(1);
-
 %>
 <html>
 <head>
@@ -49,11 +29,14 @@ List<OpinionPoll>oplist = OpinionPoll.getAll(1);
 <%
 for (OpinionPoll op : oplist){
 	
+		
+	
 	int[] choice = op.getChoice().getChoice();
 	List<String> header = op.getHeader();
 	
 %>
 <fieldset>
+	<h1> Titel: <% out.print(op.getTitle());%></h1>
 <canvas id="barChart<%out.print(op.getId()); %>"></canvas>
 <script>
   //bar
@@ -114,5 +97,6 @@ for (OpinionPoll op : oplist){
 
 </script>
 </fieldset>
+</body>
 <%} %>
 </html>
