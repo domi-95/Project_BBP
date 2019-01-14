@@ -258,13 +258,14 @@ if(request.getParameter("stateSelect") != null){
 
 <form name="selectState" method="post" action="projectapprove.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
-  <label class="btn btn-secondary active" id="label1">
+
+  <label class="btn btn-secondary col-md-1 active" id="label1">
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
   </label>
-  <label class="btn btn-secondary" id="label2">
+  <label class="btn btn-secondary col-md-1" id="label2">
     <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben
   </label>
-  <label class="btn btn-secondary" id="label3">
+  <label class="btn btn-secondary col-md-1" id="label3">
     <input type="radio" name="stateSelect" id="stateSelect" value="3" <%if(state == 3){out.print(" checked");} %>> Abgeschlossen
   </label>
 </div>
