@@ -20,7 +20,7 @@
 	<%@page import="user.*"%>
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100" style="padding-top: 2%;">
+			<div class="wrap-login100 shadow rounded" style="padding-top: 2%;">
 				<div class="login100-pic js-tilt text-center" data-tilt style="margin-top:10%;">
 					<img src="Images/img-01.png" alt="IMG">
 				</div>
@@ -131,7 +131,7 @@
     		
 	%>
 	
-!--===============================================================================================-->
+<!--===============================================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 	<script src="script/tilt.jquery.min.js"></script>
