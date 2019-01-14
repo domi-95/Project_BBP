@@ -146,7 +146,7 @@ public class OpinionPoll {
 	}
 	
 	public static List<OpinionPoll> getAll (int state_id) {
-		return OpinionPollDao.getAllProject(state_id);
+		return OpinionPollDao.getAllOp(state_id);
 	}
 
 	
