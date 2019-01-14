@@ -15,8 +15,7 @@ if (u == null || u.getRole().getId() != 2){
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
-	<!-- Custome style -->
-	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen" />
+	
 	<!-- Bootstrap style -->
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 	<!-- Animate.css -->
@@ -220,34 +219,81 @@ function doClose(){
 	});
 }
 
+
+
+$(document).ready(function() { 
+	  $('input[name=stateSelect]').change(function(){
+	       $('form[name=selectState]').submit();
+	  });
+	 });
+
+function changeActive(){
+	$(document).ready(function changeActive1(){
+		changeActive1();
+		
+		});
+}
 </script>
 
 
 
-<%int state = 1;
+<%
+int state;
 if(request.getParameter("stateSelect") != null){
-	state = Integer.parseInt(request.getParameter("stateSelect"));
-	out.print(state);
+	state = Integer.parseInt(request.getParameter("stateSelect"));%>
+	<input type="hidden" id="state" value="<%out.print(state); %>">
+	<script>
+	
+	changeActive();
+	</script>
+	<%
+	}
+	else{
+	state = 1;
 	}%>
 </br>
 
 <div id="successMsg"></div>
 <div id="rejectBox"></div>
 
-
-<form method="post" action="dashboard.jsp">
-<select id="stateSelect" name="stateSelect" onchange="submit()">
-	<!-- <option value="1" <%if(state == 0){out.print(" selected");} %>>Bitte wähle einen Status</option>-->
-	<option value="1" <%if(state == 1){out.print(" selected");} %>>Angelegt</option>
-	<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben</option>
-	<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgeschlossen</option>
-</select>
+<form name="selectState" method="post" action="projectapprove.jsp">
+<div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+  <label class="btn btn-secondary active" id="label1">
+    <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
+  </label>
+  <label class="btn btn-secondary" id="label2">
+    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben
+  </label>
+  <label class="btn btn-secondary" id="label3">
+    <input type="radio" name="stateSelect" id="stateSelect" value="3" <%if(state == 3){out.print(" checked");} %>> Abgeschlossen
+  </label>
+</div>
 </form>
+<br>
+<script>
+$(document).ready(function changeActive1(){
+	var id = document.getElementsByName('stateSelect');
+
+	for (var i = 0, length = id.length; i < length; i++) {
+	    if (id[i].checked) {
+	        id = id[i].value;
+	        break;
+	    }
+	}
+
+	var element = "label"+id;		
+	var element1 = "label1";
+	$(function(){
+		$('#'+element1).removeClass('active');	
+		$('#'+element).addClass('active');
+	});
+});
+</script>
+
 
 <% 
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
-	out.print(state);
 	}
 	List<Project> projectlist = Project.getAll(state);
 	
