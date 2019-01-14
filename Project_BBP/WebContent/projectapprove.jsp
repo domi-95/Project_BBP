@@ -258,13 +258,14 @@ if(request.getParameter("stateSelect") != null){
 
 <form name="selectState" method="post" action="projectapprove.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
-  <label class="btn btn-secondary active" id="label1">
+
+  <label class="btn btn-secondary col-md-1 active" id="label1">
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
   </label>
-  <label class="btn btn-secondary" id="label2">
+  <label class="btn btn-secondary col-md-1" id="label2">
     <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben
   </label>
-  <label class="btn btn-secondary" id="label3">
+  <label class="btn btn-secondary col-md-1" id="label3">
     <input type="radio" name="stateSelect" id="stateSelect" value="3" <%if(state == 3){out.print(" checked");} %>> Abgeschlossen
   </label>
 </div>
@@ -314,39 +315,42 @@ $(document).ready(function changeActive1(){
 	%>
 	<div class="card mx-auto listbordershadow" style="width: 80%;">
 	<div class="table-responsive-md px-2" id="dynamic_divs<%out.print(z);%>">
-	<table class="table">
-		<thead>
-			<tr>
-			<form>
-				  <!--<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>" height="200px"/>-->
-				<table class=" table table-hover table-borderless" ">
+	
+			
+				 
+				<table class=" table table-hover table-borderless float-left" >
 				<thead>
     			<tr>
 				<th scope="col" colspan="2" style="width: 100%;"><h4><%out.print(p.getTitle()); %></h4></tr>
-				</tr>
+				
 				</thead>
 				<tbody >
-   				<tr><th scope="row" style="width: 50%;">Kategorie:</th> <td style="width: 50%;"><%out.print(p.getCategory()); %></td></tr>
-				<tr><th scope="row">Kurzbeschreibung:</th><td> <%out.print(p.getShort_description()); %></td></tr>
+   				<tr><th scope="row" colspan="1" style="width: 50%;">Kategorie:</th> <td style="width: 50%;"><%out.print(p.getCategory()); %></td></tr>
+				<tr><th scope="row" colspan="1">Kurzbeschreibung:</th><td> <%out.print(p.getShort_description()); %></td></tr>
 			 	</tbody>	 	
-			 	<tr><th scope="row" colspan="2"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button></th></tr>
+			 	<tr><th scope="row" colspan="1"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button></th></tr>
+			 	
 			 	<tbody id="details<%out.print(z);%>" class="collapse">
 				
-				<tr><th scope="row">Investitionsgrad:</th><td><%out.print(p.getInvestment_grade()); %></td></tr>
-				<tr><th scope="row">Zeitspanne:</th><td><%out.print(p.getPeriod());%></td></tr>
-				<tr><th scope="row">Telefonnummer:</th><td><%out.print(p.getPhone_numer()); %></td></tr>
-				<tr><th scope="row">Ort:</th><td> <%out.print(p.getLocation()); %></td></tr>
-				<tr><th scope="row">Beschreibung:</th><td> <%out.print(p.getDescription()); %></td></tr>
+				<tr><th scope="row" colspan="1">Investitionsgrad:</th><td colspan="4"><%out.print(p.getInvestment_grade()); %></td><td colspan="1" rowspan="3"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/></td></tr>
+				<tr><th scope="row" colspan="1">Zeitspanne:</th><td colspan="4"><%out.print(p.getPeriod());%></td></tr>
+				<tr><th scope="row" colspan="1">Telefonnummer:</th><td colspan="4"><%out.print(p.getPhone_numer()); %></td></tr>
+				<tr><th scope="row" colspan="1">Ort:</th><td colspan="4"> <%out.print(p.getLocation()); %></td></tr>
+				<tr><th scope="row" colspan="1">Beschreibung:</th><td colspan="5"> <%out.print(p.getDescription()); %></td></tr>
+				
 				</tbody>
 				
 				
 	<% if(state==1){ %><tbody id="details<%out.print(z);%>" class="collapse" style="width: 100%;">
-				<tr><th scope="row"><input type="hidden" name="id" value="<%out.print(p.getId());%>">
+				<tr><th scope="row" colspan="3"><input type="hidden" name="id" value="<%out.print(p.getId());%>">
 				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"></th> 
-				<td><input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);"></td></tr>
-		<%} %> 	</tbody></table>
+				<td colspan="3"><input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);"></td></tr>
+		<%} %> 	
+		
+		</tbody></table>
+		
 		 
-			</form>
+			
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
 			
