@@ -12,6 +12,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
+	<link rel="stylesheet" type="text/css" href="style/cstyle.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -19,7 +20,7 @@
 
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
+			<div class="wrap-login100 shadow rounded">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="Images/img-01.png" alt="IMG">
 				</div>
@@ -80,7 +81,7 @@
 		</div>
 	</div>
 	
-!--===============================================================================================-->
+<!--===============================================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 	<script src="script/tilt.jquery.min.js"></script>

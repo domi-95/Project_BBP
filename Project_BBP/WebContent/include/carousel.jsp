@@ -29,7 +29,7 @@
       <img class="d-block w-100" src="Images/mosbach.jpg" alt="Second slide"   style="width:100%;">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="Images/landscapeMos.jpg" alt="Third slide"   style="width:100%;">
+      <img class="d-block w-100" src="Images/cmosmaelz.jpg" alt="Third slide"   style="width:100%;">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

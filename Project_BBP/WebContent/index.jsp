@@ -32,7 +32,7 @@ padding: 0.8rem;
 }
 </style>
 </head>
-<body class="bg">
+<body class="lingradbg">
 
 
 <jsp:include page="/include/header.jsp"></jsp:include>
@@ -84,13 +84,7 @@ padding: 0.8rem;
    
     </div>
   </div>
-</div><br>
-
-
-
-
-
-
+<br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

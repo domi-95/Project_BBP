@@ -13,7 +13,7 @@
 	media="screen">
 <title>News</title>
 </head>
-<body>
+<body class="lingradbg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="newsblog">
 	<!-- Section: Blog v.1 -->
