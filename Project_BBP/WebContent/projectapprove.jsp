@@ -350,7 +350,7 @@ $(document).ready(function changeActive1(){
   </div>
   <div class="col-xs-4 col-xl-9 border-bottom">
     <%out.print(p.getCategory()); %>
-    Test
+
   </div>
 </div>
 <div class="row m-2">
