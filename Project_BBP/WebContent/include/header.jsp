@@ -48,7 +48,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="projectform.jsp">Projekte vorschlagen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Projekte unterstützen</a>
+        <a class="nav-link" href="projectoverview.jsp">Projekte unterstützen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="opoverview.jsp">Abstimmungen</a>
