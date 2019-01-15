@@ -42,7 +42,15 @@ for ( OpinionPoll op: oplist){
 	Titel: <%out.print(op.getTitle()); %><br/>
 	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
 	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
+	<%
+	if (alreadyVote.get(op.getId()) == null){
+	%>
 	<input class="btn btn-lg btn-primary btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
+	<%} else {%>
+	
+	<input class="btn btn-lg btn-primary btn-block" value="bereits Abgestimmt" ">
+	
+	<%} %>
 	<!-- only show when button "Abstimmen" was clicked -->
 	<div class="voteopBox" id="voteopBox<%out.print(op.getId());%>">
 	<form>

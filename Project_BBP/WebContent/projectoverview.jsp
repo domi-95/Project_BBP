@@ -76,6 +76,7 @@ if (u == null || u.getRole().getId() != 1){
       <%
       }
     %>
+      <a href="#" class="btn btn-success">Stimmen: <%out.print (p.getVote()); %></a>    
   </div>
 </div>
 </div>
