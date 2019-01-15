@@ -1,7 +1,7 @@
 <%
 User u = (User)session.getAttribute("user"); 
 if (u == null || u.getRole().getId() != 1){
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("login.jsp?prevUrl=projectoverview.jsp");
 }
 %>
 
