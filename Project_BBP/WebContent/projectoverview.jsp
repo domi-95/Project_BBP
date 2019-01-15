@@ -67,19 +67,35 @@ if (u == null || u.getRole().getId() != 1){
   </div>
   <div class="card-footer">
   
-      <a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary">Projekt einsehen</a>
+  <div class="row p-1">
+  <div class="col-xs-12 col-lg-6">
+      <a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary btn-block">Projekt einsehen</a>
+    
+  </div>
+  <div class="col-lg-6">
       <% 
       if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%> 
-      <a href="#" class="btn btn-success">Voten</a>    	
+      <a href="#" class="btn btn-success btn-block">Voten</a>    	
     	<%  
       } else {
     	%>
-      <a href="#" class="btn btn-success disabled">Bereits Abgestimmt!</a>    
+      <a href="#" class="btn btn-success btn-block disabled">Bereits Abgestimmt!</a>    
       <%
       }
     %>
-      <a href="#" class="btn btn-success disabled" >Stimmen: <%out.print (p.getVote()); %></a>    
+    
+  </div>
+</div>
+<div class="row p-1">
+  <div class="col d-flex justify-content-center">
+      <a href="#" class="btn btn-success btn-block disabled" >Stimmen: <%out.print (p.getVote()); %></a>    
+    
+  </div>
+</div>
+  
+  
+  
   </div>
 </div>
 </div>

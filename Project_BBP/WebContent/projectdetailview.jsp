@@ -1,7 +1,8 @@
 <%
 User u = (User)session.getAttribute("user"); 
 if (u == null || u.getRole().getId() != 1){
-	response.sendRedirect("index.jsp");
+	String id = request.getParameter("projectid");
+	response.sendRedirect("login.jsp?prevUrl=projectdetailview.jsp?projectid="+id);
 }
 %>
 <%@page import="user.*"%>
