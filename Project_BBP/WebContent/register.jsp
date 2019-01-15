@@ -19,7 +19,7 @@
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
 	<div class="limiter">
-		<div class="container-login100">
+		<div class="container-login100" >
 			<div class="wrap-login100 shadow rounded" style="padding-top: 2%;">
 				<div class="login100-pic js-tilt text-center" data-tilt style="margin-top:10%;">
 					<img src="Images/img-01.png" alt="IMG">
