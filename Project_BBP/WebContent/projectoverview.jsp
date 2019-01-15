@@ -47,8 +47,10 @@ if (u == null || u.getRole().getId() != 1){
 	List<Project> projectlist = Project.getAll(2);
 	
 	int z = 1;
-	Map<Integer, Integer> alreadyVote = Vote.getUserVotes(u.getId());
-	
+	Map<Integer, Integer> alreadyVote = null;
+	if (u != null){
+	alreadyVote = Vote.getUserVotes(u.getId());
+	}
 	for (Project p : projectlist){
 	
 		%>
@@ -67,7 +69,7 @@ if (u == null || u.getRole().getId() != 1){
   
       <a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary">Projekt einsehen</a>
       <% 
-      if (alreadyVote.get(p.getId()) == null){
+      if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%> 
       <a href="#" class="btn btn-success">Voten</a>    	
     	<%  
