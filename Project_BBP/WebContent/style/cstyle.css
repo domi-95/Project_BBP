@@ -13,8 +13,9 @@ body {
 }
 
 .bg{
-	background-image: url("../Images/mosmarkt.jpg");
-
+	background-image: url("../Images/mosmarkt.jpg") ;
+	z-index: -1;
+	
   /* Full height */
   height: 100%; 
 
@@ -22,6 +23,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 .form-signin {
@@ -233,4 +235,11 @@ position: absolute;
 .container-login100 {
 min-height: 0;
 	
+}	
+.opindex{
+	opacity:0.98;
+	}
+.opbg{
+	opacity:0.3;
+}
 	
