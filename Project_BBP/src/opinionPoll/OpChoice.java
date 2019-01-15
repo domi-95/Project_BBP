@@ -1,6 +1,8 @@
 package opinionPoll;
 
+
 import database.OpinionPollDao;
+import java.util.*;
 
 public class OpChoice {
 
@@ -36,5 +38,9 @@ public class OpChoice {
 
 	public static OpChoice getChoice(int op_id) {
 		return OpinionPollDao.getChoice(op_id);
+	}
+	
+	public static Map<Integer, Integer> getUserChoices (int user_id) {
+		return OpinionPollDao.getAllChoices(user_id);
 	}
 }

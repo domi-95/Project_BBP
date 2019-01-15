@@ -136,7 +136,7 @@ public class ProjectDao {
 			}
 			return result;
 		} catch (SQLException e) {
-			System.out.println("Error while selecting all projects");
+			System.out.println("Error while selecting votes from users");
 			e.printStackTrace();
 		}
 		return null;

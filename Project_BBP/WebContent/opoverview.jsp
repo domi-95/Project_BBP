@@ -34,6 +34,7 @@ $(window).on('load', function(){
 <div id="snackbar_message"></div>
 <form>
 <%
+Map <Integer, Integer> alreadyVote = OpChoice.getUserChoices(u.getId());
 List<OpinionPoll> oplist= OpinionPoll.getAll(1);
 for ( OpinionPoll op: oplist){
 %>

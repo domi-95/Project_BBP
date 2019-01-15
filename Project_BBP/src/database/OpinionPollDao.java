@@ -8,8 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import opinionPoll.*;
 import user.User;
@@ -187,6 +189,26 @@ public class OpinionPollDao {
 			}
 
 		}*/
+		return null;
+	}
+	
+	public static Map<Integer, Integer> getAllChoices(int user_id) {
+		Map <Integer, Integer> result = new HashMap<Integer, Integer>();
+		Connection con = null;
+		try {  
+			con = ConnectionProvider.getCon();
+			
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from choice where user_id = " + user_id+ "");
+			while (myRs.next()) {
+				result.put(myRs.getInt("opinion_poll_id"), myRs.getInt("user_id"));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting choices from users");
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
