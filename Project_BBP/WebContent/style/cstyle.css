@@ -12,6 +12,18 @@ body {
 	background-attachment: fixed;
 }
 
+.bg{
+	background-image: url("../Images/mosmarkt.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .form-signin {
 	width: 100%;
 	max-width: 480px;
@@ -210,3 +222,8 @@ position: absolute;
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255) !important;
+}
+
+.wrap-login100 {
+	margin-top: 3%;
+	opacity:0.98;

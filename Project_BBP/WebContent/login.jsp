@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 
 	<div class="limiter">

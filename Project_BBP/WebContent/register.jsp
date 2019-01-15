@@ -4,43 +4,88 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-    <meta charset="utf-8">
-    <meta firstname="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   <!-- Bootstrap style -->
-	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
-    
-	<!-- Custom styles -->
-	<link rel="stylesheet" type="text/css" href="style/signin.css" media="screen">
-	
-
-    <title>Registrieren</title>
-
-  </head>
-
- <body class="text-center">
- <jsp:include page="/include/header.jsp"></jsp:include>
+<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style/util.css">
+	<link rel="stylesheet" type="text/css" href="style/login.css">
+<!--===============================================================================================-->
+</head>
+<body class="bg">
+<jsp:include page="/include/header.jsp"></jsp:include>
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
- 
-    <form method="post" class="form-signin">
-      <h1 class="h3 mb-3 font-weight-normal">Registrieren</h1>
-      <label for="inputfirstname" class="sr-only">Vorname</label>
-      <input name="firstname" type="text" id="inputfirstname" class="form-control" placeholder="Vorname" required autofocus>
-      <label for="inputname" class="sr-only">Nachname</label>
-      <input name="name" type="text" id="inputname" class="form-control" placeholder="Nachname" required>
-      <label for="inputEmail" class="sr-only">Email Adresse</label>
-      <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Adresse" required>
-      <label for="inputPassword1" class="sr-only">Passwort</label>
-      <input name="password1" type="password" id="inputPassword1" class="form-control" placeholder="Passwort" required>
-      <label for="inputPassword2" class="sr-only">Passwort bestätigen</label>
-      <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Passwort wiederholen" required>
-      
-      <button class="btn btn-lg btn-secondary btn-block" type="submit">Registrieren</button>
-    </form>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 shadow rounded" style="padding-top: 2%;">
+				<div class="login100-pic js-tilt text-center" data-tilt style="margin-top:10%;">
+					<img src="Images/img-01.png" alt="IMG">
+				</div>
 
-	<%
+				<form class="login100-form validate-form" method="post" >
+					<span class="login100-form-title">
+						Registrierung
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Vorname erforderlich">
+						<input class="input100" type="text" name="firstname" placeholder="Vorname">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+			
+				
+					<div class="wrap-input100 validate-input" data-validate = "Nachname erforderlich">
+						<input class="input100" type="text" name="name" placeholder="Nachname">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+		
+					
+					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="E-Mailadresse">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
+						<input class="input100" type="password" name="password1" placeholder="Passwort">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
+						<input class="input100" type="password" name="password2" placeholder="Passwort verifizieren">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					
+      
+						<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Registrieren
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<%
 		String firstname = request.getParameter("firstname");
 		String name = request.getParameter("name");
     		String email = request.getParameter("email");
@@ -85,6 +130,20 @@
 		}
     		
 	%>
+	
+<!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+	<script src="script/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="script/cscript.js"></script>
+
+<!--===============================================================================================-->
 
 </body>
 </html>
