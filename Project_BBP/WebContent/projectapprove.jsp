@@ -314,40 +314,110 @@ $(document).ready(function changeActive1(){
     
 	%>
 	<div class="card mx-auto listbordershadow" style="width: 80%;">
-	<div class="table-responsive-md px-2" id="dynamic_divs<%out.print(z);%>">
 	
-			
-				 
-				<table class=" table table-hover table-borderless float-left" >
-				<thead>
-    			<tr>
-				<th scope="col" colspan="2" style="width: 100%;"><h4><%out.print(p.getTitle()); %></h4></tr>
-				
-				</thead>
-				<tbody >
-   				<tr><th scope="row" colspan="1" style="width: 50%;">Kategorie:</th> <td style="width: 50%;"><%out.print(p.getCategory()); %></td></tr>
-				<tr><th scope="row" colspan="1">Kurzbeschreibung:</th><td> <%out.print(p.getShort_description()); %></td></tr>
-			 	</tbody>	 	
-			 	<tr><th scope="row" colspan="1"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button></th></tr>
-			 	
-			 	<tbody id="details<%out.print(z);%>" class="collapse">
-				
-				<tr><th scope="row" colspan="1">Investitionsgrad:</th><td colspan="4"><%out.print(p.getInvestment_grade()); %></td><td colspan="1" rowspan="3"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/></td></tr>
-				<tr><th scope="row" colspan="1">Zeitspanne:</th><td colspan="4"><%out.print(p.getPeriod());%></td></tr>
-				<tr><th scope="row" colspan="1">Telefonnummer:</th><td colspan="4"><%out.print(p.getPhone_numer()); %></td></tr>
-				<tr><th scope="row" colspan="1">Ort:</th><td colspan="4"> <%out.print(p.getLocation()); %></td></tr>
-				<tr><th scope="row" colspan="1">Beschreibung:</th><td colspan="5"> <%out.print(p.getDescription()); %></td></tr>
-				
-				</tbody>
-				
-				
-	<% if(state==1){ %><tbody id="details<%out.print(z);%>" class="collapse" style="width: 100%;">
-				<tr><th scope="row" colspan="3"><input type="hidden" name="id" value="<%out.print(p.getId());%>">
-				<input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);"></th> 
-				<td colspan="3"><input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);"></td></tr>
-		<%} %> 	
 		
-		</tbody></table>
+		<div class="container p-3" id="dynamic_divs<%out.print(z);%>">
+<div class="row m-2">
+  <div class="col-xl-12 border-bottom" >
+     <h4><%out.print(p.getTitle()); %></h4>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-xs-4 col-xl-3 border-bottom">
+   <p class="font-weight-bold"> Kategorie: </p>
+    
+  </div>
+  <div class="col-xs-4 col-xl-9 border-bottom">
+    <%out.print(p.getCategory()); %>
+    Test
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-xl-3 border-bottom">
+    <p class="font-weight-bold">Kurzbeschreibung:</p>
+  </div>
+  <div class="col-xl-9 border-bottom">
+    <%out.print(p.getShort_description()); %>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-xs-12">
+    <button type="button" class="btn btn-info text-center" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
+  </div>
+</div>
+<div id="details<%out.print(z);%>" class="collapse">
+<div class="row m-2">
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">Beschreibung:</p>
+  </div>
+  <div class="col-xl-9 border-bottom">
+    <%out.print(p.getDescription()); %>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">Ersteller:</p>
+  </div>
+  <div class="col-xl-3 border-bottom">
+   Test Ersteller
+  </div>
+
+
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">Telefonnummer:</p>
+  </div>
+  <div class="col-xl-3 border-bottom">
+    <%out.print(p.getPhone_numer()); %>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-xl-9">
+<div class="row m-2">
+  <div class="col-xl-4 border-bottom">
+    <p class="font-weight-bold">Investitionsgrad:</p>
+    
+  </div>
+  <div class="col-xl-8 border-bottom">
+    <%out.print(p.getInvestment_grade()); %>
+
+  </div>
+    </div>
+  <div class="row m-2">
+  <div class="col-xl-4 border-bottom">
+    <p class="font-weight-bold">Zeitspanne:</p>
+    
+  </div>
+  <div class="col-xl-8 border-bottom">
+    <%out.print(p.getPeriod());%>
+  </div>
+  </div>
+  <div class="row m-2">
+  <div class="col-xl-4 border-bottom">
+    <p class="font-weight-bold">Ort:</p>
+    
+  </div>
+  <div class="col-xl-8 border-bottom">
+    <%out.print(p.getLocation()); %>
+  </div>
+</div>
+</div>
+  <div class="col-xs-12 col-xl-3">
+    <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/>
+  </div>
+</div>
+<% if(state==1){ %>
+<div class="row collapse m-2" id="details<%out.print(z);%>" >
+  <div class="col-xs-12 col-xl-6">
+    <input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(z);%>);">
+  </div>
+  <div class="col-xl-6">
+    <input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
+  </div>
+</div>
+<%} %> 
+</div>
+</div>
 		
 		 
 			
@@ -355,7 +425,7 @@ $(document).ready(function changeActive1(){
 
 			
 	</div></div><br>
-	<% 
+	<%
 	//session.invalidate();
 	z= z+1;
 	}
