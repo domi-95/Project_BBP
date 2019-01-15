@@ -40,10 +40,10 @@
 
             <ul class="list-unstyled" >
               <li>
-                <a href="#!">Link 1</a>
+                <a href="impressum.jsp">Impressum</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="contact.jsp">Kontakt</a>
              
             </ul>
 
