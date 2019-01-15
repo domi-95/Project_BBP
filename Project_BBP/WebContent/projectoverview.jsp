@@ -1,3 +1,10 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u == null || u.getRole().getId() != 1){
+	response.sendRedirect("index.jsp");
+}
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -39,6 +46,7 @@
 	List<Project> projectlist = Project.getAll(2);
 	
 	int z = 1;
+	Map<Integer, Integer> alreadyVote = Vote.getUserVotes(u.getId());
 	
 	for (Project p : projectlist){
 	
@@ -55,8 +63,19 @@
     <p class="card-text"></p>
   </div>
   <div class="card-footer">
+  
       <a href="#" class="btn btn-primary">Projekt einsehen</a>
-      <a href="#" class="btn btn-success">Voten</a>
+      <% 
+      if (alreadyVote.get(p.getId()) == null){
+    	%> 
+      <a href="#" class="btn btn-success">Voten</a>    	
+    	<%  
+      } else {
+    	%>
+      <a href="#" class="btn btn-success">Schon Abgestimmt</a>    
+      <%
+      }
+    %>
   </div>
 </div>
 </div>

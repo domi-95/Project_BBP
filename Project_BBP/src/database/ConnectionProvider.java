@@ -48,7 +48,7 @@ public class ConnectionProvider extends Thread{
 				System.out.println("Verbindung zur Datenbank nicht möglich");
 			}
 			try {
-				Thread.sleep(600000);
+				Thread.sleep(300000);
 			} catch (InterruptedException e) {
 				System.out.println("Error while thread are sleeping");
 				e.printStackTrace();
@@ -57,7 +57,7 @@ public class ConnectionProvider extends Thread{
 			try {
 				con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Error while closing connection");
 				e.printStackTrace();
 			}
 		}

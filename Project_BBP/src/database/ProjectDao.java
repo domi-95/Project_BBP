@@ -91,11 +91,16 @@ public class ProjectDao {
 	public static List<Project> getAllProject(int state_id) {
 		List<Project> result = new LinkedList<Project>();
 		Connection con = null;
-		try {
+		try {  
+			 //System.out.println("Start getConnectionProvder: "+ System.currentTimeMillis());
 			con = ConnectionProvider.getCon();
+			//System.out.println("End getConnectionProvder: "+ System.currentTimeMillis());
+			
 			Statement myst = con.createStatement();
+			//System.out.println("Start Executequery: "+ System.currentTimeMillis());
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ");
+			//System.out.println("End Executequery: "+ System.currentTimeMillis());
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
@@ -116,6 +121,28 @@ public class ProjectDao {
 		}*/
 		return null;
 	}
+	
+	public static Map<Integer, Integer> getAllVotes(int user_id) {
+		Map <Integer, Integer> result = new HashMap<Integer, Integer>();
+		Connection con = null;
+		try {  
+			con = ConnectionProvider.getCon();
+			
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from vote where user_id = " + user_id+ "");
+			while (myRs.next()) {
+				result.put(myRs.getInt("project_id"), myRs.getInt("user_id"));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting all projects");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 	
 	public static int countVotes (int project_id) {
 		Connection con = null;
@@ -144,6 +171,7 @@ public class ProjectDao {
 		}*/
 		return 0;
 	}
+	
 
 	public static boolean updateState(Project p) {
 		Connection con = null;

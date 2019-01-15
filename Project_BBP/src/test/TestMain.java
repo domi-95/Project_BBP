@@ -1,9 +1,7 @@
 package test;
 
-import java.util.Date;
+import java.util.*;
 
-import java.util.LinkedList;
-import java.util.List;
 import file.*;
 import opinionPoll.*;
 import database.*;
@@ -27,7 +25,7 @@ public class TestMain extends Thread{
 		//System.out.println(result);
 		//project.setState(new State(2, "freigegeben"));
 		//System.out.println(ProjectDao.countVotes(45));
-		System.out.println(ProjectDao.getAllProject(1));
+		//System.out.println(ProjectDao.getAllProject(1));
 		//project.setComment("ein test kommentar wurde eingefügt");
 		//System.out.println(ProjectDao.searchProject(39));
 		//System.out.println(FileDao.searchFile(39));
@@ -96,7 +94,8 @@ public class TestMain extends Thread{
 		//Thread t = new TestMain();
 		//t.start();
 		
-		
+		//Map <Integer, Integer>  result =(ProjectDao.getAllVotes(1));
+		//System.out.println(result.get(1));
 	}
 
 	/*public void run() {
@@ -114,5 +113,8 @@ public class TestMain extends Thread{
 		}
 		
 	}*/
+	
+	
+	
 
 }

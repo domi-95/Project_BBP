@@ -1,5 +1,8 @@
 package project;
 import user.*;
+import java.util.*;
+
+import database.*;
 
 public class Vote {
 	
@@ -8,6 +11,8 @@ public class Vote {
 	private User user;
 	private String timestamp;
 	
-	
+	public static Map<Integer, Integer> getUserVotes (int user_id){
+		return ProjectDao.getAllVotes(user_id);
+	}
 	
 }
