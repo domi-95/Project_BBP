@@ -36,6 +36,7 @@ padding: 0.8rem;
 
 
 <jsp:include page="/include/header.jsp"></jsp:include>
+
 <div class="spaceholder d-flex justify-content-center">
 
 <jsp:include page="/include/carousel.jsp"></jsp:include></div><br>
@@ -85,6 +86,7 @@ padding: 0.8rem;
     </div>
   </div>
 <br>
+
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
