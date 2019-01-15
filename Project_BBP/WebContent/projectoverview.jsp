@@ -56,7 +56,7 @@ if (u == null || u.getRole().getId() != 1){
 
 
 <div class="col-sm-4">
-<div class="card" style=" width:350px; margin:1% 0 1% 1.6%">
+<div class="card" style=" width:367px; margin:1% 0 1% 1.6%">
   <img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image">
   <div class="card-body">
     <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
@@ -73,7 +73,7 @@ if (u == null || u.getRole().getId() != 1){
     	<%  
       } else {
     	%>
-      <a href="#" class="btn btn-success disabled">Schon Abgestimmt</a>    
+      <a href="#" class="btn btn-success disabled">Bereits Abgestimmt!</a>    
       <%
       }
     %>
