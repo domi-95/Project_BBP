@@ -1,5 +1,6 @@
 package project;
 
+import user.*;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
@@ -23,10 +24,11 @@ public class Project {
 	private String stamp_updated;
 	private int vote;
 	private String comment;
+	private User user;
 
 	public Project(int id, String title, String category, String short_description, String description, String location,
 			String period, String investment_grade, String phone_numer, boolean anonymous, State state,
-			String stamp_created, String stamp_updated, int vote, String comment) {
+			String stamp_created, String stamp_updated, int vote, String comment, User user) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -43,6 +45,11 @@ public class Project {
 		this.stamp_updated = stamp_updated;
 		this.vote = vote;
 		this.comment = comment;
+		this.user = user;
+	}
+
+	public User getUser() {
+		return user;
 	}
 
 	public int getId() {
@@ -76,7 +83,6 @@ public class Project {
 	public String getInvestment_grade() {
 		return investment_grade;
 	}
-
 
 	public String getPhone_numer() {
 		return phone_numer;
@@ -133,12 +139,10 @@ public class Project {
 		this.setComment(comment);
 		this.setState(state);
 	}
-	
-	public void approve (State state) {
+
+	public void approve(State state) {
 		this.setState(state);
 	}
-	
-	
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
@@ -146,7 +150,5 @@ public class Project {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
 				phoneNumber, period, anonymous, picture, user_id);
 	}
-
-	
 
 }
