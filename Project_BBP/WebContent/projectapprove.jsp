@@ -80,6 +80,26 @@ if (u == null || u.getRole().getId() != 2){
   opacity: 1;
 }
 
+#background{
+position:absolute;
+    z-index:0;
+    background:white;
+    display:block;
+    min-height:50%; 
+    min-width:50%;
+    color:yellow;
+}
+#forground{
+position:absolute;
+z-index: 1;
+}
+#bg-text
+{
+    color:lightgrey;
+    font-size:60px;
+    transform:rotate(300deg);
+    -webkit-transform:rotate(300deg);
+}
 </style>
 
 <script>
@@ -297,7 +317,8 @@ $(document).ready(function changeActive1(){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
 	}
 	List<Project> projectlist = Project.getAll(state);
-	
+	String invest = "euro_less.png";
+	String period = "time_less.png";
 	int z = 1;	
 
 	//out.print (projectlist);
@@ -371,41 +392,75 @@ $(document).ready(function changeActive1(){
   </div>
 </div>
 
-<div class="row">
-<div class="col-xl-9">
 <div class="row m-2">
-  <div class="col-xl-4 border-bottom">
-    <p class="font-weight-bold">Investitionsgrad:</p>
-    
-  </div>
-  <div class="col-xl-8 border-bottom">
-    <%out.print(p.getInvestment_grade()); %>
+<%	
+	if(p.getInvestment_grade().equals("Gering")){
+		invest = "euro_less.png";	
+	}
+	if(p.getInvestment_grade().equals("Mittel")){
+		invest = "euro_medium.png";	
+	}
+	if(p.getInvestment_grade().equals("Hoch")){
+		invest = "euro_much.png";	
+	}	
+	%>
+<div class="col-xs-12 col-xl-3" style="background:transparent url('Images/<%out.print(invest); %>') no-repeat center center /cover">
+<div class="row" >
+<div class="col-xl-12 d-flex justify-content-center">
+<p class="font-weight-bold">Investitionsgrad</p>
+</div>
+</div>
+<div class="row" >
+<div class="col-xl-12 d-flex justify-content-center">
+<%out.print(p.getInvestment_grade()); %>
+</div>
+</div>
 
-  </div>
-    </div>
-  <div class="row m-2">
-  <div class="col-xl-4 border-bottom">
-    <p class="font-weight-bold">Zeitspanne:</p>
-    
-  </div>
-  <div class="col-xl-8 border-bottom">
-    <%out.print(p.getPeriod());%>
-  </div>
-  </div>
-  <div class="row m-2">
-  <div class="col-xl-4 border-bottom">
-    <p class="font-weight-bold">Ort:</p>
-    
-  </div>
-  <div class="col-xl-8 border-bottom">
-    <%out.print(p.getLocation()); %>
-  </div>
+</div>
+<%	
+	if(p.getPeriod().equals("Kurz")){
+		period = "time_less.png";	
+	}
+	if(p.getPeriod().equals("Mittel")){
+		period = "time_medium.png";	
+	}
+	if(p.getPeriod().equals("Lang")){
+		period = "time_much.png";	
+	}	
+	if(p.getPeriod().equals("Dauerhafte Maßnahme")){
+		period = "time_infinity.png";	
+	}	
+	%>
+<div class="col-xl-3 " style="background:transparent url('Images/<%out.print(period); %>') no-repeat center center /cover">
+<div class="row">
+<div class="col-xl-12 d-flex justify-content-center">
+<p class="font-weight-bold">Zeitspanne</p>
 </div>
 </div>
-  <div class="col-xs-12 col-xl-3">
-    <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px"/>
-  </div>
+<div class="row">
+<div class="col-xl-12 d-flex justify-content-center">
+<%out.print(p.getPeriod());%>
 </div>
+</div>
+</div>
+<div class="col-xl-3" style="background:transparent url('Images/map.png') no-repeat center center /cover">
+<div class="row">
+<div class="col-xl-12 d-flex justify-content-center">
+<p class="font-weight-bold">Ort</p>
+</div>
+</div>
+<div class="row">
+<div class="col-xl-12 d-flex justify-content-center">
+ <%out.print(p.getLocation()); %>
+
+ </div>
+</div>
+</div>
+<div class="col-xl-3 imgCon d-inline-block">
+	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"/>
+</div>
+</div>
+
 <% if(state==1){ %>
 <div class="row collapse m-2" id="details<%out.print(z);%>" >
   <div class="col-xs-12 col-xl-6">
