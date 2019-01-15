@@ -42,7 +42,7 @@ public class ProjectDao {
 		} catch (Exception e) {
 			System.out.println("Error while inserting project");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -50,7 +50,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return true;
 	}
@@ -76,7 +76,7 @@ public class ProjectDao {
 			System.out.println("Error while selecting project");
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -84,7 +84,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 
@@ -105,7 +105,7 @@ public class ProjectDao {
 			e.printStackTrace();
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -113,7 +113,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 	
@@ -133,7 +133,7 @@ public class ProjectDao {
 			e.printStackTrace();
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -141,7 +141,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return 0;
 	}
 
@@ -156,7 +156,7 @@ public class ProjectDao {
 		} catch (Exception e) {
 			System.out.println("Exception while updating state");
 			e.printStackTrace();
-		} finally {
+		}/* finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -164,7 +164,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return false;
 	}
@@ -184,7 +184,7 @@ public class ProjectDao {
 		} catch (Exception e) {
 			System.out.println("Error while inserting vote");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -192,7 +192,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return true;
 
@@ -209,7 +209,7 @@ public class ProjectDao {
 		} catch (Exception e) {
 			System.out.println("Exception while updating comment");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -217,7 +217,7 @@ public class ProjectDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return false;
 	}

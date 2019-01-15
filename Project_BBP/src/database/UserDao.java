@@ -32,7 +32,7 @@ public class UserDao {
 			System.out.println("Error while search user with password");
 		}
 
-		finally {
+	/*	finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -40,7 +40,7 @@ public class UserDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 
@@ -57,7 +57,7 @@ public class UserDao {
 			e.printStackTrace();
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -65,7 +65,7 @@ public class UserDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return true;
 	}
@@ -93,7 +93,7 @@ public class UserDao {
 			System.out.println("Error while searching user with email");
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -101,7 +101,7 @@ public class UserDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 	
@@ -128,7 +128,7 @@ public class UserDao {
 			System.out.println("Error while searching user with email");
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -136,7 +136,7 @@ public class UserDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 

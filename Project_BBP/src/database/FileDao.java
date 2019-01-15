@@ -36,7 +36,7 @@ public class FileDao {
 		System.out.println("Error while selecting file");
 	}
 
-	finally {
+	/*finally {
 		try {
 			con.close();
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class FileDao {
 			System.out.println("Exception while closing DB Connection");
 		}
 
-	}
+	}*/
 	return null;
 }
 }

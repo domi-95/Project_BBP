@@ -45,7 +45,7 @@ public class OpinionPollDao {
 		} catch (Exception e) {
 			System.out.println("Error while inserting opinion poll");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -53,7 +53,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return true;
 	}
@@ -78,7 +78,7 @@ public class OpinionPollDao {
 		} catch (Exception e) {
 			System.out.println("Error while inserting choice_header");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -86,7 +86,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return -1;
 	}
@@ -108,7 +108,7 @@ public class OpinionPollDao {
 			e.printStackTrace();
 		}
 
-		finally {
+		/*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -116,7 +116,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 	
@@ -142,7 +142,7 @@ public class OpinionPollDao {
 			e.printStackTrace();
 		}
 
-		finally {
+	/*	finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -150,7 +150,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 	
@@ -178,7 +178,7 @@ public class OpinionPollDao {
 			e.printStackTrace();
 		}
 
-		finally {
+	/*	finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -186,7 +186,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 		return null;
 	}
 	
@@ -229,7 +229,7 @@ public class OpinionPollDao {
 		} catch (Exception e) {
 			System.out.println("Error while inserting op vote");
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			try {
 				con.close();
 			} catch (Exception e) {
@@ -237,7 +237,7 @@ public class OpinionPollDao {
 				System.out.println("Exception while closing DB Connection");
 			}
 
-		}
+		}*/
 
 		return false;
 	}

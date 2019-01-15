@@ -10,7 +10,7 @@ import database.*;
 import servlet.*;
 import user.*;
 
-public class TestMain {
+public class TestMain extends Thread{
 	public static void main(String[] args) {
 
 		// System.out.println(Dao.login("max.mustermann@bbp.de", "1234"));
@@ -26,8 +26,8 @@ public class TestMain {
 		//List<Project> result = ProjectDao.getAllProject(1);
 		//System.out.println(result);
 		//project.setState(new State(2, "freigegeben"));
-		//System.out.println(ProjectDao.countVotes(46));
-		//System.out.println(ProjectDao.getAllProject(1));
+		//System.out.println(ProjectDao.countVotes(45));
+		System.out.println(ProjectDao.getAllProject(1));
 		//project.setComment("ein test kommentar wurde eingefügt");
 		//System.out.println(ProjectDao.searchProject(39));
 		//System.out.println(FileDao.searchFile(39));
@@ -62,8 +62,8 @@ public class TestMain {
 		System.out.println(file);
 		System.out.println(file.getFile());*/
 		
-		List<OpinionPoll> result = OpinionPoll.getAll(1);
-		System.out.println(result);
+	//	List<OpinionPoll> result = OpinionPoll.getAll(1);
+		//System.out.println(result);
 		/*List<String> header = result.get(1).getHeader();
 		
 		System.out.print("[");
@@ -93,10 +93,26 @@ public class TestMain {
 		System.out.print("]");
 		
 		System.out.println(result.get(6).getId()); */
-		
-		
+		//Thread t = new TestMain();
+		//t.start();
 		
 		
 	}
+
+	/*public void run() {
+		while (true) {
+			System.out.println("hallo");
+			try {
+				Thread.sleep(600000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+		}
+		
+	}*/
 
 }
