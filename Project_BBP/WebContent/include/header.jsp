@@ -28,14 +28,14 @@ if((User)session.getAttribute("user") != null){
 </head>
 <body>
 <div>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark opindex">
   <!-- Navbar content -->
 <a class="navbar-brand active col-sm-1" href="https://www.mosbach.de"><img alt="Website Stadt Mosbach" src="Images/LogoMosbach_ohne_Text.png" height="30">
 <span class="navbar-dark-span" height="30">&nbsp;Mosbach Große Kreisstadt Neckar-Odenwald </span></a>
 </nav>
 </div>
 <div class="navbd sticky-top">
-<nav class="navbar navbar-expand-lg navbar-dark navdesign" >
+<nav class="navbar navbar-expand-lg navbar-dark navdesign opindex" >
   <a class="navbar-brand active col-sm-4" href="index.jsp">
   <span class="navbar-light-span">&nbsp;Bürgerbeteiligungsportal</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

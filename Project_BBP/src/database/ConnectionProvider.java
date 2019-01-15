@@ -3,80 +3,48 @@ package database;
 import java.sql.*;
 import static database.Provider.*;
 
-/*public class ConnectionProvider {
+public class ConnectionProvider extends Thread {
 	private static Connection con = null;
 	static {
-		try {
-			Class.forName(DRIVER);
-			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-		} catch (Exception e) {
-			System.out.println("Verbindung zur Datenbank nicht möglich");
-		}
-	}
-
-	public static Connection getCon() {
-		return con;
-	}
-
-}*/
-
-public class ConnectionProvider extends Thread{
-	private static Connection con = null;
-	static {
-		try {
-			Class.forName(DRIVER);
-			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-		} catch (Exception e) {
-			System.out.println("Verbindung zur Datenbank nicht möglich");
-		}
-		Thread t = new ConnectionProvider ();
+		connect(); 								// first connection without thread, because thread can be slower than the first
+												// access to con
+		Thread t = new ConnectionProvider(); 	// start thread to reestaablishes the db connection
 		t.start();
 	}
 
+	public static void connect() { 				// method to get the connection
+		try {
+			Class.forName(DRIVER);
+			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
+		} catch (Exception e) {
+			System.out.println("Connection to database failed");
+		}
+	}
+
 	public static Connection getCon() {
 		return con;
 	}
-	
-	public void run() {
+
+	public void run() { 						// thread reestablishes the db connection after 5 minutes, otherwise it will be
+						
 		while (true) {
 
-			System.out.println("connection fetched");
-			try {
-				Class.forName(DRIVER);
-				con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-			} catch (Exception e) {
-				System.out.println("Verbindung zur Datenbank nicht möglich");
-			}
 			try {
 				Thread.sleep(300000);
 			} catch (InterruptedException e) {
 				System.out.println("Error while thread are sleeping");
 				e.printStackTrace();
 			}
-			
+
 			try {
-				con.close();
+				con.close();					// disconnected from the db-server
 			} catch (SQLException e) {
 				System.out.println("Error while closing connection");
 				e.printStackTrace();
 			}
+			connect();
+
 		}
 	}
-
-/*public class ConnectionProvider {
-	private static Connection con = null;
-	static {
-		
-	}
-
-	public static Connection getCon() {
-		try {
-			Class.forName(DRIVER);
-			return DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-		} catch (Exception e) {
-			System.out.println("Verbindung zur Datenbank nicht möglich");
-		}
-		return null;
-	}*/
 
 }

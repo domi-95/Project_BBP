@@ -36,6 +36,7 @@ padding: 0.8rem;
 
 
 <jsp:include page="/include/header.jsp"></jsp:include>
+
 <div class="spaceholder d-flex justify-content-center">
 
 <jsp:include page="/include/carousel.jsp"></jsp:include></div><br>
@@ -66,7 +67,7 @@ padding: 0.8rem;
 
 	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
 		<div class="imgCon d-inline-block">
-      	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image">
+      	<a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
       </div>
       <div class="card-body" style="height: 60px;">
       <p style="color: white;"><%out.print(p.getTitle()); %></p>
@@ -85,6 +86,7 @@ padding: 0.8rem;
     </div>
   </div>
 <br>
+
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

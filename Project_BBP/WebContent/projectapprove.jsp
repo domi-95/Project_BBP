@@ -56,7 +56,7 @@ if (u == null || u.getRole().getId() != 2){
     position: fixed;
     left: 50%;
     top: 50%;
-    z-index: 100;
+    z-index: 200;
 
     height: 400px;
     margin-top: -200px;

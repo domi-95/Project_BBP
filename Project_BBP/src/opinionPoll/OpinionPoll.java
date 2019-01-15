@@ -12,7 +12,7 @@ import database.OpinionPollDao;
 import user.*;
 
 public class OpinionPoll {
-	
+
 	int id;
 	String title;
 	String short_description;
@@ -25,11 +25,7 @@ public class OpinionPoll {
 	List<String> header = new LinkedList<String>();
 	User creator;
 	OpChoice choice;
-	
-	
-	
-	
-	
+
 	public OpinionPoll(int id, String title, String short_description, String description, byte[] picture,
 			int max_choice, Timestamp date_from, Timestamp date_to, Timestamp created, List<String> header,
 			User creator, OpChoice choice) {
@@ -47,81 +43,54 @@ public class OpinionPoll {
 		this.creator = creator;
 		this.choice = choice;
 	}
-	
-	
 
 	public int getId() {
 		return id;
 	}
 
-
-
 	public String getTitle() {
 		return title;
 	}
-
-
 
 	public String getShort_description() {
 		return short_description;
 	}
 
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
 
 	public byte[] getPicture() {
 		return picture;
 	}
 
-
-
 	public int getMax_choice() {
 		return max_choice;
 	}
-
-
 
 	public Timestamp getDate_from() {
 		return date_from;
 	}
 
-
-
 	public Timestamp getDate_to() {
 		return date_to;
 	}
-
-
 
 	public Timestamp getCreated() {
 		return created;
 	}
 
-
-
 	public List<String> getHeader() {
 		return header;
 	}
-
-
 
 	public User getCreator() {
 		return creator;
 	}
 
-	
-
-
 	public OpChoice getChoice() {
 		return choice;
 	}
-
-
 
 	public static boolean createProject(String title, String short_description, String description, InputStream is,
 			List<String> header, String date_from, String date_to, int user_id) {
@@ -130,27 +99,24 @@ public class OpinionPoll {
 		Date endDate = null;
 		int state_id = 1;
 		try {
-			// Weiterverarbeitung mit Datumsobjekt durchführen
-			startDate = sdf.parse(date_from);
+
+			startDate = sdf.parse(date_from); // further processing with Date Object
 			endDate = sdf.parse(date_to);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			System.out.println("Error while parsing String to Date");
 		}
-		if (startDate.getDate() == new Date().getDate()) {
+
+		if (startDate.getDate() == new Date().getDate()) { // check whether the date_from is equal to today
 			state_id = 2;
 		}
 		return OpinionPollDao.safeOpinionPoll(title, short_description, description, is, startDate, endDate, header,
 				user_id, state_id);
 
 	}
-	
-	public static List<OpinionPoll> getAll (int state_id) {
+
+	public static List<OpinionPoll> getAll(int state_id) {
 		return OpinionPollDao.getAllOp(state_id);
 	}
 
-	
-	
-	
-	
 }

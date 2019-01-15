@@ -258,7 +258,7 @@ public class ProjectDao {
 				myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 				new State(myRs.getInt("s.id"), myRs.getString("s.description")),
 				myRs.getString("stamp_created"), myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
-				myRs.getString("comment"));
+				myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error while creating project object");
