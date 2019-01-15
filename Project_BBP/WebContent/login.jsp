@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 <!--===============================================================================================-->
 </head>
 <body>
