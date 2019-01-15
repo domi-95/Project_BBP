@@ -64,18 +64,18 @@ padding: 0.8rem;
     
 	%>
 
-	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 300px;">
+	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
 		<div class="imgCon d-inline-block">
       	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image">
       </div>
-      <div class="card-body">
-      <h7><%out.print(p.getTitle()); %></h7>
+      <div class="card-body" style="height: 60px;">
+      <p style="color: white;"><%out.print(p.getTitle()); %></p>
 
       
       </div>
     </div>
 
-	
+	<br>
 
 	<% 
 	}
