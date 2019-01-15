@@ -20,6 +20,7 @@ if (u == null || u.getRole().getId() != 1){
 <head>
 <title>Projektübersicht</title>
 <style>
+
 .card-text{
     font-size:19px;
     text-overflow: ellipsis;
@@ -64,7 +65,7 @@ if (u == null || u.getRole().getId() != 1){
   </div>
   <div class="card-footer">
   
-      <a href="#" class="btn btn-primary">Projekt einsehen</a>
+      <a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary">Projekt einsehen</a>
       <% 
       if (alreadyVote.get(p.getId()) == null){
     	%> 
@@ -72,20 +73,17 @@ if (u == null || u.getRole().getId() != 1){
     	<%  
       } else {
     	%>
-      <a href="#" class="btn btn-success">Schon Abgestimmt</a>    
+      <a href="#" class="btn btn-success disabled">Schon Abgestimmt</a>    
       <%
       }
     %>
-      <a href="#" class="btn btn-success">Stimmen: <%out.print (p.getVote()); %></a>    
+      <a href="#" class="btn btn-success disabled" >Stimmen: <%out.print (p.getVote()); %></a>    
   </div>
 </div>
 </div>
 
 
-<% 
-z= z+1;
-	}
-	%>
+<% }%>
 	</div>
 	</div>
 </body>
