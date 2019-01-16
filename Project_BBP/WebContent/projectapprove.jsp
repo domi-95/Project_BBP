@@ -403,6 +403,12 @@ $(document).ready(function changeActive1(){
 	if(p.getInvestment_grade().equals("Hoch")){
 		invest = "euro_much.png";	
 	}	
+	if(p.getInvestment_grade().equals("nicht abschätzbar")){
+		invest = "question.png";	
+	}	
+	else{
+		invest = "question.png";	
+	}
 	%>
 <div class="col-xs-12 col-xl-3" style="background:transparent url('Images/<%out.print(invest); %>') no-repeat center center /cover">
 <div class="row" >
@@ -430,6 +436,9 @@ $(document).ready(function changeActive1(){
 	if(p.getPeriod().equals("Dauerhafte Maßnahme")){
 		period = "time_infinity.png";	
 	}	
+	else{
+		invest = "question.png";	
+	}
 	%>
 <div class="col-xl-3 " style="background:transparent url('Images/<%out.print(period); %>') no-repeat center center /cover">
 <div class="row">
