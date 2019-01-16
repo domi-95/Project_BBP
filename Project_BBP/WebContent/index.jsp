@@ -41,7 +41,8 @@ padding: 0.8rem;
 
 <jsp:include page="/include/carousel.jsp"></jsp:include></div><br>
 
-<div class="container text-center">    
+<div class="container text-center "> 
+  
   <h3>Projektübersicht</h3><br>
   <div class="row">
    <% 
@@ -84,7 +85,7 @@ padding: 0.8rem;
 	%>
    
     </div>
-  </div>
+  </div> 
 <br>
 
 <jsp:include page="/include/footer.jsp"></jsp:include>

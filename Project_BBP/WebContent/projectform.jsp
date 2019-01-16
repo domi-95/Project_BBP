@@ -24,6 +24,28 @@ if (u == null || u.getRole().getId() != 1){
 </head>
 <body class="bg opindex">
 <jsp:include page="include/header.jsp"></jsp:include>
+
+<!-- LOAD -->
+<div id="cover"></div>  
+<div id="loader"></div> 
+<script>
+$(window).bind("pageshow", function() {
+	$('#cover').removeClass('activate');
+	  $('#loader').removeClass('activate');
+});
+$(document).ready(function(){
+		  $('#cover').removeClass('activate');
+		  $('#loader').removeClass('activate');
+	$('#regForm').submit(function(){
+		  $('#cover').addClass('activate');
+		  $('#loader').addClass('activate');
+		});
+
+	
+	});
+</script>
+<!-- LOAD END -->
+
 <div class="formular-bd">
 <h2>Projektantrag erstellen:</h2>
 <br>
