@@ -32,7 +32,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Vorname erforderlich">
-						<input class="input100" type="text" name="firstname" placeholder="Vorname">
+						<input class="input100" type="text" name="firstname" placeholder="Vorname" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -40,7 +40,7 @@
 					</div>
 			
 				
-					<div class="wrap-input100 validate-input" data-validate = "Nachname erforderlich">
+					<div class="wrap-input100 validate-input" data-validate = "Nachname erforderlich" required>
 						<input class="input100" type="text" name="name" placeholder="Nachname">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -50,7 +50,7 @@
 		
 					
 					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="E-Mailadresse">
+						<input class="input100" type="text" name="email" placeholder="E-Mailadresse" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
-						<input class="input100" type="password" name="password1" placeholder="Passwort">
+						<input class="input100" type="password" name="password1" placeholder="Passwort" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -66,15 +66,19 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
-						<input class="input100" type="password" name="password2" placeholder="Passwort verifizieren">
+						<input class="input100" type="password" name="password2" placeholder="Passwort verifizieren" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
-					
-      
+					<div class="text-center p-t-12">
+					<div class="checkbox mb-3">
+						<label>
+				          <input type="checkbox" value="accept-termsofuse" required><a href="#">&nbsp;Nutzungsettikette</a> akzeptieren
+				        </label>
+					</div>
+      				</div>
 						<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Registrieren

@@ -32,7 +32,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Benutzername / E-Mail">
+						<input class="input100" type="text" name="email" placeholder="Benutzername / E-Mail" autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
