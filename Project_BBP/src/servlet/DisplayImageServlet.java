@@ -60,7 +60,7 @@ public class DisplayImageServlet extends HttpServlet {
 
 			if (file.getFile().length == 0) {
 				// No record found, redirect to default image.
-				response.sendRedirect(request.getContextPath() + "/Images/noimage.gif");
+				response.sendRedirect(request.getContextPath() + "/Images/noimage.png");
 				return;
 			}
 
