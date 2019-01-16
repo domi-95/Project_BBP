@@ -17,15 +17,21 @@ if (u == null || u.getRole().getId() != 1){
 <html>
 <jsp:include page="/include/header.jsp"></jsp:include><br>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/cscript.js"></script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-<a href="http://localhost:8080/Project_BBP/projectoverview.jsp" class="btn btn-success listbordershadow" style=" margin-left: 154px; margin-bottom: 5px">Zurück</a>
+<div id="snackbar_message"></div>
+<a href="#" class="btn btn-success listbordershadow" onClick="this.href=document.referrer" style=" margin-left: 154px; margin-bottom: 5px">Zurück</a>
 <% 
 Project p = Project.getProject(Integer.parseInt(request.getParameter("projectid")));
-Map<Integer, Integer> alreadyVote = Vote.getUserVotes(p.getId());%>
-<div class="card mx-auto listbordershadow" style="width: 80%;">
+Map<Integer, Integer> alreadyVote = null;
+if (u != null){
+alreadyVote = Vote.getUserVotes(u.getId());
+}%>
+<div class="card mx-auto listbordershadow" style="width: 80%;" id="voteReload">
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
      <h4><%out.print(p.getTitle()); %></h4> <!-- Get Title -->
@@ -102,15 +108,14 @@ Map<Integer, Integer> alreadyVote = Vote.getUserVotes(p.getId());%>
     <img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" height="200px" style=" margin-bottom: 10px"/>
   </div>
 </div>
-
+<input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 <% 
-	
 
-      if (alreadyVote.get(p.getId()) == null){
+if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%>	 
-      <a href="#" class="btn btn-success" style=" margin: 5px">Voten</a>  	
+      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Voten</a>  	
     	<%  
-      } else {
+      }else{
     	%>
       <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
       <%

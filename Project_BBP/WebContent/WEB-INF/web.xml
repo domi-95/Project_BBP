@@ -149,4 +149,14 @@
     <servlet-name>VoteOp</servlet-name>
     <url-pattern>/VoteOp</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VoteProject</display-name>
+    <servlet-name>VoteProject</servlet-name>
+    <servlet-class>servlet.VoteProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VoteProject</servlet-name>
+    <url-pattern>/VoteProject</url-pattern>
+  </servlet-mapping>
 </web-app>

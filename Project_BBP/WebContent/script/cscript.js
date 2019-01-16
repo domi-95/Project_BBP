@@ -54,6 +54,32 @@ function doOpVote(opid) {
     });
 }
 
+function doPVote(pid) {
+	var a = 0;
+	var vuser = $(".user").val();
+	//var phoneNo = $("#phoneNumber").val();
+	//var x = "40";
+	$.ajax({
+		url: 'votep',
+		type: 'POST',
+		data: {
+			id: pid,
+			user: vuser,
+		},
+		success: function(data) {
+			// alert('Update Success');
+			a = 1;
+			$("#voteReload").load(" #voteReload > *");
+			message(a);
+			
+		},
+		failure: function(data) {
+			message(a);
+			// alert('Update Failed');
+		}
+	});
+}
+
 function message(ar) {
 	if(ar==1){
 	  document.getElementById('snackbar_message').innerHTML +=

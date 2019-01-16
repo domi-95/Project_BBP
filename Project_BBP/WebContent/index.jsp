@@ -67,7 +67,7 @@ padding: 0.8rem;
 
 	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
 		<div class="imgCon d-inline-block">
-      	<a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
+      	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
       </div>
       <div class="card-body" style="height: 60px;">
       <p style="color: white;"><%out.print(p.getTitle()); %></p>

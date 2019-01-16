@@ -113,9 +113,9 @@ public class Project {
 		return vote;
 	}
 
-	public void Vote(int user_id, int project_id) {
-		ProjectDao.projectVote(user_id, project_id);
-		this.vote++;
+	public static boolean Vote(int user_id, int project_id) {
+		return ProjectDao.projectVote(user_id, project_id);
+		
 	}
 
 	public String getComment() {

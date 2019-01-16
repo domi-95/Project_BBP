@@ -16,6 +16,8 @@ if (u == null || u.getRole().getId() != 1){
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/cscript.js"></script>
 <jsp:include page="/include/header.jsp"></jsp:include><br>
 <head>
 <title>Projektübersicht</title>
@@ -40,7 +42,8 @@ if (u == null || u.getRole().getId() != 1){
 <title>Projektübersicht</title>
 </head>
 <body>
-<div class="container text-center">
+<div id="snackbar_message"></div>
+<div class="container text-center" id="voteReload">
 <div class="row">
 <% 
 	
@@ -59,7 +62,7 @@ if (u == null || u.getRole().getId() != 1){
 
 <div class="col-sm-4">
 <div class="card" style=" width:367px; margin:1% 0 1% 1.6%">
-  <img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image">
+  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body">
     <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
     <p class="card-text">Kategorie: <%out.print(p.getCategory()); %></p>
@@ -69,16 +72,18 @@ if (u == null || u.getRole().getId() != 1){
   
   <div class="row p-1">
   <div class="col-xs-12 col-lg-6">
-      <a href="http://localhost:8080/Project_BBP/projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary btn-block">Projekt einsehen</a>
+      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary btn-block">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
+  <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
       <% 
       if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%> 
-      <a href="#" class="btn btn-success btn-block">Voten</a>    	
+    	<input class="btn btn-success btn-block" value="Vote" onClick="doPVote(<%out.print(p.getId());%>);">
+        	
     	<%  
-      } else {
+      }else {
     	%>
       <a href="#" class="btn btn-success btn-block disabled">Bereits Abgestimmt!</a>    
       <%
@@ -88,8 +93,8 @@ if (u == null || u.getRole().getId() != 1){
   </div>
 </div>
 <div class="row p-1">
-  <div class="col d-flex justify-content-center">
-      <a href="#" class="btn btn-success btn-block disabled" >Stimmen: <%out.print (p.getVote()); %></a>    
+  <div class="col d-flex justify-content-center" >
+      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Stimmen: <%out.print (p.getVote()); %></a>    
     
   </div>
 </div>
