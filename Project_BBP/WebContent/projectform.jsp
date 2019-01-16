@@ -115,7 +115,7 @@ if (u == null || u.getRole().getId() != 1){
   </div>
 
 <div class="text-left">
-  <button type="submit" class="btn btn-info col-md-4 " >Absenden</button>
+  <button type="submit" class="btn btn-success col-md-4 " >Absenden</button>
   <button class="btn btn-secondary col-md-4" type="reset">Formular zurücksetzen</button>
 		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 

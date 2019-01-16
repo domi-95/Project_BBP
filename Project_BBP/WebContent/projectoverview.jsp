@@ -21,6 +21,8 @@ if (u == null || u.getRole().getId() != 1){
 <jsp:include page="/include/header.jsp"></jsp:include><br>
 <head>
 <title>Projektübersicht</title>
+
+
 <style>
 
 .card-text{
@@ -41,7 +43,7 @@ if (u == null || u.getRole().getId() != 1){
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
 </head>
-<body>
+<body class="bg">
 <div id="snackbar_message"></div>
 <div class="container text-center" id="voteReload">
 <div class="row">
@@ -63,16 +65,16 @@ if (u == null || u.getRole().getId() != 1){
 <div class="col-sm-4">
 <div class="card" style=" width:367px; margin:1% 0 1% 1.6%">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-  <div class="card-body">
+  <div class="card-body opindex">
     <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
     <p class="card-text">Kategorie: <%out.print(p.getCategory()); %></p>
     <p class="card-text"></p>
   </div>
-  <div class="card-footer">
+  <div class="card-footer opindex">
   
   <div class="row p-1">
   <div class="col-xs-12 col-lg-6">
-      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-primary btn-block">Projekt einsehen</a>
+      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-block">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
