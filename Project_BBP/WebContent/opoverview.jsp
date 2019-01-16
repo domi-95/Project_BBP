@@ -34,7 +34,10 @@ $(window).on('load', function(){
 <div id="snackbar_message"></div>
 <form>
 <%
-Map <Integer, Integer> alreadyVote = OpChoice.getUserChoices(u.getId());
+Map<Integer, Integer> alreadyVote = null;
+if (u != null){
+	alreadyVote = OpChoice.getUserChoices(u.getId());
+}
 List<OpinionPoll> oplist= OpinionPoll.getAll(1);
 for ( OpinionPoll op: oplist){
 %>
@@ -43,6 +46,7 @@ for ( OpinionPoll op: oplist){
 	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
 	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
 	<%
+	if(alreadyVote != null){
 	if (alreadyVote.get(op.getId()) == null){
 	%>
 	<input class="btn btn-lg btn-primary btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
@@ -50,7 +54,8 @@ for ( OpinionPoll op: oplist){
 	
 	<input class="btn btn-lg btn-primary btn-block" value="bereits Abgestimmt" ">
 	
-	<%} %>
+	<%}
+	}%>
 	<!-- only show when button "Abstimmen" was clicked -->
 	<div class="voteopBox" id="voteopBox<%out.print(op.getId());%>">
 	<form>

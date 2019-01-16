@@ -362,8 +362,8 @@ $(document).ready(function changeActive1(){
   </div>
 </div>
 <div class="row m-2">
-  <div class="col-xl text-center">
-    <button type="button" class="btn btn-info text-center" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
+  <div class="col-xl-12 text-center">
+    <button type="button" class="btn btn-lg btn-info btn-block" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
   </div>
 </div>
 <div id="details<%out.print(z);%>" class="collapse">
