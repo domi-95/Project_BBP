@@ -239,4 +239,12 @@ min-height: 0;
 .opbg{
 	opacity:0.3;
 }
+
+.btn-outline-light{
+	color: #fff !important;
+}
+.btn-outline-light:hover{
+	color: #000 !important;
+}
+
 	

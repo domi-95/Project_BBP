@@ -116,7 +116,16 @@ if((User)session.getAttribute("user") != null){
       }
     else{
       %>
-      <a class="btn btn-outline-light my-2 my-sm-0 col-sm-2" href="logout.jsp">Logout</a>
+      
+       <div class="btn-group">
+	        <a class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
+	          aria-expanded="false">
+	          <i class="fa fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
+	        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+	          <a class="dropdown-item" href="#">My account</a>
+	          <a class="dropdown-item" href="logout.jsp">Logout</a>
+	        </div>
+	    </div>
     <%
   	 }
     ///*
