@@ -26,7 +26,7 @@ if (u == null || u.getRole().getId() != 3){
 <!-- Custome style -->
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 </head>
-<body>
+<body class="bg opindex">
 <jsp:include page="include/header.jsp"></jsp:include>
 <div id="cover"></div>  
 <div id="loader"></div> 
