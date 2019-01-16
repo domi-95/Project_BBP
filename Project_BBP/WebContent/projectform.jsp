@@ -121,9 +121,17 @@ $(document).ready(function(){
 	<label for="chooseFile">Foto hochladen</label><br>
   <div class="custom-file col-md-8" id="chooseFile">
   
+  <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
-  <input type="file" class="form-control custom-file-input" name="photo" id="loadFile">
- 
+ <script>
+            $('#loadFile').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                alert(fileName);
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        </script>
 
 </div>
 <br>
