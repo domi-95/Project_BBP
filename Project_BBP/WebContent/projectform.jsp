@@ -119,7 +119,7 @@ $(document).ready(function(){
   </div>
 
 	<label for="chooseFile">Foto hochladen</label><br>
-  <div class="custom-file col-md-8" id="chooseFile">
+  <div class="custom-file col-md-6" id="chooseFile">
   
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile">

@@ -247,3 +247,6 @@ min-height: 0;
 	color: #000 !important;
 }
 
+.custom-file-label::after {
+	    content: "Durchsuchen";
+}
