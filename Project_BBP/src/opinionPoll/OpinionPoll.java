@@ -25,10 +25,13 @@ public class OpinionPoll {
 	List<String> header = new LinkedList<String>();
 	User creator;
 	OpChoice choice;
+	StateOp stateOp;
+
+
 
 	public OpinionPoll(int id, String title, String short_description, String description, byte[] picture,
 			int max_choice, Timestamp date_from, Timestamp date_to, Timestamp created, List<String> header,
-			User creator, OpChoice choice) {
+			User creator, OpChoice choice, StateOp stateOp) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -42,6 +45,7 @@ public class OpinionPoll {
 		this.header = header;
 		this.creator = creator;
 		this.choice = choice;
+		this.stateOp = stateOp;
 	}
 
 	public int getId() {
@@ -91,6 +95,19 @@ public class OpinionPoll {
 	public OpChoice getChoice() {
 		return choice;
 	}
+	
+	
+	
+
+	public StateOp getStateOp() {
+		return stateOp;
+	}
+
+	public void setStateOp(StateOp stateOp) {
+		this.stateOp = stateOp;
+		OpinionPollDao.updateState(this);
+	}
+
 
 	public static boolean createProject(String title, String short_description, String description, InputStream is,
 			List<String> header, String date_from, String date_to, int user_id) {
@@ -100,14 +117,14 @@ public class OpinionPoll {
 		int state_id = 1;
 		try {
 
-			startDate = sdf.parse(date_from); // further processing with Date Object
+			startDate = sdf.parse(date_from); 					// further processing with Date Object
 			endDate = sdf.parse(date_to);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			System.out.println("Error while parsing String to Date");
 		}
 
-		if (startDate.getDate() == new Date().getDate()) { // check whether the date_from is equal to today
+		if (startDate.getDate() == new Date().getDate()) { 		// check whether the date_from is equal to today
 			state_id = 2;
 		}
 		return OpinionPollDao.safeOpinionPoll(title, short_description, description, is, startDate, endDate, header,
