@@ -309,6 +309,11 @@ $(document).ready(function changeActive1(){
 		$('#'+element).addClass('active');
 	});
 });
+
+function changeValue(id){
+	var element = document.getElementById('collapseButton'+id);
+    element.value = (element.value == 'Mehr anzeigen' ? 'Weniger anzeigen' : 'Mehr anzeigen');
+}
 </script>
 
 
@@ -361,11 +366,7 @@ $(document).ready(function changeActive1(){
     <%out.print(p.getShort_description()); %>
   </div>
 </div>
-<div class="row m-2">
-  <div class="col-xl-12 text-center">
-    <button type="button" class="btn btn-lg btn-info btn-block" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample">Mehr anzeigen</button>
-  </div>
-</div>
+
 <div id="details<%out.print(z);%>" class="collapse">
 <div class="row m-2">
   <div class="col-xs-12 col-xl-3 border-bottom">
@@ -407,7 +408,7 @@ $(document).ready(function changeActive1(){
 		invest = "question.png";	
 	}	
 	%>
-<div class="col-xs-12 col-xl-3" style="background:transparent url('Images/<%out.print(invest); %>') no-repeat center center /cover">
+<div class="col-xs-12 col-xl-3 border border-top-0" style="background:transparent url('Images/<%out.print(invest); %>') no-repeat center center /cover; min-height: 310px;">
 <div class="row" >
 <div class="col-xl-12 d-flex justify-content-center">
 <p class="font-weight-bold">Investitionsgrad</p>
@@ -434,7 +435,7 @@ $(document).ready(function changeActive1(){
 		period = "time_infinity.png";	
 	}	
 	%>
-<div class="col-xl-3 " style="background:transparent url('Images/<%out.print(period); %>') no-repeat center center /cover">
+<div class="col-xl-3 border border-top-0" style="background:transparent url('Images/<%out.print(period); %>') no-repeat center center /cover; min-height: 310px;">
 <div class="row">
 <div class="col-xl-12 d-flex justify-content-center">
 <p class="font-weight-bold">Zeitspanne</p>
@@ -446,7 +447,7 @@ $(document).ready(function changeActive1(){
 </div>
 </div>
 </div>
-<div class="col-xl-3" style="background:transparent url('Images/map.png') no-repeat center center /cover">
+<div class="col-xl-3 border border-top-0" style="background:transparent url('Images/map.png') no-repeat center center /cover; min-height: 310px;">
 <div class="row">
 <div class="col-xl-12 d-flex justify-content-center">
 <p class="font-weight-bold">Ort</p>
@@ -459,8 +460,8 @@ $(document).ready(function changeActive1(){
  </div>
 </div>
 </div>
-<div class="col-xl-3 imgCon d-inline-block">
-	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"/>
+<div class="col-xl-3 border border-top-0 text-center imgCon d-inline-block">
+	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid mx-auto d-block" alt="Image"/>
 </div>
 </div>
 
@@ -473,8 +474,13 @@ $(document).ready(function changeActive1(){
     <input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
   </div>
 </div>
-<%} %> 
 </div>
+<div class="row m-2">
+  <div class="col-xl-12 text-center">
+    <input type="button" class="btn btn-lg btn-info btn-block" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample" value="Mehr anzeigen" id="collapseButton<%out.print(p.getId());%>" onClick="changeValue(<%out.print(p.getId());%>);">
+  </div>
+</div>
+<%} %> 
 </div>
 		
 		 
