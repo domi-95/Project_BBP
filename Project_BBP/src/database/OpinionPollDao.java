@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import opinionPoll.*;
+import project.Project;
 import user.User;
 
 public class OpinionPollDao {
@@ -100,7 +101,7 @@ public class OpinionPollDao {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * FROM opinion_poll op, state st WHERE op.state_op_id = st.id and op.state_op_id = '"+state_id+"'");
+					"SELECT * FROM opinion_poll op, state_op st WHERE op.state_op_id = st.id and op.state_op_id = '"+state_id+"'");
 			while (myRs.next()) {
 				result.add(resultSetCreateOpinionPoll(myRs));
 			}
@@ -214,18 +215,18 @@ public class OpinionPollDao {
 	
 	public static OpinionPoll resultSetCreateOpinionPoll(ResultSet myRs) {
 		try {
-			return new OpinionPoll(myRs.getInt("id"), 
-					myRs.getString("title"), 
-					myRs.getString("short_description"), 
-					myRs.getString("description"), 
-					myRs.getBytes("picture"), 
-					myRs.getInt("max_choice"), 
-					myRs.getTimestamp("date_from"),
-					myRs.getTimestamp("date_to"), 
-					myRs.getTimestamp("created"), 
-					getHeader(myRs.getInt("choice_header_id")),
-					UserDao.searchUser(myRs.getInt("user_id")),
-					getChoice(myRs.getInt("id"))
+			return new OpinionPoll(myRs.getInt("op.id"), 
+					myRs.getString("op.title"), 
+					myRs.getString("op.short_description"), 
+					myRs.getString("op.description"), 
+					myRs.getBytes("op.picture"), 
+					myRs.getInt("op.max_choice"), 
+					myRs.getTimestamp("op.date_from"),
+					myRs.getTimestamp("op.date_to"), 
+					myRs.getTimestamp("op.created"), 
+					getHeader(myRs.getInt("op.choice_header_id")),
+					UserDao.searchUser(myRs.getInt("op.user_id")),
+					getChoice(myRs.getInt("op.id")), new StateOp(myRs.getInt("st.id"), myRs.getString("st.description"))
 					);
 		} catch (SQLException e) {
 			System.out.println("Error while creating opinionPoll object");
@@ -252,6 +253,31 @@ public class OpinionPollDao {
 			System.out.println("Error while inserting op vote");
 			e.printStackTrace();
 		} /*finally {
+			try {
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Exception while closing DB Connection");
+			}
+
+		}*/
+
+		return false;
+	}
+	
+	
+	public static boolean updateState(OpinionPoll op) {
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "UPDATE opinion_poll SET state_op_id = '" + op.getStateOp().getId() + "' WHERE id = '" + op.getId() + "'";
+			Statement st = con.createStatement();
+			st.execute(sql);
+
+		} catch (Exception e) {
+			System.out.println("Exception while updating op_state");
+			e.printStackTrace();
+		}/* finally {
 			try {
 				con.close();
 			} catch (Exception e) {
