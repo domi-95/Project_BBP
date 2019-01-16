@@ -18,6 +18,8 @@ if (u == null || u.getRole().getId() != 1){
 	
 <!-- Custome style -->
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body class="bg opindex">

@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 <!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>

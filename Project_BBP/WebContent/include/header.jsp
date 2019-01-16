@@ -20,9 +20,10 @@ if((User)session.getAttribute("user") != null){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstr	apcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+	
 <!-- Custom style -->
 <link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
+
 <%@page import="user.*"%>
 
 </head>
@@ -118,7 +119,7 @@ if((User)session.getAttribute("user") != null){
       %>
       
        <div class="btn-group">
-	        <a class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true"
+	        <a class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
 	          aria-expanded="false">
 	          <i class="fa fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
 	        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">

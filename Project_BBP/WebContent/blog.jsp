@@ -6,11 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
  <!-- Custom styles -->
-<link rel="stylesheet" type="text/css" href="style/signin.css"
-	media="screen">
+<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen">
 <!-- BLOG-Custom styles -->
-<link rel="stylesheet" type="text/css" href="style/blog.css"
-	media="screen">
+<link rel="stylesheet" type="text/css" href="style/blog.css" media="screen">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 <title>News</title>
 </head>
 <body class="lingradbg">
@@ -25,7 +26,6 @@
 		dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
 		nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
 		in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 	<!-- Grid row -->
 	<div class="row">
 
