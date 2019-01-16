@@ -24,6 +24,8 @@ if((User)session.getAttribute("user") != null){
 <!-- Custom style -->
 <link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 
+
+
 <%@page import="user.*"%>
 
 </head>

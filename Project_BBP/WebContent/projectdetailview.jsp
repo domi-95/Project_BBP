@@ -22,6 +22,7 @@ if (u == null || u.getRole().getId() != 1){
 	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/cscript.js"></script>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -438,6 +439,7 @@ function changeValue(id){
 	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid mx-auto d-block" alt="Image"/>
 </div>
 </div>
+<input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 
 <% 
 
