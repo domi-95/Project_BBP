@@ -24,7 +24,7 @@ if (u == null || u.getRole().getId() != 1){
 <jsp:include page="include/header.jsp"></jsp:include>
 <div class="formular-bd">
 <h2>Projektantrag erstellen:</h2>
-
+<br>
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
   <div class="form-row">
@@ -33,6 +33,7 @@ if (u == null || u.getRole().getId() != 1){
       <input class="form-control" id="inputTitel" placeholder="Titel (max. 40 Zeichen)">
     </div>
   </div>
+  
   <div class="form-row">
   <div class="form-group col-md-6" >
       <label for="inputCategory">Kategorie</label>

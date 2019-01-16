@@ -97,25 +97,26 @@ function cutDate() {
 </script>
 <div class="formular-bd">
 <h1>Abstimmung erstellen</h1>
+<br>
 <form id="regForm" action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
 <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
       <input class="form-control" id="inputTitel" placeholder="Titel (max. 40 Zeichen)">
     </div>
   </div>
  <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-6" id="exampleFormControlShortdescription" rows="4" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
  <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-6" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
 
 
 <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="date">Dauer der Abstimmung</label>
       <input class="form-control" type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here" placeholder="Dauer der Abstimmung"  required/>
 <script>
@@ -138,7 +139,7 @@ $('#date').datepicker({
   </div>
 
 <label for="chooseFile">Foto hochladen</label><br>
-  <div class="custom-file col-md-5" id="chooseFile">
+  <div class="custom-file col-md-4" id="chooseFile">
  <div class="form-row"> 
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
   <input type="file" class="custom-file-input form-control" id="loadFile" name="photo" size="50">
@@ -149,9 +150,9 @@ $('#date').datepicker({
 <br>
 <br>
 <div class="text-left">
-<input class="btn btn-secondary col-md-3" type="button" value="Abstimmfeld hinzufügen" onClick="feld_plus();" required>
+<input class="btn btn-secondary col-md-4" type="button" value="Abstimmfeld hinzufügen" onClick="feld_plus();" required>
 
-<input class="btn btn-secondary col-md-3 " type="button" value="Abstimmfeld entfernen" onClick="feld_minus();" required>
+<input class="btn btn-secondary col-md-4 " type="button" value="Abstimmfeld entfernen" onClick="feld_minus();" required>
 
 </div>
 <br>
@@ -170,7 +171,7 @@ $('#date').datepicker({
  
 <div id="dynamic_input"></div> <br>
 <div class="text-left">
-<button class=" btn btn-info col-md-3 "type = "submit">Weitergabe</button>
+<button class=" btn btn-info col-md-4 "type = "submit">Weitergabe</button>
 
 </div>
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
