@@ -17,10 +17,10 @@ if (u == null || u.getRole().getId() != 1){
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
 	
 <!-- Custome style -->
-	<link rel="stylesheet" type="text/css" href="../style/cstyle.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 <title>Insert title here</title>
 </head>
-<body>
+<body class="bg opindex">
 <jsp:include page="include/header.jsp"></jsp:include>
 <div class="formular-bd">
 <h2>Projektantrag erstellen:</h2>
@@ -28,7 +28,7 @@ if (u == null || u.getRole().getId() != 1){
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
       <input class="form-control" id="inputTitel" placeholder="Titel (max. 40 Zeichen)">
     </div>
@@ -50,21 +50,21 @@ if (u == null || u.getRole().getId() != 1){
     </div>
   <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-6" id="exampleFormControlShortdescription" rows="4" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-6" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
  
     <div class="form-row">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-6">
       <label for="inputCity">Ort</label>
       <input type="text" class="form-control" id="inputCity" placeholder="Bsp. (max. 20 Zeichen)">
     </div>
    </div>
     <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="inputPeriod">Dauer</label>
       <select id="inputPeriod" class="form-control">
       <option value="Choose Period" selected>Zeitraum auswählen</option>
@@ -74,7 +74,7 @@ if (u == null || u.getRole().getId() != 1){
 			<option value="Dauerhafte Maßnahme">Dauerhafte Maßnahme</option>
       </select>
     </div>
-     <div class="form-group col-md-4">
+     <div class="form-group col-md-6">
       <label for="inputGrade">Investitionsgrad</label>
       <select id="inputGrade" class="form-control">
         <option value="Choose Grade" selected>Investitionsgrad auswählen</option>
@@ -87,14 +87,14 @@ if (u == null || u.getRole().getId() != 1){
   </div> 
 
 <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="inputPhonenumber">Telefonnummer</label>
       <input type="text" class="form-control" id="inputPhonenumber" placeholder="Bsp. 01234/56789">
     </div>
   </div>
 
 	<label for="chooseFile">Foto hochladen</label><br>
-  <div class="custom-file col-md-4" id="chooseFile">
+  <div class="custom-file col-md-8" id="chooseFile">
   
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile">
@@ -114,8 +114,8 @@ if (u == null || u.getRole().getId() != 1){
   </div>
 
 <div class="text-left">
-  <button type="submit" class="btn btn-info col-md-3 " >Absenden</button>
-  <button class="btn btn-secondary col-md-3" type="reset">Formular zurücksetzen</button>
+  <button type="submit" class="btn btn-info col-md-4 " >Absenden</button>
+  <button class="btn btn-secondary col-md-4" type="reset">Formular zurücksetzen</button>
 		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 
 </div>
