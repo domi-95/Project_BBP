@@ -102,16 +102,16 @@ function cutDate() {
 <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
-      <input class="form-control" id="inputTitel" placeholder="Titel (max. 40 Zeichen)">
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
     </div>
   </div>
  <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="short_description" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
  <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
 
 

@@ -32,14 +32,14 @@ if (u == null || u.getRole().getId() != 1){
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
-      <input class="form-control" id="inputTitel" placeholder="Titel (max. 40 Zeichen)">
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
     </div>
   </div>
   
   <div class="form-row">
   <div class="form-group col-md-6" >
       <label for="inputCategory">Kategorie</label>
-      <select id="inputCategory" class="form-control">
+      <select id="inputCategory" name="category" class="form-control">
         <option selected>Kategorie wählen...</option>
        		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
 			<option value="Wirtschaft und Finanzen" >Bildung und Kultur</option>
@@ -53,23 +53,23 @@ if (u == null || u.getRole().getId() != 1){
     </div>
   <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
  
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ort</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="Bsp. (max. 20 Zeichen)">
+      <input type="text" class="form-control" id="inputCity" name="location" placeholder="Bsp. (max. 20 Zeichen)">
     </div>
    </div>
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputPeriod">Dauer</label>
-      <select id="inputPeriod" class="form-control">
+      <select id="inputPeriod" name="period" class="form-control">
       <option value="Choose Period" selected>Zeitraum auswählen</option>
         <option value="Kurz">Kurz</option>
 			<option value="Mittel">Mittel</option>
@@ -79,7 +79,7 @@ if (u == null || u.getRole().getId() != 1){
     </div>
      <div class="form-group col-md-6">
       <label for="inputGrade">Investitionsgrad</label>
-      <select id="inputGrade" class="form-control">
+      <select id="inputGrade" name="investmentGrade" class="form-control">
         <option value="Choose Grade" selected>Investitionsgrad auswählen</option>
 			<option value="Gering">Gering</option>
 			<option value="Mittel">Mittel</option>
@@ -92,7 +92,7 @@ if (u == null || u.getRole().getId() != 1){
 <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputPhonenumber">Telefonnummer</label>
-      <input type="text" class="form-control" id="inputPhonenumber" placeholder="Bsp. 01234/56789">
+      <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="Bsp. 01234/56789">
     </div>
   </div>
 
@@ -109,7 +109,7 @@ if (u == null || u.getRole().getId() != 1){
 
 <div class="form-group">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="stayAnonym">
+      <input class="form-check-input" type="checkbox" id="stayAnonym" name="anonymous">
       <label class="form-check-label" for="stayAnonym">
         Anonym bleiben
       </label>
