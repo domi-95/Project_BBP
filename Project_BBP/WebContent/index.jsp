@@ -32,7 +32,7 @@ padding: 0.8rem;
 }
 </style>
 </head>
-<body class="lingradbg">
+<body class="lingradbg bg">
 
 
 <jsp:include page="/include/header.jsp"></jsp:include>
