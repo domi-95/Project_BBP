@@ -1,11 +1,13 @@
 package test;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import file.*;
 import opinionPoll.*;
 import database.*;
 import servlet.*;
+import statechanger.StateChanger;
 import user.*;
 
 public class TestMain extends Thread{
@@ -17,7 +19,7 @@ public class TestMain extends Thread{
 //	System.out.println(User.createUser("test@test.de", "Test", "Test", "test123", 1));
 
 		//System.out.println(searchRequest(3));
-		//System.out.println(ProjectDao.getAllProject(1));
+		//System.out.println(ProjectDao.getAllProject(2).get(1).getUser().getFirstname());
 		// new File
 		//Project project = ProjectDao.searchProject(39);
 		//System.out.println(project);
@@ -96,7 +98,95 @@ public class TestMain extends Thread{
 		
 		//Map <Integer, Integer>  result =(ProjectDao.getAllVotes(1));
 		//System.out.println(result.get(1));
+		
+//		List<OpinionPoll> created = OpinionPoll.getAll(1);
+//		System.out.println(created.get(1).getId());
+////		System.out.println(created.get(1).getDate_from().compareTo(new Date()));
+////		System.out.println();
+//		Date date_from = created.get(2).getDate_from();
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//		//Date date_from = sdf.parse(created.get(1).getDate_from());
+//		//Date today = new Date()
+//		
+//		
+//		//Date date_from = created.get(1).getDate_from();
+//		//date_from.setHours(0);
+//		  Calendar cal_date_from = Calendar.getInstance();
+//		  cal_date_from.setTime(date_from);
+//		  System.out.println(cal_date_from);
+//		  cal_date_from.set(Calendar.MINUTE, 0);
+//		  cal_date_from.set(Calendar.HOUR_OF_DAY, 0);
+//		  cal_date_from.set(Calendar.SECOND, 0);
+//		  cal_date_from.set(Calendar.MILLISECOND, 0);
+//		  
+//		  date_from = cal_date_from.getTime();
+//		  System.out.println(date_from);
+//		  
+//		  
+//		  
+//		  Calendar cal_date_today = Calendar.getInstance();
+//		  System.out.println(cal_date_today);
+//		  cal_date_today.set(Calendar.MINUTE, 0);
+//		  cal_date_today.set(Calendar.HOUR_OF_DAY, 0);
+//		  cal_date_today.set(Calendar.SECOND, 0);
+//		  cal_date_today.set(Calendar.MILLISECOND, 0);
+//		  Date today;
+//		  today = cal_date_today.getTime();
+//		  System.out.println(today);
+//		  
+//		  System.out.println(cal_date_from.compareTo(cal_date_today));
+//		  System.out.println(cal_date_today.compareTo(cal_date_from));
+		 
+		  
+		  //date 1.compareTo (date2) = -1 if (date1 <= date 2)
+		  //date 2.compareTo (date1) = 1 if (date1 > date 2)
+		//List<OpinionPoll> created = OpinionPoll.getAll(1);
+		//Calendar cal_date_today = Calendar.getInstance();
+		//cal_date_today = getCalenderWithoutTime(cal_date_today);
+		
+		//created.get(2).setStateOp(new StateOp(2, "eröffnet"));
+		//System.out.println(created.get(2).getId());
+//		for (OpinionPoll op : created) {
+//			System.out.println("ID: " + op.getId());
+//			System.out.println("Datum von: " + op.getDate_from());
+//			System.out.println("Datum heute: " + new Date());
+//			Date date_from = op.getDate_from();
+//			Calendar cal_date_from = Calendar.getInstance();
+//			cal_date_from.setTime(date_from);
+//			cal_date_from = getCalenderWithoutTime(cal_date_from);
+//			if (cal_date_from.compareTo(cal_date_today) == 0) {
+//				System.out.println("Ist gleich");
+//			}
+//
+//			if (cal_date_from.compareTo(cal_date_today) == -1) {
+//
+//				System.out.println("Datum to liegt in der Vergangenheit");
+//			}
+//
+//			if (cal_date_from.compareTo(cal_date_today) == 1)
+//				System.out.println("Datum from liegt in der Zukunft");
+//		}
+
+		
+//		List<OpinionPoll> created = OpinionPoll.getAll(1);
+//		List<OpinionPoll> opened = OpinionPoll.getAll(2);
+//		List<OpinionPoll> closed = OpinionPoll.getAll(3);
+//		
+//		StateChanger.checkStates(created);
+//		StateChanger.checkStates(opened);
+//		StateChanger.checkStates(closed);
+//		
+		
 	}
+	
+//	public static Calendar getCalenderWithoutTime (Calendar calendar) {
+//		calendar.set(Calendar.MINUTE, 0);
+//		calendar.set(Calendar.HOUR_OF_DAY, 0);
+//		calendar.set(Calendar.SECOND, 0);
+//		calendar.set(Calendar.MILLISECOND, 0);
+//		return calendar;
+//		  
+//	}
 
 	/*public void run() {
 		while (true) {

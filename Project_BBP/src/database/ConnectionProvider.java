@@ -1,22 +1,17 @@
 package database;
 
 import java.sql.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Timer;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
-
 import statechanger.StateChanger;
-
 import static database.Provider.*;
 
-public class ConnectionProvider extends Thread {
+public class ConnectionProvider extends TimerTask {
 	private static Connection con = null;
+	
 	static {
-		connect(); 								// first connection without thread, because thread can be slower than the first
-												// access to con
-		Thread t = new ConnectionProvider(); 	// start thread to reestaablishes the db connection
-		t.start();
+		connect(); 					
+		ConnectionProvider.startSchedule(); 	//start schedule to reestaablishes the db connection
 		StateChanger.startSchedule();			// start scheduled StateChanger
 	}
 
@@ -30,31 +25,24 @@ public class ConnectionProvider extends Thread {
 	}
 
 	public static Connection getCon() {
-		return con;
+		return con;								//returns the db connection to the DAO classes
+	}
+	
+	public static void startSchedule () {
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new ConnectionProvider(),5000,TimeUnit.MILLISECONDS.convert(10, TimeUnit.MINUTES));
 	}
 
-	public void run() { 						// thread reestablishes the db connection after 5 minutes, otherwise it will be
-						
-		while (true) {
-			System.out.println("hello");
-			try {
-				TimeUnit.MINUTES.sleep(10);
-				System.out.println("10 minutes are over");
-				//Thread.sleep(300000);
-			} catch (InterruptedException e) {
-				System.out.println("Error while thread are sleeping");
-				e.printStackTrace();
-			}
+	public void run() { // thread reestablishes the db connection after 5 minutes, otherwise it will be
 
-			try {
-				con.close();					// disconnected from the db-server
-			} catch (SQLException e) {
-				System.out.println("Error while closing connection");
-				e.printStackTrace();
-			}
-			connect();
-
+		try {
+			con.close(); // disconnected from the db-server
+		} catch (SQLException e) {
+			System.out.println("Error while closing connection");
+			e.printStackTrace();
 		}
+		System.out.println("Schedule call connect");
+		connect();
 	}
 
 }

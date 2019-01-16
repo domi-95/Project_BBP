@@ -19,18 +19,18 @@ import test.Remindtask;
 //  1 = date1  > date2
 
 public class StateChanger extends TimerTask {
-	
+
 	public static void startSchedule() {
 		Calendar calendar = Calendar.getInstance();
-    	calendar.set(Calendar.HOUR_OF_DAY, 6);
-    	calendar.set(Calendar.MINUTE, 0);
-    	calendar.set(Calendar.SECOND, 0);
-    	System.out.println(calendar);
-    	Date time = calendar.getTime();
+		calendar.set(Calendar.HOUR_OF_DAY, 24);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		//System.out.println(calendar);
+		Date time = calendar.getTime();
 
-    	Timer timer = new Timer();
-    	StateChanger stateChanger = new StateChanger();
-    	timer.schedule(stateChanger, time, TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
+		Timer timer = new Timer();
+		StateChanger stateChanger = new StateChanger();
+		timer.schedule(stateChanger, time, TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
 	}
 
 	public void run() {
@@ -44,7 +44,8 @@ public class StateChanger extends TimerTask {
 
 		for (OpinionPoll op : toCheck) {
 			System.out.println("ID: " + op.getId());
-			System.out.println("Datum von: " + op.getDate_from());
+			System.out.println("Datum from: " + op.getDate_from());
+			System.out.println("Datum to: " + op.getDate_to());
 			System.out.println("Datum heute: " + new Date());
 			Date date_from = op.getDate_from();
 			Date date_to = op.getDate_to();
@@ -54,42 +55,56 @@ public class StateChanger extends TimerTask {
 
 			cal_date_from.setTime(date_from);
 			cal_date_to.setTime(date_to);
+
 			cal_date_from = getCalenderWithoutTime(cal_date_from);
 			cal_date_to = getCalenderWithoutTime(cal_date_to);
 
 			// date_from == today --> eröffnet
 
 			if (cal_date_from.compareTo(cal_date_today) == 0) {
-				System.out.println("Ist gleich");
+				System.out.println("Ist gleich: Eröffnet");
 				op.setStateOp(new StateOp(2, "eröffnet"));
+				continue;
 			}
 
 			// date_from < today --> erstellt
-
-			if (cal_date_from.compareTo(cal_date_today) == -1) {
-				// do nothing
+			if (cal_date_from.compareTo(cal_date_today) == -1 && cal_date_to.compareTo(cal_date_today) == -1) {
 
 				System.out.println("Datum from liegt in der Vergangenheit");
+				System.out.println("Datum to liegt in der Vergangenheit: abgeschlossen");
+				op.setStateOp(new StateOp(3, "abgeschlossen"));
+				continue;
+
+			}
+			if (cal_date_from.compareTo(cal_date_today) == -1 && cal_date_to.compareTo(cal_date_today) == 1) {
+				
+				op.setStateOp(new StateOp(2, "eröffnet"));
+				System.out.println("Datum from liegt nach heute");
+				System.out.println("Datum to liegt in der Zukunft");
+				System.out.println("Also eröffnet");
+				continue;
+			}
+
+			if (cal_date_from.compareTo(cal_date_today) == -1) {
+
+				System.out.println("Datum from liegt in der Vergangenheit: erstellt");
+				op.setStateOp(new StateOp(1, "erstellt"));
+				continue;
 
 			}
 
 			// date_from > today && date_to< today --> eröffnet
 			// if method did not run daily
 
-			if (cal_date_from.compareTo(cal_date_today) == 1 && cal_date_to.compareTo(cal_date_today) == -1) {
-
-				op.setStateOp(new StateOp(2, "eröffnet"));
-				System.out.println("Datum from liegt nach heute");
-				System.out.println("Datum to liegt in der Zukunft");
-
-			}
 
 			// date_to > today --> abgeschlossen
 
 			if (cal_date_to.compareTo(cal_date_today) == 1) {
 				op.setStateOp(new StateOp(3, "abgeschlossen"));
-
+				System.out.println("abgeschlossen");
+				continue;
 			}
+			System.out.println("--------------------------------");
 		}
 	}
 
