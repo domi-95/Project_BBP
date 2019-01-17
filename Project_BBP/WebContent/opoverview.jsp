@@ -38,13 +38,14 @@ Map<Integer, Integer> alreadyVote = null;
 if (u != null){
 	alreadyVote = OpChoice.getUserChoices(u.getId());
 }
-List<OpinionPoll> oplist= OpinionPoll.getAll(1);
+List<OpinionPoll> oplist= OpinionPoll.getAll(2);
 for ( OpinionPoll op: oplist){
 %>
 	<div id="dynamic_divs<%out.print(op.getId());%>">
 	Titel: <%out.print(op.getTitle()); %><br/>
 	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
 	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
+	<div id="reloadButton<%out.print(op.getId());%>">
 	<%
 	if(alreadyVote != null){
 	if (alreadyVote.get(op.getId()) == null){
@@ -52,10 +53,11 @@ for ( OpinionPoll op: oplist){
 	<input class="btn btn-lg btn-primary btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
 	<%} else {%>
 	
-	<input class="btn btn-lg btn-primary btn-block" value="bereits Abgestimmt" ">
+	<input class="btn btn-lg btn-primary btn-block disabled" value="bereits Abgestimmt">
 	
 	<%}
 	}%>
+	</div>
 	<!-- only show when button "Abstimmen" was clicked -->
 	<div class="voteopBox" id="voteopBox<%out.print(op.getId());%>">
 	<form>

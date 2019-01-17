@@ -24,12 +24,13 @@ function voteopBox(id, action){
 	}	
 }
 
+//Script for Voting an opinion poll
 function doOpVote(opid) {
 	var a = 0;
 	var vuser = $(".user").val();
 	var vselection = $(".selection"+opid+":checked").val();
-    //var phoneNo = $("#phoneNumber").val();
-    //var x = "40";
+	var element = 'reloadButton' + opid;
+	//Call VoteOp.java Serlvet
     $.ajax({
         url: 'voteop',
         type: 'POST',
@@ -41,9 +42,12 @@ function doOpVote(opid) {
         success: function(data) {
            // alert('Update Success');
         	a = 1;
+        	//Creates Snackbar Message
         	message(a);
+        	//Closes overlay vote box
         	voteopBox(opid, 'close');
-            remove_op(opid);
+        	//Reloads Button for text
+        	$("#"+element).load(" #"+element+" > *");
             
         },
         failure: function(data) {
