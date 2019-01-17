@@ -185,3 +185,7 @@ function remove_op(opid) {
 	}
 
 })(jQuery);
+
+$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
