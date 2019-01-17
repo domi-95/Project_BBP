@@ -189,3 +189,33 @@ function remove_op(opid) {
 $(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
+	
+//Add and Delete fields for opform.jsp
+function field(adddelete){
+var ad = adddelete;
+
+	if(ad.localeCompare('+') == 0){
+		//Creates new answerfield
+		 if (feld <= 10) {
+		  var inhalt = "Antwortm&ouml;glichkeit " + feld;
+		  document.getElementById('dynamic_input').innerHTML +=
+		  " <div class='form-row'><div class='col-md-4 form-group'><input class='form-control' type='text' name='n_" + feld + "' placeholder='" + inhalt + "'required></div></div>";
+		  feld++;
+		 }
+		
+	}
+	if(ad.localeCompare('-') == 0){
+		//removes last added answerfield
+		 if (feld > feldm) {
+		 feld--;
+		  document.getElementById('dynamic_input').innerHTML = "";
+		  for (var zaehler = feldm; zaehler < feld; zaehler++) {
+		    var inhalt = "Antwortm&ouml;glichkeit " + zaehler;
+		    document.getElementById('dynamic_input').innerHTML +=
+		     "<div class='form-row'><div class='col-md-4 form-group'><input class='form-control' type='text' name='n_" + zaehler + "' placeholder='" +
+		      inhalt + "'required></div></div>";
+		  }
+		 }
+		
+	}
+}
