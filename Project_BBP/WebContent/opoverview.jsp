@@ -13,7 +13,7 @@ if (u == null || u.getRole().getId() != 1){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Abstimmungen</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script/cscript.js"></script>
 </head>
