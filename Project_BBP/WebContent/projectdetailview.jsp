@@ -169,7 +169,7 @@ if (u == null || u.getRole().getId() != 1){
 
 if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%>	 
-      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Voten</a>  	
+      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Unterstützen</a>  	
     	<%  
       }else{
     	%>
@@ -177,7 +177,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
       <%
       }
     %>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Stimmen: <%out.print (p.getVote()); %></a>
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px"><%out.print (p.getVote()); %> Unterstützungen</a>
 </div>
 
 	</div><br>
