@@ -151,7 +151,7 @@ $(document).ready(function(){
       <label class="form-check-label" for="stayAnonym">
         Anonym bleiben
       </label>
-      <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Ihr Name wird bei der Veröffentlichung des Projekts nicht angezeigt. Die Stadtverwaltung hat dennoch die Möglichkeit sie für eventuelle Rückfragen unter der Ihrer E-Mailadresse zu kontaktieren.">
+      <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Ihr Name wird bei Veröffentlichung des Projekts nicht angezeigt. Die Stadtverwaltung hat dennoch die Möglichkeit sie für eventuelle Rückfragen unter der Ihrer E-Mailadresse zu kontaktieren.">
                <i class="fa fa-question-circle"></i>
             </a>
     </div>
