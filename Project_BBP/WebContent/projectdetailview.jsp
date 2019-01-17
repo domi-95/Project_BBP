@@ -84,7 +84,11 @@ if (u == null || u.getRole().getId() != 1){
     <p class="font-weight-bold">Ersteller:</p>
   </div>
   <div class="col-xl-9 border-bottom">
-   Test Ersteller
+  <%if(p.isAnonymous()){ %>
+  	Anonym
+  	<%}else{ %>
+    <%out.print(p.getUser().getFirstname()); %> <%out.print(p.getUser().getname()); %>
+    <%} %>
   </div>
 </div>
 

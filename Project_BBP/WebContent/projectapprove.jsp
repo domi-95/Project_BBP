@@ -374,6 +374,7 @@ function changeValue(id){
   </div>
   <div class="col-xl-9 border-bottom">
     <%out.print(p.getDescription()); %>
+    <br>
   </div>
 </div>
 <div class="row m-2">
@@ -381,16 +382,25 @@ function changeValue(id){
     <p class="font-weight-bold">Ersteller:</p>
   </div>
   <div class="col-xl-3 border-bottom">
-   Test Ersteller
+   <%out.print(p.getUser().getFirstname()); %> <%out.print(p.getUser().getname()); %>
   </div>
-
 
   <div class="col-xs-12 col-xl-3 border-bottom">
     <p class="font-weight-bold">Telefonnummer:</p>
   </div>
   <div class="col-xl-3 border-bottom">
-    <%out.print(p.getPhone_numer()); %>
+  <a href="callto:<%out.print(p.getPhone_numer()); %>"><%out.print(p.getPhone_numer()); %></a>  
   </div>
+</div>
+
+<div class="row m-2">
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">E-Mailadresse:</p>
+  </div>
+  <div class="col-xl-9 border-bottom">
+   <a href="mailto:<%out.print(p.getUser().getEmail()); %>"><%out.print(p.getUser().getEmail()); %></a>
+  </div>
+
 </div>
 
 <div class="row m-2">
