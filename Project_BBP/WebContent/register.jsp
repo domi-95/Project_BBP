@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 <!--===============================================================================================-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
@@ -78,6 +77,9 @@
 				          <input type="checkbox" value="accept-termsofuse" required><a href="#">&nbsp;Nutzungsettikette</a> akzeptieren
 				        </label>
 					</div>
+					<div class="invalidbox">
+					<p class="invalid">${message}</p>
+						</div>
       				</div>
 						<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
@@ -96,6 +98,7 @@
     		String email = request.getParameter("email");
     		String password1 = request.getParameter("password1");
     		String password2 = request.getParameter("password2");
+    		String message = null;
     		int role_id = 1;
     		//out.print(email + password1);
     		
@@ -107,8 +110,11 @@
 			User u = UserDao.searchUser(email);
 			//Check if user exists
 			if(u != null){
-				if(email == u.getEmail()){
-					out.print("Es gibt bereits einen Account mit der gleichen E-Mail Adresse");
+				if(email.equals(u.getEmail())){
+					message = "Es gibt bereits einen Account mit der gleichen E-Mail Adresse";
+					request.setAttribute("message", message);
+					request.getRequestDispatcher("register.jsp").forward(request, response);
+					System.out.println("Sorry, you are already registered");
 				}
 			}
 			else{
@@ -120,7 +126,7 @@
 				else {
 					UserDao.safeUser(email, name, firstname, password1, role_id);
 					User n = UserDao.searchUser(email);
-					session.setAttribute("objekt", n);
+					session.setAttribute("user", n);
 						if (n.getRole().getId() == 1) {
 							response.sendRedirect("index.jsp");
 						}
