@@ -157,5 +157,6 @@ $('#date').datepicker({
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
 </div>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
