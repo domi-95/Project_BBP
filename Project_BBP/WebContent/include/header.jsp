@@ -44,10 +44,11 @@ if((User)session.getAttribute("user") != null){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <%if(u == null || u.getRole().getId() == 1 ){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="projectform.jsp">Projekte vorschlagen</a>
@@ -67,7 +68,7 @@ if((User)session.getAttribute("user") != null){
 <%if( u != null && u.getRole().getId() == 2){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="projectapprove.jsp">Projekte freigeben</a>
@@ -90,7 +91,7 @@ if((User)session.getAttribute("user") != null){
 <%if(u != null && u.getRole().getId() == 3){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Projekte einsehen</a>

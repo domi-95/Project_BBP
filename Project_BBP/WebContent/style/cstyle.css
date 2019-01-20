@@ -10,6 +10,7 @@ body {
 	background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fefefe, #fdfdfd, #fcfcfc, #fafafa, #f8f8f8, #f6f6f6, #f4f4f4);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	
 }
 
 .bg{
@@ -118,10 +119,11 @@ body {
 }
 
 .navbar-brand{
-	font-size: 1.0rem !important;
+	font-size: 1.2rem !important;
 }
 .navbar-dark-span{
 	font-size: 1.0rem;
+
 }
 
 .navdesign{
@@ -221,6 +223,7 @@ position: absolute;
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255) !important;
+    font-size: 1.2rem !important;
 }
 
 .wrap-login100 {
