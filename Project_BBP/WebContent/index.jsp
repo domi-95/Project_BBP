@@ -39,8 +39,13 @@ padding: 0.8rem;
 
 <div class="spaceholder d-flex justify-content-center">
 
-<jsp:include page="/include/carousel.jsp"></jsp:include></div><br>
+<jsp:include page="/include/carousel.jsp"></jsp:include>
 
+</div><br>
+<div class="spaceholder d-flex justify-content-center">
+<jsp:include page="/include/collapse.jsp"></jsp:include>
+<br>
+</div>
 <div class="container text-center "> 
   
   <h3>Projektübersicht</h3><br>

@@ -54,12 +54,13 @@ $(document).ready(function(){
 <h2>Projektantrag erstellen</h2>
 <br>
 	<form id="regForm" method="post" action="CreateProjectProcess"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" >
   <div class="form-row">
     <div class="form-group col-md-12 " >
       <label for="inputTitel">Titel*</label>
       <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
-      
+     
+      </div>
     </div>
   </div>
   
