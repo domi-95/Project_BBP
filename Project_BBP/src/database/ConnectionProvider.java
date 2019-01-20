@@ -30,7 +30,7 @@ public class ConnectionProvider extends TimerTask {
 	
 	public static void startSchedule () {
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new ConnectionProvider(),5000,TimeUnit.MILLISECONDS.convert(10, TimeUnit.MINUTES));
+		timer.scheduleAtFixedRate(new ConnectionProvider(),20000,TimeUnit.MILLISECONDS.convert(10, TimeUnit.MINUTES));
 	}
 
 	public void run() { // thread reestablishes the db connection after 5 minutes, otherwise it will be
