@@ -20,7 +20,9 @@ if (u == null || u.getRole().getId() != 1){
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>Insert title here</title>
+	
+	<script src="script/cscript.js"></script>
+<title>Projekt erstellen</title>
 </head>
 <body class="bg opindex">
 <jsp:include page="include/header.jsp"></jsp:include>
@@ -47,7 +49,7 @@ $(document).ready(function(){
 <!-- LOAD END -->
 
 <div class="formular-bd">
-<h2>Projektantrag erstellen:</h2>
+<h2>Projektantrag erstellen</h2>
 <br>
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
@@ -114,16 +116,30 @@ $(document).ready(function(){
 <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputPhonenumber">Telefonnummer</label>
-      <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="Bsp. 01234/56789">
+      <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Die Telefonnummer dient nur für eventuelle Rückfragen der Stadtverwaltung und wird entsprechend diskret behandelt. Eine Veröffentlichung und somit Sichtbarkeit für andere User ist explizit ausgeschlossen." >
+               <i class="fa fa-question-circle"></i>
+            </a>
+      <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="Bsp. 01234/56789"><br>
     </div>
   </div>
+
+<script>
+</script>
 
 	<label for="chooseFile">Foto hochladen</label><br>
   <div class="custom-file col-md-6" id="chooseFile">
   
+  <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
-  <input type="file" class="form-control custom-file-input" name="photo" id="loadFile">
- 
+ <script>
+            $('#loadFile').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                alert(fileName);
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        </script>
 
 </div>
 <br>
@@ -135,6 +151,9 @@ $(document).ready(function(){
       <label class="form-check-label" for="stayAnonym">
         Anonym bleiben
       </label>
+      <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Ihr Name wird bei Veröffentlichung des Projekts nicht angezeigt. Die Stadtverwaltung hat dennoch die Möglichkeit sie für eventuelle Rückfragen unter der Ihrer E-Mailadresse zu kontaktieren.">
+               <i class="fa fa-question-circle"></i>
+            </a>
     </div>
   </div>
 
@@ -146,5 +165,6 @@ $(document).ready(function(){
 </div>
 </form>
 </div>	
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -24,6 +24,8 @@ if((User)session.getAttribute("user") != null){
 <!-- Custom style -->
 <link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 
+
+
 <%@page import="user.*"%>
 
 </head>
@@ -124,7 +126,7 @@ if((User)session.getAttribute("user") != null){
 	          <i class="fa fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
 	        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
 	          <a class="dropdown-item" href="#">My account</a>
-	          <a class="dropdown-item" href="logout.jsp">Logout</a>
+	          <a class="dropdown-item" href="logout.jsp">Abmelden</a>
 	        </div>
 	    </div>
     <%

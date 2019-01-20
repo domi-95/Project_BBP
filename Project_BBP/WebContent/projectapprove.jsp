@@ -339,10 +339,10 @@ function changeValue(id){
     //rd.forward(request, response);
     
 	%>
+	<div class="container p-3" id="dynamic_divs<%out.print(z);%>">
 	<div class="card mx-auto listbordershadow" style="width: 80%;">
 	
 		
-		<div class="container p-3" id="dynamic_divs<%out.print(z);%>">
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
      <h4><%out.print(p.getTitle()); %></h4>
@@ -374,6 +374,7 @@ function changeValue(id){
   </div>
   <div class="col-xl-9 border-bottom">
     <%out.print(p.getDescription()); %>
+    <br>
   </div>
 </div>
 <div class="row m-2">
@@ -381,16 +382,25 @@ function changeValue(id){
     <p class="font-weight-bold">Ersteller:</p>
   </div>
   <div class="col-xl-3 border-bottom">
-   Test Ersteller
+   <%out.print(p.getUser().getFirstname()); %> <%out.print(p.getUser().getname()); %>
   </div>
-
 
   <div class="col-xs-12 col-xl-3 border-bottom">
     <p class="font-weight-bold">Telefonnummer:</p>
   </div>
   <div class="col-xl-3 border-bottom">
-    <%out.print(p.getPhone_numer()); %>
+  <a href="callto:<%out.print(p.getPhone_numer()); %>"><%out.print(p.getPhone_numer()); %></a>  
   </div>
+</div>
+
+<div class="row m-2">
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">E-Mailadresse:</p>
+  </div>
+  <div class="col-xl-9 border-bottom">
+   <a href="mailto:<%out.print(p.getUser().getEmail()); %>"><%out.print(p.getUser().getEmail()); %></a>
+  </div>
+
 </div>
 
 <div class="row m-2">
@@ -474,13 +484,14 @@ function changeValue(id){
     <input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(z);%>);">
   </div>
 </div>
+<%} %> 
 </div>
+
 <div class="row m-2">
   <div class="col-xl-12 text-center">
     <input type="button" class="btn btn-lg btn-info btn-block" data-toggle="collapse" data-target="#details<%out.print(z);%>" aria-expanded="false" aria-controls="collapseExample" value="Mehr anzeigen" id="collapseButton<%out.print(p.getId());%>" onClick="changeValue(<%out.print(p.getId());%>);">
   </div>
 </div>
-<%} %> 
 </div>
 		
 		 
@@ -488,7 +499,7 @@ function changeValue(id){
 			<!-- <h3> Nachricht: ${message}</h3> -->
 
 			
-	</div></div><br>
+	</div><br>
 	<%
 	//session.invalidate();
 	z= z+1;

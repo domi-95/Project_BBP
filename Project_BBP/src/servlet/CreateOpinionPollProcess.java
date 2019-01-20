@@ -147,10 +147,10 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		}
 		boolean successful = OpinionPoll.createProject(title, short_description, description, is, result, date_from, date_to, user_id);
 		if (successful == true) {
-		message = "Das Projekt wurde erfolgreich erstellt";
+		message = "Das Abstimmung wurde erfolgreich erstellt";
 		}
 		else {
-		message = "Das Projekt wurde nicht erfolgreich erstellt";
+		message = "Das Abstimmung wurde nicht erfolgreich erstellt";
 		}
 		// sets the message in request scope
 					request.setAttribute("Message", message);

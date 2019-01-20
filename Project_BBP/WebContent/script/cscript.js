@@ -24,12 +24,13 @@ function voteopBox(id, action){
 	}	
 }
 
+//Script for Voting an opinion poll
 function doOpVote(opid) {
 	var a = 0;
 	var vuser = $(".user").val();
 	var vselection = $(".selection"+opid+":checked").val();
-    //var phoneNo = $("#phoneNumber").val();
-    //var x = "40";
+	var element = 'reloadButton' + opid;
+	//Call VoteOp.java Serlvet
     $.ajax({
         url: 'voteop',
         type: 'POST',
@@ -41,9 +42,12 @@ function doOpVote(opid) {
         success: function(data) {
            // alert('Update Success');
         	a = 1;
+        	//Creates Snackbar Message
         	message(a);
+        	//Closes overlay vote box
         	voteopBox(opid, 'close');
-            remove_op(opid);
+        	//Reloads Button for text
+        	$("#"+element).load(" #"+element+" > *");
             
         },
         failure: function(data) {
@@ -185,3 +189,37 @@ function remove_op(opid) {
 	}
 
 })(jQuery);
+
+$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+	
+//Add and Delete fields for opform.jsp
+function field(adddelete){
+var ad = adddelete;
+
+	if(ad.localeCompare('+') == 0){
+		//Creates new answerfield
+		 if (feld <= 10) {
+		  var inhalt = "Antwortm&ouml;glichkeit " + feld;
+		  document.getElementById('dynamic_input').innerHTML +=
+		  " <div class='form-row'><div class='col-md-4 form-group'><input class='form-control' type='text' name='n_" + feld + "' placeholder='" + inhalt + "'required></div></div>";
+		  feld++;
+		 }
+		
+	}
+	if(ad.localeCompare('-') == 0){
+		//removes last added answerfield
+		 if (feld > feldm) {
+		 feld--;
+		  document.getElementById('dynamic_input').innerHTML = "";
+		  for (var zaehler = feldm; zaehler < feld; zaehler++) {
+		    var inhalt = "Antwortm&ouml;glichkeit " + zaehler;
+		    document.getElementById('dynamic_input').innerHTML +=
+		     "<div class='form-row'><div class='col-md-4 form-group'><input class='form-control' type='text' name='n_" + zaehler + "' placeholder='" +
+		      inhalt + "'required></div></div>";
+		  }
+		 }
+		
+	}
+}

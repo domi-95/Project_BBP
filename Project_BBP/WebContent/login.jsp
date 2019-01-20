@@ -1,3 +1,10 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u != null ){
+	response.sendRedirect("index.jsp");
+}
+%>
+ <%@page import="user.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,7 +39,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Benutzername / E-Mail">
+						<input class="input100" type="text" name="email" placeholder="Benutzername / E-Mail" autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>

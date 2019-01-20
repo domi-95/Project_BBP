@@ -22,15 +22,15 @@ public class StateChanger extends TimerTask {
 
 	public static void startSchedule() {
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.HOUR_OF_DAY, 24);
-		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.HOUR_OF_DAY, 1);
+		calendar.set(Calendar.MINUTE, 30);
 		calendar.set(Calendar.SECOND, 0);
 		//System.out.println(calendar);
 		Date time = calendar.getTime();
 
 		Timer timer = new Timer();
 		StateChanger stateChanger = new StateChanger();
-		timer.schedule(stateChanger, time, TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
+		timer.scheduleAtFixedRate(stateChanger, time, TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
 	}
 
 	public void run() {
