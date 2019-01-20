@@ -34,7 +34,7 @@ if((User)session.getAttribute("user") != null){
 <nav class="navbar navbar-dark bg-dark opindex">
   <!-- Navbar content -->
 <a class="navbar-brand active col-sm-1" href="https://www.mosbach.de"><img alt="Website Stadt Mosbach" src="Images/LogoMosbach_ohne_Text.png" height="30">
-<span class="navbar-dark-span" height="30">&nbsp;Mosbach Groﬂe Kreisstadt Neckar-Odenwald </span></a>
+<span class="navbar-dark-span" height="30">&nbsp;Groﬂe Kreisstadt Mosbach </span></a>
 </nav>
 </div>
 <div class="navbd sticky-top">
