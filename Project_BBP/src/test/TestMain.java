@@ -168,13 +168,20 @@ public class TestMain extends Thread{
 //		}
 
 		
-//		List<OpinionPoll> created = OpinionPoll.getAll(1);
-//		List<OpinionPoll> opened = OpinionPoll.getAll(2);
-//		List<OpinionPoll> closed = OpinionPoll.getAll(3);
-//		
-//		StateChanger.checkStates(created);
-//		StateChanger.checkStates(opened);
-//		StateChanger.checkStates(closed);
+		List<OpinionPoll> created = OpinionPoll.getAll(1);
+		List<OpinionPoll> opened = OpinionPoll.getAll(2);
+		List<OpinionPoll> closed = OpinionPoll.getAll(3);
+
+		//System.out.println(created);
+		//System.out.println(opened);
+		//System.out.println(closed);
+		
+		System.out.println("--------------created------------------");
+		StateChanger.checkStates(created);
+		System.out.println("--------------opened------------------");
+		StateChanger.checkStates(opened);
+		System.out.println("--------------closed------------------");
+		StateChanger.checkStates(closed);
 //		
 		
 	}
