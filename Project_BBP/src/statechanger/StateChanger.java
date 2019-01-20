@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import opinionPoll.*;
 import test.Remindtask;
 
-// this is a class for changing states (see documentation --> state concept)
+// this is a class for changing states (see documentation --> state concept opinion poll)
 //  a thread should work as batchjob to change states of opinion polls and project	
 
 // compareTo
