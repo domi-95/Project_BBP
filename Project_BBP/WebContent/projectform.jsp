@@ -18,6 +18,8 @@ if (u == null || u.getRole().getId() != 1){
 	
 <!-- Custome style -->
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
+<!-- Login style -->
+	<link rel="stylesheet" type="text/css" href="style/login.css" media="screen" />
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
@@ -54,15 +56,16 @@ $(document).ready(function(){
 	<form id="regForm" method="post" action="CreateProjectProcess"
 		enctype="multipart/form-data">
   <div class="form-row">
-    <div class="form-group col-md-12">
-      <label for="inputTitel">Titel</label>
+    <div class="form-group col-md-12 " >
+      <label for="inputTitel">Titel*</label>
       <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
+      
     </div>
   </div>
   
   <div class="form-row">
   <div class="form-group col-md-6" >
-      <label for="inputCategory">Kategorie</label>
+      <label for="inputCategory">Kategorie*</label>
       <select id="inputCategory" name="category" class="form-control">
         <option selected>Kategorie wählen...</option>
        		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
@@ -76,11 +79,11 @@ $(document).ready(function(){
     </div>
     </div>
   <div class="form-group">
-    <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
+    <label for="exampleFormControlShortdescription">Kurzbeschreibung*</label>
     <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlDescription">Beschreibung</label>
+    <label for="exampleFormControlDescription">Beschreibung*</label>
     <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
   </div>
  
@@ -92,7 +95,7 @@ $(document).ready(function(){
    </div>
     <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputPeriod">Dauer</label>
+      <label for="inputPeriod">Dauer*</label>
       <select id="inputPeriod" name="period" class="form-control">
       <option value="Choose Period" selected>Zeitraum auswählen</option>
         <option value="Kurz">Kurz</option>
@@ -102,7 +105,7 @@ $(document).ready(function(){
       </select>
     </div>
      <div class="form-group col-md-6">
-      <label for="inputGrade">Investitionsgrad</label>
+      <label for="inputGrade">Investitionsgrad*</label>
       <select id="inputGrade" name="investmentGrade" class="form-control">
         <option value="Choose Grade" selected>Investitionsgrad auswählen</option>
 			<option value="Gering">Gering</option>
@@ -127,7 +130,7 @@ $(document).ready(function(){
 </script>
 
 	<label for="chooseFile">Foto hochladen</label><br>
-  <div class="custom-file col-md-8" id="chooseFile">
+  <div class="custom-file col-md-6" id="chooseFile">
   
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>

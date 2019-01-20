@@ -34,7 +34,7 @@ if((User)session.getAttribute("user") != null){
 <nav class="navbar navbar-dark bg-dark opindex">
   <!-- Navbar content -->
 <a class="navbar-brand active col-sm-1" href="https://www.mosbach.de"><img alt="Website Stadt Mosbach" src="Images/LogoMosbach_ohne_Text.png" height="30">
-<span class="navbar-dark-span" height="30">&nbsp;Mosbach Groﬂe Kreisstadt Neckar-Odenwald </span></a>
+<span class="navbar-dark-span" height="30">&nbsp;Groﬂe Kreisstadt Mosbach </span></a>
 </nav>
 </div>
 <div class="navbd sticky-top">
@@ -44,10 +44,11 @@ if((User)session.getAttribute("user") != null){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <%if(u == null || u.getRole().getId() == 1 ){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="projectform.jsp">Projekte vorschlagen</a>
@@ -67,7 +68,7 @@ if((User)session.getAttribute("user") != null){
 <%if( u != null && u.getRole().getId() == 2){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="projectapprove.jsp">Projekte freigeben</a>
@@ -90,7 +91,7 @@ if((User)session.getAttribute("user") != null){
 <%if(u != null && u.getRole().getId() == 3){
 	%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Projekte einsehen</a>
