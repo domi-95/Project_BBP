@@ -115,7 +115,7 @@ public class Project {
 
 	public static boolean Vote(int user_id, int project_id) {
 		return ProjectDao.projectVote(user_id, project_id);
-		
+
 	}
 
 	public String getComment() {
@@ -127,28 +127,67 @@ public class Project {
 		ProjectDao.updateComment(this, comment);
 	}
 
-	public static List<Project> getAll(int state_id) {
+	/*public static List<Project> getAll(int state_id) {
 		return ProjectDao.getAllProject(state_id);
-	}
+	}*/
 
 	public static Project getProject(int id) {
 		return ProjectDao.searchProject(id);
 	}
-
-	public void decline(String comment, State state) {
-		this.setComment(comment);
-		this.setState(state);
+	
+	public static List<Project> getCreatedProjects () {
+		return ProjectDao.getAllProject(1);
+	}
+	
+	public static List<Project> getApprovedAdministrationProjects () {
+		return ProjectDao.getAllProject(2);
+	}
+	
+	public static List<Project> getDeclinedAdministrationProjects () {
+		return ProjectDao.getAllProject(3);
+	}
+	
+	public static List<Project> getCheckedCouncilProjects () {
+		return ProjectDao.getAllProject(4);
+		
+	}
+	
+	public static List<Project> getDeclinedCouncilProjects () {
+		return ProjectDao.getAllProject(5);
+	}
+	
+	public static List<Project> getApprovedCouncilProjects () {
+		return ProjectDao.getAllProject(6);
 	}
 
-	public void approve(State state) {
-		this.setState(state);
+	public void approveAdministration() {
+		this.setState(new State(2, "freigegeben verwaltung"));
+	}
+
+	public void declineAdministration(String comment) {
+		this.setComment(comment);
+		this.setState(new State(3, "abgelehnt verwaltung"));
+	}
+
+	public void checkedCouncil() {
+		this.setState(new State(4, "geprüft gemeinderat"));
+	}
+
+	public void declineCouncil(String comment, State state) {
+		this.setComment(comment);
+		this.setState(new State(5, "abgelehnt gemeinderat"));
+	}
+
+	public void approveCouncil(String comment, State stete) {
+		this.setComment(comment);
+		this.setState(new State(6, "freigegeben gemeinderat"));
 	}
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
 			InputStream picture, int user_id) {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
-				phoneNumber, period, anonymous, picture, user_id);
+				phoneNumber, period, anonymous, picture, user_id, 1);
 	}
 
 }

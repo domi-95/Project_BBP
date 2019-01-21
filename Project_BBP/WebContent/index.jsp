@@ -14,7 +14,7 @@ User u = (User)session.getAttribute("user");
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Index BBP</title>
 <style>
 .img-fluid {
@@ -29,6 +29,7 @@ height: 85% !important;
 }
 .card-body{
 padding: 0.8rem;
+
 }
 </style>
 </head>
@@ -46,17 +47,18 @@ padding: 0.8rem;
 <jsp:include page="/include/collapse.jsp"></jsp:include>
 <br>
 </div>
-<div class="container text-center "> 
-  
+
+<div class="container text-center formular-bd opindex "> 
+ 
+
   <h3>Projektübersicht</h3><br>
   <div class="row">
    <% 
-	int state = 2;
 	int rand = 0;
 	int randN = 1;
 	int min = 0;
 	int max = 1;
-	List<Project> projectlist = Project.getAll(state);
+	List<Project> projectlist = Project.getApprovedAdministrationProjects();
 	max = projectlist.size();
 	int z = 1;
 	if(projectlist.size() >=3){
@@ -71,11 +73,11 @@ padding: 0.8rem;
     
 	%>
 
-	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
-		<div class="imgCon d-inline-block">
+	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 350px;">
+		<div class="imgCon d-inline-block" >
       	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
       </div>
-      <div class="card-body" style="height: 60px;">
+      <div class="card-body p-2" >
       <p style="color: white;"><%out.print(p.getTitle()); %></p>
 
       
@@ -90,6 +92,7 @@ padding: 0.8rem;
 	%>
    
     </div>
+   
   </div> 
 <br>
 
