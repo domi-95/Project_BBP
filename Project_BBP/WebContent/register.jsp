@@ -128,7 +128,9 @@
 					User n = UserDao.searchUser(email);
 					session.setAttribute("user", n);
 						if (n.getRole().getId() == 1) {
-							response.sendRedirect("index.jsp");
+							message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
+							
+						//}
 						}
 						if (n.getRole().getId() == 2) {
 							response.sendRedirect("index.jsp");
@@ -136,6 +138,11 @@
 						if (n.getRole().getId() == 3) {
 							response.sendRedirect("index.jsp");
 						}
+						// sets the message in request scope
+						request.setAttribute("Message", message);
+
+						// zur message page
+						getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 					}
 				}
 		}
