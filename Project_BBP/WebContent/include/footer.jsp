@@ -24,8 +24,8 @@
         <div class="col-md-6 mt-md-0 mt-3">
 
           <!-- Content -->
-          <h5 class="text-uppercase">Footer Content</h5>
-          <p>Here you can use rows and columns here to organize your footer content.</p>
+          <h7 class="text-uppercase">BBP Mosbach</h7>
+          
 
         </div>
         <!-- Grid column -->
@@ -35,8 +35,25 @@
         <!-- Grid column -->
         <div class="col-md-3 mb-md-0 mb-3">
 
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
+           
+
+            <ul class="list-unstyled" >
+              <li>
+                <a href="#">Netiquette</a>
+              </li>
+              <li>
+                <a href="#">Datenschutz</a>
+             
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+ <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+           
 
             <ul class="list-unstyled" >
               <li>
@@ -48,8 +65,6 @@
             </ul>
 
           </div>
-          <!-- Grid column -->
-
           
 
       </div>

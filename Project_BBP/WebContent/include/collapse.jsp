@@ -17,13 +17,13 @@
   <div class="card">
     <div class="card-header collapse-head" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           Was ist das BBP?
         </button>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body collapse-body">
     	<ul>
   			<li>Das Bürgerbeteilgungsportal (BBP) dient zur direkten Beteiligung an städtischen Vorhaben der Mosbacher Bürgerinnen und Bürger.</li>
