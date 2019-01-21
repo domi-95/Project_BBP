@@ -5,6 +5,7 @@ import java.util.*;
 
 import file.*;
 import opinionPoll.*;
+import project.Project;
 import database.*;
 import servlet.*;
 import statechanger.StateChanger;
@@ -168,23 +169,46 @@ public class TestMain extends Thread{
 //		}
 
 		
-		List<OpinionPoll> created = OpinionPoll.getAll(1);
-		List<OpinionPoll> opened = OpinionPoll.getAll(2);
-		List<OpinionPoll> closed = OpinionPoll.getAll(3);
+//		List<OpinionPoll> created = OpinionPoll.getAll(1);
+//		List<OpinionPoll> opened = OpinionPoll.getAll(2);
+//		List<OpinionPoll> closed = OpinionPoll.getAll(3);
 
 		//System.out.println(created);
 		//System.out.println(opened);
 		//System.out.println(closed);
 		
-		System.out.println("--------------created------------------");
-		StateChanger.checkStates(created);
-		System.out.println("--------------opened------------------");
-		StateChanger.checkStates(opened);
-		System.out.println("--------------closed------------------");
-		StateChanger.checkStates(closed);
+//		System.out.println("--------------created------------------");
+//		StateChanger.checkStates(created);
+//		System.out.println("--------------opened------------------");
+//		StateChanger.checkStates(opened);
+//		System.out.println("--------------closed------------------");
+//		StateChanger.checkStates(closed);
 //		
 		
-	}
+//		Project project = Project.getProject(59);
+//		User user = project.getUser();
+//		String s = null;
+//		
+//		s = "Hallo "+ user.getFirstname()+" "+user.getname()+",\n"+"\n"+
+//			"folgendes Projekt wurde bei uns Eingereicht: \n"+
+//				"Titel: "+project.getTitle()+"\n"+
+//				"Kategorie: "+project.getCategory()+"\n"+
+//				"Kurzbeschreibung: "+project.getShort_description()+"\n"+
+//				"Beschreibung: "+project.getDescription()+"\n"+
+//				"Ort: "+project.getLocation()+"\n"+
+//				"Zeitraum: "+project.getPeriod()+"\n"+
+//				"Investitiongrad: "+project.getInvestment_grade()+"\n"+
+//				"Telefonnummer: "+project.getPhone_numer()+"\n"+
+//				"Erstellt: "+project.getStamp_created()+"\n";
+//		try {
+//			Thread.sleep(10000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println(s);
+//		
+//	}
 	
 //	public static Calendar getCalenderWithoutTime (Calendar calendar) {
 //		calendar.set(Calendar.MINUTE, 0);

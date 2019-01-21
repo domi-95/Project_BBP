@@ -63,6 +63,10 @@ public class User {
 		return UserDao.searchUserWithPw(email, password);
 
 	}
+	
+	public static User getUser (int user_id) {
+		return UserDao.searchUser(user_id);
+	}
 
 	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
 
@@ -74,10 +78,5 @@ public class User {
 
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", firstname=" + firstname + ", lastname=" + name + ", role="
-				+ role + "]";
-	}
 
 }
