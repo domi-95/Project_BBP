@@ -57,12 +57,11 @@ padding: 0.8rem;
   <h3>Projektübersicht</h3><br>
   <div class="row">
    <% 
-	int state = 2;
 	int rand = 0;
 	int randN = 1;
 	int min = 0;
 	int max = 1;
-	List<Project> projectlist = Project.getAll(state);
+	List<Project> projectlist = Project.getApprovedAdministrationProjects();
 	max = projectlist.size();
 	int z = 1;
 	if(projectlist.size() >=3){
