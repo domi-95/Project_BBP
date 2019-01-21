@@ -16,7 +16,7 @@
 </head>
 <body class="lingradbg">
 <jsp:include page="/include/header.jsp"></jsp:include>
-<div class="newsblog">
+<div class="newsblog w-75">
 	<!-- Section: Blog v.1 -->
 	<section class="my-5"> <!-- Section heading -->
 	<h2 class="h1-responsive font-weight-bold text-center my-5">Recent
