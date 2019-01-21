@@ -22,9 +22,13 @@ if (u == null || u.getRole().getId() != 1){
 	<link rel="stylesheet" type="text/css" href="style/login.css" media="screen" />
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
+	<script src="script/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	<script src="script/cscript.js"></script>
 <title>Projekt erstellen</title>
+
+
+
 </head>
 <body class="bg opindex">
 <jsp:include page="include/header.jsp"></jsp:include>
@@ -40,51 +44,27 @@ $(window).bind("pageshow", function() {
 $(document).ready(function(){
 		  $('#cover').removeClass('activate');
 		  $('#loader').removeClass('activate');
-	$('#regForm').submit(function(){
-		  $('#cover').addClass('activate');
-		  $('#loader').addClass('activate');
-		});
+//	$('#regForm').submit(function(){
+//		  $('#cover').addClass('activate');
+//		  $('#loader').addClass('activate');
+//		});
 
 	
 	});
 </script>
 
 <!-- LOAD END -->
-<!-- Validate Script -->
-<script>
-//Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-
-</script>
 
 
 <div class="formular-bd">
 <h2>Projektantrag erstellen</h2>
 <br>
-	<form id="regForm" method="post" action="CreateProjectProcess"	enctype="multipart/form-data" class="needs-validation" novalidate>
+	<form id="regForm" method="post" action="CreateProjectProcess"	enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
   <div class="form-row">
     <div class="form-group col-md-12 " >
       <label for="inputTitel">Titel*</label>
-      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)" required>
-     <div class="invalid-feedback">
-        Bitte geben Sie einen Titel an.
-      </div>
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)" value="" required data-error="Bitte geben Sie einen Titel ein.">
+      <div class="help-block with-errors"></div>
       </div>
     </div>
  
@@ -92,34 +72,28 @@ $(document).ready(function(){
   <div class="form-row">
   <div class="form-group col-md-6" >
       <label for="inputCategory">Kategorie*</label>
-      <select id="inputCategory" name="category" class="form-control" required>
-        <option selected>Kategorie wählen...</option>
+      <select id="inputCategory" name="category" class="form-control" required data-error="Bitte wählen Sie eine Kategorie aus.">
+        <option value="">Kategorie wählen...</option>
        		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
-			<option value="Wirtschaft und Finanzen" >Bildung und Kultur</option>
+			<option value="Bildung und Kultur" >Bildung und Kultur</option>
 			<option value="Sicherheit">Sicherheit</option>
 			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
 			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
 			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
 			<option value="Sonstiges">Sonstiges</option>
       </select>
-      <div class="invalid-feedback">
-        Bitte geben Sie eine Kategorie an.
-      </div>
+      <div class="help-block with-errors"></div>
     </div>
     </div>
   <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" required></textarea>
- <div class="invalid-feedback">
-        Bitte geben Sie eine Kurzbeschreibung an.
-      </div>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" required data-error="Bitte geben Sie eine Kurzbeschreibung ein."></textarea>
+    <div class="help-block with-errors"></div>
   </div>
   <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)" required></textarea>
- <div class="invalid-feedback">
-        Bitte geben Sie eine Beschreibung an.
-      </div>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein."></textarea>
+    <div class="help-block with-errors"></div>
   </div>
  
     <div class="form-row">
@@ -131,29 +105,25 @@ $(document).ready(function(){
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputPeriod">Dauer*</label>
-      <select id="inputPeriod" name="period" class="form-control" required>
-      <option value="Choose Period" selected>Zeitraum auswählen</option>
+      <select id="inputPeriod" name="period" class="form-control" required data-error="Bitte geben Sie eine Dauer ein.">
+      <option value="">Zeitraum auswählen</option>
         <option value="Kurz">Kurz</option>
 			<option value="Mittel">Mittel</option>
 			<option value="Lang">Lang</option>
 			<option value="Dauerhafte Maßnahme">Dauerhafte Maßnahme</option>
       </select>
-      <div class="invalid-feedback">
-        Bitte geben Sie eine Dauer an.
-      </div>
+      <div class="help-block with-errors"></div>
     </div>
      <div class="form-group col-md-6">
       <label for="inputGrade">Investitionsgrad*</label>
-      <select id="inputGrade" name="investmentGrade" class="form-control" required>
-        <option value="Choose Grade" selected>Investitionsgrad auswählen</option>
+      <select id="inputGrade" name="investmentGrade" class="form-control" required data-error="Bitte geben Sie einen Investitionsgrad ein.">
+        <option value="">Investitionsgrad auswählen</option>
 			<option value="Gering">Gering</option>
 			<option value="Mittel">Mittel</option>
 			<option value="Hoch">Hoch</option>
 			<option value="nicht abschätzbar">nicht abschätzbar</option>
       </select>
-      <div class="invalid-feedback">
-        Bitte geben Sie einen Investitionsgrad an.
-      </div>
+      <div class="help-block with-errors"></div>
     </div>
   </div> 
 
@@ -179,7 +149,6 @@ $(document).ready(function(){
             $('#loadFile').on('change',function(){
                 //get the file name
                 var fileName = $(this).val();
-                alert(fileName);
                 //replace the "Choose a file" label
                 $(this).next('.custom-file-label').html(fileName);
             });
@@ -202,7 +171,7 @@ $(document).ready(function(){
   </div>
 
 <div class="text-left">
-  <button type="submit" class="btn btn-success col-md-4 " >Absenden</button>
+  <input id="send" type="submit" class="submit btn btn-success col-md-4 " value="Absenden">
   <button class="btn btn-secondary col-md-4" type="reset">Formular zurücksetzen</button>
 		<input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
 

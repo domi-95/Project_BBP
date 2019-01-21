@@ -5,8 +5,15 @@ $(document).ready(function(){
 		  $('#cover').removeClass('activate');
 		  $('#loader').removeClass('activate');
 	$('#regForm').submit(function(){
+		var test = document.getElementById("send").className;
+		if(test.includes('disabled')){
+			$('#cover').removeClass('activate');
+			  $('#loader').removeClass('activate');
+		}
+		else{
 		  $('#cover').addClass('activate');
 		  $('#loader').addClass('activate');
+		}
 		});
 	});
 
