@@ -54,7 +54,7 @@ if (u == null || u.getRole().getId() != 1){
 	int z = 1;
 	Map<Integer, Integer> alreadyVote = null;
 	if (u != null){
-	alreadyVote = Vote.getUserVotes(u.getId());
+	alreadyVote = Vote.getUserVotesHash(u.getId());
 	}
 	for (Project p : projectlist){
 	

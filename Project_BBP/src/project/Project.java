@@ -131,6 +131,10 @@ public class Project {
 	/*public static List<Project> getAll(int state_id) {
 		return ProjectDao.getAllProject(state_id);
 	}*/
+	
+	public static List<Project> getAllWithCreator (int user_id){
+		return ProjectDao.searchProjectCreator(user_id);
+	}
 
 	public static Project getProject(int id) {
 		return ProjectDao.searchProject(id);

@@ -38,7 +38,7 @@ if (u == null || u.getRole().getId() != 1){
 	Project p = Project.getProject(Integer.parseInt(request.getParameter("projectid")));
 	Map<Integer, Integer> alreadyVote = null;
 	if (u != null){
-	alreadyVote = Vote.getUserVotes(u.getId());
+	alreadyVote = Vote.getUserVotesHash(u.getId());
 	}
     
 	%>

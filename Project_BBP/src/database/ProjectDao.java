@@ -74,21 +74,42 @@ public class ProjectDao {
 
 		return null;
 	}
+	
+	public static List<Project> searchProjectCreator(int user_id) {
+		Connection con = null;
+		List<Project> result = new LinkedList<Project>();
+
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+
+			ResultSet myRs = myst
+					.executeQuery("SELECT * from project p, state s where p.user_id = " + user_id + " and p.state_id = s.id ");
+
+			while (myRs.next()) {
+				result.add(resultSetCreateProject(myRs));
+			}
+			return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error while selecting project");
+		}
+
+		return null;
+	}
+	
+	
 
 	public static List<Project> getAllProject(int state_id) {
 		List<Project> result = new LinkedList<Project>();
 		Connection con = null;
 		try {
-			// System.out.println("Start getConnectionProvder: "+
-			// System.currentTimeMillis());
 			con = ConnectionProvider.getCon();
-			// System.out.println("End getConnectionProvder: "+ System.currentTimeMillis());
 
 			Statement myst = con.createStatement();
-			// System.out.println("Start Executequery: "+ System.currentTimeMillis());
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ");
-			// System.out.println("End Executequery: "+ System.currentTimeMillis());
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
@@ -101,7 +122,7 @@ public class ProjectDao {
 		return null;
 	}
 
-	public static Map<Integer, Integer> getAllVotes(int user_id) {
+	public static Map<Integer, Integer> getAllVotesHash(int user_id) {
 		Map<Integer, Integer> result = new HashMap<Integer, Integer>();
 		Connection con = null;
 		try {
@@ -111,6 +132,25 @@ public class ProjectDao {
 			ResultSet myRs = myst.executeQuery("SELECT * from vote where user_id = " + user_id + "");
 			while (myRs.next()) {
 				result.put(myRs.getInt("project_id"), myRs.getInt("user_id"));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting votes from users");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static List<Project> getAllVotesList(int user_id) {
+		List<Project> result = new LinkedList<Project>();
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * from vote v, project p, state s where p.state_id = s.id and p.id = v.project_id and v.user_id = " + user_id + "");
+			while (myRs.next()) {
+				result.add(resultSetCreateProject(myRs));
 			}
 			return result;
 		} catch (SQLException e) {

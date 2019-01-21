@@ -6,6 +6,7 @@ import java.util.*;
 import file.*;
 import opinionPoll.*;
 import project.Project;
+import project.Vote;
 import database.*;
 import servlet.*;
 import statechanger.StateChanger;
@@ -207,8 +208,11 @@ public class TestMain extends Thread{
 //			e.printStackTrace();
 //		}
 //		System.out.println(s);
+		
+		
+		System.out.println(Vote.getUserVotesList(1));
 //		
-//	}
+	}
 	
 //	public static Calendar getCalenderWithoutTime (Calendar calendar) {
 //		calendar.set(Calendar.MINUTE, 0);

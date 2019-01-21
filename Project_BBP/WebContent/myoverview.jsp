@@ -37,13 +37,20 @@ if (u == null || u.getRole().getId() != 1){
 <% 
 String invest = "question.png";
 String period = "question.png";
+List<Project> projectlist = null;
 	
-	List<Project> projectlist = Project.getApprovedAdministrationProjects();
+
+	
+	if (u != null){
+	projectlist = Project.getAllWithCreator(u.getId());	 //use this method to get all projects by creator
+	//projectlist = Vote.getUserVotesList(u.getId());		// use this method to get all projects where the user has already voted
+	}													 
+	
 	
 	int z = 1;
 	Map<Integer, Integer> alreadyVote = null;
 	if (u != null){
-	alreadyVote = Vote.getUserVotes(u.getId());
+	alreadyVote = Vote.getUserVotesHash(u.getId());
 	}
 %>
 
