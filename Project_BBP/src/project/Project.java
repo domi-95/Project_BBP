@@ -135,12 +135,12 @@ public class Project {
 		return ProjectDao.searchProject(id);
 	}
 
-	public void decline(String comment, State state) {
+	public void declineAdministration(String comment, State state) {
 		this.setComment(comment);
 		this.setState(state);
 	}
 
-	public void approve(State state) {
+	public void approveAdministration(State state) {
 		this.setState(state);
 	}
 
