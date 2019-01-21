@@ -13,9 +13,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="accordion" class="w-75">
+<div id="accordion" class="w-75 opindex">
   <div class="card">
-    <div class="card-header" id="headingOne">
+    <div class="card-header collapse-head" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Was ist das BBP?
@@ -24,7 +24,7 @@
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body collapse-body">
     	<ul>
   			<li>Das Bürgerbeteilgungsportal (BBP) dient zur direkten Beteiligung an städtischen Vorhaben der Mosbacher Bürgerinnen und Bürger.</li>
   			<li >Sie können Projekte vorschlagen, über diese abstimmen und die Ideen dem Gemeinderat präsentieren.</li>
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header collapse-head" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Was sind Projekte?
@@ -43,7 +43,7 @@
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body collapse-body">
         
         <ul>
   			<li>Projekte sind Ideen, Anregungen oder Visionen zu Vorhaben in Mosbach, die von Ihnen als Mosbacher Bürgerinnen und Bürgern vorgeschlagen werden können.</li>
@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingThree">
+    <div class="card-header collapse-head" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Wie geht es nach der Veröffentlichung des Projektantrages weiter? 
@@ -63,7 +63,7 @@
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body collapse-body">
         <ul>
   			<li>Nun geht es um das Werben für Ihr Projekt!</li>
   			<li >Ab 100 Unterstützungen wird dem Gemeinderat empfohlen den Projektantrag  zu bearbeiten.</li>
@@ -74,7 +74,7 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingFour">
+    <div class="card-header collapse-head" id="headingFour">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           Was sind Abstimmungen?
@@ -82,7 +82,7 @@
       </h5>
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body collapse-body">
         
         <ul>
   			<li>Neben den Projekten gibt es auch Abstimmungen, die ein Stimmungsbild der Bürgerinnen und Bürger dem Gemeinderat liefern.</li>
@@ -94,7 +94,7 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingFive">
+    <div class="card-header collapse-head" id="headingFive">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
           Wie unterstütze ich Projekte?
@@ -102,7 +102,7 @@
       </h5>
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body collapse-body">
         
         <ul>
   			<li>Vorgeschlagene Projekte können von angemeldeten Bürgerinnen und Bürgern nach formaler Freigabe unterstützt werden.</li>

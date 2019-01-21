@@ -127,7 +127,7 @@ body {
 }
 
 .navdesign{
-	background-color: #597943;
+	background-color: #597943 !important;
 }
 
 
@@ -252,4 +252,17 @@ min-height: 0;
 
 .custom-file-label::after {
 	    content: "Durchsuchen";
+}
+
+
+.collapse-head{
+	background-color: #597943 !important;
+
+}
+.collapse-body{
+	    background-color: white !important;
+}
+
+.btn-link{
+	color: white !important;
 }
