@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
+<footer class="page-footer font-small blue pt-4 opindex">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -21,7 +21,7 @@
       <div class="row">
 
         <!-- Grid column -->
-        <div class="col-md-6 mt-md-0 mt-3">
+        <div class="col-md-5 mt-md-0 mt-3">
 
           <!-- Content -->
           <h7 class="text-uppercase">BBP Mosbach</h7>

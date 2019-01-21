@@ -241,6 +241,10 @@ min-height: 0;
 .opindex{
 	opacity:0.95;
 	}
+	
+.noopindex{
+	opacity:1.0 !important;
+}
 .opbg{
 	opacity:0.3;
 }
