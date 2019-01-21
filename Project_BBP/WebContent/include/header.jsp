@@ -105,7 +105,7 @@ if((User)session.getAttribute("user") != null){
 	          aria-expanded="false">
 	          <i class="fa fa-user"></i> <%out.print(u.getFirstname()); %> &nbsp;<%out.print(u.getname()); %> </a>
 	        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-	          <a class="dropdown-item" href="#">My account</a>
+	          <a class="dropdown-item" href="myoverview.jsp">My account</a>
 	          <a class="dropdown-item" href="logout.jsp">Abmelden</a>
 	        </div>
 	    </div>
