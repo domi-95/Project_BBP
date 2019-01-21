@@ -217,9 +217,12 @@ position: absolute;
 }
 
 .card-body{
-	height: 60px;
+
 	background-color: #597943;
 	
+}
+.project-body{
+		height: 60px !important;
 }
 .navsm{
 	max-heigth: 10px !important;

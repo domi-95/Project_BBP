@@ -80,7 +80,7 @@ padding: 0.8rem;
 		<div class="imgCon d-inline-block" >
       	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
       </div>
-      <div class="card-body p-2" >
+      <div class="card-body project-body p-2" >
       <p style="color: white;"><%out.print(p.getTitle()); %></p>
 
       
