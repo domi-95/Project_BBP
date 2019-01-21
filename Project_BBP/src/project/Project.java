@@ -115,7 +115,7 @@ public class Project {
 
 	public static boolean Vote(int user_id, int project_id) {
 		return ProjectDao.projectVote(user_id, project_id);
-		
+
 	}
 
 	public String getComment() {
@@ -135,20 +135,34 @@ public class Project {
 		return ProjectDao.searchProject(id);
 	}
 
-	public void declineAdministration(String comment, State state) {
-		this.setComment(comment);
-		this.setState(state);
+	public void approveAdministration() {
+		this.setState(new State(2, "freigegeben verwaltung"));
 	}
 
-	public void approveAdministration(State state) {
-		this.setState(state);
+	public void declineAdministration(String comment) {
+		this.setComment(comment);
+		this.setState(new State(3, "abgelehnt verwaltung"));
+	}
+
+	public void checkedCouncil() {
+		this.setState(new State(4, "geprüft gemeinderat"));
+	}
+
+	public void declineCouncil(String comment, State state) {
+		this.setComment(comment);
+		this.setState(new State(5, "abgelehnt gemeinderat"));
+	}
+
+	public void approveCouncil(String comment, State stete) {
+		this.setComment(comment);
+		this.setState(new State(6, "freigegeben gemeinderat"));
 	}
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
 			InputStream picture, int user_id) {
 		return ProjectDao.safeProject(title, category, shortDescription, description, location, investmentGrade,
-				phoneNumber, period, anonymous, picture, user_id);
+				phoneNumber, period, anonymous, picture, user_id, 1);
 	}
 
 }

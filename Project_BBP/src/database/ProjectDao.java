@@ -16,7 +16,7 @@ public class ProjectDao {
 
 	public static boolean safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
-			InputStream picture, int user_id) {
+			InputStream picture, int user_id, int state_id) {
 		Connection con = null;
 
 		try {
@@ -34,7 +34,7 @@ public class ProjectDao {
 			st.setBlob(8, picture);
 			st.setString(9, phoneNumber);
 			st.setInt(10, anonymous);
-			st.setInt(11, 1);
+			st.setInt(11, state_id);
 			st.setTimestamp(12, new Timestamp(new Date().getTime()));
 			st.setInt(13, user_id);
 
