@@ -76,7 +76,7 @@ padding: 0.8rem;
     
 	%>
 
-	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 350px;">
+	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
 		<div class="imgCon d-inline-block" >
       	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
       </div>

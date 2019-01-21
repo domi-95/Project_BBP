@@ -217,6 +217,7 @@ position: absolute;
 }
 
 .card-body{
+	height: 60px;
 	background-color: #597943;
 	
 }
