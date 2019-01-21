@@ -283,10 +283,10 @@ if(request.getParameter("stateSelect") != null){
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
   </label>
   <label class="btn btn-secondary col-md-1" id="label2">
-    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben
+    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
   </label>
-  <label class="btn btn-secondary col-md-1" id="label3">
-    <input type="radio" name="stateSelect" id="stateSelect" value="3" <%if(state == 3){out.print(" checked");} %>> Abgeschlossen
+  <label class="btn btn-secondary col-md-1" id="label6">
+    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Freigegeben Gemeinderat
   </label>
 </div>
 </form>
@@ -321,23 +321,25 @@ function changeValue(id){
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
 	}
-	List<Project> projectlist = Project.getAll(state);
+	List<Project> projectlist = null;
+	switch(state){
+	case 1:{
+		projectlist = Project.getCreatedProjects();
+		break;
+	}
+	case 2: {
+		projectlist = Project.getApprovedAdministrationProjects();
+		break;
+	}
+	case 6: {
+		projectlist = Project.getApprovedCouncilProjects();
+		break;
+	}
+	}
 	String invest = "question.png";
 	String period = "question.png";
 	int z = 1;	
-
-	//out.print (projectlist);
 	for (Project p : projectlist){
-	//Project project = ProjectDao.searchProject(3);
-	// byte[] picture= project.getPicture();
-	//ut.print (project.getPicture());
-	//request.getSession();
-	//session.setAttribute("picture", p.getPicture());
-	
-	//RequestDispatcher rd = request.getRequestDispatcher("/DisplayImageServlet2");
-    //request.setAttribute("picture",p.getPicture());
-    //rd.forward(request, response);
-    
 	%>
 	<div class="container p-3" id="dynamic_divs<%out.print(z);%>">
 	<div class="card mx-auto listbordershadow" style="width: 80%;">
@@ -501,17 +503,9 @@ function changeValue(id){
 			
 	</div><br>
 	<%
-	//session.invalidate();
 	z= z+1;
 	}
-	/* response.setContentType("image/gif");
-    response.setContentLength(picture.length);
-    ServletOutputStream sos = response.getOutputStream();
-    //ServletOutputStream sos;
-    sos.write(picture);
-    response.getOutputStream().flush();
-    response.getOutputStream().close(); */
+
 	%>
-	
 </body>
 </html>

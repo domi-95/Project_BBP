@@ -49,7 +49,7 @@ if (u == null || u.getRole().getId() != 1){
 <div class="row">
 <% 
 	
-	List<Project> projectlist = Project.getAll(2);
+	List<Project> projectlist = Project.getApprovedAdministrationProjects();
 	
 	int z = 1;
 	Map<Integer, Integer> alreadyVote = null;

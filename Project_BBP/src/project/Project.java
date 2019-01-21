@@ -127,12 +127,37 @@ public class Project {
 		ProjectDao.updateComment(this, comment);
 	}
 
-	public static List<Project> getAll(int state_id) {
+	/*public static List<Project> getAll(int state_id) {
 		return ProjectDao.getAllProject(state_id);
-	}
+	}*/
 
 	public static Project getProject(int id) {
 		return ProjectDao.searchProject(id);
+	}
+	
+	public static List<Project> getCreatedProjects () {
+		return ProjectDao.getAllProject(1);
+	}
+	
+	public static List<Project> getApprovedAdministrationProjects () {
+		return ProjectDao.getAllProject(2);
+	}
+	
+	public static List<Project> getDeclinedAdministrationProjects () {
+		return ProjectDao.getAllProject(3);
+	}
+	
+	public static List<Project> getCheckedCouncilProjects () {
+		return ProjectDao.getAllProject(4);
+		
+	}
+	
+	public static List<Project> getDeclinedCouncilProjects () {
+		return ProjectDao.getAllProject(5);
+	}
+	
+	public static List<Project> getApprovedCouncilProjects () {
+		return ProjectDao.getAllProject(6);
 	}
 
 	public void approveAdministration() {
