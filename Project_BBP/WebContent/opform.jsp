@@ -78,33 +78,34 @@ function cutDate() {
 	 
 	 
 </script>
-<div class="formular-bd">
+<div class="formular-bd w-75 mx-auto">
 <h2>Abstimmung erstellen</h2>
 <br>
 <form id="regForm" action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data">
 <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
-      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 50 Zeichen)" maxlength="50">
     </div>
   </div>
  <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="short_description" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="short_description" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" maxlength="150"></textarea>
   </div>
  <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 800 Zeichen)" maxlength="800"></textarea>
   </div>
 
 
 <div class="form-row">
     <div class="form-group col-md-6">
       <label for="date">Dauer der Abstimmung</label>
-      <input class="form-control" type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here" placeholder="Dauer der Abstimmung"  required/>
+<input type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here form-control" placeholder="Dauer der Abstimmung"  required/>
 <script>
-//Functionality for Datepicker that it is not possible to choose dates in the past
 var minDate = new Date();
+//minDate.setDate(minDate.getDate() + 1);
+
 $('#date').datepicker({
   minDate: minDate,
   autoClose: true,
@@ -139,12 +140,12 @@ $('#date').datepicker({
 
  <div class="form-row"> 
  <div class="col-md-4 form-group">
-<input  class="form-control" type= "text" name = "n_1" placeholder = "Antwortmöglichkeit 1" required>
+<input  class="form-control" type= "text" name = "n_1" placeholder = "Antwortmöglichkeit 1" maxlength="20" required>
 </div>
 </div>
  <div class="form-row">
  <div class="col-md-4 form-group">
-<input  class="form-control" type= "text" name = "n_2" placeholder = "Antwortmöglichkeit 2" required>
+<input  class="form-control" type= "text" name = "n_2" placeholder = "Antwortmöglichkeit 2" maxlength="20" required>
 </div>
 </div>
 

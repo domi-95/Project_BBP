@@ -63,7 +63,7 @@ $(document).ready(function(){
   <div class="form-row">
     <div class="form-group col-md-12 " >
       <label for="inputTitel">Titel*</label>
-      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)" value="" required data-error="Bitte geben Sie einen Titel ein.">
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 50 Zeichen)" value="" required data-error="Bitte geben Sie einen Titel ein." maxlength="50">
       <div class="help-block with-errors"></div>
       </div>
     </div>
@@ -87,19 +87,19 @@ $(document).ready(function(){
     </div>
   <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" required data-error="Bitte geben Sie eine Kurzbeschreibung ein."></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="shortDescription" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" required data-error="Bitte geben Sie eine Kurzbeschreibung ein." maxlength="150"></textarea>
     <div class="help-block with-errors"></div>
   </div>
   <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein."></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 800 Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein." maxlength="800"></textarea>
     <div class="help-block with-errors"></div>
   </div>
  
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ort</label>
-      <input type="text" class="form-control" id="inputCity" name="location" placeholder="Bsp. (max. 20 Zeichen)">
+      <input type="text" class="form-control" id="inputCity" name="location" placeholder="Bsp. (max. 100 Zeichen)" maxlength="100">
     </div>
    </div>
     <div class="form-row">
@@ -133,7 +133,7 @@ $(document).ready(function(){
       <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Die Telefonnummer dient nur für eventuelle Rückfragen der Stadtverwaltung und wird entsprechend diskret behandelt. Eine Veröffentlichung und somit Sichtbarkeit für andere User ist explizit ausgeschlossen." >
                <i class="fa fa-question-circle"></i>
             </a>
-      <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="Bsp. 01234/56789"><br>
+      <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="Bsp. 01234/56789" maxlength="20"><br>
     </div>
   </div>
 
