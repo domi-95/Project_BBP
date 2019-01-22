@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -31,6 +32,7 @@ public class UserDao {
 			e.printStackTrace();
 			System.out.println("Error while search user with password");
 		}
+		
 
 	/*	finally {
 			try {
@@ -43,31 +45,70 @@ public class UserDao {
 		}*/
 		return null;
 	}
+	public static String validatePassword (String email) {
+		Connection con = null;
 
-	public static boolean safeUser(String email, String name, String firstname, String password, int role_id) {
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+
+			ResultSet myRs = myst
+					.executeQuery("SELECT * from user WHERE  email = '" + email + "'");
+
+			if (myRs.next()) {
+				
+				return myRs.getString("password");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error while validate user with email");
+		}
+		return null;
+
+	}
+
+//	public static boolean safeUser(String email, String name, String firstname, String password, int role_id) {
+//		Connection con = null;
+//		try {
+//			con = ConnectionProvider.getCon();
+//			String sql = "INSERT INTO user (firstname, name, email, password, role_id)" + "VALUES ('" + firstname
+//					+ "','" + name + "', '" + email + "', '" + password + "'," + role_id + ")";
+//			Statement st = con.createStatement();
+//			st.executeUpdate(sql);
+//		} catch (Exception e) {
+//			System.out.println("Error while inserting user");
+//			e.printStackTrace();
+//		}
+//
+//		return true;
+//	}
+//	
+	
+	public static User safeUser(String email, String name, String firstname, String password, int role_id) {
 		Connection con = null;
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO user (firstname, name, email, password, role_id)" + "VALUES ('" + firstname
-					+ "','" + name + "', '" + email + "', '" + password + "'," + role_id + ")";
-			Statement st = con.createStatement();
-			st.executeUpdate(sql);
+			String sql = "INSERT INTO user (firstname, name, email, password, role_id)" + "VALUES (?,?,?,?,?)";
+			PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			st.setString(1, firstname);
+			st.setString(2, name);
+			st.setString(3, email);
+			st.setString(4, password);
+			st.setInt(5, role_id);
+			st.executeUpdate();
+			
+			ResultSet myRs = st.getGeneratedKeys();
+			if (myRs.next()) {
+				return searchUser(myRs.getInt(1));
+			}
+			
 		} catch (Exception e) {
 			System.out.println("Error while inserting user");
 			e.printStackTrace();
 		}
 
-		/*finally {
-			try {
-				con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Exception while closing DB Connection");
-			}
-
-		}*/
-
-		return true;
+		return null;
 	}
 
 	public static User searchUser(int id) {

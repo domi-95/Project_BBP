@@ -24,7 +24,6 @@ if((User)session.getAttribute("user") != null){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
- <%@page import="database.*"%>
 	<%@page import="user.*"%>
 	<div class="limiter">
 		<div class="container-login100" >
@@ -124,10 +123,28 @@ if((User)session.getAttribute("user") != null){
     		
     		//Check if all fields are filled
 		if (firstname != null && name != null && email != null && password1 != null && password2 != null) {
+			User u2 = null;
+			//Check if password 1 and password 2 are equal
+			if(!password1.equals(password2) ){
+				out.print("Passwörter stimmen nicht überein" + password1 + password2);
+			}
+			else {
+				u2 = User.createUser(email, name, firstname, password1, role_id);
+				if (u2 == null){
+					message = "Es gibt bereits einen Account mit der gleichen E-Mail Adresse";
+					request.setAttribute("message", message);
+					request.getRequestDispatcher("register.jsp").forward(request, response);
+					System.out.println("Sorry, you are already registered");
+				}
+				else{
+					if (u2.getRole().getId() == 1) {
+						message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
 
-			//out.print(firstname + email + password1);
+					}
+				}}
+				
 			
-			User user = UserDao.searchUser(email);
+			/* User user = User.createUser(email, name, firstname, password, role_id);
 			//Check if user exists
 			if(user != null){
 				if(email.equals(user.getEmail())){
@@ -152,6 +169,12 @@ if((User)session.getAttribute("user") != null){
 							
 						//}
 						}
+				
+						// sets the message in request scope
+						request.setAttribute("Message", message); */
+/* 
+						// zur message page
+						getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 						if (n.getRole().getId() == 2) {
 							response.sendRedirect("index.jsp");
 						}
@@ -164,7 +187,7 @@ if((User)session.getAttribute("user") != null){
 						// zur message page
 						getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 					}
-				}
+				} */
 		}
     		
 	%>

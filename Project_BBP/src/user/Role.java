@@ -26,10 +26,17 @@ public class Role {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	@Override
-	public String toString() {
-		return "Role [id=" + id + ", description=" + description + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + id;
+		return result;
 	}
+	
+	
 	
 
 	
