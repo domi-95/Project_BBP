@@ -17,13 +17,13 @@ session.invalidate();
 			<center>
 			<br/><br/>
 				<h3 class="h3message">Sie wurden erfolgreich abgemeldet</h3> <br/><br/>
-				<h5 class="h3message">Sie werden in 5 Sekunden zur Startseite weitergeleitet</h5> <br/><br/>
+				<h5 class="h3message">Sie werden in 3 Sekunden zur Startseite weitergeleitet</h5> <br/><br/>
 				<p>Sollten Sie nicht weitergeleitet werden, bitte <a href="index.jsp">hier</a> klicken</p>
 			</center>
 	<script>
   setTimeout(function() {
       document.location = "index.jsp";
-  }, 5000); // <-- this is the delay in milliseconds
+  }, 3000); // <-- this is the delay in milliseconds
 </script>
 		</div>
 	</center>
