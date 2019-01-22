@@ -85,16 +85,16 @@ function cutDate() {
 <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputTitel">Titel</label>
-      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 40 Zeichen)">
+      <input class="form-control" id="inputTitel" name="title" placeholder="Titel (max. 50 Zeichen)" maxlength="50">
     </div>
   </div>
  <div class="form-group">
     <label for="exampleFormControlShortdescription">Kurzbeschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="short_description" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlShortdescription" name="short_description" rows="2" placeholder="Kurzbeschreibung (max. 150 Zeichen)" maxlength="150"></textarea>
   </div>
  <div class="form-group">
     <label for="exampleFormControlDescription">Beschreibung</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 350 Zeichen)"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. 800 Zeichen)" maxlength="800"></textarea>
   </div>
 
 
@@ -140,12 +140,12 @@ $('#date').datepicker({
 
  <div class="form-row"> 
  <div class="col-md-4 form-group">
-<input  class="form-control" type= "text" name = "n_1" placeholder = "Antwortmöglichkeit 1" required>
+<input  class="form-control" type= "text" name = "n_1" placeholder = "Antwortmöglichkeit 1" maxlength="20" required>
 </div>
 </div>
  <div class="form-row">
  <div class="col-md-4 form-group">
-<input  class="form-control" type= "text" name = "n_2" placeholder = "Antwortmöglichkeit 2" required>
+<input  class="form-control" type= "text" name = "n_2" placeholder = "Antwortmöglichkeit 2" maxlength="20" required>
 </div>
 </div>
 
