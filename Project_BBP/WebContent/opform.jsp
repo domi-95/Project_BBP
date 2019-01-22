@@ -101,10 +101,11 @@ function cutDate() {
 <div class="form-row">
     <div class="form-group col-md-6">
       <label for="date">Dauer der Abstimmung</label>
-      <input class="form-control" type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here" placeholder="Dauer der Abstimmung"  required/>
+<input type="text" id="date" data-range="true" data-multiple-dates-separator=" - " data-language="de" class="datepicker-here form-control" placeholder="Dauer der Abstimmung"  required/>
 <script>
-//Functionality for Datepicker that it is not possible to choose dates in the past
 var minDate = new Date();
+//minDate.setDate(minDate.getDate() + 1);
+
 $('#date').datepicker({
   minDate: minDate,
   autoClose: true,
