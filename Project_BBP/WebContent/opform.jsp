@@ -133,9 +133,16 @@ $('#date').datepicker({
 <label for="chooseFile">Foto hochladen</label><br>
   <div class="custom-file col-md-4" id="chooseFile">
  <div class="form-row"> 
-  <label for="loadFile" class="custom-file-label">Datei auswählen</label>
   <input type="file" class="custom-file-input form-control" id="loadFile" name="photo" size="50">
-
+  <label for="loadFile" class="custom-file-label">Datei auswählen</label>
+	 <script>
+            $('#loadFile').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        </script>
 </div></div>
 <br>
 <br>
