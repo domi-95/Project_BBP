@@ -18,22 +18,23 @@
     <div class="container-fluid text-center text-md-left">
 
       <!-- Grid row -->
-      <div class="row">
+      <div class="row w-75 m-auto">
 
         <!-- Grid column -->
-        <div class="col-md-5 mt-md-0 mt-3">
+        <div class="col-md-4 mt-md-0 mt-3 px-0">
 
           <!-- Content -->
-          <h7 class="text-uppercase">BBP Mosbach</h7>
-          
+          <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> <br>
+           <h7 class="text-uppercase"><a href="https://www.mosbach.de/" target="_blank">Kreisstadt Mosbach</a></h7>
 
         </div>
+        
         <!-- Grid column -->
 
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-3 mb-md-0 mb-3">
+        <div class="col-md-1 mb-md-0 mb-3">
 
            
 
@@ -41,33 +42,58 @@
               <li>
                 <a href="#">Netiquette</a>
               </li>
+            </ul>
+          </div>
+	<!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-1 mb-md-0 mb-3">
+
+           
+
+            <ul class="list-unstyled" >
               <li>
                 <a href="#">Datenschutz</a>
-             
-            </ul>
+              </li>
+              </ul>
 
           </div>
+          
           <!-- Grid column -->
+          
  <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-3 mb-md-0 mb-3">
+        <div class="col-md-1 mb-md-0 mb-3">
 
            
 
             <ul class="list-unstyled" >
               <li>
                 <a href="impressum.jsp">Impressum</a>
-              </li>
+              </li>            
+            </ul>
+
+          </div>
+          
+<hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-1 mb-md-0 mb-3">
+
+           
+
+            <ul class="list-unstyled" >
               <li>
                 <a href="contact.jsp">Kontakt</a>
+              </li>
              
             </ul>
 
           </div>
           
-
-      </div>
+        
       <!-- Grid row -->
 
     </div>
