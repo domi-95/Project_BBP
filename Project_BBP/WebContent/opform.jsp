@@ -27,7 +27,7 @@ if (u == null || u.getRole().getId() != 3){
 	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
 	
 	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<script src="script/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	
