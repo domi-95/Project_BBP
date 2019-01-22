@@ -21,7 +21,7 @@
       <div class="row w-75 m-auto">
 
         <!-- Grid column -->
-        <div class="col-md-4 mt-md-0 mt-3 px-0">
+        <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white">
 
           <!-- Content -->
           <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> <br>
@@ -34,7 +34,7 @@
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-1 mb-md-0 mb-3">
+        <div class="col-md-1 mb-md-0 mb-3 ml-4">
 
            
 
