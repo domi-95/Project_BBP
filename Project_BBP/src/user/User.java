@@ -60,26 +60,7 @@ public class User {
 	}
 
 	public static User getUserLogin(String email, String password) {
-		String hashpassword = null;
-//		User u = UserDao.searchUser(email);
-//		if (u == null) {
-//			return null;
-//		}
-		try {
-			boolean validate = Password.check(password, UserDao.validatePassword(email));
-			
-			if (validate) {
-				return UserDao.searchUser(email);
-			}
-			else {
-				return null;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		//return UserDao.searchUserWithPw(email, hashpassword);
-		return null;
-		
+		return UserDao.searchUserWithPw(email, password);
 
 	}
 	
@@ -87,21 +68,15 @@ public class User {
 		return UserDao.searchUser(user_id);
 	}
 
-	public static User createUser(String email, String name, String firstname, String password, int role_id) {
-		String hashpassword = null;
+	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
+
 		if (UserDao.searchUser(email) != null) {
-			return null;
+			return false;
 		}
-		try {
-			 hashpassword = Password.getSaltedHash(password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return UserDao.safeUser(email, name, firstname, hashpassword, role_id);
+
+		return UserDao.safeUser(email, name, firstname, password, role_id);
 
 	}
-	
-	
 
 
 }
