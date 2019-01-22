@@ -50,8 +50,9 @@ padding: 0.8rem;
 <jsp:include page="/include/collapse.jsp"></jsp:include>
 <br>
 </div>
-
-<div class="container text-center formular-bd opindex "> 
+<br>
+<br>
+<div class="text-center formular-bd opindex  w-75 m-auto"> 
  
 
   <h3>Projektübersicht</h3><br>
@@ -98,7 +99,7 @@ padding: 0.8rem;
    
   </div> 
 <br>
-
+<br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
