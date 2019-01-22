@@ -117,6 +117,9 @@ if((User)session.getAttribute("user") != null){
     		String password2 = request.getParameter("password2");
     		String message = null;
     		int role_id = 1;
+    		if(u != null && u.getRole().getId() == 2){
+    			role_id = Integer.parseInt(request.getParameter("usercategory"));
+    		}
     		//out.print(email + password1);
     		
     		//Check if all fields are filled
