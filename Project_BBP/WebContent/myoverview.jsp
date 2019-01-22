@@ -52,11 +52,11 @@ $(document).ready(function() {
 <form name="selectState" method="post" action="myoverview.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
 
-  <label class="btn btn-secondary col-md-1 active" id="label1">
+  <label class="btn btn-secondary col-md-2 active" id="label1">
     <input type="radio" name="z" id="z" value="1" > Meine Projekte
   </label>
-  <label class="btn btn-secondary col-md-1" id="label2">
-    <input type="radio" name="z" id="z" value="2"> Meine Votes
+  <label class="btn btn-secondary col-md-2" id="label2">
+    <input type="radio" name="z" id="z" value="2"> Meine Unterstützungen
   </label>
 </div>
 </form>
@@ -243,11 +243,11 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 		
 			%>
 <div class="col-sm-4">
-<div class="card" style=" width:367px; margin:1% 0 1% 1.6%">
+<div class="card" style="height: 510px; width:367px; margin:1% 0 1% 1.6%">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex">
-    <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
-    <p class="card-text">Kategorie: <%out.print(p.getCategory()); %></p>
+    <h5 class="card-title"><%out.print(p.getTitle()); %></h5>
+    <h6 class="card-text">Kategorie: <small><%out.print(p.getCategory()); %></small></h6>
     <p class="card-text"></p>
   </div>
   <div class="card-footer opindex">

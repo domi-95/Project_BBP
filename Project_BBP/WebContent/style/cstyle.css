@@ -224,6 +224,9 @@ position: absolute;
 .project-body{
 		height: 60px !important;
 }
+.pov-body{
+	height: 700px !important;
+}
 .navsm{
 	max-heigth: 10px !important;
 }

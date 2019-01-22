@@ -63,11 +63,12 @@ if (u == null || u.getRole().getId() != 1){
 
 
 <div class="col-sm-4">
-<div class="card" style=" width:367px; margin:1% 0 1% 1.6%">
+<div class="card" style=" height: 510px; width:367px; margin:1% 0 1% 1.6%">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex">
-    <h6 class="card-title"><%out.print(p.getTitle()); %></h6>
-    <p class="card-text">Kategorie: <%out.print(p.getCategory()); %></p>
+    <h5 class="card-title"><%out.print(p.getTitle()); %></h5>
+    <h6 class="card-text"> Kategorie: <small><%out.print(p.getCategory()); %></small></h6>
+    <h6 class="card-text"> Kurzbeschreibung: <small><%out.print(p.getShort_description()); %></small></h6>
     <p class="card-text"></p>
   </div>
   <div class="card-footer opindex">
@@ -82,12 +83,12 @@ if (u == null || u.getRole().getId() != 1){
       <% 
       if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%> 
-    	<input class="btn btn-success btn-block" value="Vote" onClick="doPVote(<%out.print(p.getId());%>);">
+    	<input class="btn btn-success btn-block" value="Unterstützen" onClick="doPVote(<%out.print(p.getId());%>);">
         	
     	<%  
       }else {
     	%>
-      <a href="#" class="btn btn-success btn-block disabled">Bereits Abgestimmt!</a>    
+      <a href="#" class="btn btn-success btn-block disabled">Unterstützt!</a>    
       <%
       }
     %>
@@ -96,7 +97,7 @@ if (u == null || u.getRole().getId() != 1){
 </div>
 <div class="row p-1">
   <div class="col d-flex justify-content-center" >
-      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Stimmen: <%out.print (p.getVote()); %></a>    
+      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
     
   </div>
 </div>
