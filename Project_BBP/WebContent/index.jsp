@@ -50,11 +50,12 @@ padding: 0.8rem;
 <jsp:include page="/include/collapse.jsp"></jsp:include>
 <br>
 </div>
-
-<div class="container text-center formular-bd opindex "> 
+<br>
+<br>
+<div class="formular-bd opindex  w-75 m-auto"> 
  
 
-  <h3>Projektübersicht</h3><br>
+  <h3 class="text-center">Projektübersicht</h3><br>
   <div class="row">
    <% 
 	int rand = 0;
