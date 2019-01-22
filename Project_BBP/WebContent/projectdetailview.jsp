@@ -177,7 +177,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
       <%
       }
     %>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px"><%out.print (p.getVote()); %> Unterstützungen</a>
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützungen: <%out.print (p.getVote()); %></a>
 </div>
 
 	</div><br>

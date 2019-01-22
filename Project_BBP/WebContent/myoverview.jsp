@@ -215,7 +215,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else{
     	%>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Abgestimmt!</a> 
       <%
       }
     %>
@@ -267,7 +267,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else {
     	%>
-      <a href="#" class="btn btn-success btn-block disabled">Bereits Abgestimmt!</a>    
+      <a href="#" class="btn btn-success btn-block disabled">Abgestimmt!</a>    
       <%
       }
     %>
