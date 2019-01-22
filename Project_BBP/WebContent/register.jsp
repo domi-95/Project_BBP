@@ -20,6 +20,7 @@ if((User)session.getAttribute("user") != null){
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 <!--===============================================================================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@page import="user.*"%>
 </head>
 <body class="bg">
