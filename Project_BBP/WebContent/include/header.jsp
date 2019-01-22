@@ -27,7 +27,7 @@ if((User)session.getAttribute("user") != null){
 <body>
 <div class="navbd sticky-top navdesign">
 <nav class="navbar navbar-expand-lg navbar-dark m-auto w-75 px-0">
-  <a class="navbar-brand" href="index.jsp">Bürgerbeteiligungsportal</a>
+  <a class="navbar-brand mr-3" href="index.jsp">Bürgerbeteiligungsportal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,7 +37,7 @@ if((User)session.getAttribute("user") != null){
 	%>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="projectform.jsp">Projekt vorschlagen <span class="sr-only">(current)</span></a>
+        <a class="nav-link border-left border-white pl-3 " href="projectform.jsp">Projekt vorschlagen <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="projectoverview.jsp">Projekt unterstützen</a>
@@ -54,7 +54,7 @@ if((User)session.getAttribute("user") != null){
 	%>
 	<ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="projectapprove.jsp">Projekte freigeben <span class="sr-only">(current)</span></a>
+        <a class="nav-link border-left border-white pl-3" href="projectapprove.jsp">Projekte freigeben <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Auswertung erstellen</a>
@@ -74,7 +74,7 @@ if((User)session.getAttribute("user") != null){
 	%>
 	<ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Projekte einsehen <span class="sr-only">(current)</span></a>
+        <a class="nav-link border-left border-white pl-3" href="#">Projekte einsehen <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="opform.jsp">Abstimmung anlegen</a>
