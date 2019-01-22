@@ -56,7 +56,7 @@ $(document).ready(function(){
 <!-- LOAD END -->
 
 
-<div class="formular-bd">
+<div class="formular-bd w-75 mx-auto">
 <h2>Projektantrag erstellen</h2>
 <br>
 	<form id="regForm" method="post" action="CreateProjectProcess"	enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
