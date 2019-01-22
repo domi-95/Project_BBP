@@ -46,26 +46,69 @@ $(document).ready(function() {
 	       $('form[name=selectState]').submit();
 	  });
 	 });
+	 
+function changeActive(){
+	$(document).ready(function changeActive1(){
+		changeActive1();
+		
+		});
+}
 </script>
 <jsp:include page="/include/header.jsp"></jsp:include>
 <br>
+<%
+int state;
+if(request.getParameter("z") != null){
+	state = Integer.parseInt(request.getParameter("z"));%>
+	<input type="hidden" id="state" value="<%out.print(state); %>">
+	<script>
+	
+	changeActive();
+	</script>
+	<%
+	}
+	else{
+	state = 1;
+	}%>
 <form name="selectState" method="post" action="myoverview.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
 
   <label class="btn btn-secondary col-md-2 active" id="label1">
-    <input type="radio" name="z" id="z" value="1" > Meine Projekte
+    <input type="radio" name="z" id="z" value="1" <%if(state == 1){out.print(" checked");} %>> Meine Projekte
   </label>
   <label class="btn btn-secondary col-md-2" id="label2">
-    <input type="radio" name="z" id="z" value="2"> Meine Unterstützungen
+    <input type="radio" name="z" id="z" value="2" <%if(state == 2){out.print(" checked");} %>> Meine Unterstützungen
   </label>
 </div>
 </form>
 <br>
+
+<script>
+$(document).ready(function changeActive1(){
+	var id = document.getElementsByName('z');
+
+	for (var i = 0, length = id.length; i < length; i++) {
+	    if (id[i].checked) {
+	        id = id[i].value;
+	        break;
+	    }
+	}
+
+	var element = "label"+id;		
+	var element1 = "label1";
+	$(function(){
+		$('#'+element1).removeClass('active');	
+		$('#'+element).addClass('active');
+	});
+});
+
+</script>
+
 <% 
 String invest = "question.png";
 String period = "question.png";
 List<Project> projectlist = null;
-int state=1;
+state=1;
 if(request.getParameter("z") == null){
 	state = 1;
 }
