@@ -271,7 +271,8 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
       }%>
 
 	<br>
-			<%}
+	 <%
+	 break; }
 	case 2:{%>
 <div id="snackbar_message"></div>
 <div class="container text-center" id="voteReload">
@@ -337,7 +338,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 </div>
 <%
 		
-	}
+	break;}
 	}
 	
 	%>
