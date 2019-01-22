@@ -230,3 +230,141 @@ var ad = adddelete;
 		
 	}
 }
+
+//Approve and Reject of Projects
+function message(ar) {
+	if(ar==1){
+	  document.getElementById('successMsg').innerHTML +=
+	  "<div id='snackbar' class=''>Projekt wurde genehmigt!</div>";
+	}
+	else{
+		document.getElementById('successMsg').innerHTML +=
+			  "<div id='snackbar' class=''>Projekt wurde abgelehnt!</div>";
+	}
+	  var element = 'snackbar';
+	  $(function(){
+			$(function(){
+				$('#'+element).addClass('animated slideInUp');
+	  document.getElementById("snackbar").style.visibility = "visible";
+				$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+					$('#'+element).removeClass('animated slideInUp');
+					$(function(){
+						$('#'+element).addClass('animated slideOutDown delay-3s');
+						$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+							$('#'+element).removeClass('animated slideOutDown delay-3s');
+							$('#'+element).remove();	
+						});
+					});	
+				});
+			});
+		});
+	}
+	
+function rejectBox(id){
+	document.getElementById('rejectBox').innerHTML +=
+		"<div id='overlay' class='overlay'>"+
+		  "<div id='msgBox'><h3>Project ablehnen</h3><br><br>"+
+		"<p>Begründung: </p><br>"+
+		"<textarea id='rejectReason' name='rejectReason' cols='35' rows='4' autofocus></textarea> <br><br>"+
+		"<input type='button' value='Ablehnen' onClick='doReject("+id+")'> <br><br>"+
+		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
+		"</div>";
+		
+}
+
+
+function remove_project(id) {
+	  
+	
+	  var element = 'dynamic_divs' + id;
+	  
+	  $(function(){
+			$(function(){
+				$('#'+element).addClass('animated zoomOut delay-1s');
+				$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+					$('#'+element).removeClass('animated zoomOut delay-1s');
+					$('#'+element).slideUp();	
+				});
+			});
+		});
+	
+
+	}
+
+function doApprove(id) {
+	var a = 1;
+    //var phoneNo = $("#phoneNumber").val();
+    //var x = "40";
+    $.ajax({
+        url: 'ApproveProject',
+        type: 'POST',
+        data: {
+            pId: id,
+            acceptreject: "approve"
+        },
+        success: function(data) {
+        //    alert('Update Success');
+        	message(a);
+            remove_project(id);
+        },
+        failure: function(data) {
+            alert('Update Failed');
+        }
+    });
+    
+
+}function doReject(id){
+	var a = 2;
+	var element = 'msgBox';
+	var element1 = 'overlay';
+	var rereason = ($.trim($("#rejectReason").val()));
+	if(rereason != ""){
+	$.ajax({
+        url: 'ApproveProject',
+        type: 'POST',
+        data: {
+            pId: id,
+            acceptreject: "reject",
+            rejectReason: rereason
+        },
+        success: function(data) {
+        //    alert('Update Success');
+        $(function(){
+						$('#'+element).addClass('animated fadeOut faster');
+						$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+							$('#'+element).removeClass('animated fadeOut faster');
+							$('#'+element).remove();
+							$('#'+element1).remove();
+						});
+					});
+        	message(a);
+            remove_project(id);
+        },
+        failure: function(data) {
+            alert('Update Failed');
+        }
+    });
+	}
+	else{
+		$(function(){
+			$('#'+element).addClass('animated shake');
+			$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+				$('#'+element).removeClass('animated shake');	
+			});
+		});
+	}
+}
+
+function doClose(){
+	var element = 'msgBox';
+	var element1 = 'overlay';
+	$(function(){
+		$('#'+element).addClass('animated fadeOut faster');
+		$('#'+element).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$('#'+element).removeClass('animated fadeOut faster');
+			$('#'+element).remove();	
+			$('#'+element1).remove();
+		});
+	});
+}
+//End Approve and Reject of Projects
