@@ -300,3 +300,7 @@ textarea.form-control{
 div.help-block.with-errors{
 	color: #a94442 !important;
 }
+
+.card-text{
+	overflow: unset !important;
+}
