@@ -26,7 +26,7 @@ if((User)session.getAttribute("user") != null){
 </head>
 <body>
 <div class="navbd sticky-top navdesign">
-<nav class="navbar navbar-expand-lg navbar-dark m-auto w-75">
+<nav class="navbar navbar-expand-lg navbar-dark m-auto w-75 px-0">
   <a class="navbar-brand" href="index.jsp">Bürgerbeteiligungsportal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

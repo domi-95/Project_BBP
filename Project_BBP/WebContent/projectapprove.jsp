@@ -205,8 +205,8 @@ function changeValue(id){
 	String period = "question.png";
 	for (Project p : projectlist){
 	%>
-	<div class="container p-3" id="dynamic_divs<%out.print(p.getId());%>">
-	<div class="card mx-auto listbordershadow" style="width: 80%;">
+	<div class="mx-auto w-75" id="dynamic_divs<%out.print(p.getId());%>">
+	<div class="card mx-auto listbordershadow" >
 	
 		
 <div class="row m-2">
