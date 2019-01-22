@@ -27,7 +27,7 @@ if (u == null || u.getRole().getId() != 2){
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lingradbg bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 
 <style>
@@ -344,10 +344,10 @@ function changeValue(id){
 <% if(state==1){ %>
 <div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
   <div class="col-xs-12 col-xl-6">
-    <input class="btn btn-lg btn-primary btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>);">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>);">
   </div>
   <div class="col-xl-6">
-    <input class="btn btn-lg btn-secondary btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>);">
+    <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>);">
   </div>
 </div>
 <%} %> 
@@ -355,7 +355,7 @@ function changeValue(id){
 
 <div class="row m-2">
   <div class="col-xl-12 text-center">
-    <input type="button" class="btn btn-lg btn-info btn-block" data-toggle="collapse" data-target="#details<%out.print(p.getId());%>" aria-expanded="false" aria-controls="collapseExample" value="Mehr anzeigen" id="collapseButton<%out.print(p.getId());%>" onClick="changeValue(<%out.print(p.getId());%>);">
+    <input type="button" class="btn btn-lg  btn-block" data-toggle="collapse" data-target="#details<%out.print(p.getId());%>" aria-expanded="false" aria-controls="collapseExample" value="Mehr anzeigen" id="collapseButton<%out.print(p.getId());%>" onClick="changeValue(<%out.print(p.getId());%>);">
   </div>
 </div>
 </div>
