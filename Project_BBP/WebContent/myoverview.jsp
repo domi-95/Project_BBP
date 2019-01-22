@@ -22,6 +22,8 @@ if (u == null || u.getRole().getId() != 1){
 <style>
 
 .card-text{
+	d-flex;
+	flex-column;
     font-size:19px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -46,26 +48,69 @@ $(document).ready(function() {
 	       $('form[name=selectState]').submit();
 	  });
 	 });
+	 
+function changeActive(){
+	$(document).ready(function changeActive1(){
+		changeActive1();
+		
+		});
+}
 </script>
 <jsp:include page="/include/header.jsp"></jsp:include>
 <br>
+<%
+int state;
+if(request.getParameter("z") != null){
+	state = Integer.parseInt(request.getParameter("z"));%>
+	<input type="hidden" id="state" value="<%out.print(state); %>">
+	<script>
+	
+	changeActive();
+	</script>
+	<%
+	}
+	else{
+	state = 1;
+	}%>
 <form name="selectState" method="post" action="myoverview.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
 
   <label class="btn btn-secondary col-md-2 active" id="label1">
-    <input type="radio" name="z" id="z" value="1" > Meine Projekte
+    <input type="radio" name="z" id="z" value="1" <%if(state == 1){out.print(" checked");} %>> Meine Projekte
   </label>
   <label class="btn btn-secondary col-md-2" id="label2">
-    <input type="radio" name="z" id="z" value="2"> Meine Unterstützungen
+    <input type="radio" name="z" id="z" value="2" <%if(state == 2){out.print(" checked");} %>> Meine Unterstützungen
   </label>
 </div>
 </form>
 <br>
+
+<script>
+$(document).ready(function changeActive1(){
+	var id = document.getElementsByName('z');
+
+	for (var i = 0, length = id.length; i < length; i++) {
+	    if (id[i].checked) {
+	        id = id[i].value;
+	        break;
+	    }
+	}
+
+	var element = "label"+id;		
+	var element1 = "label1";
+	$(function(){
+		$('#'+element1).removeClass('active');	
+		$('#'+element).addClass('active');
+	});
+});
+
+</script>
+
 <% 
 String invest = "question.png";
 String period = "question.png";
 List<Project> projectlist = null;
-int state=1;
+state=1;
 if(request.getParameter("z") == null){
 	state = 1;
 }
@@ -215,7 +260,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else{
     	%>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Abgestimmt!</a> 
       <%
       }
     %>
@@ -245,10 +290,11 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 <div class="col-sm-4">
 <div class="card" style="height: 510px; width:367px; margin:1% 0 1% 1.6%">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-  <div class="card-body opindex">
+  <div class="card-body opindext ">
     <h5 class="card-title"><%out.print(p.getTitle()); %></h5>
-    <h6 class="card-text">Kategorie: <small><%out.print(p.getCategory()); %></small></h6>
-    <p class="card-text"></p>
+
+    <h6 class="card-text align-self-end">Kategorie: <small><%out.print(p.getCategory()); %></small></h6>
+
   </div>
   <div class="card-footer opindex">
   
@@ -267,7 +313,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else {
     	%>
-      <a href="#" class="btn btn-success btn-block disabled">Bereits Abgestimmt!</a>    
+      <a href="#" class="btn btn-success btn-block disabled">Abgestimmt!</a>    
       <%
       }
     %>
