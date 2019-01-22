@@ -1,3 +1,10 @@
+<%
+User u = null;
+if((User)session.getAttribute("user") != null){
+	u = (User)session.getAttribute("user"); 
+}
+
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 <!--===============================================================================================-->
+<%@page import="user.*"%>
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
@@ -29,7 +37,16 @@
 					<span class="login100-form-title">
 						Registrierung
 					</span>
-
+					<%if(u != null && u.getRole().getId() == 2){ %>
+					<div class="wrap-input100 validate-input" data-validate = "Benutzerkategorie erforderlich">
+				      <select name="usercategory" class="input100" required>
+				        <option value="">Benutzerkategorie wählen...</option>
+				       		<option value="1">Bürger</option>
+							<option value="2" >Gemeindeverwaltung</option>
+							<option value="3">Gemeinderat</option>
+				      </select>
+				      </div>
+					<%} %>
 					<div class="wrap-input100 validate-input" data-validate = "Vorname erforderlich">
 						<input class="input100" type="text" name="firstname" placeholder="Vorname" required>
 						<span class="focus-input100"></span>
@@ -107,10 +124,10 @@
 
 			//out.print(firstname + email + password1);
 			
-			User u = UserDao.searchUser(email);
+			User user = UserDao.searchUser(email);
 			//Check if user exists
-			if(u != null){
-				if(email.equals(u.getEmail())){
+			if(user != null){
+				if(email.equals(user.getEmail())){
 					message = "Es gibt bereits einen Account mit der gleichen E-Mail Adresse";
 					request.setAttribute("message", message);
 					request.getRequestDispatcher("register.jsp").forward(request, response);
