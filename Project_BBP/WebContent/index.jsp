@@ -52,10 +52,10 @@ padding: 0.8rem;
 </div>
 <br>
 <br>
-<div class="formular-bd opindex  w-75 m-auto"> 
+<div class="text-center formular-bd opindex  w-75 m-auto"> 
  
 
-  <h3 class="text-center">Projektübersicht</h3><br>
+  <h3>Projektübersicht</h3><br>
   <div class="row">
    <% 
 	int rand = 0;
@@ -99,7 +99,7 @@ padding: 0.8rem;
    
   </div> 
 <br>
-
+<br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
