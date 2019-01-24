@@ -91,6 +91,14 @@ if (u == null || u.getRole().getId() != 1){
     <%} %>
   </div>
 </div>
+<div class="row m-2">
+  <div class="col-xs-12 col-xl-3 border-bottom">
+    <p class="font-weight-bold">Kommentar:</p>
+  </div>
+  <div class="col-xl-9 border-bottom">
+    <%out.print(p.getComment()); %>
+  </div>
+</div>
 
 <div class="row m-2">
 <%	

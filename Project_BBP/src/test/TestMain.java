@@ -210,8 +210,19 @@ public class TestMain extends Thread{
 //		System.out.println(s);
 		
 		
-		System.out.println(Vote.getUserVotesList(1));
+		//System.out.println(Vote.getUserVotesList(1));
+		
+		//System.out.println(User.createUser("test", "test", "test", "test", 1));
+		//System.out.println("hallo");
+	try {
+		System.out.println(Password.getSaltedHash("1234"));
+		System.out.println(Password.check("kevin", "/FXEbqo+N7s+KT4HJKIIQ3GpTzbxZjGNccQ68SxFTOA=$icC//0PwKoepWJwqHtqZsJrmFe7bRpHm9k7xXYPOWg0="));
+		//System.out.println(Password.getSaltedHash("12345"));
+		} catch ( Exception e) {
+			e.printStackTrace();
+		}
 //		
+		//System.out.println(UserDao.validatePassword("kevin@bbp.de"));
 	}
 	
 //	public static Calendar getCalenderWithoutTime (Calendar calendar) {

@@ -60,7 +60,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link" href="#">Auswertung erstellen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Blogeintrag erstellen</a>
+        <a class="nav-link" href="createblogpost.jsp">Blogeintrag erstellen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="blog.jsp">Blog</a>
