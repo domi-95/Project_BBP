@@ -140,8 +140,8 @@ DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 	<div class="card mx-auto listbordershadow border-0" >
 	
 		
-<div class="row m-0 text-white bg-dark align-bottom" >
-  <div class="col-xs-4 col-xl-6  align-bottom">
+<div class="row m-0 text-white bg-dark" style="height: 10%;">
+  <div class="col-xs-4 col-xl-6 ">
    <span class="d-inline-block">Angelegt: <% out.print(p.getStamp_created()); %></span>
    <%if(state == 2 || state == 6) {%>
    <span class="d-inline-block"> | Freigegeben: <%out.print(p.getStamp_updated()); %></span>
