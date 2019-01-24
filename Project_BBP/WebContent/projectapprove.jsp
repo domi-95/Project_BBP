@@ -14,6 +14,8 @@ if (u == null || u.getRole().getId() != 2){
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
+<%@page import = "java.text.DateFormat" %>
+<%@page import = "java.text.SimpleDateFormat" %>
 
 	
 	<!-- Bootstrap style -->
@@ -25,84 +27,11 @@ if (u == null || u.getRole().getId() != 2){
 <script src="script/cscript.js"></script>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Projekte freigeben</title>
 </head>
 <body class="lingradbg bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 
-<style>
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 17px;
-}
-#msgBox {
-  visibility: visible;
-  border: solid 1px black;
-  background-color: #333;
-  color: #fff;
-  font-size: 17px;
-  text-align: center;
-  padding: 16px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 300;
-
-    height: 400px;
-    margin-top: -200px;
-
-    width: 600px;
-    margin-left: -300px;
-}
-
-#overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  visibility: visible;
-  opacity: 1;
-  z-index: 200;
-}
-#overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-#background{
-position:absolute;
-    z-index:0;
-    background:white;
-    display:block;
-    min-height:50%; 
-    min-width:50%;
-    color:yellow;
-}
-#forground{
-position:absolute;
-z-index: 1;
-}
-#bg-text
-{
-    color:lightgrey;
-    font-size:60px;
-    transform:rotate(300deg);
-    -webkit-transform:rotate(300deg);
-}
-</style>
 
 <script>
 
@@ -183,6 +112,8 @@ function changeValue(id){
 
 
 <% 
+DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
+
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
 	}
@@ -206,9 +137,21 @@ function changeValue(id){
 	for (Project p : projectlist){
 	%>
 	<div class="mx-auto w-75" id="dynamic_divs<%out.print(p.getId());%>">
-	<div class="card mx-auto listbordershadow" >
+	<div class="card mx-auto listbordershadow border-0" >
 	
 		
+<div class="row m-0 text-white bg-dark align-bottom" >
+  <div class="col-xs-4 col-xl-6  align-bottom">
+   <span class="d-inline-block">Angelegt: <% out.print(p.getStamp_created()); %></span>
+   <%if(state == 2 || state == 6) {%>
+   <span class="d-inline-block"> | Freigegeben: <%out.print(p.getStamp_updated()); %></span>
+   <%} %>
+  </div>
+  <div class="col-xs-4 col-xl-6">
+    <p class="text-right">Expire_Date</p>
+
+  </div>
+</div>
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
      <h4><%out.print(p.getTitle()); %></h4>
@@ -336,8 +279,8 @@ function changeValue(id){
  </div>
 </div>
 </div>
-<div class="col-xl-3 border border-top-0 text-center imgCon d-inline-block">
-	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid mx-auto d-block" alt="Image"/>
+<div class="col-xl-3 border border-top-0 text-center imgCon d-inline-block" style="object-fit:cover;">
+	<img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid mx-auto d-block" alt="Image" />
 </div>
 </div>
 
