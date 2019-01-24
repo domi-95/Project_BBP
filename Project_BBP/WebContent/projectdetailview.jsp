@@ -42,8 +42,8 @@ if (u == null || u.getRole().getId() != 1){
 	}
     
 	%>
-	<div class="container p-3"  id="voteReload">
-	<div class="card mx-auto listbordershadow" style="width: 80%;">
+	<div class="container px-0 pt-3 w-75"  id="voteReload">
+	<div class="card mx-auto listbordershadow">
 	
 		
 <div class="row m-2">
