@@ -39,6 +39,7 @@ if (u == null || u.getRole().getId() != 1){
     height: 15vw;
     object-fit: cover;
 }
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
@@ -62,8 +63,8 @@ if (u == null || u.getRole().getId() != 1){
 
 
 
-<div class="col-sm-4">
-<div class="card" style="width:367px; margin:1% 0 1% 1.6%">
+<div class="col-md-4" style="margin:0 0 1% 0%; width:367px;">
+<div class="card">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
