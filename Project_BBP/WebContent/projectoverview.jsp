@@ -63,7 +63,7 @@ if (u == null || u.getRole().getId() != 1){
 
 
 
-<div class="col-md-4" style="margin:0 0 1% 0%; width:367px;">
+<div class="col-md-4" style="margin:0 0 1% 0%;">
 <div class="card">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex">
