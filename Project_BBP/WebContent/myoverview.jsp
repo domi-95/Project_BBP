@@ -132,7 +132,7 @@ state = Integer.parseInt(request.getParameter("z"));
 			}
 			for (Project p : projectlist){
 				%>
-			<div class="card mx-auto listbordershadow" style="width: 80%;">
+<div class="card mx-auto listbordershadow" style="width: 80%;">
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
      <h4><%out.print(p.getTitle()); %></h4>
@@ -296,13 +296,14 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 		for (Project p : projectlist){
 		
 			%>
-<div class="col-sm-4">
-<div class="card" style="height: 510px; width:367px; margin:1% 0 1% 1.6%">
+
+<div class="col-md-4" style="margin:0 0 1% 0;">
+<div class="card">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindext ">
-    <h5 class="card-title"><%out.print(p.getTitle()); %></h5>
+    <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
 
-    <h6 class="card-text align-self-end">Kategorie: <small><%out.print(p.getCategory()); %></small></h6>
+    <h5 class="card-text align-self-end"><small><b>Kategorie: </b><%out.print(p.getCategory()); %></small></h5>
 
   </div>
   <div class="card-footer opindex">
