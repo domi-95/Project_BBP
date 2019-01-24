@@ -1,12 +1,14 @@
 package project;
 
-import user.*;
 import java.io.InputStream;
-import java.util.Arrays;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
-import database.*;
+import database.ProjectDao;
 import emailsender.EmailSend;
+import user.User;
 
 public class Project {
 
@@ -103,11 +105,17 @@ public class Project {
 	}
 
 	public String getStamp_created() {
-		return stamp_created;
+		Timestamp ts = Timestamp.valueOf(stamp_created);
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		f.format(ts);
+		return f.format(ts);
 	}
 
 	public String getStamp_updated() {
-		return stamp_updated;
+		Timestamp ts = Timestamp.valueOf(stamp_updated);
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		f.format(ts);
+		return f.format(ts);
 	}
 
 	public int getVote() {
@@ -175,7 +183,7 @@ public class Project {
 	}
 
 	public void checkedCouncil() {
-		this.setState(new State(4, "geprüft gemeinderat"));
+		this.setState(new State(4, "geprï¿½ft gemeinderat"));
 	}
 
 	public void declineCouncil(String comment, State state) {
