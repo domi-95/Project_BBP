@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<%@page import="blog.*"%>
+<%@page import="user.*"%>
+<%@page import="java.util.*"%>
  <!-- Custom styles -->
 <link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen">
 <!-- BLOG-Custom styles -->
@@ -12,21 +14,29 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
-<title>News</title>
+<title>Blog</title>
 </head>
 <body class="lingradbg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="newsblog w-75">
 	<!-- Section: Blog v.1 -->
 	<section class="my-5"> <!-- Section heading -->
-	<h2 class="h1-responsive font-weight-bold text-center my-5">Recent
-		posts</h2>
+	<h2 class="h1-responsive font-weight-bold text-center my-5">Aktuelles in Mosbach
+		</h2>
 	<!-- Section description -->
-	<p class="text-center w-responsive mx-auto mb-5">Duis aute irure
-		dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-		nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-		in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<!-- Grid row -->
+	<p class="text-center w-responsive mx-auto mb-5">In diesem Blog können sie aktuelle Projekte in Mosbach sehen
+	welche durch den Gemeinderat freigegeben wurden zur durchführung. Die Blog einträge werden von Verwaltungsmitarbeiter
+	nach dem Beschluss des Gemeinderates erstellt. Die Basis schaffen Projekte welche Bürger eingereicht haben.</p>
+	<%
+	List<Blog> result = Blog.getAll();
+	int counter = 1;
+	for (Blog b : result){
+			if (counter == 1){
+			
+			%>
+		<!-- -------------------first time------------------------- -->
+	
+	
 	<div class="row">
 
 		<!-- Grid column -->
@@ -35,7 +45,7 @@
 			<!-- Featured image -->
 			<div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
 				<img class="img-fluid"
-					src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
+					src="DisplayImageServlet?id=<%out.print(b.getId()); %>&select=3"
 					alt="Sample image"> <a>
 					<div class="mask rgba-white-slight"></div>
 				</a>
@@ -50,21 +60,19 @@
 			<!-- Category -->
 			<a href="#!" class="green-text">
 				<h6 class="font-weight-bold mb-3">
-					<i class="fas fa-utensils pr-2"></i>Food
+					<i class="fas fa-utensils pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
 			</a>
 			<!-- Post title -->
 			<h3 class="font-weight-bold mb-3">
-				<strong>Title of the news</strong>
+				<strong><%out.print(b.getTitle()); %></strong>
 			</h3>
 			<!-- Excerpt -->
-			<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque
-				nihil impedit quo minus id quod maxime placeat facere possimus,
-				omnis voluptas assumenda est, omnis dolor repellendus et aut
-				officiis debitis.</p>
+			<p><%out.print(b.getContent());%></p>
 			<!-- Post data -->
 			<p>
-				by <a><strong>Carine Fox</strong></a>, 19/08/2018
+			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
+	, <%out.print(b.getCreate());}%>
 			</p>
 			<!-- Read more button -->
 			<button class="btn btn-success ">weitere Informationen</button>
@@ -73,7 +81,21 @@
 		<!-- Grid column -->
 
 	</div>
-	<!-- Grid row -->
+
+
+	<%
+		counter++;
+		continue;
+	} %>
+	
+		<!-- -------------------ungerade------------------------- -->
+		<%
+		if ((counter % 2 )== 0){
+		
+		%>
+		
+			
+	<!-- Grid row second row-->
 
 	<hr class="my-5">
 
@@ -86,21 +108,19 @@
 			<!-- Category -->
 			<a href="#!" class="pink-text">
 				<h6 class="font-weight-bold mb-3">
-					<i class="fas fa-image pr-2"></i>Lifestyle
+					<i class="fas fa-image pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
 			</a>
 			<!-- Post title -->
 			<h3 class="font-weight-bold mb-3">
-				<strong>Title of the news</strong>
+				<strong><%out.print(b.getTitle());%></strong>
 			</h3>
 			<!-- Excerpt -->
-			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-				blanditiis praesentium voluptatum deleniti atque corrupti quos
-				dolores et quas molestias excepturi sint occaecati cupiditate non
-				provident.</p>
+			<p><%out.print(b.getContent());%></p>
 			<!-- Post data -->
 			<p>
-				by <a><strong>Carine Fox</strong></a>, 14/08/2018
+			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
+	, <%out.print(b.getCreate());}%>
 			</p>
 			<!-- Read more button -->
 			<button class="btn btn-success ">weitere Informationen</button>
@@ -114,8 +134,7 @@
 			<!-- Featured image -->
 			<div class="view overlay rounded z-depth-2">
 				<img class="img-fluid"
-					src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg"
-					alt="Sample image"> <a>
+					src="DisplayImageServlet?id=<%out.print(b.getId()); %>&select=3"> <a>
 					<div class="mask rgba-white-slight"></div>
 				</a>
 			</div>
@@ -124,7 +143,14 @@
 		<!-- Grid column -->
 
 	</div>
-	<!-- Grid row -->
+	
+	<%
+	counter++;
+	continue;
+		} else{
+		%>
+		
+	<!-- Grid row third row---------------------------------------------------------------------------------------------->
 
 	<hr class="my-5">
 
@@ -137,7 +163,7 @@
 			<!-- Featured image -->
 			<div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
 				<img class="img-fluid"
-					src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg"
+					src="DisplayImageServlet?id=<%out.print(b.getId()); %>&select=3"
 					alt="Sample image"> <a>
 					<div class="mask rgba-white-slight"></div>
 				</a>
@@ -152,21 +178,19 @@
 			<!-- Category -->
 			<a href="#!" class="indigo-text">
 				<h6 class="font-weight-bold mb-3">
-					<i class="fas fa-suitcase pr-2"></i>Travels
+					<i class="fas fa-suitcase pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
 			</a>
 			<!-- Post title -->
 			<h3 class="font-weight-bold mb-3">
-				<strong>Title of the news</strong>
+				<strong><%out.print(b.getTitle());%></strong>
 			</h3>
 			<!-- Excerpt -->
-			<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-				odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-				voluptatem sequi nesciunt. Neque porro qui dolorem ipsum quia sit
-				amet.</p>
+			<p><%out.print(b.getTitle());%></p>
 			<!-- Post data -->
 			<p>
-				by <a><strong>Carine Fox</strong></a>, 11/08/2018
+			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
+	, <%out.print(b.getCreate());}%>
 			</p>
 			<!-- Read more button -->
 			<button class="btn btn-success ">weitere Informationen</button>
@@ -175,8 +199,16 @@
 		<!-- Grid column -->
 
 	</div>
-	<!-- Grid row --> </section>
-	<!-- Section: Blog v.1 -->
+	
+	<%
+	counter++;
+		} 
+}
+	%>
+	
+</section>
 </div>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
+
 </html>

@@ -17,6 +17,10 @@ public class FileDao {
 		if (select == 2) {
 			where = "opinion_poll";
 		}
+		if (select == 3) {
+			where = "blog";
+		}
+		
 
 	try {
 		con = ConnectionProvider.getCon();
@@ -36,15 +40,6 @@ public class FileDao {
 		System.out.println("Error while selecting file");
 	}
 
-	/*finally {
-		try {
-			con.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Exception while closing DB Connection");
-		}
-
-	}*/
 	return null;
 }
 }

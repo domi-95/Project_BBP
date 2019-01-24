@@ -34,7 +34,7 @@ if (u == null || u.getRole().getId() != 2){
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="title">Titel*</label>
-      <input type="text" class="form-control" id="inputtitle" placeholder="Titel" required>
+      <input type="text" class="form-control" name = "title" id="title" placeholder="Titel" required>
     </div>
     	
     
@@ -59,7 +59,7 @@ if (u == null || u.getRole().getId() != 2){
 
   <div class="form-group">
     <label for="exampleFormControlDescription">Inhalt*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name="description" rows="6" placeholder="Beschreibung (max. --- Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein." maxlength="800"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name=content rows="6" placeholder="Beschreibung (max. --- Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein." maxlength="800"></textarea>
     <div class="help-block with-errors"></div>
   </div>
   
@@ -67,7 +67,7 @@ if (u == null || u.getRole().getId() != 2){
   
   <label for="chooseFile">Foto hochladen</label><br>
   <div class="custom-file col-md-6" id="chooseFile">
-  
+  <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /><br />
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
   <label for="loadFile" class="custom-file-label">Datei auswählen</label>
  <script>
@@ -82,6 +82,7 @@ if (u == null || u.getRole().getId() != 2){
 </div>
   <br>
   <br>
+  
  
   <button type="submit" class="btn btn-primary">Erstellen</button>
 </form>

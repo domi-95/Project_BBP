@@ -23,6 +23,10 @@ public class File {
 		return FileDao.searchFile(op_id, 2);
 	}
 	
+	public static File getFileBlog (int blog_id) {
+		return FileDao.searchFile(blog_id, 3);
+	}
+	
 	
 	
 	

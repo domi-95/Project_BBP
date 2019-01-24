@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import blog.Blog;
 import project.Project;
 
 /**
@@ -124,7 +125,7 @@ public class CreateBlogPostProcess extends HttpServlet {
 			is = inputStream;
 		}
 		
-		boolean successful = Project.createProject(titel, category, shortDescription, description, location, investmentGrade, phoneNumber, period, anonymous, is, user_id);
+		boolean successful = Blog.createBlogPost(title, category, content, user_id, is);
 		if (successful == true) {
 		message = "Der Blogeintrag wurde erfolgreich erstellt";
 		}

@@ -109,7 +109,7 @@ public class ProjectDao {
 
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ");
+					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ORDER BY stamp_created desc");
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
