@@ -118,7 +118,7 @@ if((User)session.getAttribute("user") != null){
     		String password2 = request.getParameter("password2");
     		String message = null;
     		int role_id = 1;
-    		if(u != null && u.getRole().getId() == 2){
+    		if(u != null && u.getRole().getId() == 2 && request.getParameter("usercategory") != null){
     			role_id = Integer.parseInt(request.getParameter("usercategory"));
     		}
     		//out.print(email + password1);
@@ -150,20 +150,21 @@ if((User)session.getAttribute("user") != null){
 					session.setAttribute("user", n);
 						if (n.getRole().getId() == 1) {
 							message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
-							
+							getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 						//}
 						}
 						if (n.getRole().getId() == 2) {
-							response.sendRedirect("index.jsp");
+							//response.sendRedirect("index.jsp");
+							message = "Sie haben erfolgreich ein Verwaltungsmitglied registriert!";
 						}
 						if (n.getRole().getId() == 3) {
-							response.sendRedirect("index.jsp");
+							//response.sendRedirect("index.jsp");
+							message = "Sie haben erfolgreich ein Gemeinderatsmitglied registriert!";
 						}
 						// sets the message in request scope
 						request.setAttribute("Message", message);
 
-						// zur message page
-						getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
+						
 					}
 				}
 		}

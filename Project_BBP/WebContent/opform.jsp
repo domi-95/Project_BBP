@@ -170,7 +170,7 @@ $('#date').datepicker({
  
 <div id="dynamic_input"></div> <br>
 <div class="text-left">
-<button class=" btn btn-success col-md-4 "type = "submit">Weitergabe</button>
+<button class=" btn btn-success col-md-4 "type = "submit">Absenden</button>
 
 </div>
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
