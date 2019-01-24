@@ -159,4 +159,14 @@
     <servlet-name>VoteProject</servlet-name>
     <url-pattern>/VoteProject</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateBlogPostProcess</display-name>
+    <servlet-name>CreateBlogPostProcess</servlet-name>
+    <servlet-class>servlet.CreateBlogPostProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateBlogPostProcess</servlet-name>
+    <url-pattern>/CreateBlogPostProcess</url-pattern>
+  </servlet-mapping>
 </web-app>
