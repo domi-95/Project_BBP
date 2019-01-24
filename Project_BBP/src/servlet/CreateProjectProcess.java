@@ -92,14 +92,7 @@ public class CreateProjectProcess extends HttpServlet {
 		} else {
 			period = request.getParameter("period");
 		}
-/*
-		if ("2".equals(request.getParameter("lieferungabholung"))) {
-			abholung = 1;
-		}
-		if ("1".equals(request.getParameter("lieferungabholung"))) {
-			lieferung = 1;
-		}
-*/
+
 		// bezieht das Bild aus dem multipart request
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
