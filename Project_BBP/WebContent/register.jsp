@@ -147,10 +147,12 @@ if((User)session.getAttribute("user") != null){
 				else {
 					UserDao.safeUser(email, name, firstname, password1, role_id);
 					User n = UserDao.searchUser(email);
-					session.setAttribute("user", n);
+					
 						if (n.getRole().getId() == 1) {
+							if(u.getRole().getId() != 2){
+								session.setAttribute("user", n);
+							}
 							message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
-							getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 						//}
 						}
 						if (n.getRole().getId() == 2) {
@@ -163,6 +165,7 @@ if((User)session.getAttribute("user") != null){
 						}
 						// sets the message in request scope
 						request.setAttribute("Message", message);
+						getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 
 						
 					}
