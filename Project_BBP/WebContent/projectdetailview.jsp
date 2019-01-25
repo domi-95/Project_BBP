@@ -201,6 +201,6 @@ if( u.getRole().getId() == 1){
 </div>
 
 	</div><br>
-	
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
