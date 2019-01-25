@@ -22,8 +22,8 @@ public class StateChanger extends TimerTask {
 
 	public static void startSchedule() {
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.HOUR_OF_DAY, 1);
-		calendar.set(Calendar.MINUTE, 30);
+		calendar.set(Calendar.HOUR_OF_DAY, 24);
+		calendar.set(Calendar.MINUTE, 00);
 		calendar.set(Calendar.SECOND, 0);
 		//System.out.println(calendar);
 		Date time = calendar.getTime();
