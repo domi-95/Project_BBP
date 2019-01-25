@@ -1,6 +1,6 @@
 <%
 User u = (User)session.getAttribute("user"); 
-if (u == null || u.getRole().getId() != 1){
+if (u == null){
 	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
 }
 %>
@@ -43,8 +43,19 @@ if (u == null || u.getRole().getId() != 1){
     
 	%>
 	<div class="container px-0 pt-3 w-75"  id="voteReload">
-	<div class="card mx-auto listbordershadow">
+	<div class="card mx-auto listbordershadow border-0">
 	
+	<div class="row m-0 text-white bg-dark" style="height: 10%;">
+  <div class="col-xs-4 col-xl-6 ">
+   <span class="d-inline-block"> Aktiv seit: <%out.print(p.getStamp_updated()); %></span>
+
+  </div>
+  <div class="col-xs-4 col-xl-6">
+  <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
+    <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
+<%} %>
+  </div>
+</div>
 		
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
@@ -174,16 +185,17 @@ if (u == null || u.getRole().getId() != 1){
 <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 
 <% 
-
-if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
-    	%>	 
-      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Unterstützen</a>  	
-    	<%  
-      }else{
-    	%>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
-      <%
-      }
+if( u.getRole().getId() == 1){
+	if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
+	    	%>	 
+	      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Unterstützen</a>  	
+	    	<%  
+	      }else{
+	    	%>
+	      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
+	      <%
+	      }
+}
     %>
       <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützungen: <%out.print (p.getVote()); %></a>
 </div>
