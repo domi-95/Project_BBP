@@ -3,7 +3,7 @@ User u = null;
 if((User)session.getAttribute("user") != null){
 	u = (User)session.getAttribute("user"); 
 }
-
+String message = null;
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -96,7 +96,7 @@ if((User)session.getAttribute("user") != null){
 				        </label>
 					</div>
 					<div class="invalidbox">
-					<p class="invalid">${message}</p>
+					<p class="invalid"><%if(message!=null){request.getAttribute(message);} %></p>
 						</div>
       				</div>
 						<div class="container-login100-form-btn">
@@ -116,7 +116,7 @@ if((User)session.getAttribute("user") != null){
     		String email = request.getParameter("email");
     		String password1 = request.getParameter("password1");
     		String password2 = request.getParameter("password2");
-    		String message = null;
+    		
     		int role_id = 1;
     		if(u != null && u.getRole().getId() == 2 && request.getParameter("usercategory") != null){
     			role_id = Integer.parseInt(request.getParameter("usercategory"));
@@ -187,6 +187,6 @@ if((User)session.getAttribute("user") != null){
 	<script src="script/cscript.js"></script>
 
 <!--===============================================================================================-->
-
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
