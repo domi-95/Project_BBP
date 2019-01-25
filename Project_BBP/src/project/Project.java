@@ -3,11 +3,13 @@ package project;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.*;
 
 import database.ProjectDao;
 import emailsender.EmailSend;
+import parameters.Parameters;
 import user.User;
 
 public class Project {
@@ -28,10 +30,13 @@ public class Project {
 	private int vote;
 	private String comment;
 	private User user;
+	private String stamp_expiryDate;
+
+
 
 	public Project(int id, String title, String category, String short_description, String description, String location,
 			String period, String investment_grade, String phone_numer, boolean anonymous, State state,
-			String stamp_created, String stamp_updated, int vote, String comment, User user) {
+			String stamp_created, String stamp_updated, int vote, String comment, User user, String stamp_expiryDate) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -49,7 +54,25 @@ public class Project {
 		this.vote = vote;
 		this.comment = comment;
 		this.user = user;
+		this.stamp_expiryDate = stamp_expiryDate;
 	}
+	
+	
+
+	public String getStamp_expiryDate() {
+		Timestamp ts = Timestamp.valueOf(this.stamp_expiryDate);
+		
+		Calendar expiryDate = Calendar.getInstance();
+		expiryDate.setTime(ts);
+		Calendar today = Calendar.getInstance();
+		long differenceinMillis =  expiryDate.getTimeInMillis() - today.getTimeInMillis();
+		int differenceinDays = (int)(differenceinMillis / (1000 * 60 * 60 * 24));
+		return differenceinDays+"";
+		//return differenceinMillis+"";
+		//return expiryDate.getTime()+"heute: "+ today.getTime();
+	}
+
+
 
 	public User getUser() {
 		return user;
@@ -123,8 +146,13 @@ public class Project {
 	}
 
 	public static boolean Vote(int user_id, int project_id) {
-		return ProjectDao.projectVote(user_id, project_id);
-
+		if (Project.getProject(project_id).getVote() >= Parameters.EXPIRYDATEPOPULATION) {
+			Calendar expiryDate = Calendar.getInstance();
+			expiryDate.add(Calendar.MONTH, 3);
+			return ProjectDao.projectVoteWithExpiryDate(user_id, project_id, expiryDate);
+		} else {
+			return ProjectDao.projectVote(user_id, project_id);
+		}
 	}
 
 	public String getComment() {

@@ -214,6 +214,28 @@ public class ProjectDao {
 		return true;
 
 	}
+	
+	public static boolean projectVoteWithExpiryDate(int user_id, int project_id, Calendar expiryDate) {
+		ProjectDao.projectVote(user_id, project_id);
+		Connection con = null;
+		
+
+		try {
+			con = ConnectionProvider.getCon();
+			String sql = "INSERT INTO project (stamp_expirydate) VALUES (?) WHERE id = = '"+project_id+"'";
+			PreparedStatement st = con.prepareStatement(sql);
+
+			st.setTimestamp(1, new Timestamp (expiryDate.getTimeInMillis()));
+
+			st.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("Error while inserting vote");
+			e.printStackTrace();
+		}
+
+		return true;
+
+	}
 
 	public static boolean updateComment(Project project, String comment) {
 		Connection con = null;
@@ -239,7 +261,7 @@ public class ProjectDao {
 					myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 					new State(myRs.getInt("s.id"), myRs.getString("s.description")), myRs.getString("stamp_created"),
 					myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
-					myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")));
+					myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")), myRs.getString("stamp_expiryDate"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error while creating project object");
