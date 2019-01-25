@@ -169,4 +169,14 @@
     <servlet-name>CreateBlogPostProcess</servlet-name>
     <url-pattern>/CreateBlogPostProcess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterProcess</display-name>
+    <servlet-name>RegisterProcess</servlet-name>
+    <servlet-class>servlet.RegisterProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterProcess</servlet-name>
+    <url-pattern>/RegisterProcess</url-pattern>
+  </servlet-mapping>
 </web-app>
