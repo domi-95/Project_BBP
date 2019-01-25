@@ -60,6 +60,7 @@ public class Project {
 	
 
 	public String getStamp_expiryDate() {
+		if (this.stamp_expiryDate != null) {
 		Timestamp ts = Timestamp.valueOf(this.stamp_expiryDate);
 		
 		Calendar expiryDate = Calendar.getInstance();
@@ -67,7 +68,9 @@ public class Project {
 		Calendar today = Calendar.getInstance();
 		long differenceinMillis =  expiryDate.getTimeInMillis() - today.getTimeInMillis();
 		int differenceinDays = (int)(differenceinMillis / (1000 * 60 * 60 * 24));
-		return differenceinDays+"";
+		return differenceinDays+" Tage";
+		}
+		return "";
 		//return differenceinMillis+"";
 		//return expiryDate.getTime()+"heute: "+ today.getTime();
 	}
