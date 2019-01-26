@@ -312,7 +312,7 @@ function approveBox(id, role){
 		  "<div id='msgBox'><h3>Projekt Freigeben</h3><br><br>"+
 		"<p>Begr&uuml;ndung: </p><br>"+
 		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
-		"<input type='button' value='Ablehnen' onClick='doApprove("+id+","+role+")'> <br><br>"+
+		"<input type='button' value='Genehmigen' onClick='doApprove("+id+","+role+")'> <br><br>"+
 		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
 		"</div>";
 		
