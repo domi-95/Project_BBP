@@ -16,6 +16,9 @@ if (u == null || u.getRole().getId() != 1){
 <title>Abstimmungen</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script/cscript.js"></script>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
 </head>
 <body class="bg">
     <jsp:include page="include/header.jsp"></jsp:include> 
@@ -49,7 +52,7 @@ for ( OpinionPoll op: oplist){
 	<div class="card border-success" >
 	<div class="card opindex" >
   <div class="card-header  text-white bg-success pt-2 pb-0">
-    <h5 class="card-title">Titel: <%out.print(op.getTitle()); %></h5>
+    <h5 class="card-title"><%out.print(op.getTitle()); %></h5>
   </div>
   <div class="card-body opoverview-card-body">
 
@@ -62,9 +65,12 @@ for ( OpinionPoll op: oplist){
 	%>
 	<input class="btn  btn-success btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
 	<%} else {%>
-	
-	<input class="btn  btn-outline-success btn-block disabled" value="bereits Abgestimmt">
-	
+	<div class="row ">
+	<div class="col-xs-12 col-xl-6">
+	<input class="btn  btn-outline-success btn-block disabled " value="bereits Abgestimmt"></div>
+	<div class="col-xs-12 col-xl-6">
+	<a class="btn  btn-secondary btn-block  "  href="opanalysis.jsp" target="_blank">Statisik einsehen</a></div>
+	</div>
 	<%}
 	}%>
 	</div>
@@ -92,8 +98,8 @@ for ( OpinionPoll op: oplist){
 	}
 	
 	%>
-	<input id="voteopsend" class="btn btn-lg btn-success btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
-	<input class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
+	<input type="button" id="voteopsend" class="btn btn-lg btn-success btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
+	<input type="button" class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
 	
 	</div>
 	</div></form>
