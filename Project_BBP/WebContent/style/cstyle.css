@@ -193,7 +193,7 @@ position: absolute;
     top: 50%;
     z-index: 10;
 
-    height: 400px;
+    
     margin-top: -200px;
 
     width: 600px;
@@ -355,4 +355,8 @@ z-index: 1;
     font-size:60px;
     transform:rotate(300deg);
     -webkit-transform:rotate(300deg);
+}
+
+.opoverview-card-body{
+	background-color: white !important;
 }
