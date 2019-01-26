@@ -31,6 +31,47 @@ function voteopBox(id, action){
 	}	
 }
 
+//Script for Register User
+function doRegister() {
+	var a = 2;
+	var vuser = $(".user").val();
+	var firstname = document.getElementById("firstname").value;
+	var name = document.getElementById("name").value;
+	var email = document.getElementById("email").value;
+	var password1 = document.getElementById("password1").value;
+	var password2 = document.getElementById("password2").value;
+	alert(email);
+	var element= 'reloadDiv'
+	//Call RegisterProcess.java Serlvet
+    $.ajax({
+        url: 'register',
+        type: 'POST',
+        data: {
+            user: vuser,
+            firstname: firstname,
+            name: name,
+            email: email,
+            password1: password1,
+            password2: password2
+        },
+        success: function(data) {
+           // alert('Update Success');
+        	a = 3;
+        	//Creates Snackbar Message
+        	smessage(a);
+        	//Closes overlay vote box
+
+        	//Reloads Div for registration
+        	$("#"+element).load(" #"+element+" > *");
+            
+        },
+        failure: function(data) {
+        	smessage(a);
+           // alert('Update Failed');
+        }
+    });
+}
+
 //Script for Voting an opinion poll
 function doOpVote(opid) {
 	var a = 0;
@@ -50,7 +91,7 @@ function doOpVote(opid) {
            // alert('Update Success');
         	a = 1;
         	//Creates Snackbar Message
-        	message(a);
+        	smessage(a);
         	//Closes overlay vote box
         	voteopBox(opid, 'close');
         	//Reloads Button for text
@@ -58,7 +99,7 @@ function doOpVote(opid) {
             
         },
         failure: function(data) {
-        	message(a);
+        	smessage(a);
         	voteopBox(opid, close);
            // alert('Update Failed');
         }
@@ -81,25 +122,30 @@ function doPVote(pid) {
 			// alert('Update Success');
 			a = 1;
 			$("#voteReload").load(" #voteReload > *");
-			message(a);
+			smessage(a);
 			
 		},
 		failure: function(data) {
-			message(a);
+			smessage(a);
 			// alert('Update Failed');
 		}
 	});
 }
 
-function message(ar) {
+function smessage(ar) {
 	if(ar==1){
 	  document.getElementById('snackbar_message').innerHTML +=
 	  "<div id='snackbar' class=''>Abstimmung erfolgreich!</div>";
 	}
-	else{
+	if(ar==2){
 		document.getElementById('snackbar_message').innerHTML +=
 			  "<div id='snackbar' class=''>Abstimmung fehlgeschlagen!</div>";
 	}
+	else{
+		document.getElementById('snackbar_message').innerHTML +=
+			  "<div id='snackbar' class=''>"+ ar +"</div>";
+	}
+
 	  var element = 'snackbar';
 	  $(function(){
 			$(function(){

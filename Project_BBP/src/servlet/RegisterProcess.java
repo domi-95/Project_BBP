@@ -74,7 +74,7 @@ public class RegisterProcess extends HttpServlet {
 			} else {
 				// Check if passwords match
 				if (!password1.equals(password2)) {
-					message = "Passwörter stimmen nicht überein" + password1 + password2;
+					message = "Passwï¿½rter stimmen nicht ï¿½berein" + password1 + password2;
 					request.setAttribute("message", message);
 					request.getRequestDispatcher("register.jsp").forward(request, response);
 				}
@@ -87,12 +87,13 @@ public class RegisterProcess extends HttpServlet {
 							if (u == null) {
 								session.setAttribute("user", n);
 								message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
+								request.setAttribute("message", message);
 								getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 								return;
 							}
 							if (u != null) {
 
-								message = "Sie haben sich erfolgreich einen Bürger registriert!";
+								message = "Sie haben sich erfolgreich einen BÃ¼rger registriert!";
 							}
 						}
 						if (n.getRole().getId() == 2) {
@@ -104,7 +105,7 @@ public class RegisterProcess extends HttpServlet {
 							message = "Sie haben erfolgreich ein Gemeinderatsmitglied registriert!";
 						}
 						// sets the message in request scope
-						request.setAttribute("message", message);
+						request.setAttribute("Message", message);
 						getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 
 					} else {
