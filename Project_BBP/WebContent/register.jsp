@@ -4,7 +4,7 @@ if((User)session.getAttribute("user") != null){
 	u = (User)session.getAttribute("user"); 
 }
 //if (request.getParameter("message") != null){
-	String message = request.getParameter("message");
+	String message = (String)request.getAttribute("message");
 //}
 
 %>
@@ -99,7 +99,7 @@ if((User)session.getAttribute("user") != null){
 				        </label>
 					</div>
 					<div class="invalidbox">
-					<p class="invalid"><%if(message!=null){request.getAttribute(message);} %></p>
+					<p class="invalid"><%if(message!=null){out.print(message);} %></p>
 						</div>
       				</div>
 						<div class="container-login100-form-btn">
