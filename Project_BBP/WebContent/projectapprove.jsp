@@ -148,8 +148,9 @@ DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
    <%} %>
   </div>
   <div class="col-xs-4 col-xl-6">
-    <p class="text-right">Expire_Date</p>
-
+  <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
+    <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
+<%} %>
   </div>
 </div>
 <div class="row m-2">
@@ -313,5 +314,6 @@ DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 	}
 
 	%>
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

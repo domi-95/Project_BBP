@@ -34,7 +34,7 @@ if (u == null || u.getRole().getId() != 2){
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="title">Titel*</label>
-      <input type="text" class="form-control" name = "title" id="title" placeholder="Titel" required>
+      <input type="text" class="form-control" name = "title" id="title" placeholder="Titel (max. 50 Zeichen)" maxlength="50" required>
     </div>
     	
     
@@ -59,7 +59,7 @@ if (u == null || u.getRole().getId() != 2){
 
   <div class="form-group">
     <label for="exampleFormControlDescription">Inhalt*</label>
-    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name=content rows="6" placeholder="Beschreibung (max. --- Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein." maxlength="800"></textarea>
+    <textarea class="form-control col-md-12" id="exampleFormControlDescription" name=content rows="6" placeholder="Beschreibung (max. 500 Zeichen)" required data-error="Bitte geben Sie eine Beschreibung ein." maxlength="500"></textarea>
     <div class="help-block with-errors"></div>
   </div>
   

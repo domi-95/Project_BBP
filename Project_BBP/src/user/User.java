@@ -67,6 +67,10 @@ public class User {
 	public static User getUser (int user_id) {
 		return UserDao.searchUser(user_id);
 	}
+	
+	public static User getUser (String email) {
+		return UserDao.searchUser(email);
+	}
 
 	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
 
