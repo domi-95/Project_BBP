@@ -217,12 +217,12 @@ public class Project {
 		this.setState(new State(4, "gepr�ft gemeinderat"));
 	}
 
-	public void declineCouncil(String comment, State state) {
+	public void declineCouncil(String comment) {
 		this.setComment(comment);
 		this.setState(new State(5, "abgelehnt gemeinderat"));
 	}
 
-	public void approveCouncil(String comment, State stete) {
+	public void approveCouncil(String comment) {
 		this.setComment(comment);
 		this.setState(new State(6, "freigegeben gemeinderat"));
 	}
