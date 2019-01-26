@@ -1,6 +1,6 @@
 <%
 User u = (User)session.getAttribute("user"); 
-if (u == null || u.getRole().getId() != 2){
+if (u == null || u.getRole().getId() == 1 ){
 	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
 }
 %>
@@ -63,18 +63,24 @@ if(request.getParameter("stateSelect") != null){
 	<%
 	}
 	else{
-	state = 1;
+		if(u != null && u.getRole().getId()  == 2){
+			state = 1;
+		}
+		else{
+			state = 2;
+		}
 	}%>
 </br>
 
 <div id="successMsg"></div>
-<div id="rejectBox"></div>
-
+<div id="commentBox"></div>
+<%if(u != null && u.getRole().getId() == 2){ %>
 <form name="selectState" method="post" action="projectapprove.jsp">
 <div class="btn-group-toggle text-center" data-toggle="buttons">
   <label class="btn btn-secondary col-md-2 active" id="label1">
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
   </label>
+ 
   <label class="btn btn-secondary col-md-2" id="label2">
     <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
   </label>
@@ -84,6 +90,21 @@ if(request.getParameter("stateSelect") != null){
 
 </div>
 </form>
+<%} %>
+<%if(u != null && u.getRole().getId() == 3){ %>
+<form name="selectState" method="post" action="projectapprove.jsp">
+<div class="btn-group-toggle text-center" data-toggle="buttons">
+ 
+  <label class="btn btn-secondary col-md-2" id="label2">
+    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
+  </label>
+  <label class="btn btn-secondary col-md-2" id="label6">
+    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Freigegeben Gemeinderat
+  </label>
+
+</div>
+</form>
+<%} %>
 <br>
 <script>
 $(document).ready(function changeActive1(){
@@ -288,10 +309,20 @@ DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 <% if(state==1){ %>
 <div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
   <div class="col-xs-12 col-xl-6">
-    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>);">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
   <div class="col-xl-6">
-    <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>);">
+    <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+  </div>
+</div>
+<%} %> 
+<% if(state==2 && u != null && u.getRole().getId() == 3){ %>
+<div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
+  <div class="col-xs-12 col-xl-6">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="approveBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+  </div>
+  <div class="col-xl-6">
+    <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
 </div>
 <%} %> 
