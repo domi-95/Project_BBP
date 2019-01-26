@@ -97,6 +97,26 @@ public class OpinionPollDao {
 
 		return null;
 	}
+	
+	public static OpinionPoll getOp(int op_id) {
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * FROM opinion_poll op, state_op st WHERE op.state_op_id = st.id and op.id = '"
+							+ op_id + "'");
+			if(myRs.next()) {
+				return resultSetCreateOpinionPoll(myRs);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error while selecting all projects");
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 
 	public static OpChoice getChoice(int op_id) {
 

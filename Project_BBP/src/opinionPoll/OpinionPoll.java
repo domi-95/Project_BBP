@@ -107,6 +107,10 @@ public class OpinionPoll {
 		this.stateOp = stateOp;
 		OpinionPollDao.updateState(this);
 	}
+	
+	public static OpinionPoll getOp (int op_id) {
+		return OpinionPollDao.getOp(op_id);
+	}
 
 
 	public static boolean createProject(String title, String short_description, String description, InputStream is,

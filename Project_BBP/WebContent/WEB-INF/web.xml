@@ -179,4 +179,24 @@
     <servlet-name>RegisterProcess</servlet-name>
     <url-pattern>/RegisterProcess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DownloadXML</display-name>
+    <servlet-name>DownloadXML</servlet-name>
+    <servlet-class>test.DownloadXML</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownloadXML</servlet-name>
+    <url-pattern>/DownloadXML</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Download</display-name>
+    <servlet-name>Download</servlet-name>
+    <servlet-class>test.Download</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Download</servlet-name>
+    <url-pattern>/Download</url-pattern>
+  </servlet-mapping>
 </web-app>
