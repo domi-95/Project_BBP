@@ -356,3 +356,7 @@ z-index: 1;
     transform:rotate(300deg);
     -webkit-transform:rotate(300deg);
 }
+
+.opoverview-card-body{
+	background-color: white !important;
+}

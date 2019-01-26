@@ -17,7 +17,7 @@ if (u == null || u.getRole().getId() != 1){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script/cscript.js"></script>
 </head>
-<body>
+<body class="bg">
     <jsp:include page="include/header.jsp"></jsp:include> 
 <script>
 $(window).on('load', function(){
@@ -28,11 +28,15 @@ $(window).on('load', function(){
 
 
 </script>
+<br>
+<div class="formular-bd w-75 m-auto opindex">
 <h1>Abstimmungen</h1> 
+<br>
   <div id="cover" class="activate"></div>
 <div id="loader" class="activate"></div> 
 <div id="snackbar_message"></div>
-<form>
+<form >
+
 <%
 Map<Integer, Integer> alreadyVote = null;
 if (u != null){
@@ -41,25 +45,36 @@ if (u != null){
 List<OpinionPoll> oplist= OpinionPoll.getAll(2);
 for ( OpinionPoll op: oplist){
 %>
-	<div id="dynamic_divs<%out.print(op.getId());%>">
-	Titel: <%out.print(op.getTitle()); %><br/>
-	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
-	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
-	<div id="reloadButton<%out.print(op.getId());%>">
+	<div id="dynamic_divs<%out.print(op.getId());%> ">
+	<div class="card border-success" >
+	<div class="card opindex" >
+  <div class="card-header  text-white bg-success pt-2 pb-0">
+    <h5 class="card-title">Titel: <%out.print(op.getTitle()); %></h5>
+  </div>
+  <div class="card-body opoverview-card-body">
+
+    <p class="card-text">Beschreibung: <%out.print(op.getShort_description()); %></p>
+    <p  class="card-text">Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %></p>
+   </div><div class="card-footer bg-transparent border-success" id="reloadButton<%out.print(op.getId());%>">
 	<%
 	if(alreadyVote != null){
 	if (alreadyVote.get(op.getId()) == null){
 	%>
-	<input class="btn btn-lg btn-primary btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
+	<input class="btn  btn-success btn-block" value="Abstimmen" id="voteopbtn" onClick="voteopBox(<%out.print(op.getId());%>, 'open');">
 	<%} else {%>
 	
-	<input class="btn btn-lg btn-primary btn-block disabled" value="bereits Abgestimmt">
+	<input class="btn  btn-outline-success btn-block disabled" value="bereits Abgestimmt">
 	
 	<%}
 	}%>
 	</div>
+  
+</div></div>
+
+	<br>
+	
 	<!-- only show when button "Abstimmen" was clicked -->
-	<div class="voteopBox" id="voteopBox<%out.print(op.getId());%>">
+	<div class="voteopBox bg-light text-dark " id="voteopBox<%out.print(op.getId());%>">
 	<form>
 	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" height="200px"/><br>
 	Titel: <%out.print(op.getTitle()); %><br/>
@@ -77,13 +92,15 @@ for ( OpinionPoll op: oplist){
 	}
 	
 	%>
-	<input id="voteopsend" class="btn btn-lg btn-primary btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
+	<input id="voteopsend" class="btn btn-lg btn-success btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
 	<input class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
-	</form>
+	
 	</div>
-	</div>
+	</div></form>
 <%
 }
 %>
+</form>
+</div>
 </body>
 </html>
