@@ -74,7 +74,7 @@ if((User)session.getAttribute("user") != null){
 	%>
 	<ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link  pl-0" href="#">Projekte einsehen <span class="sr-only">(current)</span></a>
+        <a class="nav-link  pl-0" href="projectapprove.jsp">Projekte einsehen <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="opform.jsp">Abstimmung anlegen</a>
