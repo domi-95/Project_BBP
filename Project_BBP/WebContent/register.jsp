@@ -23,11 +23,15 @@ if((User)session.getAttribute("user") != null){
 	<link rel="stylesheet" type="text/css" href="style/util.css">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 <!--===============================================================================================-->
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@page import="user.*"%>
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div id="snackbar_message"></div>
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
 	<div class="limiter">
@@ -101,6 +105,17 @@ if((User)session.getAttribute("user") != null){
 					<div class="invalidbox">
 					<p class="invalid"><%if(message!=null){out.print(message);} %></p>
 						</div>
+						<%if(request.getAttribute("Message") != null){ %>
+      				<input type="hidden" class="Message" name="Message" value= "<% out.print(request.getAttribute("Message")); %>" />
+      					<script type="text/javascript">
+      					$('document').ready(function(){
+      						var message = $(".Message").val();
+      						alert(message);
+      						smessage(message);
+      					});
+      					
+      					</script>
+      				<%} %>
       				</div>
 						<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
@@ -116,7 +131,7 @@ if((User)session.getAttribute("user") != null){
 
 	
 <!--===============================================================================================-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <!--===============================================================================================-->
 	<script src="script/tilt.jquery.min.js"></script>
 	<script >
