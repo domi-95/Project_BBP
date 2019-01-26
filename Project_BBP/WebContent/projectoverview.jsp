@@ -68,7 +68,7 @@ if (u == null || u.getRole().getId() != 1){
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
-    <h6 class="card-text"><small><b>Kategorie:</b> <%out.print(p.getCategory()); %></small></h6>
+    <h6 class="card-text"><small><b>in </b> <%out.print(p.getCategory()); %></small></h6>
   </div>
   <div class="card-footer opindex">
   

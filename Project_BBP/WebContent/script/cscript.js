@@ -306,16 +306,27 @@ function message(ar) {
 		});
 	}
 	
-function rejectBox(id){
-	document.getElementById('rejectBox').innerHTML +=
+function approveBox(id, role){
+	document.getElementById('commentBox').innerHTML +=
 		"<div id='overlay' class='overlay'>"+
-		  "<div id='msgBox'><h3>Project ablehnen</h3><br><br>"+
-		"<p>Begründung: </p><br>"+
-		"<textarea id='rejectReason' name='rejectReason' cols='35' rows='4' autofocus></textarea> <br><br>"+
-		"<input type='button' value='Ablehnen' onClick='doReject("+id+")'> <br><br>"+
+		  "<div id='msgBox'><h3>Projekt Freigeben</h3><br><br>"+
+		"<p>Begr&uuml;ndung: </p><br>"+
+		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
+		"<input type='button' value='Ablehnen' onClick='doApprove("+id+","+role+")'> <br><br>"+
 		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
 		"</div>";
 		
+}
+function rejectBox(id, role){
+	document.getElementById('commentBox').innerHTML +=
+		"<div id='overlay' class='overlay'>"+
+		"<div id='msgBox'><h3>Projekt ablehnen</h3><br><br>"+
+		"<p>Begr&uuml;ndung: </p><br>"+
+		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
+		"<input type='button' value='Ablehnen' onClick='doReject("+id+","+role+")'> <br><br>"+
+		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
+		"</div>";
+	
 }
 
 
@@ -337,8 +348,15 @@ function remove_project(id) {
 
 	}
 
-function doApprove(id) {
+function doApprove(id, role) {
 	var a = 1;
+	var comment = "";
+		if(role == 3){
+			comment = ($.trim($("#comment").val()));			
+		}
+		else{
+			comment = "";
+		}
     //var phoneNo = $("#phoneNumber").val();
     //var x = "40";
     $.ajax({
@@ -346,11 +364,14 @@ function doApprove(id) {
         type: 'POST',
         data: {
             pId: id,
-            acceptreject: "approve"
+            role: role,
+            acceptreject: "approve",
+            comment: comment
         },
         success: function(data) {
         //    alert('Update Success');
         	message(a);
+        	doClose();
             remove_project(id);
         },
         failure: function(data) {
@@ -359,19 +380,20 @@ function doApprove(id) {
     });
     
 
-}function doReject(id){
+}function doReject(id, role){
 	var a = 2;
 	var element = 'msgBox';
 	var element1 = 'overlay';
-	var rereason = ($.trim($("#rejectReason").val()));
-	if(rereason != ""){
+	var comment = ($.trim($("#comment").val()));
+	if(comment != ""){
 	$.ajax({
         url: 'ApproveProject',
         type: 'POST',
         data: {
             pId: id,
+            role: role,
             acceptreject: "reject",
-            rejectReason: rereason
+            comment: comment
         },
         success: function(data) {
         //    alert('Update Success');
@@ -384,6 +406,7 @@ function doApprove(id) {
 						});
 					});
         	message(a);
+        	doClose();
             remove_project(id);
         },
         failure: function(data) {

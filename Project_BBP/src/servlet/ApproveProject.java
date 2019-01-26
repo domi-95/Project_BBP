@@ -30,25 +30,53 @@ public class ApproveProject extends HttpServlet {
 		// TODO Auto-generated method stub
 		String message = null;
 		int id = Integer.parseInt(request.getParameter("pId"));
-		String rejectReason = request.getParameter("rejectReason");
-		System.out.println(rejectReason);
+		int role = Integer.parseInt(request.getParameter("role"));
+		String comment = request.getParameter("comment");
+		System.out.println(comment);
 		Project p = Project.getProject(id);
 	//	p.approve(new State(2,"freigegeben"));
-		if(request.getParameter("acceptreject").equals("approve")) {
-			
-			p.approveAdministration();
-			message = "Projekt wurde freigegeben";
-		}
-		else {
-			if(request.getParameter("acceptreject").equals("reject")) {
+		
+		switch(role){
+		case 2:{
+			if(request.getParameter("acceptreject").equals("approve")) {
 				
-				p.declineAdministration(rejectReason);			//give him here your comment with which is necessary
-				message = "Projekt wurde abgelehnt";
+				p.approveAdministration();
+				message = "Projekt wurde freigegeben";
 			}
 			else {
-				message = "Es ist ein Fehler aufgetreten";
+				if(request.getParameter("acceptreject").equals("reject")) {
+					
+					p.declineAdministration(comment);			//give him here your comment with which is necessary
+					message = "Projekt wurde abgelehnt";
+				}
+				else {
+					message = "Es ist ein Fehler aufgetreten";
+				}
 			}
+			break;
 		}
+		case 3: {
+			if(request.getParameter("acceptreject").equals("approve")) {
+				
+				p.approveCouncil( comment);	//give him here your comment with which is necessary
+				message = "Projekt wurde freigegeben";
+			}
+			else {
+				if(request.getParameter("acceptreject").equals("reject")) {
+					
+					p.declineCouncil(comment);			//give him here your comment with which is necessary
+					message = "Projekt wurde abgelehnt";
+				}
+				else {
+					message = "Es ist ein Fehler aufgetreten";
+				}
+			}
+			break;
+		}
+		}
+		
+		
+		
 		//request.setAttribute("message", message);
 		//request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}
