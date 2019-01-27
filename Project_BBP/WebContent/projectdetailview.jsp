@@ -10,7 +10,6 @@ if (u == null){
 <html>
 <%@page import="user.*"%>
 <%@page import="project.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
@@ -25,7 +24,7 @@ if (u == null){
 <script src="script/cscript.js"></script>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Detailansicht Projekt</title>
 </head>
 <body>
 <jsp:include page="/include/header.jsp"></jsp:include>
