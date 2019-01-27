@@ -26,7 +26,7 @@ if (u == null){
 <meta charset="ISO-8859-1">
 <title>Detailansicht Projekt</title>
 </head>
-<body>
+<body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 
 <% 

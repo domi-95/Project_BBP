@@ -7,28 +7,28 @@
 <title>Abmeldung</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="bg">
 <jsp:include page="include/header.jsp"></jsp:include>
 <%
 session.invalidate();
 %>
-	<center>
-		<div class="login">
-			<center>
-			<br/><br/>
+	
+		<div class="pt-3 formular-bd opindex text-center w-50 m-auto">
+			
+			<br>
 				<h3 class="h3message">Sie wurden erfolgreich abgemeldet</h3> <br/><br/>
 				<h5 class="h3message">Sie werden in 3 Sekunden zur Startseite weitergeleitet</h5> <br/><br/>
 				<p>Sollten Sie nicht weitergeleitet werden, bitte <a href="index.jsp">hier</a> klicken</p>
-			</center>
+			
 	<script>
   setTimeout(function() {
       document.location = "index.jsp";
   }, 3000); // <-- this is the delay in milliseconds
 </script>
 		</div>
-	</center>
 	
-	<br>
+	
+	
 <br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
