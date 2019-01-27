@@ -59,15 +59,8 @@ public class LoginProcess extends HttpServlet {
 			else {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", u);
-				if (u.getRole().getId() == 1) {
-					response.sendRedirect(prevUrl);
-				}
-				if (u.getRole().getId() == 2) {
-					response.sendRedirect(prevUrl);
-				}
-				if (u.getRole().getId() == 3) {
-					response.sendRedirect(prevUrl);
-				}
+				response.sendRedirect(prevUrl);
+				
 			}
 		}
 	}
