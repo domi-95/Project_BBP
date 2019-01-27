@@ -1,27 +1,36 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%@page import="user.*"%>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style/cstyle.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style/login.css" media="screen" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="script/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+	<script src="script/cscript.js"></script>
+<title>Kontakt</title>
+</head>
+<body class="bg opindex">
+<jsp:include page="include/header.jsp"></jsp:include>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <div class="container">
     <h2 class="text-center">Kontaktformular</h2>
 	<div class="row justify-content-center">
 		<div class="col-12 col-md-8 col-lg-6 pb-5">
-
-
-                    <!--Form with header-->
                     <form action="mail.php" method="post">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
-                                <div class="bg-info text-white text-center py-2">
+                                <div class="text-center py-2">
                                     <h3><i class="fa fa-envelope"></i> Stadt Mosbach</h3>
                                     <p class="m-0">Wir bemühen uns um jede Anfrage</p>
                                 </div>
                             </div>
                             <div class="card-body p-3">
-
-                                <!--Body-->
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
@@ -38,7 +47,6 @@
                                         <input type="email" class="form-control" id="nombre" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
@@ -47,17 +55,14 @@
                                         <textarea class="form-control" placeholder="Ihre Nachricht" required></textarea>
                                     </div>
                                 </div>
-
                                 <div class="text-center">
-                                    <input type="submit" value="Absenden" class="btn btn-info btn-block rounded-0 py-2">
+                                    <input type="submit" value="Absenden" class="btn rounded-0 py-2">
                                 </div>
                             </div>
-
                         </div>
                     </form>
-                    <!--Form with header-->
-
-
                 </div>
 	</div>
 </div>
+</body>
+</html>
