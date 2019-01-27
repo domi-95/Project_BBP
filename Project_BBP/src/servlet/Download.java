@@ -64,7 +64,7 @@ public class Download extends HttpServlet {
 		}  
 		
 		response.setContentType("application/octet-stream");
-	    response.setHeader("Content-Disposition","attachment;filename=auswertung.xml");
+	    response.setHeader("Content-Disposition","attachment;filename=auswertung_id_"+id+"_.xml");
 					
 		try 
 		{
