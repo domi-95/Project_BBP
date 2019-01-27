@@ -4,12 +4,18 @@ html, body {
 	height: 100%;
 }
 
+
+
 body {
 	align-items: center;
 	height: 100%;
 	background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fefefe, #fdfdfd, #fcfcfc, #fafafa, #f8f8f8, #f6f6f6, #f4f4f4);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	position: relative;
+	  min-height: 100%;
+  display: grid;
+ 
 	
 }
 

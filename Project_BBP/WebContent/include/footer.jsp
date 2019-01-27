@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 opindex">
+<footer class="page-footer font-small blue pt-4 opindex navbar-bottom">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">

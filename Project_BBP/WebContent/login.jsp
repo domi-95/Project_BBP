@@ -11,7 +11,7 @@ if (u != null ){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Anmelden</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -88,6 +88,10 @@ if (u != null ){
 			</div>
 		</div>
 	</div>
+		<br>
+	<br>
+	<br>
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 	
 <!--===============================================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

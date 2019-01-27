@@ -10,12 +10,9 @@ if (u == null || u.getRole().getId() == 1 ){
 <html>
 <%@page import="user.*"%>
 <%@page import="project.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
-<%@page import = "java.text.DateFormat" %>
-<%@page import = "java.text.SimpleDateFormat" %>
 
 	
 	<!-- Bootstrap style -->
@@ -133,7 +130,6 @@ function changeValue(id){
 
 
 <% 
-DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
@@ -162,13 +158,13 @@ DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 	
 		
 <div class="row m-0 text-white bg-dark" style="height: 10%;">
-  <div class="col-xs-4 col-xl-6 ">
+  <div class="col-xs-4 col-xl-6 ml-2 ">
    <span class="d-inline-block">Angelegt: <% out.print(p.getStamp_created()); %></span>
    <%if(state == 2 || state == 6) {%>
    <span class="d-inline-block"> | Freigegeben: <%out.print(p.getStamp_updated()); %></span>
    <%} %>
   </div>
-  <div class="col-xs-4 col-xl-6">
+  <div class="col-xs-4 col-xl-6 mr-2">
   <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
     <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
 <%} %>

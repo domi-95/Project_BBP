@@ -10,7 +10,6 @@ if (u == null){
 <html>
 <%@page import="user.*"%>
 <%@page import="project.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
@@ -25,9 +24,9 @@ if (u == null){
 <script src="script/cscript.js"></script>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Detailansicht Projekt</title>
 </head>
-<body>
+<body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 
 <% 
@@ -46,11 +45,11 @@ if (u == null){
 	<div class="card mx-auto listbordershadow border-0">
 	
 	<div class="row m-0 text-white bg-dark" style="height: 10%;">
-  <div class="col-xs-4 col-xl-6 ">
+  <div class="col-xs-4 col-xl-6 ml-2">
    <span class="d-inline-block"> Aktiv seit: <%out.print(p.getStamp_updated()); %></span>
 
   </div>
-  <div class="col-xs-4 col-xl-6">
+  <div class="col-xs-4 col-xl-6 mr-2">
   <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
     <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
 <%} %>

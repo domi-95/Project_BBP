@@ -97,6 +97,9 @@ for (OpinionPoll op : oplist){
 
 </script>
 </fieldset>
-</body>
 <%} %>
+<br>
+<br>
+<jsp:include page="/include/footer.jsp"></jsp:include>
+</body>
 </html>

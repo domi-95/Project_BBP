@@ -74,8 +74,8 @@
 			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
 	, <%out.print(b.getCreate());}%>
 			</p>
-			<!-- Read more button -->
-			<button class="btn btn-success ">weitere Informationen</button>
+			<!-- Read more button (commented out as long as not in use)-->
+		<!-- 	<button class="btn btn-success ">weitere Informationen</button> -->
 
 		</div>
 		<!-- Grid column -->
@@ -122,8 +122,8 @@
 			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
 	, <%out.print(b.getCreate());}%>
 			</p>
-			<!-- Read more button -->
-			<button class="btn btn-success ">weitere Informationen</button>
+			<!-- Read more button (commented out as long as not in use)-->
+		<!-- 	<button class="btn btn-success ">weitere Informationen</button> -->
 
 		</div>
 		<!-- Grid column -->
@@ -192,8 +192,8 @@
 			by <%if (b.getUser() != null){ %>	<a><strong><%out.print(b.getUser().getFirstname()+" "+ b.getUser().getname());%></strong></a>
 	, <%out.print(b.getCreate());}%>
 			</p>
-			<!-- Read more button -->
-			<button class="btn btn-success ">weitere Informationen</button>
+			<!-- Read more button (commented out as long as not in use)-->
+		<!-- 	<button class="btn btn-success ">weitere Informationen</button> -->
 
 		</div>
 		<!-- Grid column -->

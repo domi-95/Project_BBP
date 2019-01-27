@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>Message</title>
+<title>Benachrichtigung</title>
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
@@ -30,6 +30,8 @@
 </script>
 		</div>
 	</center>
-	
+	<br>
+<br>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
