@@ -24,7 +24,7 @@ if (u == null || u.getRole().getId() != 2){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Blogeintrag</title>
+<title>Blogeintrag erstellen</title>
 </head>
 <body>
 <jsp:include page="/include/header.jsp"></jsp:include>
