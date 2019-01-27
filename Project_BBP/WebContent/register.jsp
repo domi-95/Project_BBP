@@ -127,6 +127,10 @@ if((User)session.getAttribute("user") != null){
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 	
 
 	

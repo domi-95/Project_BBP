@@ -88,6 +88,10 @@ if (u != null ){
 			</div>
 		</div>
 	</div>
+		<br>
+	<br>
+	<br>
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 	
 <!--===============================================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
