@@ -9,7 +9,9 @@ footer {
   right: 0;
   background-color:#597943;
   color:#fdfefe;
-  
+
+  grid-row-start: 999;
+  grid-row-end: 1000;
  
 }
 footer a{
