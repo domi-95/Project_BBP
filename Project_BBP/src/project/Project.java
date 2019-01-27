@@ -191,17 +191,12 @@ public class Project {
 		return ProjectDao.getAllProject(3);
 	}
 	
-	public static List<Project> getCheckedCouncilProjects () {
-		return ProjectDao.getAllProject(4);
-		
-	}
-	
 	public static List<Project> getDeclinedCouncilProjects () {
-		return ProjectDao.getAllProject(5);
+		return ProjectDao.getAllProject(4);
 	}
 	
 	public static List<Project> getApprovedCouncilProjects () {
-		return ProjectDao.getAllProject(6);
+		return ProjectDao.getAllProject(5);
 	}
 
 	public void approveAdministration() {
