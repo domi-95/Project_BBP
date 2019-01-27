@@ -144,7 +144,7 @@ $(document).ready(function(){
   <div class="custom-file col-md-6" id="chooseFile">
   
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
-  <label for="loadFile" class="custom-file-label">Datei auswählen</label>
+  <label for="loadFile" class="custom-file-label text-truncate">Datei auswählen</label>
  <script>
             $('#loadFile').on('change',function(){
                 //get the file name
