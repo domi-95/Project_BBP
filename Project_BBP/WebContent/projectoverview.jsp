@@ -11,7 +11,6 @@ if (u == null || u.getRole().getId() != 1){
 <html>
 <%@page import="user.*"%>
 <%@page import="project.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
