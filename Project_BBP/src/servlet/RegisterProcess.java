@@ -74,7 +74,7 @@ public class RegisterProcess extends HttpServlet {
 			} else {
 				// Check if passwords match
 				if (!password1.equals(password2)) {
-					message = "Passwï¿½rter stimmen nicht ï¿½berein" + password1 + password2;
+					message = "Passwörterr stimmen nicht überein" + password1 + password2;
 					request.setAttribute("message", message);
 					request.getRequestDispatcher("register.jsp").forward(request, response);
 				}
@@ -93,7 +93,7 @@ public class RegisterProcess extends HttpServlet {
 							}
 							if (u != null) {
 
-								message = "Sie haben sich erfolgreich einen BÃ¼rger registriert!";
+								message = "Sie haben sich erfolgreich einen Bürger registriert!";
 							}
 						}
 						if (n.getRole().getId() == 2) {

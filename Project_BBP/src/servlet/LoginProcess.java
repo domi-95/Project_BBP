@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import database.UserDao;
 import user.User;
 
 /**
@@ -48,15 +49,16 @@ public class LoginProcess extends HttpServlet {
 
 			// out.print(email + password);
 
-			User u = User.getUserLogin(email, password);
+		
 
-			if (u == null) {
+			if (User.getUserLogin(email, password) == false) {
 				message = "Das hat leider nicht funktioniert. Versicheren Sie sich, dass Ihre E-Mail-Adresse und das Passwort korrekt ist.";
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 				System.out.println("Sorry, invalid Email or Password ");
 			}
 			else {
+				User u = User.getUser(email);
 				HttpSession session = request.getSession();
 				session.setAttribute("user", u);
 				response.sendRedirect(prevUrl);

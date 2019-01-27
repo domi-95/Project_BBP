@@ -105,6 +105,26 @@ public class UserDao {
 		return null;
 	}
 	
+	public static String getHash (String email) {
+		Connection con = null;
+
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+
+			ResultSet myRs = myst
+					.executeQuery("SELECT * from user WHERE email = '" + email + "'");
+
+			if (myRs.next())
+				return myRs.getString("password");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error while searching user with email");
+		}
+		return null;
+	}
+	
 	public static User searchUser(String email) {
 		Connection con = null;
 
@@ -128,15 +148,6 @@ public class UserDao {
 			System.out.println("Error while searching user with email");
 		}
 
-		/*finally {
-			try {
-				con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Exception while closing DB Connection");
-			}
-
-		}*/
 		return null;
 	}
 
