@@ -46,17 +46,21 @@ if((User)session.getAttribute("user") != null){
 						Registrierung
 					</span>
 					<%if(u != null && u.getRole().getId() == 2){ %>
-					<div class="wrap-input100 validate-input" data-validate = "Benutzerkategorie erforderlich">
-				      <select name="usercategory" class="input100" required>
-				        <option value="">Benutzerkategorie wählen...</option>
+					<div class="wrap-input100 validate-input " data-validate = "Benutzerkategorie erforderlich">
+				      <select name="usercategory" class="input100 rounded-0" required>
+				        <option value="" disabled selected hidden >Benutzer wählen...</option>
 				       		<option value="1">Bürger</option>
 							<option value="2" >Gemeindeverwaltung</option>
 							<option value="3">Gemeinderat</option>
 				      </select>
+				      <span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-bookmark" aria-hidden="true"></i>
+						</span>
 				      </div>
 					<%} %>
-					<div class="wrap-input100 validate-input" data-validate = "Vorname erforderlich">
-						<input class="input100" type="text" name="firstname" placeholder="Vorname" required>
+					<div class="wrap-input100 validate-input " data-validate = "Vorname erforderlich">
+						<input class="input100 rounded-0" type="text" name="firstname" placeholder="Vorname" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -64,8 +68,8 @@ if((User)session.getAttribute("user") != null){
 					</div>
 			
 				
-					<div class="wrap-input100 validate-input" data-validate = "Nachname erforderlich" required>
-						<input class="input100" type="text" name="name" placeholder="Nachname">
+					<div class="wrap-input100 validate-input " data-validate = "Nachname erforderlich" required>
+						<input class="input100 rounded-0" type="text" name="name" placeholder="Nachname">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -73,24 +77,24 @@ if((User)session.getAttribute("user") != null){
 					</div>
 		
 					
-					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="E-Mailadresse" required>
+					<div class="wrap-input100 validate-input " data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
+						<input class="input100 rounded-0" type="text" name="email" placeholder="E-Mailadresse" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
-						<input class="input100" type="password" name="password1" placeholder="Passwort" required>
+					<div class="wrap-input100 validate-input " data-validate = "Passwort erforderlich">
+						<input class="input100 rounded-0" type="password" name="password1" placeholder="Passwort" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
-						<input class="input100" type="password" name="password2" placeholder="Passwort verifizieren" required>
+					<div class="wrap-input100 validate-input " data-validate = "Passwort erforderlich">
+						<input class="input100 rounded-0" type="password" name="password2" placeholder="Passwort verifizieren" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -118,7 +122,7 @@ if((User)session.getAttribute("user") != null){
       				<%} %>
       				</div>
 						<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn rounded-0">
 							Registrieren
 						</button>
 					</div>
