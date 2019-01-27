@@ -12,7 +12,7 @@ if((User)session.getAttribute("user") != null){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
  <!-- Bootstrap style -->
 <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 <!-- Custom style -->
