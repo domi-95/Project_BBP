@@ -41,7 +41,7 @@ public class ConnectionProvider extends TimerTask {
 			System.out.println("Error while closing connection");
 			e.printStackTrace();
 		}
-		System.out.println("database connection refreshed");
+		System.out.println("database connection updated");
 		connect();
 	}
 
