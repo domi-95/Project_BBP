@@ -108,5 +108,8 @@ for ( OpinionPoll op: oplist){
 %>
 </form>
 </div>
+<br>
+<br>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
