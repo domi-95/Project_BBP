@@ -8,7 +8,6 @@ User u = (User)session.getAttribute("user");
 <head>
 <%@page import="project.*"%>
 <%@page import="user.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
