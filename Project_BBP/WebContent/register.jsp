@@ -147,6 +147,5 @@ if((User)session.getAttribute("user") != null){
 	<script src="script/cscript.js"></script>
 
 <!--===============================================================================================-->
-<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
