@@ -27,5 +27,9 @@ session.invalidate();
 </script>
 		</div>
 	</center>
+	
+	<br>
+<br>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
