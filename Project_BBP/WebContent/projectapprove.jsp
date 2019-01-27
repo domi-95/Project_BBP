@@ -10,12 +10,9 @@ if (u == null || u.getRole().getId() == 1 ){
 <html>
 <%@page import="user.*"%>
 <%@page import="project.*"%>
-<%@page import="database.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
-<%@page import = "java.text.DateFormat" %>
-<%@page import = "java.text.SimpleDateFormat" %>
 
 	
 	<!-- Bootstrap style -->
@@ -133,7 +130,6 @@ function changeValue(id){
 
 
 <% 
-DateFormat f = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
