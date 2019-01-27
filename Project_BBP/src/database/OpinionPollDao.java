@@ -20,7 +20,7 @@ import user.User;
 public class OpinionPollDao {
 
 	public static boolean safeOpinionPoll(String title, String short_description, String description,
-			InputStream picture, Date date_from, Date date_to, List<String> header, int user_id, int state_op_id) {
+			InputStream picture, Date date_from, Date date_to, List<String> header, int user_id, int state_op_id, int anonymous) {
 		Connection con = null;
 		int choice_header_id = insertChoiceHeader(header);
 		if (choice_header_id == -1) {
@@ -30,7 +30,7 @@ public class OpinionPollDao {
 
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO opinion_poll (title, short_description, description, picture, max_choice, date_from, date_to, choice_header_id, user_id, state_op_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO opinion_poll (title, short_description, description, picture, max_choice, date_from, date_to, choice_header_id, user_id, state_op_id, anonymous) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 
 			st.setString(1, title);
@@ -43,6 +43,7 @@ public class OpinionPollDao {
 			st.setInt(8, choice_header_id);
 			st.setInt(9, user_id);
 			st.setInt(10, state_op_id);
+			st.setInt(11, anonymous);
 
 			st.executeUpdate();
 		} catch (Exception e) {
@@ -199,7 +200,7 @@ public class OpinionPollDao {
 					myRs.getTimestamp("op.date_to"), myRs.getTimestamp("op.created"),
 					getHeader(myRs.getInt("op.choice_header_id")), UserDao.searchUser(myRs.getInt("op.user_id")),
 					getChoice(myRs.getInt("op.id")),
-					new StateOp(myRs.getInt("st.id"), myRs.getString("st.description")));
+					new StateOp(myRs.getInt("st.id"), myRs.getString("st.description")), myRs.getInt("anonymous"));
 		} catch (SQLException e) {
 			System.out.println("Error while creating opinionPoll object");
 			e.printStackTrace();

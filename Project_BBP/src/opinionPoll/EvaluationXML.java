@@ -81,7 +81,7 @@ public class EvaluationXML {
 			data.appendChild(date_from);
 			
 			Element date_to = doc.createElement("datumbis");
-			date_to.appendChild(doc.createTextNode(op.date_to.toString()));
+			date_to.appendChild(doc.createTextNode(op.getDate_to().toString()));
 			data.appendChild(date_to);
 			
 			Element created = doc.createElement("erstellt");

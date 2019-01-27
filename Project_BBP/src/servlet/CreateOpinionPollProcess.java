@@ -54,10 +54,17 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		String date_from = null;
 		String date_to = null;
 		int user_id = 0;
+		int anonymous = 0;
 		
 		InputStream inputStream = null; // input stream of the upload file
 		InputStream is = null;
 		user_id = Integer.parseInt(request.getParameter("user"));
+		
+		if ("on".equals(request.getParameter("anonymous"))) {
+			anonymous = 1;
+		} else {
+			anonymous = 0;
+		}
 
 		if ("".equals(request.getParameter("title"))) {
 			title = "";
@@ -145,7 +152,7 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		else {
 			is = inputStream;
 		}
-		boolean successful = OpinionPoll.createProject(title, short_description, description, is, result, date_from, date_to, user_id);
+		boolean successful = OpinionPoll.createProject(title, short_description, description, is, result, date_from, date_to, user_id, anonymous);
 		if (successful == true) {
 		message = "Das Abstimmung wurde erfolgreich erstellt";
 		}
