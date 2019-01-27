@@ -57,7 +57,7 @@ if((User)session.getAttribute("user") != null){
         <a class="nav-link pl-0" href="projectapprove.jsp">Projekte freigeben <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Auswertung erstellen</a>
+        <a class="nav-link" href="evaluation.jsp">Auswertung erstellen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="createblogpost.jsp">Blogeintrag erstellen</a>
