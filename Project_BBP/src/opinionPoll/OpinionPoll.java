@@ -13,25 +13,24 @@ import user.*;
 
 public class OpinionPoll {
 
-	int id;
-	String title;
-	String short_description;
-	String description;
-	byte[] picture;
-	int max_choice;
-	Timestamp date_from;
-	Timestamp date_to;
-	Timestamp created;
-	List<String> header = new LinkedList<String>();
-	User creator;
-	OpChoice choice;
-	StateOp stateOp;
-
-
+	private int id;
+	private String title;
+	private String short_description;
+	private String description;
+	private byte[] picture;
+	private int max_choice;
+	private Timestamp date_from;
+	private Timestamp date_to;
+	private Timestamp created;
+	private List<String> header = new LinkedList<String>();
+	private User creator;
+	private OpChoice choice;
+	private StateOp stateOp;
+	private int anonymous;
 
 	public OpinionPoll(int id, String title, String short_description, String description, byte[] picture,
 			int max_choice, Timestamp date_from, Timestamp date_to, Timestamp created, List<String> header,
-			User creator, OpChoice choice, StateOp stateOp) {
+			User creator, OpChoice choice, StateOp stateOp, int anonymous) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -46,6 +45,11 @@ public class OpinionPoll {
 		this.creator = creator;
 		this.choice = choice;
 		this.stateOp = stateOp;
+		this.anonymous = anonymous;
+	}
+
+	public int getAnonymous() {
+		return anonymous;
 	}
 
 	public int getId() {
@@ -95,9 +99,6 @@ public class OpinionPoll {
 	public OpChoice getChoice() {
 		return choice;
 	}
-	
-	
-	
 
 	public StateOp getStateOp() {
 		return stateOp;
@@ -107,32 +108,31 @@ public class OpinionPoll {
 		this.stateOp = stateOp;
 		OpinionPollDao.updateState(this);
 	}
-	
-	public static OpinionPoll getOp (int op_id) {
+
+	public static OpinionPoll getOp(int op_id) {
 		return OpinionPollDao.getOp(op_id);
 	}
 
-
 	public static boolean createProject(String title, String short_description, String description, InputStream is,
-			List<String> header, String date_from, String date_to, int user_id) {
+			List<String> header, String date_from, String date_to, int user_id, int anonymous) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date startDate = null;
 		Date endDate = null;
 		int state_id = 1;
 		try {
 
-			startDate = sdf.parse(date_from); 					// further processing with Date Object
+			startDate = sdf.parse(date_from); // further processing with Date Object
 			endDate = sdf.parse(date_to);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			System.out.println("Error while parsing String to Date");
 		}
 
-		if (startDate.getDate() == new Date().getDate()) { 		// check whether the date_from is equal to today
+		if (startDate.getDate() == new Date().getDate()) { // check whether the date_from is equal to today
 			state_id = 2;
 		}
 		return OpinionPollDao.safeOpinionPoll(title, short_description, description, is, startDate, endDate, header,
-				user_id, state_id);
+				user_id, state_id, anonymous);
 
 	}
 
