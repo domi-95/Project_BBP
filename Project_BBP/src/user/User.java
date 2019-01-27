@@ -1,6 +1,7 @@
 package user;
 
-import database.*;
+import database.UserDao;
+import parameters.Parameters;
 
 public class User {
 
@@ -58,9 +59,24 @@ public class User {
 	public void setname(String name) {
 		this.name = name;
 	}
+	
 
-	public static User getUserLogin(String email, String password) {
-		return UserDao.searchUserWithPw(email, password);
+	public static boolean getUserLogin(String email, String password) {
+		if (Parameters.HASHENABLE) {
+			try {
+				return Password.check(password, UserDao.getHash(email));
+			} catch (Exception e) {
+				System.out.println("Error while checking password");
+				e.printStackTrace();
+			}
+		} else {
+			if (UserDao.searchUserWithPw(email, password) != null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		return false;
 
 	}
 	
@@ -77,7 +93,14 @@ public class User {
 		if (UserDao.searchUser(email) != null) {
 			return false;
 		}
-
+		if (Parameters.HASHENABLE) {
+			try {
+				password = Password.getSaltedHash(password);
+			} catch (Exception e) {
+				System.out.println("Error while hashing password");
+				e.printStackTrace();
+			}
+		}
 		return UserDao.safeUser(email, name, firstname, password, role_id);
 
 	}
