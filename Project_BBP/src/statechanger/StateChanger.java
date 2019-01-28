@@ -8,7 +8,6 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import opinionPoll.*;
-import test.Remindtask;
 
 // this is a class for changing states (see documentation --> state concept opinion poll)
 //  a thread should work as batchjob to change states of opinion polls and project	
@@ -74,16 +73,16 @@ public class StateChanger extends TimerTask {
 			//today is date_from AND today is before date_to
 			
 			if (cal_date_today.equals(cal_date_to) && cal_date_today.before(cal_date_to)){
-				System.out.println("Ist gleich: Eröffnet");
-				op.setStateOp(new StateOp(2, "eröffnet"));
+				System.out.println("Ist gleich: Erï¿½ffnet");
+				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
 				continue;
 			}
 			
 			// today is after date_from AND today is before date_to
 			
 			if (cal_date_today.after(cal_date_from) && cal_date_today.before(cal_date_to)) {
-				System.out.println("Ist gleich: Eröffnet");
-				op.setStateOp(new StateOp(2, "eröffnet"));
+				System.out.println("Ist gleich: Erï¿½ffnet");
+				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
 				continue;
 			}
 			
@@ -105,11 +104,11 @@ public class StateChanger extends TimerTask {
 				continue;
 			}
 			
-			// date_from == today --> eröffnet
+			// date_from == today --> erï¿½ffnet
 
 			/*if (cal_date_from.compareTo(cal_date_today) == 0) {
-				System.out.println("Ist gleich: Eröffnet");
-				op.setStateOp(new StateOp(2, "eröffnet"));
+				System.out.println("Ist gleich: Erï¿½ffnet");
+				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
 				continue;
 			}
 
@@ -124,10 +123,10 @@ public class StateChanger extends TimerTask {
 			}
 			if (cal_date_from.compareTo(cal_date_today) == -1 && cal_date_to.compareTo(cal_date_today) == 1) {
 				
-				op.setStateOp(new StateOp(2, "eröffnet"));
+				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
 				System.out.println("Datum from liegt nach heute");
 				System.out.println("Datum to liegt in der Zukunft");
-				System.out.println("Also eröffnet");
+				System.out.println("Also erï¿½ffnet");
 				continue;
 			}
 
@@ -139,7 +138,7 @@ public class StateChanger extends TimerTask {
 
 			}
 
-			// date_from > today && date_to< today --> eröffnet
+			// date_from > today && date_to< today --> erï¿½ffnet
 			// if method did not run daily
 
 
