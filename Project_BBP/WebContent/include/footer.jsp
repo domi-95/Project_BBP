@@ -24,11 +24,16 @@
         <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white">
 
           <!-- Content -->
-          <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> <br>
-           <h7 class="text-uppercase"><a href="https://www.mosbach.de/" target="_blank">Kreisstadt Mosbach</a></h7>
+          <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> 
+           
 
         </div>
         
+        <div class="col-md-2 mt-md-0 mt-3 px-0 border-right border-white ml-5">
+
+          <!-- Content -->
+        <h7 class="text-uppercase"><a href="https://www.mosbach.de/" target="_blank">Kreisstadt Mosbach</a></h7>
+        </div>
         <!-- Grid column -->
 
         <hr class="clearfix w-100 d-md-none pb-3">
