@@ -365,3 +365,7 @@ z-index: 1;
 .opoverview-card-body{
 	background-color: white !important;
 }
+
+.txt-green{
+	color: green !important;
+}

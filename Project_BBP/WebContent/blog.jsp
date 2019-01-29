@@ -58,7 +58,7 @@
 		<div class="col-lg-7">
 
 			<!-- Category -->
-			<a href="#!" class="green-text">
+			<a href="#!" class="txt-green">
 				<h6 class="font-weight-bold mb-3">
 					<i class="fas fa-utensils pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
@@ -106,7 +106,7 @@
 		<div class="col-lg-7">
 
 			<!-- Category -->
-			<a href="#!" class="pink-text">
+			<a href="#!" class="txt-green">
 				<h6 class="font-weight-bold mb-3">
 					<i class="fas fa-image pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
@@ -176,7 +176,7 @@
 		<div class="col-lg-7">
 
 			<!-- Category -->
-			<a href="#!" class="indigo-text">
+			<a href="#!" class="txt-green">
 				<h6 class="font-weight-bold mb-3">
 					<i class="fas fa-suitcase pr-2"></i><%out.print(b.getCategory());%>
 				</h6>
