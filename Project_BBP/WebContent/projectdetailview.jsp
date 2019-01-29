@@ -184,7 +184,7 @@ if (u == null){
 <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 
 <% 
-if( u.getRole().getId() == 1){
+if(u != null && u.getRole().getId() == 1){
 	if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	    	%>	 
 	      <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Unterstützen</a>  	
