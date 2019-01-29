@@ -16,6 +16,8 @@ public class EmailSend {
 	private static final String user = "mosbach.buergerbeteiligung@gmail.com";
 	private static final String pass = "bbpadmin";
 	private static final String from = "mosbach.buergerbeteiligung@gmail.com";
+	private static final String URLprojectoverview = "http://157.230.103.186:8080/Project_BBP/projectoverview.jsp";
+	private static final String URLcontact = "http://157.230.103.186:8080/Project_BBP/contact.jsp";
 
 
     
@@ -60,11 +62,14 @@ public class EmailSend {
 		User user = project.getUser();
 		String message = null;
 		String subject = null;
+			
+		subject = "BBP – Mosbach: Sie haben erfolgreich Ihr Projekt "+project.getTitle()+" "+"eingereicht";
 		
-		subject = "Sie habe erfolgreich "+ project.getTitle()+" eingereicht";
-		
-		message = "Hallo "+ user.getFirstname()+" "+user.getname()+",\n"+"\n"+
-			"folgendes Projekt wurde bei uns Eingereicht: \n"+
+		message =  "Sehr geehrte/r "+ user.getFirstname()+" "+user.getname()+",\n"+"\n"+
+				"Vielen Dank für Ihr Interesse am Bürgerbeteiligungsportals Mosbach!\n"+
+				"Sie haben soeben ihr Projekt "+project.getTitle()+" "+"eingereicht.\n\n"+
+				"Nach einer formalen Prüfung durch die Verwaltung, wird der Projektantrag veröffentlicht.\n\n"+
+				"Kopie Ihres Projektes:\n\n"+
 				"Titel: "+project.getTitle()+"\n"+
 				"Kategorie: "+project.getCategory()+"\n"+
 				"Kurzbeschreibung: "+project.getShort_description()+"\n"+
@@ -73,11 +78,27 @@ public class EmailSend {
 				"Zeitraum: "+project.getPeriod()+"\n"+
 				"Investitiongrad: "+project.getInvestment_grade()+"\n"+
 				"Telefonnummer: "+project.getPhone_numer()+"\n"+
-				"Erstellt: "+project.getStamp_created()+"\n";
-    	
-    	
+				"Erstellt: "+project.getStamp_created()+"\n\n"+
+				"Projectreferenz für Fragen: "+project.getId()+""+
+				"Link zu Ihrem Projekt: http://157.230.103.186:8080/Project_BBP/projectdetailview.jsp?projectid="+project.getId()+""+" "+
+				
+
+				"Schauen Sie sich doch in der Zwischenzeit weitere Projekte von anderen Nutzerinnen und Nutzern der Stadt Mosbach an! "+URLprojectoverview+" \n"+ 
+
+				"Ihr Team des Bürgerbeteiligungsportals Mosbach\n"+
+				"Haben Sie Fragen? Dann wenden Sie sich doch an uns unter Nutzung des Kontaktformulars "+URLcontact+"";
     	
     	return sendEmail(user.getEmail(), subject, message);
+    }
+    
+    public static boolean sendDeclined (Project project) {
+    	User user = project.getUser();
+		String message = null;
+		String subject = null;
+		
+		
+    	subject = "BBP – Mosbach: Ihr Projekt "+project.getTitle()+"+ wurde abgelehnt";
+    	return false;
     }
     
     

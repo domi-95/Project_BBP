@@ -63,13 +63,13 @@ if (u == null || u.getRole().getId() != 1){
 
 
 <div class="col-md-4" style="margin:0 0 1% 0%;">
-<div class="card">
-  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-  <div class="card-body opindex">
+<div class="card border-success">
+  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
+  <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
     <h6 class="card-text"><small><b>in </b> <%out.print(p.getCategory()); %></small></h6>
   </div>
-  <div class="card-footer opindex">
+  <div class="card-footer border-success opindex">
   
   <div class="row p-1">
   <div class="col-xs-12 col-lg-6">
@@ -95,7 +95,7 @@ if (u == null || u.getRole().getId() != 1){
 </div>
 <div class="row p-1">
   <div class="col d-flex justify-content-center" >
-      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
+      <a href="#" class="btn btn-secondary btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
     
   </div>
 </div>

@@ -196,7 +196,7 @@ if( u.getRole().getId() == 1){
 	      }
 }
     %>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützungen: <%out.print (p.getVote()); %></a>
+      <a href="#" class="btn btn-secondary disabled" style=" margin: 5px">Unterstützungen: <%out.print (p.getVote()); %></a>
 </div>
 
 	</div><br>

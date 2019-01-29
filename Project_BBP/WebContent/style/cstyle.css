@@ -84,6 +84,9 @@ body {
 
 .invalid {
 	color: #ce3535;
+	font-size: 0.9rem;
+	padding: 1rem;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 .invalidbox {
@@ -364,4 +367,8 @@ z-index: 1;
 
 .opoverview-card-body{
 	background-color: white !important;
+}
+
+.txt-green{
+	color: green !important;
 }
