@@ -22,7 +22,7 @@
 	
 
                     <form action="mail.php" method="post" class="mx-auto w-50">
-                        <div class="card border-primary rounded-0">
+                        <div class="card border-secondary rounded-0">
                             <div class="card-header p-0">
                                 <div class="text-center py-2">
 								    <h2 class="text-center">Kontaktformular</h2>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <input type="submit" value="Absenden" class="btn rounded-0 py-2">
+                                    <input type="submit" value="Absenden" class="btn btn-outline-secondary rounded-0 py-2">
                                 </div>
                             </div>
                         </div>
