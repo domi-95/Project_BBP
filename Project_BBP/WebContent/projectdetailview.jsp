@@ -1,7 +1,13 @@
 <%
 User u = (User)session.getAttribute("user"); 
 if (u == null){
-	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
+	
+	if(null != request.getParameter("projectid")){
+		response.sendRedirect("login.jsp?prevUrl=projectdetailview.jsp?projectid="+request.getParameter("projectid"));
+	}
+	else{
+	response.sendRedirect("login.jsp?prevUrl=projectdetailview.jsp");
+	}
 }
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
