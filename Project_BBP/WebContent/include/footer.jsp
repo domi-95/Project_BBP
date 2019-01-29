@@ -15,13 +15,13 @@
 <footer class="page-footer font-small pt-4 opindex navbar-bottom">
 
     <!-- Footer Links -->
-    <div class="container-fluid text-center text-md-left">
+    <div class="container-fluid text-center ">
 
       <!-- Grid row -->
       <div class="row w-75 m-auto">
 
         <!-- Grid column -->
-        <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white">
+        <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white text-left">
 
           <!-- Content -->
           <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> <br>
@@ -34,13 +34,13 @@
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-1 mb-md-0 mb-3 ml-4">
+        <div class="col-md-2 mb-md-0 mb-3 ml-4 text-center d-inline-block">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <a href="termsofuse.jsp">Nutzungsbedingungen</a>
+                <span class="d-inline-block"><a href="termsofuse.jsp">Nutzungsbedingungen</a></span>
               </li>
             </ul>
           </div>
@@ -48,13 +48,13 @@
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-1 mb-md-0 mb-3">
+        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <a href="#">Datenschutz</a>
+                <span class="d-inline-block"><a href="#">Datenschutz</a></span>
               </li>
               </ul>
 
@@ -65,13 +65,13 @@
  <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-1 mb-md-0 mb-3">
+        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <a href="impressum.jsp">Impressum</a>
+                <span class="d-inline-block"><a href="impressum.jsp">Impressum</a></span>
               </li>            
             </ul>
 
@@ -80,13 +80,13 @@
 <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-1 mb-md-0 mb-3">
+        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <a href="contact.jsp">Kontakt</a>
+                <span class="d-inline-block"><a href="contact.jsp">Kontakt</a></span>
               </li>
              
             </ul>
@@ -96,6 +96,7 @@
         
       <!-- Grid row -->
 
+    </div>
     </div>
     <!-- Footer Links -->
 
