@@ -14,18 +14,18 @@
 	<script src="script/cscript.js"></script>
 <title>Kontakt</title>
 </head>
-<body class="bg opindex">
+<body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<div class="container">
-    <h2 class="text-center">Kontaktformular</h2>
-	<div class="row justify-content-center">
-		<div class="col-12 col-md-8 col-lg-6 pb-5">
-                    <form action="mail.php" method="post">
+<div class="formular-bd w-75 mx-auto mt-10">
+	
+
+                    <form action="mail.php" method="post" class="mx-auto w-50">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
                                 <div class="text-center py-2">
+								    <h2 class="text-center">Kontaktformular</h2>
                                     <h3><i class="fa fa-envelope"></i> Stadt Mosbach</h3>
                                     <p class="m-0">Wir bemühen uns um jede Anfrage</p>
                                 </div>
@@ -61,8 +61,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
-	</div>
+
 </div>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
