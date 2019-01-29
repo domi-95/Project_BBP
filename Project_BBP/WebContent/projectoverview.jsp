@@ -95,7 +95,7 @@ if (u == null || u.getRole().getId() != 1){
 </div>
 <div class="row p-1">
   <div class="col d-flex justify-content-center" >
-      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
+      <a href="#" class="btn btn-secondary btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
     
   </div>
 </div>
