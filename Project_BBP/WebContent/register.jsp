@@ -47,7 +47,7 @@ if((User)session.getAttribute("user") != null){
 					</span>
 					<%if(u != null && u.getRole().getId() == 2){ %>
 					<div class="wrap-input100 validate-input " data-validate = "Benutzerkategorie erforderlich">
-				      <select name="usercategory" class="input100 rounded-0" required>
+				      <select name="usercategory" class="input100 rounded" required>
 				        <option value="" disabled selected hidden >Benutzer wählen...</option>
 				       		<option value="1">Bürger</option>
 							<option value="2" >Gemeindeverwaltung</option>
@@ -60,7 +60,7 @@ if((User)session.getAttribute("user") != null){
 				      </div>
 					<%} %>
 					<div class="wrap-input100 validate-input " data-validate = "Vorname erforderlich">
-						<input class="input100 rounded-0" type="text" name="firstname" placeholder="Vorname" required>
+						<input class="input100 rounded" type="text" name="firstname" placeholder="Vorname" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -69,7 +69,7 @@ if((User)session.getAttribute("user") != null){
 			
 				
 					<div class="wrap-input100 validate-input " data-validate = "Nachname erforderlich" required>
-						<input class="input100 rounded-0" type="text" name="name" placeholder="Nachname">
+						<input class="input100 rounded" type="text" name="name" placeholder="Nachname">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -78,7 +78,7 @@ if((User)session.getAttribute("user") != null){
 		
 					
 					<div class="wrap-input100 validate-input " data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100 rounded-0" type="text" name="email" placeholder="E-Mailadresse" required>
+						<input class="input100 rounded" type="text" name="email" placeholder="E-Mailadresse" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -86,7 +86,7 @@ if((User)session.getAttribute("user") != null){
 					</div>
 
 					<div class="wrap-input100 validate-input " data-validate = "Passwort erforderlich">
-						<input class="input100 rounded-0" type="password" name="password1" placeholder="Passwort" required>
+						<input class="input100 rounded" type="password" name="password1" placeholder="Passwort" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -94,7 +94,7 @@ if((User)session.getAttribute("user") != null){
 					</div>
 					
 					<div class="wrap-input100 validate-input " data-validate = "Passwort erforderlich">
-						<input class="input100 rounded-0" type="password" name="password2" placeholder="Passwort verifizieren" required>
+						<input class="input100 rounded" type="password" name="password2" placeholder="Passwort verifizieren" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -122,7 +122,7 @@ if((User)session.getAttribute("user") != null){
       				<%} %>
       				</div>
 						<div class="container-login100-form-btn">
-						<button class="login100-form-btn rounded-0">
+						<button class="login100-form-btn rounded">
 							Registrieren
 						</button>
 					</div>

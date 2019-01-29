@@ -49,16 +49,16 @@ List<OpinionPoll> oplist= OpinionPoll.getAll(2);
 for ( OpinionPoll op: oplist){
 %>
 	<div id="dynamic_divs<%out.print(op.getId());%> ">
-	<div class="card border-success" >
+	<div class="card border-secondary" >
 	<div class="card opindex" >
-  <div class="card-header  text-white bg-success pt-2 pb-0">
+  <div class="card-header  text-white bg-secondary pt-2 pb-0">
     <h5 class="card-title"><%out.print(op.getTitle()); %></h5>
   </div>
   <div class="card-body opoverview-card-body">
 
     <p class="card-text">Beschreibung: <%out.print(op.getShort_description()); %></p>
     <p  class="card-text">Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %></p>
-   </div><div class="card-footer bg-transparent border-success" id="reloadButton<%out.print(op.getId());%>">
+   </div><div class="card-footer bg-transparent border-secondary" id="reloadButton<%out.print(op.getId());%>">
 	<%
 	if(alreadyVote != null){
 	if (alreadyVote.get(op.getId()) == null){
