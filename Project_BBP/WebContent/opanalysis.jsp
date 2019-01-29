@@ -12,6 +12,7 @@ oplist.addAll(oplist2);
 %>
 <html>
 <head>
+<title>Abstimmungsergebnisse</title>
 	<!-- Font Awesome -->
 	<!-- Bootstrap core CSS -->
 
@@ -24,7 +25,13 @@ oplist.addAll(oplist2);
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/js/mdb.min.js"></script>
 </head>
-<body>
+<body class="bg">
+<br>
+<div class="formular-bd w-75 m-auto opindex">
+<h1>Abstimmungsergebnisse</h1>
+<br>
+<form>
+
 <%
 for (OpinionPoll op : oplist){
 	
@@ -34,8 +41,11 @@ for (OpinionPoll op : oplist){
 	List<String> header = op.getHeader();
 	
 %>
-<fieldset>
-	<h1> Titel: <% out.print(op.getTitle());%></h1>
+<div class="card opindex">
+<div class="card-header  text-white bg-secondary pt-2 pb-0">
+<h5 class="card-title"><%out.print(op.getTitle()); %></h5>
+</div>
+<div class="card-body opoverview-card-body">
 <canvas id="barChart<%out.print(op.getId()); %>"></canvas>
 <script>
   //bar
@@ -96,8 +106,14 @@ for (OpinionPoll op : oplist){
   });
 
 </script>
-</fieldset>
+
+</div>
+</div>
+<br>
 <%} %>
+
+</form>
+</div>
 <br>
 <br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
