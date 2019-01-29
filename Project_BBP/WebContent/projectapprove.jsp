@@ -149,8 +149,62 @@ function changeValue(id){
 		break;
 	}
 	}
+	
 	String invest = "question.png";
 	String period = "question.png";
+	
+	%>
+	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+	<div class="formular-bd w-75 mx-auto">
+	<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+  <div class="form-row align-items-center">
+     <div class="col-auto" >
+      <select id="inputstatus" name="category" class="form-control" onchange="regForm.submit()">
+        <option value="">Status wählen</option>
+       		<option value="Wirtschaft und Finanzen">Angelegt</option>
+			<option value="Bildung und Kultur" >Freigegeben Verwaltung</option>
+			<option value="Sicherheit">Freigegeben Gemeinderat</option>
+      </select>
+      </div>
+     <div class="col-auto" >
+      <select id="inputCategory" name="category" class="form-control" onchange="regForm.submit()">
+        <option value="">Kategorie wählen...</option>
+       		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
+			<option value="Bildung und Kultur" >Bildung und Kultur</option>
+			<option value="Sicherheit">Sicherheit</option>
+			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
+			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
+			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
+			<option value="Sonstiges">Sonstiges</option>
+      </select>
+      </div>
+      
+      
+       <div class="col-auto">
+      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
+       <datalist id="laender">
+       <%
+       for (Project p : projectlist){
+    	   %><option value=<%out.print(p.getTitle());%>><%
+       }
+       
+       %>
+  		</datalist>
+  		</input>
+    </div>
+ 
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Filtern</button>
+    </div>
+  </div>
+</form>
+</div>
+	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+<% 
+	
+	
+	
+	
 	for (Project p : projectlist){
 	%>
 	<div class="mx-auto w-75" id="dynamic_divs<%out.print(p.getId());%>">

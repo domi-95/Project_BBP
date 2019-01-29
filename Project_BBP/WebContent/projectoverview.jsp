@@ -18,6 +18,19 @@ if (u == null || u.getRole().getId() != 1){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script/cscript.js"></script>
 <jsp:include page="/include/header.jsp"></jsp:include><br>
+<%
+
+List<Project> projectlist = Project.getApprovedAdministrationProjects();
+
+int z = 1;
+Map<Integer, Integer> alreadyVote = null;
+if (u != null){
+alreadyVote = Vote.getUserVotesHash(u.getId());
+}
+
+
+
+%>
 <head>
 <title>Projektübersicht</title>
 
@@ -44,18 +57,52 @@ if (u == null || u.getRole().getId() != 1){
 <title>Projektübersicht</title>
 </head>
 <body class="bg">
+<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+<div class="formular-bd w-75 mx-auto">
+<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+<div class="form-row">
+    
+    	
+    
+  <div class="form-group col-md-6" >
+      <label for="inputCategory">Kategorie</label>
+      <select id="inputCategory" name="category" class="form-control" onchange="regForm.submit()">
+        <option value="">Kategorie wählen...</option>
+       		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
+			<option value="Bildung und Kultur" >Bildung und Kultur</option>
+			<option value="Sicherheit">Sicherheit</option>
+			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
+			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
+			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
+			<option value="Sonstiges">Sonstiges</option>
+      </select>
+      </div>
+      <div class="form-group col-md-6">
+      <label for="title">Freitext</label>
+      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
+       <datalist id="laender">
+       <%
+       for (Project p : projectlist){
+    	   %><option value=<%out.print(p.getTitle());%>><%
+       }
+       
+       %>
+  		</datalist>
+  		</input>
+    </div>
+     <button type="submit" class="btn btn-primary">Filtern</button>
+      </div>
+
+
+</form>
+</div>
+	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 <div id="snackbar_message"></div>
 <div class="container text-center" id="voteReload">
 <div class="row">
 <% 
+
 	
-	List<Project> projectlist = Project.getApprovedAdministrationProjects();
-	
-	int z = 1;
-	Map<Integer, Integer> alreadyVote = null;
-	if (u != null){
-	alreadyVote = Vote.getUserVotesHash(u.getId());
-	}
 	for (Project p : projectlist){
 	
 		%>
