@@ -305,7 +305,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
   <div class="card-body opindext ">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
 
-    <h5 class="card-text align-self-end"><small><b>Kategorie: </b><%out.print(p.getCategory()); %></small></h5>
+    <h5 class="card-text align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
 
   </div>
   <div class="card-footer opindex">
@@ -371,7 +371,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	  <div class="card-body opindext ">
 	    <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
 
-	    <h5 class="card-text align-self-end"><small><b>Kategorie: </b><%out.print(p.getCategory()); %></small></h5>
+	    <h5 class="card-text align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
 
 	  </div>
 	  <div class="card-footer opindex">
