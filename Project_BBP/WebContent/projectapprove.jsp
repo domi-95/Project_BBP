@@ -213,7 +213,9 @@ function changeValue(id){
   </div>
 
   <div class="col-xs-12 col-xl-3 border-bottom">
+  <%if(!(p.getPhone_numer().equals(""))){ %>
     <p class="font-weight-bold">Telefonnummer:</p>
+    <%} %>
   </div>
   <div class="col-xl-3 border-bottom">
   <a href="callto:<%out.print(p.getPhone_numer()); %>"><%out.print(p.getPhone_numer()); %></a>  
