@@ -93,12 +93,12 @@ public class RegisterProcess extends HttpServlet {
 							}
 							if (u != null) {
 
-								message = "Sie haben sich erfolgreich einen B�rger registriert!";
+								message = "Sie haben sich erfolgreich einen B&uuml;rger registriert!";
 							}
 						}
 						if (n.getRole().getId() == 2) {
 							// response.sendRedirect("index.jsp");
-							message = "Sie haben erfolgreich ein Verwaltungsmitglied registriert!";
+							message = "Sie haben erfolgreich ein Verwaltungsmitarbeiter registriert!";
 						}
 						if (n.getRole().getId() == 3) {
 							// response.sendRedirect("index.jsp");
