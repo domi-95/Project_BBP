@@ -8,7 +8,7 @@
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
-<div class="formular-bd opindex">
+<div class="formular-bd opindex w-75 m-auto">
 <p><strong>Allgemeine Datenschutz- und Nutzungsbestimmungen</strong></p>
 <p><br /><strong>§ 1 Information über die Erhebung personenbezogener Daten und Anbieterkennzeichnung</strong></p>
 <p>1. Im Folgenden informieren wir über die Erhebung personenbezogener Daten bei Nutzung dieser Webseite. Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, also zum Beispiel Name, Adresse, E-Mail-Adresse, Nutzungsverhalten.<br /><br />2. Dienstanbieter gemäß § 13 Telemediengesetz (TMG) und verantwortliche Stelle gemäß § 3 Abs. 7 Bundesdatenschutzgesetz (BDSG) ist der „Arbeitskreis Alkohol und Verantwortung" des BSI (Bundesverband der Deutschen Spirituosen-Industrie und -Importeure e. V.) Geschäftsführung: Dipl.-Volksw. Angelika Wiesgen-Pick.</p>
@@ -45,8 +45,8 @@
 <p class="p1"><span class="s1">Stand: 2019<br /></span></p>
 
 </div>
-
-
+<br>
+<br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 
 </body>
