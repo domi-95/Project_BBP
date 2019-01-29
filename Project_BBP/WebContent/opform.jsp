@@ -147,9 +147,9 @@ $('#date').datepicker({
 <br>
 <br>
 <div class="text-left">
-<input class="btn btn-secondary col-md-4" type="button" value="Abstimmfeld hinzufügen" onClick="field('+');" required>
+<input class="btn btn-secondary col-md-4" type="button" value="Antwortmöglichkeit hinzufügen" onClick="field('+');" required>
 
-<input class="btn btn-secondary col-md-4 " type="button" value="Abstimmfeld entfernen" onClick="field('-');" required>
+<input class="btn btn-secondary col-md-4 " type="button" value="Antwortmöglichkeit entfernen" onClick="field('-');" required>
 
 </div>
 <br>
