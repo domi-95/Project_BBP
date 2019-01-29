@@ -39,7 +39,7 @@ if (u != null ){
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Gültige E-Mailadresse erforderlich: ex@abc.xyz">
-						<input class="input100 rounded" type="text" name="email" placeholder="Benutzername / E-Mail" autofocus>
+						<input class="input100 rounded-0" type="text" name="email" placeholder="Benutzername / E-Mail" autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -47,7 +47,7 @@ if (u != null ){
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Passwort erforderlich">
-						<input class="input100 rounded" type="password" name="password" placeholder="Passwort">
+						<input class="input100 rounded-0" type="password" name="password" placeholder="Passwort">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -66,7 +66,7 @@ if (u != null ){
 		<input type="hidden" id="prevUrl1" name="prevUrl1" value="">	
 		</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn rounded">
+						<button class="login100-form-btn rounded-0">
 							Anmelden
 						</button>
 					</div>

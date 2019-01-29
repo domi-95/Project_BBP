@@ -40,7 +40,7 @@ padding: 0.8rem;
 
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="spaceholder text-center d-flex justify-content-center  w-50 d-block m-auto">
-<img src="Images/welcome2.png" alt="Welcome to Mos" class="img-fluid" ></div>
+<img src="Images/welcome.png" alt="Welcome to Mos" class="img-fluid" ></div>
 <div class="spaceholder d-flex justify-content-center">
 
 <jsp:include page="/include/carousel.jsp"></jsp:include>
