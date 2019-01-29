@@ -6,16 +6,15 @@
 <!DOCTYPE html>
 
 <%
-List<OpinionPoll>oplist = OpinionPoll.getAll(1);
+List<OpinionPoll>oplist2 = OpinionPoll.getAll(2);
+List<OpinionPoll>oplist = OpinionPoll.getAll(3);
+oplist.addAll(oplist2);
 %>
 <html>
 <head>
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 	<!-- Bootstrap core CSS -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Material Design Bootstrap -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/css/mdb.min.css" rel="stylesheet">
+
 	<!-- JQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- Bootstrap tooltips -->

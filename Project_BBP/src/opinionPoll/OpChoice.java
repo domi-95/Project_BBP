@@ -43,4 +43,8 @@ public class OpChoice {
 	public static Map<Integer, Integer> getUserChoices (int user_id) {
 		return OpinionPollDao.getAllChoices(user_id);
 	}
+	public static List<OpinionPoll> getMyOps (int user_id) {
+		return OpinionPollDao.getAllOpByUser(user_id);
+
+	}
 }
