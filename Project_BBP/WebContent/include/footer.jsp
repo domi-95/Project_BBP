@@ -40,7 +40,7 @@
 
             <ul class="list-unstyled" >
               <li>
-                <a href="#">Nutzungsbedingungen</a>
+                <a href="termsofuse.jsp">Nutzungsbedingungen</a>
               </li>
             </ul>
           </div>
