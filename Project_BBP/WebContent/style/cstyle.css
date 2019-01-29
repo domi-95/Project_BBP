@@ -372,3 +372,35 @@ z-index: 1;
 .txt-green{
 	color: green !important;
 }
+.card-header button {
+    display: inline-block !important;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 80%;
+}
+.car-header h5{
+	    display: inline !important;
+    font-size: 0.83em;
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.collapse-head  div:before {
+   font-family: 'FontAwesome';
+   content: "\f078";
+   float: right;
+   transition: all 0.5s;
+   color: #fff;
+ 
+}
+.collapse-head.active div:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+    content: "\f054"; 
+
+} 
