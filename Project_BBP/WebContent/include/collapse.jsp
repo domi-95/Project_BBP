@@ -13,11 +13,41 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
+<style>
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+
+.collapse-head  h5:before {
+   font-family: 'FontAwesome';
+   content: "\f078";
+   float: right;
+   transition: all 0.5s;
+   color: #fff;
+ 
+}
+.collapse-head.active h5:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+    content: "\f054"; 
+
+} 
+</style>
+<script>
+$('.panel-collapse').on('show.bs.collapse', function () {
+    $(this).siblings('.panel-heading').addClass('active');
+  });
+
+  $('.panel-collapse').on('hide.bs.collapse', function () {
+    $(this).siblings('.panel-heading').removeClass('active');
+  });
+</script>
+
 <div id="accordion" class="w-75  bordershadow">
   <div class="card">
-    <div class="card-header collapse-head" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+    <div class="card-header collapse-head" id="headingOne" >
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <button class="btn btn-link" >
           Was ist das BBP?
         </button>
       </h5>
@@ -35,9 +65,9 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header collapse-head" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+    <div class="card-header collapse-head" id="headingTwo" >
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button class="btn btn-link collapsed" >
           Was sind Projekte?
         </button>
       </h5>
@@ -55,9 +85,9 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header collapse-head" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    <div class="card-header collapse-head" id="headingThree" >
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button class="btn btn-link collapsed" >
           Wie geht es nach der Veröffentlichung des Projektantrages weiter? 
         </button>
       </h5>
@@ -75,9 +105,9 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header collapse-head" id="headingFour">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+    <div class="card-header collapse-head" id="headingFour" >
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <button class="btn btn-link collapsed" >
           Was sind Abstimmungen?
         </button>
       </h5>
@@ -97,9 +127,9 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header collapse-head" id="headingFive">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+    <div class="card-header collapse-head" id="headingFive" >
+      <h5 class="mb-0" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button class="btn btn-link collapsed" >
           Wie unterstütze ich Projekte?
         </button>
       </h5>
