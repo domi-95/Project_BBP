@@ -40,7 +40,7 @@
 
             <ul class="list-unstyled" >
               <li>
-                <a href="#">Netiquette</a>
+                <a href="#">Nutzungsbedingungen</a>
               </li>
             </ul>
           </div>
