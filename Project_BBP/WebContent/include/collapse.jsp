@@ -33,7 +33,7 @@ $(document).on('hide','.accordion', function (e) {
   <div class="card">
     <div class="card-header collapse-head" id="headingOne" >
       <div class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        <button class="btn btn-link" >
+        <button class="btn btn-link font-weight-bold" >
           <span>Was ist das BBP?</span>
         </button>
       </div>
@@ -53,7 +53,7 @@ $(document).on('hide','.accordion', function (e) {
   <div class="card">
     <div class="card-header collapse-head" id="headingTwo" >
       <div class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <button class="btn btn-link collapsed" >
+        <button class="btn btn-link collapsed font-weight-bold" >
           <span>Was sind Projekte?</span>
         </button>
       </div>
@@ -73,7 +73,7 @@ $(document).on('hide','.accordion', function (e) {
   <div class="card">
     <div class="card-header collapse-head" id="headingThree" >
       <div class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <button class="btn btn-link btn-block collapsed" >
+        <button class="btn btn-link btn-block collapsed font-weight-bold" >
           <span>Wie geht es nach der Veröffentlichung des Projektantrages weiter?</span> 
         </button>
       </div>
@@ -93,7 +93,7 @@ $(document).on('hide','.accordion', function (e) {
   <div class="card">
     <div class="card-header collapse-head" id="headingFour" >
       <div class="mb-0" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        <button class="btn btn-link collapsed" >
+        <button class="btn btn-link collapsed font-weight-bold" >
           <span>Was sind Abstimmungen?</span>
         </button>
       </div>
@@ -115,7 +115,7 @@ $(document).on('hide','.accordion', function (e) {
   <div class="card">
     <div class="card-header collapse-head" id="headingFive" >
       <div class="mb-0" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        <button class="btn btn-link collapsed" >
+        <button class="btn btn-link collapsed font-weight-bold" >
           <span>Wie unterstütze ich Projekte?</span>
         </button>
       </div>
