@@ -59,7 +59,7 @@ if (u != null ){
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
       </div>
-      <div class="invalidbox ">
+      <div class="invalidbox rounded">
 	<p class="invalid">${message}</p>
 		</div>
 	<input type="hidden" id="prevUrl2" name="prevUrl2" value="<%out.print(request.getParameter("prevUrl"));%>">
