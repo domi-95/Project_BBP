@@ -13,7 +13,7 @@
 session.invalidate();
 %>
 	
-		<div class="pt-3 formular-bd opindex text-center w-50 m-auto">
+		<div class="pt-3 formular-bd opindex text-center w-50 m-auto mb-10">
 			
 			<br>
 				<h3 class="h3message">Sie wurden erfolgreich abgemeldet</h3> <br/><br/>
@@ -30,6 +30,25 @@ session.invalidate();
 	
 	
 <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<br>
+	<br>
+	<br>
+	<br>
+<br>
+	<br>
+	<br>
+		<br>
+	<br>
+	<br>
+	<br>
 <jsp:include page="/include/footer.jsp"></jsp:include>
+
 </body>
 </html>
