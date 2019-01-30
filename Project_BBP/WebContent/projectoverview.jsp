@@ -15,25 +15,13 @@ if (u == null || u.getRole().getId() != 1){
 <%@page import="java.util.Arrays"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="script/cscript.js"></script>
-<jsp:include page="/include/header.jsp"></jsp:include><br>
-<%
-
-List<Project> projectlist = Project.getApprovedAdministrationProjects();
-
-int z = 1;
-Map<Integer, Integer> alreadyVote = null;
-if (u != null){
-alreadyVote = Vote.getUserVotesHash(u.getId());
-}
-
-
-
-%>
 <head>
 <title>Projektübersicht</title>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/cscript.js"></script>
+<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
 
 <style>
 
@@ -57,6 +45,20 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 <title>Projektübersicht</title>
 </head>
 <body class="bg">
+<jsp:include page="/include/header.jsp"></jsp:include><br>
+<%
+
+List<Project> projectlist = Project.getApprovedAdministrationProjects();
+
+int z = 1;
+Map<Integer, Integer> alreadyVote = null;
+if (u != null){
+alreadyVote = Vote.getUserVotesHash(u.getId());
+}
+
+
+
+%>
 <!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 
 
