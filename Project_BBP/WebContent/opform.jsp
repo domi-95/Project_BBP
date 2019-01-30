@@ -84,7 +84,7 @@ function cutDate() {
 	 
 	 
 </script>
-<div class="formular-bd w-75 mx-auto mb-5">
+<div class="formular-bd w-75 mx-auto mb-5 opindex">
 <h2>Abstimmung erstellen</h2>
 <br>
 <form id="regForm" action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
