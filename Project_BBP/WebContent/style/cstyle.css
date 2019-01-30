@@ -403,3 +403,7 @@ z-index: 1;
     content: "\f054"; 
 
 } 
+
+.right{
+	text-align: right;
+}

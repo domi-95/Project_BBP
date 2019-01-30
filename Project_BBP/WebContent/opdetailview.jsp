@@ -94,6 +94,11 @@ if (u == null){
     }
   });
 </script>
+<p style="text-align:right;">Vom: <%out.print(op.getDate_from());%></p>
+<br>
+<h6><b>Beschreibung:</b></h6>
+<br>
+<p><% out.print(op.getDescription()); %></p>
 </div>
 </div>
 <br>
