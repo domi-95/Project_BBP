@@ -15,6 +15,7 @@ if (u == null || u.getRole().getId() != 3){
 
 <link href="style/datepicker.min.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
         <script src="script/datepicker.min.js"></script>
 
         <!-- Include German language -->
@@ -30,7 +31,7 @@ if (u == null || u.getRole().getId() != 3){
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="script/cscript.js"></script>
 </head>
 <body class="bg ">
@@ -148,6 +149,9 @@ $('#date').datepicker({
 <br>
 		 <div class="form-group">
     <input type="checkbox" value="notshow statistic" > Keine Zwischenergebnise zeigen
+		 <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Wenn dieses Feld ausgewählt wird, können Bürger nach der Teilnahme an der Abstimmung nicht sehen, wie andere Bürger bisher abgestimmt haben!" >
+               <i class="fa fa-question-circle"></i>
+            </a>
 
   </div>
 
