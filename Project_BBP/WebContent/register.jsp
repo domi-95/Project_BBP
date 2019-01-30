@@ -50,8 +50,8 @@ if((User)session.getAttribute("user") != null){
 				      <select name="usercategory" class="input100 rounded" required>
 				        <option value="" disabled selected hidden >Benutzer wählen...</option>
 				       		<option value="1">Bürger</option>
-							<option value="2" >Gemeindeverwaltung</option>
-							<option value="3">Gemeinderat</option>
+							<option value="2" >Verwaltungsmitarbeiter</option>
+							<option value="3">Gemeinderatsmitglied</option>
 				      </select>
 				      <span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -131,6 +131,11 @@ if((User)session.getAttribute("user") != null){
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>

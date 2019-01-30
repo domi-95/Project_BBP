@@ -1,34 +1,33 @@
+<%
+User u = (User)session.getAttribute("user"); 
+if (u == null){
+	
+	if(null != request.getParameter("opinionpollid")){
+		response.sendRedirect("login.jsp?prevUrl=opdetailview.jsp?opinionpollid="+request.getParameter("opinionpollid"));
+	}
+	else{
+	response.sendRedirect("login.jsp?prevUrl=opdetailview.jsp");
+	}
+}
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="opinionPoll.*"%>
+    <%@page import="user.*"%>
     <%@page import="java.util.*"%>
     <%@page import="opinionPoll.*"%>
-    <jsp:include page="include/header.jsp"></jsp:include> 
 <!DOCTYPE html>
-
-<%
-List<OpinionPoll>oplist2 = OpinionPoll.getAll(2);
-List<OpinionPoll>oplist = OpinionPoll.getAll(3);
-oplist.addAll(oplist2);
-%>
 <html>
 <head>
-<title>Abstimmungsergebnisse</title>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/js/mdb.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Abstimmungsergebnis</title>
 </head>
 <body class="bg">
-<br>
-<div class="formular-bd w-75 m-auto opindex">
-<h1>Abstimmungsergebnisse</h1>
-<br>
+<jsp:include page="/include/header.jsp"></jsp:include>
 <form>
-<%
-for (OpinionPoll op : oplist){
+<% 	OpinionPoll op = OpinionPoll.getOp(Integer.parseInt(request.getParameter("opinionpollid")));
 	int[] choice = op.getChoice().getChoice();
-	List<String> header = op.getHeader();
-%>
+	List<String> header = op.getHeader(); %>
 <div class="card opindex">
 <div class="card-header  text-white bg-secondary pt-2 pb-0">
 <h5 class="card-title"><%out.print(op.getTitle()); %></h5>
@@ -93,11 +92,6 @@ for (OpinionPoll op : oplist){
 </div>
 </div>
 <br>
-<%} %>
 </form>
-</div>
-<br>
-<br>
-<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
