@@ -152,6 +152,7 @@ public class Project {
 		if (Project.getProject(project_id).getVote() >= Parameters.EXPIRYDATEPOPULATION) {
 			Calendar expiryDate = Calendar.getInstance();
 			expiryDate.add(Calendar.MONTH, 3);
+			EmailSend.sendMinimumVotes(ProjectDao.searchProject(project_id));
 			return ProjectDao.projectVoteWithExpiryDate(user_id, project_id, expiryDate);
 		} else {
 			return ProjectDao.projectVote(user_id, project_id);
@@ -167,10 +168,6 @@ public class Project {
 		ProjectDao.updateComment(this, comment);
 	}
 
-	/*public static List<Project> getAll(int state_id) {
-		return ProjectDao.getAllProject(state_id);
-	}*/
-	
 	public static List<Project> getAllWithCreator (int user_id){
 		return ProjectDao.searchProjectCreator(user_id);
 	}
@@ -201,25 +198,25 @@ public class Project {
 
 	public void approveAdministration() {
 		this.setState(new State(2, "freigegeben verwaltung"));
+		EmailSend.sendApproveAdministration(this);
 	}
 
 	public void declineAdministration(String comment) {
 		this.setComment(comment);
 		this.setState(new State(3, "abgelehnt verwaltung"));
+		EmailSend.sendDeclinedAdministration(this);
 	}
-
-	public void checkedCouncil() {
-		this.setState(new State(4, "gepr�ft gemeinderat"));
-	}
-
+	
 	public void declineCouncil(String comment) {
 		this.setComment(comment);
-		this.setState(new State(5, "abgelehnt gemeinderat"));
+		this.setState(new State(4, "abgelehnt gemeinderat"));
+		EmailSend.sendDeclineCouncil(this);
 	}
 
 	public void approveCouncil(String comment) {
 		this.setComment(comment);
-		this.setState(new State(6, "freigegeben gemeinderat"));
+		this.setState(new State(5, "freigegeben gemeinderat"));
+		EmailSend.sendApproveCouncil(this);
 	}
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
