@@ -163,7 +163,7 @@ function changeValue(id){
         <option value="">Status wählen</option>
        		<option value="Wirtschaft und Finanzen">Angelegt</option>
 			<option value="Bildung und Kultur" >Freigegeben Verwaltung</option>
-			<option value="Sicherheit">Freigegeben Gemeinderat</option>
+			<option value="Sicherheit">Genehmigt Gemeinderat</option>
       </select>
       </div>
      <div class="col-auto" >
@@ -371,10 +371,10 @@ function changeValue(id){
 <% if(state==2 && u != null && u.getRole().getId() == 3){ %>
 <div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
   <div class="col-xs-12 col-xl-6">
-    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="approveBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Freigeben" onClick="approveBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
   <div class="col-xl-6">
-    <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+    <input class="btn btn-lg btn-danger btn-block" type="button" value="Zurückweisen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
 </div>
 <%} %> 
