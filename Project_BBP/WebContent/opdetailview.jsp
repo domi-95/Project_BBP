@@ -104,5 +104,7 @@ if (u == null){
 <br>
 </form>
 </div>
+<br>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
