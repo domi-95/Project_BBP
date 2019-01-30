@@ -58,14 +58,12 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 </head>
 <body class="bg">
 <!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
-<div class="formular-bd w-75 mx-auto">
-<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
-<div class="form-row">
-    
-    	
-    
-  <div class="form-group col-md-6" >
-      <label for="inputCategory">Kategorie</label>
+
+
+<div class="formular-bd w-75 mx-auto mt-0 mb-3">
+	<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+  <div class="form-row align-items-center mx-auto content-center text-center">
+     <div class="col-auto" >
       <select id="inputCategory" name="category" class="form-control" onchange="regForm.submit()">
         <option value="">Kategorie wählen...</option>
        		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
@@ -77,8 +75,8 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 			<option value="Sonstiges">Sonstiges</option>
       </select>
       </div>
-      <div class="form-group col-md-6">
-      <label for="title">Freitext</label>
+      
+       <div class="col-auto">
       <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
        <datalist id="laender">
        <%
@@ -90,12 +88,15 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
   		</datalist>
   		</input>
     </div>
-     <button type="submit" class="btn btn-primary">Filtern</button>
-      </div>
-
-
+ 
+    <div class="col-auto">
+      <button type="submit" class="btn btn-secondary mb-2">Filtern</button>
+    </div>
+  </div>
 </form>
 </div>
+
+
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 <div id="snackbar_message"></div>
 <div class="container text-center" id="voteReload">

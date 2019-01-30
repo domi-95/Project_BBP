@@ -155,9 +155,9 @@ function changeValue(id){
 	
 	%>
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
-	<div class="formular-bd w-75 mx-auto">
+	<div class="formular-bd w-75 mx-auto mt-0 mb-3">
 	<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
-  <div class="form-row align-items-center">
+  <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
       <select id="inputstatus" name="category" class="form-control" onchange="regForm.submit()">
         <option value="">Status wählen</option>
@@ -194,7 +194,7 @@ function changeValue(id){
     </div>
  
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">Filtern</button>
+      <button type="submit" class="btn btn-secondary mb-2">Filtern</button>
     </div>
   </div>
 </form>
