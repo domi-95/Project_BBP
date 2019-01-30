@@ -33,7 +33,7 @@ if (u == null || u.getRole().getId() != 3){
 	
 <script src="script/cscript.js"></script>
 </head>
-<body class="bg opindex">
+<body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
 
 <!-- ======== Loader Container ======== -->
@@ -83,7 +83,7 @@ function cutDate() {
 	 
 	 
 </script>
-<div class="formular-bd w-75 mx-auto">
+<div class="formular-bd w-75 mx-auto mb-5">
 <h2>Abstimmung erstellen</h2>
 <br>
 <form id="regForm" action = "CreateOpinionPoll" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
@@ -146,6 +146,11 @@ $('#date').datepicker({
 </div></div>
 <br>
 <br>
+		 <div class="form-group">
+    <input type="checkbox" value="notshow statistic" > Keine Zwischenergebnise zeigen
+
+  </div>
+
 <div class="text-left">
 <input class="btn btn-secondary col-md-4" type="button" value="Antwortmöglichkeit hinzufügen" onClick="field('+');" required>
 
