@@ -103,7 +103,7 @@ if((User)session.getAttribute("user") != null){
 					<div class="text-center p-t-12">
 					<div class="checkbox mb-3">
 						<label>
-				          <input type="checkbox" value="accept-termsofuse" required><a href="#">&nbsp;Nutzungsbedingungen</a> akzeptieren
+				          <input type="checkbox" value="accept-termsofuse" required><a href="termsofuse.jsp" target="_blank">&nbsp;Nutzungsbedingungen</a> akzeptieren
 				        </label>
 					</div>
 					<div class="invalidbox">
