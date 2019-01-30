@@ -59,13 +59,13 @@ public class ApproveProject extends HttpServlet {
 			if(request.getParameter("acceptreject").equals("approve")) {
 				
 				p.approveCouncil( comment);	//give him here your comment with which is necessary
-				message = "Projekt wurde freigegeben";
+				message = "Projekt wurde genehmigt";
 			}
 			else {
 				if(request.getParameter("acceptreject").equals("reject")) {
 					
 					p.declineCouncil(comment);			//give him here your comment with which is necessary
-					message = "Projekt wurde abgelehnt";
+					message = "Projekt wurde zurückgewiesen";
 				}
 				else {
 					message = "Es ist ein Fehler aufgetreten";
