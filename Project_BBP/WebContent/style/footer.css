@@ -15,3 +15,9 @@ footer {
 footer a{
 	color:#fdfefe;
 }
+
+
+.blinks{
+	block: inline;
+	word-wrap: break-word;
+}

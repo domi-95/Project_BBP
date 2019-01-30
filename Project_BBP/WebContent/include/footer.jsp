@@ -21,7 +21,7 @@
       <div class="row w-75 m-auto">
 
         <!-- Grid column -->
-        <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white text-left">
+        <div class="col-md-3 mt-md-0 mt-3 px-0 border-right border-white text-left blinks">
 
           <!-- Content -->
           <h7 class="text-uppercase"><a href="index.jsp">Bürgerbeteiligungsportal Mosbach</a></h7> <br>
@@ -34,13 +34,13 @@
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-md-0 mb-3 ml-4 text-center d-inline-block">
+        <div class="col-md-2 mb-md-0 mb-3 ml-4 text-center blinks">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <span class="d-inline-block"><a href="termsofuse.jsp">Nutzungsbedingungen</a></span>
+                <a href="termsofuse.jsp">Nutzungsbedingungen</a>
               </li>
             </ul>
           </div>
@@ -48,13 +48,13 @@
         <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
+        <div class="col-md-2 mb-md-0 mb-3 text-center blinks">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <span class="d-inline-block"><a href="#">Datenschutz</a></span>
+                <a href="#">Datenschutz</a>
               </li>
               </ul>
 
@@ -65,13 +65,13 @@
  <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
+        <div class="col-md-2 mb-md-0 mb-3 text-center blinks">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <span class="d-inline-block"><a href="impressum.jsp">Impressum</a></span>
+                <a href="impressum.jsp">Impressum</a>
               </li>            
             </ul>
 
@@ -80,13 +80,13 @@
 <hr class="clearfix w-100 d-md-none pb-3">
 
         <!-- Grid column -->
-        <div class="col-md-2 mb-md-0 mb-3 text-center d-inline-block">
+        <div class="col-md-2 mb-md-0 mb-3 text-center blinks">
 
            
 
             <ul class="list-unstyled" >
               <li>
-                <span class="d-inline-block"><a href="contact.jsp">Kontakt</a></span>
+             	 <a href="contact.jsp">Kontakt</a>
               </li>
              
             </ul>
