@@ -13,16 +13,9 @@ oplist.addAll(oplist2);
 <html>
 <head>
 <title>Abstimmungsergebnisse</title>
-	<!-- Font Awesome -->
-	<!-- Bootstrap core CSS -->
-
-	<!-- JQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Bootstrap tooltips -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-	<!-- Bootstrap core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/js/mdb.min.js"></script>
 </head>
 <body class="bg">
@@ -31,15 +24,10 @@ oplist.addAll(oplist2);
 <h1>Abstimmungsergebnisse</h1>
 <br>
 <form>
-
 <%
 for (OpinionPoll op : oplist){
-	
-		
-	
 	int[] choice = op.getChoice().getChoice();
 	List<String> header = op.getHeader();
-	
 %>
 <div class="card opindex">
 <div class="card-header  text-white bg-secondary pt-2 pb-0">
@@ -48,15 +36,12 @@ for (OpinionPoll op : oplist){
 <div class="card-body opoverview-card-body">
 <canvas id="barChart<%out.print(op.getId()); %>"></canvas>
 <script>
-  //bar
   var ctxB = document.getElementById("barChart<%out.print(op.getId()); %>").getContext('2d');
   var myBarChart = new Chart(ctxB, {
     type: 'bar',
     data: {
-      //labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
       labels:<% out.print("[");
       	for (int i = 0; i<header.size();i++) {
-    		
     		out.print("\""+header.get(i)+"\"");
     		if(i<header.size()-1) {
     		out.print(", ");
@@ -104,14 +89,11 @@ for (OpinionPoll op : oplist){
       }
     }
   });
-
 </script>
-
 </div>
 </div>
 <br>
 <%} %>
-
 </form>
 </div>
 <br>
