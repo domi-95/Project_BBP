@@ -29,6 +29,7 @@ $(document).on('hide','.accordion', function (e) {
 });
 </script>
 
+
 <div id="accordion" class="w-75  bordershadow">
   <div class="card">
     <div class="card-header collapse-head" id="headingOne" >
