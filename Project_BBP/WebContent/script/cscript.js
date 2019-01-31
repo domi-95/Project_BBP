@@ -309,10 +309,10 @@ function message(ar) {
 function approveBox(id, role){
 	document.getElementById('commentBox').innerHTML +=
 		"<div id='overlay' class='overlay'>"+
-		  "<div id='msgBox'><h3>Projekt Freigeben</h3><br><br>"+
+		  "<div id='msgBox'><h3>Projekt Akzeptieren</h3><br><br>"+
 		"<p>Begr&uuml;ndung: </p><br>"+
 		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
-		"<input type='button' value='Genehmigen' onClick='doApprove("+id+","+role+")'> <br><br>"+
+		"<input type='button' value='Akzeptieren' onClick='doApprove("+id+","+role+")'> <br><br>"+
 		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
 		"</div>";
 		
