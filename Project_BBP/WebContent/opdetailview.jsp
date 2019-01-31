@@ -54,7 +54,7 @@ if (u == null){
     	}
     	out.print("]"); %>,
       datasets: [{
-        label: 'Number of Votes',
+        label: 'Anzahl der Stimmen',
        // data: [12, 19, 3, 5, 2, 3],
        data: <%out.print("[");
 		for (int i = 0; i < header.size(); i++) {
