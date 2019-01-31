@@ -309,10 +309,10 @@ function message(ar) {
 function approveBox(id, role){
 	document.getElementById('commentBox').innerHTML +=
 		"<div id='overlay' class='overlay'>"+
-		  "<div id='msgBox'><h3>Projekt Freigeben</h3><br><br>"+
+		  "<div id='msgBox'><h3>Projekt Akzeptieren</h3><br><br>"+
 		"<p>Begr&uuml;ndung: </p><br>"+
 		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
-		"<input type='button' value='Genehmigen' onClick='doApprove("+id+","+role+")'> <br><br>"+
+		"<input type='button' value='Akzeptieren' onClick='doApprove("+id+","+role+")'> <br><br>"+
 		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
 		"</div>";
 		
@@ -320,11 +320,11 @@ function approveBox(id, role){
 function rejectBox(id, role){
 	document.getElementById('commentBox').innerHTML +=
 		"<div id='overlay' class='overlay'>"+
-		"<div id='msgBox'><h3>Projekt ablehnen</h3><br><br>"+
-		"<p>Begr&uuml;ndung: </p><br>"+
-		"<textarea id='comment' name='comment' cols='35' rows='4' autofocus></textarea> <br><br>"+
-		"<input type='button' value='Ablehnen' onClick='doReject("+id+","+role+")'> <br><br>"+
-		"<input type='button' value='Abbrechen' onClick='doClose();'></div>"+
+		"<div id='msgBox'><h3 class='m-2'>Projekt ablehnen</h3>"+
+		"<p><h5 class='m-1'>Begr&uuml;ndung:</h5> </p>"+
+		"<textarea id='comment' name='comment' cols='50' rows='6' autofocus></textarea> <br><br>"+
+		"<input type='button'  class='btn btn-danger btn-lg btn-block mb-0' value='Ablehnen' onClick='doReject("+id+","+role+")'> "+
+		"<input type='button'  class='btn btn-secondary btn-lg btn-block'value='Abbrechen' onClick='doClose();'></div>"+
 		"</div>";
 	
 }
