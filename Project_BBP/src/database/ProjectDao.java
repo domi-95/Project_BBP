@@ -121,6 +121,43 @@ public class ProjectDao {
 
 		return null;
 	}
+	
+	public static List<Project> getAllProject(int state_id, String category, String title) {
+		String sql = null;
+		String sqlCategory = "";
+		String sqlTitle = "";
+		String sqlState_id = "";
+		if (category != null) {
+		 sqlCategory = "AND p.category = '"+category+"' ";
+		}
+		if (title != null) {
+		 sqlTitle = "AND p.title LIKE '"+title+"%' ";
+		}
+		if (state_id != 0) {
+		sqlState_id = "s.id = " + state_id +" AND";
+		}
+		//create sql
+		
+		
+		List<Project> result = new LinkedList<Project>();
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from project p, state s where "+sqlState_id+" p.state_id = s.id "+sqlCategory+sqlTitle+" ORDER BY stamp_created desc");
+			while (myRs.next()) {
+				result.add(resultSetCreateProject(myRs));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting filtered projects");
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 
 	public static Map<Integer, Integer> getAllVotesHash(int user_id) {
 		Map<Integer, Integer> result = new HashMap<Integer, Integer>();

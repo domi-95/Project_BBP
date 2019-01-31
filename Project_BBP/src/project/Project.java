@@ -167,14 +167,19 @@ public class Project {
 		this.comment = comment;
 		ProjectDao.updateComment(this, comment);
 	}
+	public static Project getProject(int id) {
+		return ProjectDao.searchProject(id);
+	}
 
 	public static List<Project> getAllWithCreator (int user_id){
 		return ProjectDao.searchProjectCreator(user_id);
 	}
-
-	public static Project getProject(int id) {
-		return ProjectDao.searchProject(id);
+	
+	public static List<Project> getAllFiltered (int state_id, String category, String title){
+		return ProjectDao.getAllProject(state_id, category, title);
+		
 	}
+
 	
 	public static List<Project> getCreatedProjects () {
 		return ProjectDao.getAllProject(1);
