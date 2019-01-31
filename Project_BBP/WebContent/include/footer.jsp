@@ -54,7 +54,7 @@
 
             <ul class="list-unstyled" >
               <li>
-                <a href="#">Datenschutz</a>
+                <a href="dataprotection.jsp">Datenschutz</a>
               </li>
               </ul>
 
