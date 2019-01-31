@@ -75,7 +75,7 @@ if(request.getParameter("stateSelect") != null){
 <form name="selectState" method="post" action="projectapprove.jsp">
 <div class="btn-group-toggle text-center" data-toggle="buttons">
   <label class="btn btn-secondary col-md-2 active" id="label1">
-    <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt
+    <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt Bürger
   </label>
  
   <label class="btn btn-secondary col-md-2" id="label2">
@@ -156,12 +156,12 @@ function changeValue(id){
 	%>
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 	<div class="formular-bd w-75 mx-auto mt-0 mb-3">
-	<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+	<form id="regForm" action = "projectapprove.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
       <select id="inputstatus" name="category" class="form-control" onchange="regForm.submit()">
         <option value="">Status wählen</option>
-       		<option value="Wirtschaft und Finanzen">Angelegt</option>
+       		<option value="Wirtschaft und Finanzen">Angelegt Bürger</option>
 			<option value="Bildung und Kultur" >Freigegeben Verwaltung</option>
 			<option value="Sicherheit">Genehmigt Gemeinderat</option>
       </select>
@@ -361,7 +361,7 @@ function changeValue(id){
 <% if(state==1){ %>
 <div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
   <div class="col-xs-12 col-xl-6">
-    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Freigeben" onClick="doApprove(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
   <div class="col-xl-6">
     <input class="btn btn-lg btn-danger btn-block" type="button" value="Ablehnen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
