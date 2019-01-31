@@ -20,6 +20,7 @@ public class ConnectionProvider extends TimerTask {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Connection to database failed");
 		}
 	}
