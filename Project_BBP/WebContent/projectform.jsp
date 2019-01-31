@@ -32,7 +32,7 @@ if (u == null || u.getRole().getId() != 1){
 
 
 </head>
-<body class="bg opindex">
+<body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
 
 <!-- LOAD -->
@@ -58,7 +58,7 @@ $(document).ready(function(){
 <!-- LOAD END -->
 
 
-<div class="formular-bd w-75 mx-auto">
+<div class="formular-bd w-75 mx-auto opindex">
 <h2>Projektantrag erstellen</h2>
 <br>
 	<form id="regForm" method="post" action="CreateProjectProcess"	enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
