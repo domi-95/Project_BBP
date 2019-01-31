@@ -197,7 +197,7 @@ if(u != null && u.getRole().getId() == 1){
 	    	<%  
 	      }else{
 	    	%>
-	      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Abgestimmt!</a> 
+	      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Bereits Unterstützt!</a> 
 	      <%
 	      }
 }
