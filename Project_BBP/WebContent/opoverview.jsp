@@ -83,22 +83,32 @@ for ( OpinionPoll op: oplist){
 	<!-- only show when button "Abstimmen" was clicked -->
 	<div class="voteopBox bg-light text-dark " id="voteopBox<%out.print(op.getId());%>">
 	<form>
-	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" height="200px"/><br>
-	Titel: <%out.print(op.getTitle()); %><br/>
-	Beschreibung: <%out.print(op.getShort_description()); %><br/><%
-	%>Ersteller: <% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %><br/>
+	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2"  class="mb-2" height="200px"/>
+	<h5><%out.print(op.getTitle()); %></h5>
+	<div class="text-left">
+	<ul class="list-unstyled"> 
+	<li class="mb-2"><h6>Beschreibung:</h6> <%out.print(op.getShort_description()); %><%
+	%></li>
+	<li><h6>Ersteller: </h6><% out.print(op.getCreator().getFirstname()+" "+op.getCreator().getname()); %></li>
+	</ul>
+	</div>
+	<p><h6 class="text-left mb-2">Antwortmöglichkeiten:</h6></form>
+	<div class="form-row">
 	<%
+	 
+    
 	//List<String> header = new LinkedList<String>();
 	List<String> header = op.getHeader();
 	for(int i = 0; i<header.size() && header.get(i)!= null; i++){
-		%><input type="radio" class="selection<%out.print(op.getId()); %>" name="selection<%out.print(op.getId()); %>" value="<%out.print(i); %>"><%out.print(header.get(i)); %> <br>
+		%><div class="mb-1 form-group col-md-6 text-left"><input type="radio" class="selection<%out.print(op.getId()); %> mr-1" name="selection<%out.print(op.getId()); %>" value="<%out.print(i); %>"><%out.print(header.get(i)); %> <br>
 		<input type = "hidden" name = "id" value ="<%out.print(op.getId());%>">
-		<input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
+		<input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" /></div>
 		<%
 				
 	}
 	
-	%>
+	%></div>
+	<br>
 	<input type="button" id="voteopsend" class="btn btn-lg btn-success btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
 	<input type="button" class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
 	
