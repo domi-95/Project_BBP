@@ -28,6 +28,7 @@ if (u == null){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <div class="formular-bd w-75 m-auto opindex">
 <form>
 <% 	OpinionPoll op = OpinionPoll.getOp(Integer.parseInt(request.getParameter("opinionpollid")));
@@ -105,6 +106,7 @@ if (u == null){
 </form>
 </div>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

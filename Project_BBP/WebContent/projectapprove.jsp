@@ -28,7 +28,7 @@ if (u == null || u.getRole().getId() == 1 ){
 </head>
 <body class="lingradbg bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
-
+<div class="content">
 
 <script>
 
@@ -397,6 +397,7 @@ function changeValue(id){
 	}
 
 	%>
+	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

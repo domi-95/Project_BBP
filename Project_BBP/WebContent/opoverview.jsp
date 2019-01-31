@@ -22,6 +22,7 @@ if (u == null || u.getRole().getId() != 1){
 </head>
 <body class="bg">
     <jsp:include page="include/header.jsp"></jsp:include> 
+    <div class="content">
 <script>
 $(window).on('load', function(){
 	  $('#cover').removeClass('activate');
@@ -110,6 +111,7 @@ for ( OpinionPoll op: oplist){
 </div>
 <br>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

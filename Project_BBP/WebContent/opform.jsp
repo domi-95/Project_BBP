@@ -36,6 +36,7 @@ if (u == null || u.getRole().getId() != 3){
 </head>
 <body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
+<div class="content">
 
 <!-- ======== Loader Container ======== -->
 <div id="cover"></div>  
@@ -184,6 +185,7 @@ $('#date').datepicker({
 </div>
 <input type="hidden" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 </form>
+</div>
 </div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

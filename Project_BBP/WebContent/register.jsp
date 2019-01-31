@@ -31,6 +31,7 @@ if((User)session.getAttribute("user") != null){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <div id="snackbar_message"></div>
  <%@page import="database.*"%>
 	<%@page import="user.*"%>
@@ -132,13 +133,8 @@ if((User)session.getAttribute("user") != null){
 		</div>
 	</div>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	</div>
+	
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 	
 

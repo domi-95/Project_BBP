@@ -25,7 +25,7 @@ if (u != null ){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
-
+<div class="content">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 shadow rounded">
@@ -88,14 +88,8 @@ if (u != null ){
 			</div>
 		</div>
 	</div>
-		<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
+</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 	
 <!--===============================================================================================-->

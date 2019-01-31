@@ -34,7 +34,7 @@ if (u == null){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
-
+<div class="content">
 <% 
 	String invest = "question.png";
 	String period = "question.png";
@@ -206,6 +206,7 @@ if(u != null && u.getRole().getId() == 1){
 </div>
 
 	</div><br>
+	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

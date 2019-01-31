@@ -34,7 +34,7 @@ if (u == null || u.getRole().getId() != 1){
 </head>
 <body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
-
+<div class="content">
 <!-- LOAD -->
 <div id="cover"></div>  
 <div id="loader"></div> 
@@ -179,6 +179,7 @@ $(document).ready(function(){
 
 </div>
 </form>
+</div>
 </div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

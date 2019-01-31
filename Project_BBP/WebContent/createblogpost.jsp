@@ -28,6 +28,7 @@ if (u == null || u.getRole().getId() != 2){
 </head>
 <body>
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <div class="formular-bd w-75 mx-auto">
 <h2>Blogeintrag erstellen</h2>
 <form id="regForm" action = "CreateBlogProcess" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
@@ -84,8 +85,9 @@ if (u == null || u.getRole().getId() != 2){
   <br>
   
  
-  <button type="submit" class="btn btn-primary">Erstellen</button>
+  <button type="submit" class="btn btn-secondary">Erstellen</button>
 </form>
+</div>
 </div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

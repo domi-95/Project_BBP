@@ -41,6 +41,7 @@ if (u == null || u.getRole().getId() != 1){
 </head>
 <body class="bg">
 
+
 <script>
 $(document).ready(function() { 
 	  $('input[name=z]').change(function(){
@@ -56,6 +57,8 @@ function changeActive(){
 }
 </script>
 <jsp:include page="/include/header.jsp"></jsp:include>
+
+<div class="content">
 <br>
 <%
 int state;
@@ -418,10 +421,12 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 		break;}
 		} %>
 	
-	%>
+
 
 <br>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>	
+
 </body>
 </html>

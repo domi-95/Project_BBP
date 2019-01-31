@@ -18,6 +18,7 @@ if (u == null || u.getRole().getId() != 2){
 </head>
 <body>
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <%
 List<OpinionPoll> openend = OpinionPoll.getAll(2);
 List<OpinionPoll> closed = OpinionPoll.getAll(3);
@@ -32,6 +33,7 @@ for (OpinionPoll op : all){
 	%><a href="downloadXML?id=<%out.print(op.getId()); %>" accesskey="1" title="">Download XML ID: <%out.print(op.getId()); %></a><br><%
 }
 %>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

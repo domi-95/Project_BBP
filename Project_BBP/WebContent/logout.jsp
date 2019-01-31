@@ -8,7 +8,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="bg">
+
 <jsp:include page="include/header.jsp"></jsp:include>
+<div class="content">
 <%
 session.invalidate();
 %>
@@ -29,25 +31,8 @@ session.invalidate();
 	
 	
 	
-<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-		<br>
-	<br>
-	<br>
-	<br>
-<br>
-	<br>
-	<br>
-		<br>
-	<br>
-	<br>
-	<br>
+
+	</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 
 </body>

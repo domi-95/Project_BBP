@@ -9,6 +9,7 @@
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <div class="formular-bd opindex w-75 m-auto mb-5">
 <h1>Impressum</h1>
 <br>
@@ -77,6 +78,7 @@
 </div>
 <br>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

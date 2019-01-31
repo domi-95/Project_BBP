@@ -16,6 +16,7 @@
 </head>
 <body class="bg ">
 <jsp:include page="include/header.jsp"></jsp:include>
+<div class="content">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="formular-bd w-75 mx-auto mt-10">
@@ -62,6 +63,7 @@
                         </div>
                     </form>
 
+</div>
 </div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

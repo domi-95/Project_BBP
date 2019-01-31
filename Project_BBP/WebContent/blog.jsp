@@ -18,6 +18,7 @@
 </head>
 <body class="lingradbg">
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
 <div class="newsblog w-75">
 	<!-- Section: Blog v.1 -->
 	<section class="my-5"> <!-- Section heading -->
@@ -207,6 +208,7 @@
 	%>
 	
 </section>
+</div>
 </div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

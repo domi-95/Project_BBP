@@ -11,7 +11,7 @@
 </head>
 <body class="bg">
 <jsp:include page="include/header.jsp"></jsp:include>
-	
+	<div class="content">
 		<div class="pt-3 formular-bd opindex text-center w-50 m-auto">
 			
 				<h3 class="h3message"><%=request.getAttribute("Message")%></h3> <br/><br/>
@@ -29,29 +29,7 @@
 </script>
 		</div>
 	
-<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-		<br>
-	<br>
-	<br>
-	<br>
-<br>
-	<br>
-	<br>
-		<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-	<br>
-	<br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

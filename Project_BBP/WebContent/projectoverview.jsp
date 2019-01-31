@@ -46,6 +46,7 @@ if (u == null || u.getRole().getId() != 1){
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include><br>
+<div class="content">
 <%
 
 List<Project> projectlist = Project.getApprovedAdministrationProjects();
@@ -158,6 +159,7 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 
 
 <% }%>
+	</div>
 	</div>
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>

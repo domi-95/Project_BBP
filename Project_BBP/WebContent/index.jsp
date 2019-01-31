@@ -37,8 +37,9 @@ padding: 0.8rem;
 </head>
 <body class="lingradbg bg">
 
-
 <jsp:include page="/include/header.jsp"></jsp:include>
+<div class="content">
+
 <div class="spaceholder text-center d-flex justify-content-center  w-50 d-block m-auto">
 <img src="Images/welcome2.png" alt="Welcome to Mos" class="img-fluid" ></div>
 <div class="spaceholder d-flex justify-content-center">
@@ -101,6 +102,8 @@ padding: 0.8rem;
   </div> 
 <br>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
+
 </body>
 </html>

@@ -32,6 +32,7 @@ oplist.addAll(oplist2);
 </head>
 <body class="bg">
 <br>
+<div class="content">
 <div class="formular-bd w-75 m-auto opindex">
 
 <h1>Abstimmungsergebnisse</h1>
@@ -126,6 +127,7 @@ for (OpinionPoll op : oplist){
 </div>
 <br>
 <br>
+</div>
 <jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
