@@ -154,16 +154,18 @@ function changeValue(id){
 	String period = "question.png";
 	
 	%>
-	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+	<!-- --------------------------Kevin Filterversuch.-------------------------------------------------------------- -->
 	<div class="formular-bd w-75 mx-auto mt-0 mb-3">
 	<form id="regForm" action = "projectapprove.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
       <select id="inputstatus" name="category" class="form-control" onchange="regForm.submit()">
         <option value="">Status wählen</option>
-       		<option value="Wirtschaft und Finanzen">Angelegt Bürger</option>
-			<option value="Bildung und Kultur" >Freigegeben Verwaltung</option>
-			<option value="Sicherheit">Genehmigt Gemeinderat</option>
+       		<option value="1">Angelegt Bürger</option>
+			<option value="2" >Freigegeben Verwaltung</option>
+			<option value="3">Abgelehent Verwaltung</option>
+			<option value="4">Abgelehnt Gemeinderat</option>
+			<option value="5">Freigegeben Gemeinderat</option>
       </select>
       </div>
      <div class="col-auto" >
