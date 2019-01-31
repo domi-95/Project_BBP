@@ -35,7 +35,7 @@ if (u == null){
 	int[] choice = op.getChoice().getChoice();
 	List<String> header = op.getHeader(); %>
 <div class="card opindex">
-<div class="card-header  text-white bg-secondary pt-2 pb-0">
+<div class="card-header text-white color-mosbach bg-secondary pt-2 pb-0">
 <h5 class="card-title"><%out.print(op.getTitle()); %></h5>
 </div>
 <div class="card-body opoverview-card-body">
