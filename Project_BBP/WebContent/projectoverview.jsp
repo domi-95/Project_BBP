@@ -124,7 +124,7 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
   
   <div class="row p-1">
   <div class="col-xs-12 col-lg-6">
-      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-block">Projekt einsehen</a>
+      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-work">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
