@@ -70,7 +70,7 @@ for ( OpinionPoll op: oplist){
 	<div class="col-xs-12 col-xl-6">
 	<input class="btn  btn-outline-success btn-block disabled " value="bereits Abgestimmt"></div>
 	<div class="col-xs-12 col-xl-6">
-	<a class="btn  btn-secondary btn-block  "  href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" target="_blank">Statisik einsehen</a></div>
+	<a class="btn  btn-secondary btn-block  "  href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" target="_blank">Statistik einsehen</a></div>
 	</div>
 	<%}
 	}%>
