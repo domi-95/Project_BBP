@@ -25,9 +25,7 @@
 	<h2 class="h1-responsive font-weight-bold text-center my-5">Aktuelles in Mosbach
 		</h2>
 	<!-- Section description -->
-	<p class="text-center w-responsive mx-auto mb-5">In diesem Blog können sie aktuelle Projekte in Mosbach sehen
-	welche durch den Gemeinderat freigegeben wurden zur durchführung. Die Blog einträge werden von Verwaltungsmitarbeiter
-	nach dem Beschluss des Gemeinderates erstellt. Die Basis schaffen Projekte welche Bürger eingereicht haben.</p>
+	<p class="text-center w-responsive mx-auto mb-5">In diesem Blog haben Sie die Möglichkeit erfolgreiche Projekte einzusehen, um einen Einblick in die thematische Arbeit des Gemeinderats sowie die Funktionsweise des BBP zu erhalten. Diese Projekte wurden durch den Gemeinderat bereits genehmigt und in ersten Instanzen durchgeführt. </p>
 	<%
 	List<Blog> result = Blog.getAll();
 	int counter = 1;
