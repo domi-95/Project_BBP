@@ -66,7 +66,7 @@ public class EmailSend {
 		subject = "BBP – Mosbach: Sie haben erfolgreich Ihr Projekt "+project.getTitle()+" "+"eingereicht";
 		
 		message = introduction(user)+
-				"Sie haben soeben ihr Projekt "+project.getTitle()+" "+"eingereicht.\n\n"+
+				"Sie haben soeben ihr Projekt "+project.getTitle()+" "+"eingereicht."+
 				"Nach einer formalen Prüfung durch die Verwaltung, wird der Projektantrag veröffentlicht.\n\n"+
 				"Kopie Ihres Projektes:\n\n"+
 				"Titel: "+project.getTitle()+"\n"+
@@ -125,7 +125,7 @@ public class EmailSend {
     	message = introduction(user)+
 				
 				
-				"Nach einer formalen Prüfung Ihres Projektantrags" +project.getComment()+" "+"kann dieser nicht veröffentlicht werden. \n"
+				"\nNach einer formalen Prüfung Ihres Projektantrags" +project.getComment()+" "+"kann dieser nicht veröffentlicht werden. \n"
 						+ "Die Gründe dafür entnehmen Sie bitte dem folgenden Kommentar der Stadtverwaltung: "+project.getComment()+" \n"+
 						"Gerne können Sie nach erfolgreicher Überarbeitung Ihren Projektantrag erneut einstellen.\n"+ 
 				projectSignifier(project)+
