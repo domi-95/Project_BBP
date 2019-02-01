@@ -273,11 +273,11 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else{
     	%>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Abgestimmt!</a> 
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützt!</a> 
       <%
       }
     %>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px"><%out.print (p.getVote()); %> Unterstützungen</a>
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützungen: <%out.print (p.getVote()); %></a>
       </div>
       <br>
       <%
@@ -328,7 +328,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	<%  
       }else {
     	%>
-      <a href="#" class="btn btn-success btn-block disabled">Abgestimmt!</a>    
+      <a href="#" class="btn btn-success btn-block disabled">Unterstützt!</a>    
       <%
       }
     %>
@@ -337,7 +337,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 </div>
 <div class="row p-1">
   <div class="col d-flex justify-content-center" >
-      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Stimmen: <%out.print (p.getVote()); %></a>    
+      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Unterstützungen: <%out.print (p.getVote()); %></a>    
     
   </div>
 </div>
