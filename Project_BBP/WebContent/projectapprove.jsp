@@ -38,25 +38,21 @@ $(document).ready(function() {
 	  });
 	 });
 
-function changeActive(){
-	$(document).ready(function changeActive1(){
-		changeActive1();
-		
-		});
-}
+
 </script>
 
 
 
 <%
 int state;
+String category = null;
+if(request.getParameter("category")!=null){
+	category = request.getParameter("category");
+}
 if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));%>
 	<input type="hidden" id="state" value="<%out.print(state); %>">
-	<script>
-	
-	changeActive();
-	</script>
+
 	<%
 	}
 	else{
@@ -72,7 +68,7 @@ if(request.getParameter("stateSelect") != null){
 <div id="successMsg"></div>
 <div id="commentBox"></div>
 <%if(u != null && u.getRole().getId() == 2){ %>
-<form name="selectState" method="post" action="projectapprove.jsp">
+<form name="selectState" method="post" action="#" onsubmit="reloadDiv();">
 <div class="btn-group-toggle text-center" data-toggle="buttons">
   <label class="btn btn-secondary col-md-2 active" id="label1">
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt Bürger
@@ -89,7 +85,7 @@ if(request.getParameter("stateSelect") != null){
 </form>
 <%} %>
 <%if(u != null && u.getRole().getId() == 3){ %>
-<form name="selectState" method="post" action="projectapprove.jsp">
+<form name="selectState" method="post" action="#" onsubmit="reloadDiv();">
 <div class="btn-group-toggle text-center" data-toggle="buttons">
  
   <label class="btn btn-secondary col-md-2" id="label2">
@@ -156,10 +152,10 @@ function changeValue(id){
 	%>
 	<!-- --------------------------Kevin Filterversuch.-------------------------------------------------------------- -->
 	<div class="formular-bd w-75 mx-auto mt-0 mb-3">
-	<form id="regForm" action = "projectapprove.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+	<form id="regForm" action = "#" method = "post" onsubmit="reloadDiv();">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
-      <select id="inputstatus" name="category" class="form-control" onchange="regForm.submit()">
+      <select id="inputstatus" name="state1" class="form-control" onchange="this.form.submit()">
         <option value="">Status wählen</option>
        		<option value="1">Angelegt Bürger</option>
 			<option value="2" >Freigegeben Verwaltung</option>
@@ -169,15 +165,15 @@ function changeValue(id){
       </select>
       </div>
      <div class="col-auto" >
-      <select id="inputCategory" name="category" class="form-control" onchange="regForm.submit()">
-        <option value="">Kategorie wählen...</option>
-       		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
-			<option value="Bildung und Kultur" >Bildung und Kultur</option>
-			<option value="Sicherheit">Sicherheit</option>
-			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
-			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
-			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
-			<option value="Sonstiges">Sonstiges</option>
+      <select id="inputCategory" name="category" class="form-control" onchange="this.form.submit()">
+        <option value="*" <%if(category != null && category.equals("*")){out.print(" selected");} %>>Kategorie wählen...</option>
+       		<option value="Wirtschaft und Finanzen" <%if(category != null && category.equals("Wirtschaft und Finanzen")){out.print(" selected");} %>>Wirtschaft und Finanzen</option>
+			<option value="Bildung und Kultur" <%if(category != null && category.equals("Bildung und Kultur")){out.print(" selected");} %>>Bildung und Kultur</option>
+			<option value="Sicherheit" <%if(category != null && category.equals("Sicherheit")){out.print(" selected");} %>>Sicherheit</option>
+			<option value= "Sozial, Jugend und Gesundheit" <%if(category != null && category.equals("Sozial, Jugend und Gesundheit")){out.print(" selected");} %>>Sozial, Jugend und Gesundheit</option>
+			<option value="Bau und Infrastruktur" <%if(category != null && category.equals("Bau und Infrastruktur")){out.print(" selected");} %>>Bau und Infrastruktur</option>
+			<option value="Events und Öffentlichkeitsarbeit" <%if(category != null && category.equals("Events und Öffentlichkeitsarbeit")){out.print(" selected");} %>>Events und Öffentlichkeitsarbeit</option>
+			<option value="Sonstiges" <%if(category != null && category.equals("Sonstiges")){out.print(" selected");} %>>Sonstiges</option>
       </select>
       </div>
       
@@ -202,11 +198,13 @@ function changeValue(id){
 </form>
 </div>
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+
+<div id="reloadDiv">
 <% 
-	
-	
-	
-	
+	category = request.getParameter("category");
+	String search = request.getParameter("search");
+	projectlist = Project.getAllFiltered(state, category, search);	
+
 	for (Project p : projectlist){
 	%>
 	<div class="mx-auto w-75" id="dynamic_divs<%out.print(p.getId());%>">
@@ -400,6 +398,8 @@ function changeValue(id){
 
 	%>
 	</div>
+	</div>
+
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

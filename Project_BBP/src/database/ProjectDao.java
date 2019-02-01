@@ -127,7 +127,7 @@ public class ProjectDao {
 		String sqlCategory = "";
 		String sqlTitle = "";
 		String sqlState_id = "";
-		if (category != null) {
+		if (category != null && !(category.equals("*"))) {
 		 sqlCategory = "AND p.category = '"+category+"' ";
 		}
 		if (title != null) {

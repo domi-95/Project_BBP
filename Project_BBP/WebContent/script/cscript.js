@@ -437,3 +437,8 @@ function doClose(){
 	});
 }
 //End Approve and Reject of Projects
+
+function reloadDiv(){
+	var reload = "reloadDiv";
+	$("#"+reload).load(" #"+reload+" > *");
+}
