@@ -2,6 +2,7 @@ package opinionPoll;
 
 import java.io.InputStream;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,16 +77,21 @@ public class OpinionPoll {
 		return max_choice;
 	}
 
-	public Timestamp getDate_from() {
-		return date_from;
+	public String getDate_from() {
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		return f.format(created);
+
 	}
 
-	public Timestamp getDate_to() {
-		return date_to;
+	public String getDate_to() {
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		return f.format(created);
+
 	}
 
-	public Timestamp getCreated() {
-		return created;
+	public String getCreated() {
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		return f.format(created);
 	}
 
 	public List<String> getHeader() {
