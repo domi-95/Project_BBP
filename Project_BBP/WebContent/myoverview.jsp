@@ -13,6 +13,7 @@ if (u == null || u.getRole().getId() != 1){
 <%@page import="project.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Arrays"%>
+<%@page import="opinionPoll.*"%>
 <%@ page import = "javax.servlet.RequestDispatcher" %>
 
 <head>
@@ -359,67 +360,35 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	<div id="snackbar_message"></div>
 	<div class="container text-center" id="voteReload">
 	<div class="row">
-	<%if(u != null){
-				projectlist = Vote.getUserVotesList(u.getId());
-			}
-			Map<Integer, Integer> alreadyVote = null;
-			if (u != null){
-			alreadyVote = Vote.getUserVotesHash(u.getId());
-			}
-			for (Project p : projectlist){%>
+	<%
+List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
+	for (OpinionPoll op : oplist){
+		int[] choice = op.getChoice().getChoice();
+		List<String> header = op.getHeader();
+%>
 
-	<div class="col-md-4" style="margin:0 0 1% 0;">
-	<div class="card">
-	  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-	  <div class="card-body opindext ">
-	    <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
-
-	    <h5 class="card-text align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
-
-	  </div>
-	  <div class="card-footer opindex">
-	  
-	  <div class="row p-1">
-	  <div class="col-xs-12 col-lg-6">
-	      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-block">Projekt einsehen</a>
-	    
-	  </div>
-	  <div class="col-lg-6">
-	  <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
-	      <% 
-	      if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
-	    	%> 
-	    	<input class="btn btn-success btn-block" value="Vote" onClick="doPVote(<%out.print(p.getId());%>);">
-	        	
-	    	<%  
-	      }else {
-	    	%>
-	      <a href="#" class="btn btn-success btn-block disabled">Abgestimmt!</a>    
-	      <%
-	      }
-	    %>
-	    
-	  </div>
-	</div>
-	<div class="row p-1">
-	  <div class="col d-flex justify-content-center" >
-	      <a href="#" class="btn btn-success btn-block disabled" id="votes<%out.print(p.getId());%>">Stimmen: <%out.print (p.getVote()); %></a>    
-	    
-	  </div>
-	</div>
-	  
-	  
-	  
-	  </div>
-	</div>
-	</div>
+<div class="col-md-4" style="margin:0 0 1% 0%;">
+<div class="card border-success">
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
+  <div class="card-body opindex opoverview-card-body">
+    <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
+  </div>
+  <div class="card-footer border-success opindex">
+  <div class="row p-1">
+  <div class="col d-flex justify-content-center">
+      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block">Abstimmung einsehen</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
 	<% } %>
 	</div>
 	</div>
 	<%
 			
 		break;}
-		} %>
+	} %>
 	
 
 
