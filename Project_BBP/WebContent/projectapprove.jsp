@@ -138,16 +138,16 @@ function changeValue(id){
        		<option value="1"  <%if(state == 1){out.print(" selected");} %>>Angelegt Bürger</option>
 			<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben Verwaltung</option>
 			<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgelehent Verwaltung</option>
-			<option value="5" <%if(state == 5){out.print(" selected");} %>>Freigegeben Gemeinderat</option>
-			<option value="4" <%if(state == 4){out.print(" selected");} %>>Abgelehnt Gemeinderat</option>
+			<option value="5" <%if(state == 5){out.print(" selected");} %>>Genehmigt Gemeinderat</option>
+			<option value="4" <%if(state == 4){out.print(" selected");} %>>Zurückgewiesen Gemeinderat</option>
       </select>
       <%} %>
      <% if(u != null && u.getRole().getId() == 3){ %>
       <select id="inputstatus" name="stateSelect" class="form-control" onchange="this.form.submit()">
 			<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben Verwaltung</option>
 			<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgelehent Verwaltung</option>
-			<option value="5" <%if(state == 5){out.print(" selected");} %>>Freigegeben Gemeinderat</option>
-			<option value="4" <%if(state == 4){out.print(" selected");} %>>Abgelehnt Gemeinderat</option>
+			<option value="5" <%if(state == 5){out.print(" selected");} %>>Genehmigt Gemeinderat</option>
+			<option value="4" <%if(state == 4){out.print(" selected");} %>>Zurückgewiesen Gemeinderat</option>
       </select>
       <%} %>
       </div>
@@ -355,7 +355,7 @@ function changeValue(id){
 <% if(state==2 && u != null && u.getRole().getId() == 3){ %>
 <div class="row collapse m-2" id="details<%out.print(p.getId());%>" >
   <div class="col-xs-12 col-xl-6">
-    <input class="btn btn-lg btn-success btn-block" type="button" value="Freigeben" onClick="approveBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
+    <input class="btn btn-lg btn-success btn-block" type="button" value="Genehmigen" onClick="approveBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
   </div>
   <div class="col-xl-6">
     <input class="btn btn-lg btn-danger btn-block" type="button" value="Zurückweisen" onClick="rejectBox(<%out.print(p.getId());%>, <%out.print(u.getRole().getId());%>);">
