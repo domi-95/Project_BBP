@@ -27,11 +27,11 @@ public class OpinionPoll {
 	private User creator;
 	private OpChoice choice;
 	private StateOp stateOp;
-	private int anonymous;
+	private int nostatistic;
 
 	public OpinionPoll(int id, String title, String short_description, String description, byte[] picture,
 			int max_choice, Timestamp date_from, Timestamp date_to, Timestamp created, List<String> header,
-			User creator, OpChoice choice, StateOp stateOp, int anonymous) {
+			User creator, OpChoice choice, StateOp stateOp, int nostatistic) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -46,11 +46,11 @@ public class OpinionPoll {
 		this.creator = creator;
 		this.choice = choice;
 		this.stateOp = stateOp;
-		this.anonymous = anonymous;
+		this.nostatistic = nostatistic;
 	}
 
-	public int getAnonymous() {
-		return anonymous;
+	public int getNostatistic() {
+		return nostatistic;
 	}
 
 	public int getId() {
@@ -123,7 +123,7 @@ public class OpinionPoll {
 	}
 
 	public static boolean createProject(String title, String short_description, String description, InputStream is,
-			List<String> header, String date_from, String date_to, int user_id, int anonymous) {
+			List<String> header, String date_from, String date_to, int user_id, int nostatistic) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date startDate = null;
 		Date endDate = null;
@@ -141,7 +141,7 @@ public class OpinionPoll {
 			state_id = 2;
 		}
 		return OpinionPollDao.safeOpinionPoll(title, short_description, description, is, startDate, endDate, header,
-				user_id, state_id, anonymous);
+				user_id, state_id, nostatistic);
 
 	}
 

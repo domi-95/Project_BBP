@@ -84,7 +84,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
       
       
        <div class="col-auto">
-      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." value="<%out.print(request.getParameter("search"));%>"maxlength="50" list="laender">
+      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." value="<%out.print(request.getParameter("search"));%>" maxlength="50" list="laender">
        <datalist id="laender">
        <%
        for (Project p : projectlist){

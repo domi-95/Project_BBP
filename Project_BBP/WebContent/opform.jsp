@@ -149,7 +149,7 @@ $('#date').datepicker({
 <br>
 <br>
 		 <div class="form-group">
-    <input type="checkbox" value="nostatistic" > Keine Zwischenergebnise zeigen
+    <input type="checkbox" name="nostatistic" > Keine Zwischenergebnise zeigen
 		 <a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Wenn dieses Feld ausgewählt wird, können Bürger nach der Teilnahme an der Abstimmung nicht sehen, wie andere Bürger bisher abgestimmt haben!" >
                <i class="fa fa-question-circle"></i>
             </a>
