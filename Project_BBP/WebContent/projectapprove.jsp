@@ -69,7 +69,7 @@ if(request.getParameter("stateSelect") != null){
 <div id="commentBox"></div>
 <%if(u != null && u.getRole().getId() == 2){ %>
 <form name="selectState" method="post" action="#" onsubmit="reloadDiv();">
-<div class="btn-group-toggle text-center" data-toggle="buttons">
+<div class="btn-group-toggle text-center w-75 mx-auto" data-toggle="buttons">
   <label class="btn btn-secondary col-md-2 active" id="label1">
     <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt Bürger
   </label>
@@ -77,10 +77,15 @@ if(request.getParameter("stateSelect") != null){
   <label class="btn btn-secondary col-md-2" id="label2">
     <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
   </label>
-  <label class="btn btn-secondary col-md-2" id="label6">
+   <label class="btn btn-secondary col-md-2" id="label6">
+    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Abgelehnt Verwaltung
+  </label>
+  <label class="btn btn-secondary col-md-2 btn-work" id="label6">
     <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Freigegeben Gemeinderat
   </label>
-
+ <label class="btn btn-secondary col-md-2" id="label6">
+    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Abgelehnt Gemeinderat
+  </label>
 </div>
 </form>
 <%} %>
