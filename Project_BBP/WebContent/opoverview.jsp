@@ -52,8 +52,13 @@ for ( OpinionPoll op: oplist){
 	<div id="dynamic_divs<%out.print(op.getId());%> ">
 	<div class="card border-secondary" >
 	<div class="card opindex" >
-  <div class="card-header  text-white color-mosbach pt-2 pb-0">
-    <h5 class="card-title"><%out.print(op.getTitle()); %></h5>
+	<div class="row w-100 mx-auto">
+  <div class="card-header  text-white color-mosbach pt-2 pb-0 mb-0 col-xs-12 col-xl-6">
+    <h5 class="card-title mb-0"><%out.print(op.getTitle()); %></h5>
+    </div>
+    <div class="card-header text-white color-mosbach pt2 pb0 mb-0 col-xs-12 col-xl-6">
+    <p class="text-right mb-0">Dauer: <%out.print(op.getDate_from() + " - " + op.getDate_to()); %></p>
+  </div>
   </div>
   <div class="card-body opoverview-card-body">
 
