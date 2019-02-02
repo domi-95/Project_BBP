@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-success"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-user fa-lg text-success"></i></div>
                                         </div>
                                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Name" required>
                                     </div>
