@@ -32,10 +32,17 @@ if (u == null || u.getRole().getId() != 1){
 .card {
     min-height: 450px;
 }
+
+.card-op{
+	min-height: 350px;
+}
 .card-img-top {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+.card-body {
+    background-color: #597943;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -306,17 +313,17 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 <div class="col-md-4" style="margin:0 0 1% 0;">
 <div class="card">
   <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-  <div class="card-body opindext ">
+  <div class="card-body opindex ">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
 
     <h5 class="card-text align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
 
   </div>
-  <div class="card-footer opindex">
+  <div class="card-footer border-success opindex">
   
   <div class="row p-1">
   <div class="col-xs-12 col-lg-6">
-      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-block">Projekt einsehen</a>
+      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-work">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
@@ -368,7 +375,7 @@ List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
 %>
 
 <div class="col-md-4" style="margin:0 0 1% 0%;">
-<div class="card border-success">
+<div class="card card-op border-success">
 <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
