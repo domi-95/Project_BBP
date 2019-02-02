@@ -59,7 +59,7 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 
 category = request.getParameter("category");
 String search = request.getParameter("search");
-List<Project> projectlist = Project.getAllFiltered(2, category, null);	
+List<Project> projectlist = Project.getAllFiltered(2, category, search);	
 
 
 %>
@@ -84,7 +84,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, null);
       
       
        <div class="col-auto">
-      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
+      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." value="<%out.print(request.getParameter("search"));%>"maxlength="50" list="laender">
        <datalist id="laender">
        <%
        for (Project p : projectlist){

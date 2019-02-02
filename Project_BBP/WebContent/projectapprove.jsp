@@ -124,7 +124,7 @@ function changeValue(id){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
 	}
 	String search = request.getParameter("search");
-	projectlist = Project.getAllFiltered(state, category, null);	
+	projectlist = Project.getAllFiltered(state, category, search);	
 
 	
 	%>
@@ -166,7 +166,7 @@ function changeValue(id){
       
       
        <div class="col-auto">
-      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
+      <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." value="<%out.print(request.getParameter("search"));%>" maxlength="50" list="laender">
        <datalist id="laender">
        <%
        for (Project p : projectlist){
