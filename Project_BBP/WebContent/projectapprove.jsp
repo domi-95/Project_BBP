@@ -67,42 +67,7 @@ if(request.getParameter("stateSelect") != null){
 
 <div id="successMsg"></div>
 <div id="commentBox"></div>
-<%if(u != null && u.getRole().getId() == 2){ %>
-<form name="selectState" method="post" action="#" onsubmit="reloadDiv();">
-<div class="btn-group-toggle text-center w-75 mx-auto" data-toggle="buttons">
-  <label class="btn btn-secondary col-md-2 btn-work active" id="label1">
-    <input type="radio" name="stateSelect" id="stateSelect" value="1"  <%if(state == 1){out.print(" checked");} %>> Angelegt Bürger
-  </label>
- 
-  <label class="btn btn-secondary col-md-2 btn-work" id="label2">
-    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
-  </label>
-   <label class="btn btn-secondary col-md-2 btn-work" id="label6">
-    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Abgelehnt Verwaltung
-  </label>
-  <label class="btn btn-secondary col-md-2 btn-work" id="label6">
-    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Freigegeben Gemeinderat
-  </label>
- <label class="btn btn-secondary col-md-2 btn-work" id="label6">
-    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Abgelehnt Gemeinderat
-  </label>
-</div>
-</form>
-<%} %>
-<%if(u != null && u.getRole().getId() == 3){ %>
-<form name="selectState" method="post" action="#" onsubmit="reloadDiv();">
-<div class="btn-group-toggle text-center" data-toggle="buttons">
- 
-  <label class="btn btn-secondary col-md-2" id="label2">
-    <input type="radio" name="stateSelect" id="stateSelect" value="2" <%if(state == 2){out.print(" checked");} %>> Freigegeben Verwaltung
-  </label>
-  <label class="btn btn-secondary col-md-2" id="label6">
-    <input type="radio" name="stateSelect" id="stateSelect" value="6" <%if(state == 6){out.print(" checked");} %>> Freigegeben Gemeinderat
-  </label>
-
-</div>
-</form>
-<%} %>
+<div id="reloadDiv">
 <br>
 <script>
 $(document).ready(function changeActive1(){
@@ -154,24 +119,41 @@ function changeValue(id){
 	String invest = "question.png";
 	String period = "question.png";
 	
+	category = request.getParameter("category");
+	if(request.getParameter("stateSelect") != null){
+	state = Integer.parseInt(request.getParameter("stateSelect"));
+	}
+	String search = request.getParameter("search");
+	projectlist = Project.getAllFiltered(state, category, null);	
+
+	
 	%>
 	<!-- --------------------------Kevin Filterversuch.-------------------------------------------------------------- -->
-	<div class="formular-bd w-75 mx-auto mt-0 mb-3">
+	<div class="formular-bd1 w-75 mx-auto mt-0 mb-3">
 	<form id="regForm" action = "#" method = "post" onsubmit="reloadDiv();">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
-      <select id="inputstatus" name="state1" class="form-control" onchange="this.form.submit()">
-        <option value="">Status wählen</option>
-       		<option value="1">Angelegt Bürger</option>
-			<option value="2" >Freigegeben Verwaltung</option>
-			<option value="3">Abgelehent Verwaltung</option>
-			<option value="4">Abgelehnt Gemeinderat</option>
-			<option value="5">Freigegeben Gemeinderat</option>
+     <% if(u != null && u.getRole().getId() == 2){ %>
+      <select id="inputstatus" name="stateSelect" class="form-control" onchange="this.form.submit()">
+       		<option value="1"  <%if(state == 1){out.print(" selected");} %>>Angelegt Bürger</option>
+			<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben Verwaltung</option>
+			<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgelehent Verwaltung</option>
+			<option value="5" <%if(state == 5){out.print(" selected");} %>>Freigegeben Gemeinderat</option>
+			<option value="4" <%if(state == 4){out.print(" selected");} %>>Abgelehnt Gemeinderat</option>
       </select>
+      <%} %>
+     <% if(u != null && u.getRole().getId() == 3){ %>
+      <select id="inputstatus" name="stateSelect" class="form-control" onchange="this.form.submit()">
+			<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben Verwaltung</option>
+			<option value="3" <%if(state == 3){out.print(" selected");} %>>Abgelehent Verwaltung</option>
+			<option value="5" <%if(state == 5){out.print(" selected");} %>>Freigegeben Gemeinderat</option>
+			<option value="4" <%if(state == 4){out.print(" selected");} %>>Abgelehnt Gemeinderat</option>
+      </select>
+      <%} %>
       </div>
      <div class="col-auto" >
       <select id="inputCategory" name="category" class="form-control" onchange="this.form.submit()">
-        <option value="*" <%if(category != null && category.equals("*")){out.print(" selected");} %>>Kategorie wählen...</option>
+        <option value="*" <%if(category != null && category.equals("*")){out.print(" selected");} %>>Alle Kategorien</option>
        		<option value="Wirtschaft und Finanzen" <%if(category != null && category.equals("Wirtschaft und Finanzen")){out.print(" selected");} %>>Wirtschaft und Finanzen</option>
 			<option value="Bildung und Kultur" <%if(category != null && category.equals("Bildung und Kultur")){out.print(" selected");} %>>Bildung und Kultur</option>
 			<option value="Sicherheit" <%if(category != null && category.equals("Sicherheit")){out.print(" selected");} %>>Sicherheit</option>
@@ -193,22 +175,19 @@ function changeValue(id){
        
        %>
   		</datalist>
-  		</input>
+
     </div>
  
     <div class="col-auto">
-      <button type="submit" class="btn btn-secondary mb-2">Filtern</button>
+      <button type="submit" class="btn btn-secondary">Filtern</button>
     </div>
   </div>
 </form>
 </div>
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 
-<div id="reloadDiv">
+
 <% 
-	category = request.getParameter("category");
-	String search = request.getParameter("search");
-	projectlist = Project.getAllFiltered(state, category, search);	
 
 	for (Project p : projectlist){
 	%>

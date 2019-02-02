@@ -49,35 +49,39 @@ if (u == null || u.getRole().getId() != 1){
 <div class="content">
 <%
 
-List<Project> projectlist = Project.getApprovedAdministrationProjects();
 
 int z = 1;
+String category = null;
 Map<Integer, Integer> alreadyVote = null;
 if (u != null){
 alreadyVote = Vote.getUserVotesHash(u.getId());
 }
 
+category = request.getParameter("category");
+String search = request.getParameter("search");
+List<Project> projectlist = Project.getAllFiltered(2, category, null);	
 
 
 %>
 <!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+<div id="reloadDiv">
 
-
-<div class="formular-bd w-75 mx-auto mt-0 mb-3">
-	<form id="regForm" action = "projectoverview.jsp" method = "post"  enctype="multipart/form-data" role="form" data-toggle="validator" novalidate="true">
+<div class="formular-bd1 w-75 mx-auto mt-0 mb-3">
+	<form id="regForm" action = "#" method = "post" onsubmit="reloadDiv();">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
-      <select id="inputCategory" name="category" class="form-control" onchange="regForm.submit()">
-        <option value="">Kategorie wählen...</option>
-       		<option value="Wirtschaft und Finanzen">Wirtschaft und Finanzen</option>
-			<option value="Bildung und Kultur" >Bildung und Kultur</option>
-			<option value="Sicherheit">Sicherheit</option>
-			<option value= "Sozial, Jugend und Gesundheit">Sozial, Jugend und Gesundheit</option>
-			<option value="Bau und Infrastruktur">Bau und Infrastruktur</option>
-			<option value="Events und Öffentlichkeitsarbeit">Events und Öffentlichkeitsarbeit</option>
-			<option value="Sonstiges">Sonstiges</option>
+      <select id="inputCategory" name="category" class="form-control" onchange="this.form.submit()">
+        <option value="*" <%if(category != null && category.equals("*")){out.print(" selected");} %>>Alle Kategorien</option>
+       		<option value="Wirtschaft und Finanzen" <%if(category != null && category.equals("Wirtschaft und Finanzen")){out.print(" selected");} %>>Wirtschaft und Finanzen</option>
+			<option value="Bildung und Kultur" <%if(category != null && category.equals("Bildung und Kultur")){out.print(" selected");} %>>Bildung und Kultur</option>
+			<option value="Sicherheit" <%if(category != null && category.equals("Sicherheit")){out.print(" selected");} %>>Sicherheit</option>
+			<option value= "Sozial, Jugend und Gesundheit" <%if(category != null && category.equals("Sozial, Jugend und Gesundheit")){out.print(" selected");} %>>Sozial, Jugend und Gesundheit</option>
+			<option value="Bau und Infrastruktur" <%if(category != null && category.equals("Bau und Infrastruktur")){out.print(" selected");} %>>Bau und Infrastruktur</option>
+			<option value="Events und Öffentlichkeitsarbeit" <%if(category != null && category.equals("Events und Öffentlichkeitsarbeit")){out.print(" selected");} %>>Events und Öffentlichkeitsarbeit</option>
+			<option value="Sonstiges" <%if(category != null && category.equals("Sonstiges")){out.print(" selected");} %>>Sonstiges</option>
       </select>
       </div>
+      
       
        <div class="col-auto">
       <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." maxlength="50" list="laender">
@@ -89,11 +93,10 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
        
        %>
   		</datalist>
-  		</input>
     </div>
  
     <div class="col-auto">
-      <button type="submit" class="btn btn-secondary mb-2">Filtern</button>
+      <button type="submit" class="btn btn-secondary">Filtern</button>
     </div>
   </div>
 </form>
@@ -102,10 +105,10 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 
 	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
 <div id="snackbar_message"></div>
+<div class="formular-bd w-75 m-auto opindex">
 <div class="container text-center" id="voteReload">
 <div class="row">
 <% 
-
 	
 	for (Project p : projectlist){
 	
@@ -159,6 +162,8 @@ alreadyVote = Vote.getUserVotesHash(u.getId());
 
 
 <% }%>
+	</div>
+	</div>
 	</div>
 	</div>
 	</div>
