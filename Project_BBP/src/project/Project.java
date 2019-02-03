@@ -32,8 +32,6 @@ public class Project {
 	private User user;
 	private String stamp_expiryDate;
 
-
-
 	public Project(int id, String title, String category, String short_description, String description, String location,
 			String period, String investment_grade, String phone_numer, boolean anonymous, State state,
 			String stamp_created, String stamp_updated, int vote, String comment, User user, String stamp_expiryDate) {
@@ -56,26 +54,20 @@ public class Project {
 		this.user = user;
 		this.stamp_expiryDate = stamp_expiryDate;
 	}
-	
-	
 
-	public String getStamp_expiryDate() {
+	public String getStamp_expiryDate() { // get expiry date converted in days (expiry date - today)
 		if (this.stamp_expiryDate != null) {
-		Timestamp ts = Timestamp.valueOf(this.stamp_expiryDate);
-		
-		Calendar expiryDate = Calendar.getInstance();
-		expiryDate.setTime(ts);
-		Calendar today = Calendar.getInstance();
-		long differenceinMillis =  expiryDate.getTimeInMillis() - today.getTimeInMillis();
-		int differenceinDays = (int)(differenceinMillis / (1000 * 60 * 60 * 24));
-		return differenceinDays+" Tage";
+			Timestamp ts = Timestamp.valueOf(this.stamp_expiryDate);
+
+			Calendar expiryDate = Calendar.getInstance();
+			expiryDate.setTime(ts);
+			Calendar today = Calendar.getInstance();
+			long differenceinMillis = expiryDate.getTimeInMillis() - today.getTimeInMillis();
+			int differenceinDays = (int) (differenceinMillis / (1000 * 60 * 60 * 24));
+			return differenceinDays + " Tage";
 		}
 		return "";
-		//return differenceinMillis+"";
-		//return expiryDate.getTime()+"heute: "+ today.getTime();
 	}
-
-
 
 	public User getUser() {
 		return user;
@@ -125,19 +117,21 @@ public class Project {
 		return state;
 	}
 
+	// set state
+
 	private void setState(State state) {
 		this.state = state;
 		ProjectDao.updateState(this);
 	}
 
-	public String getStamp_created() {
+	public String getStamp_created() { // converted to readable string
 		Timestamp ts = Timestamp.valueOf(stamp_created);
 		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
 		f.format(ts);
 		return f.format(ts);
 	}
 
-	public String getStamp_updated() {
+	public String getStamp_updated() { // converted to readable string
 		Timestamp ts = Timestamp.valueOf(stamp_updated);
 		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
 		f.format(ts);
@@ -147,6 +141,8 @@ public class Project {
 	public int getVote() {
 		return vote;
 	}
+
+	// insert a vote from an citizen to a project
 
 	public static boolean Vote(int user_id, int project_id) {
 		if (Project.getProject(project_id).getVote() >= Parameters.EXPIRYDATEPOPULATION) {
@@ -163,66 +159,92 @@ public class Project {
 		return comment;
 	}
 
+	// set an comment
+
 	private void setComment(String comment) {
 		this.comment = comment;
 		ProjectDao.updateComment(this, comment);
 	}
+
 	public static Project getProject(int id) {
 		return ProjectDao.searchProject(id);
 	}
 
-	public static List<Project> getAllWithCreator (int user_id){
+	// fetch projects with creator id
+
+	public static List<Project> getAllWithCreator(int user_id) {
 		return ProjectDao.searchProjectCreator(user_id);
 	}
-	
-	public static List<Project> getAllFiltered (int state_id, String category, String title){
+
+	// fetch project with filter functions
+
+	public static List<Project> getAllFiltered(int state_id, String category, String title) {
 		return ProjectDao.getAllProject(state_id, category, title);
-		
+
 	}
 
-	
-	public static List<Project> getCreatedProjects () {
+	// fetch the projects created by citizen
+
+	public static List<Project> getCreatedProjects() {
 		return ProjectDao.getAllProject(1);
 	}
-	
-	public static List<Project> getApprovedAdministrationProjects () {
+
+	// fetch the projects approve by administration
+
+	public static List<Project> getApprovedAdministrationProjects() {
 		return ProjectDao.getAllProject(2);
 	}
-	
-	public static List<Project> getDeclinedAdministrationProjects () {
+
+	// fetch the projects declined by administration
+
+	public static List<Project> getDeclinedAdministrationProjects() {
 		return ProjectDao.getAllProject(3);
 	}
-	
-	public static List<Project> getDeclinedCouncilProjects () {
+
+	// fetch the projects declined by the council
+
+	public static List<Project> getDeclinedCouncilProjects() {
 		return ProjectDao.getAllProject(4);
 	}
-	
-	public static List<Project> getApprovedCouncilProjects () {
+
+	// fetch the projects approved by the council
+
+	public static List<Project> getApprovedCouncilProjects() {
 		return ProjectDao.getAllProject(5);
 	}
+
+	// fetch the projects approve by administration
 
 	public void approveAdministration() {
 		this.setState(new State(2, "freigegeben verwaltung"));
 		EmailSend.sendApproveAdministration(this);
 	}
 
+	// if an administrator decline the project, this method is called
+
 	public void declineAdministration(String comment) {
 		this.setComment(comment);
 		this.setState(new State(3, "abgelehnt verwaltung"));
 		EmailSend.sendDeclinedAdministration(this);
 	}
-	
+
+	// if an council decline the project, this method is called
+
 	public void declineCouncil(String comment) {
 		this.setComment(comment);
 		this.setState(new State(4, "abgelehnt gemeinderat"));
 		EmailSend.sendDeclineCouncil(this);
 	}
 
+	// if an council approve the project, this method is called
+
 	public void approveCouncil(String comment) {
 		this.setComment(comment);
 		this.setState(new State(5, "freigegeben gemeinderat"));
 		EmailSend.sendApproveCouncil(this);
 	}
+
+	// insert a project
 
 	public static boolean createProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
@@ -236,6 +258,5 @@ public class Project {
 			return false;
 		}
 	}
-
 
 }
