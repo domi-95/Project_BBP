@@ -412,16 +412,24 @@ z-index: 1;
    float: right;
    transition: all 0.5s;
    color: #fff;
- 
-}
-.collapse-head.active div:before {
-	-webkit-transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
 	-moz-transform: rotate(180deg);
 	transform: rotate(180deg);
-    content: "\f054"; 
+ 
+}
 
-} 
-
+.collapse-head div.collapsed:before {
+	font-family: 'FontAwesome';
+	content: "\f078";
+   float: right;
+   transition: all 0.5s;
+   color: #fff;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	transform: rotate(0deg);
+	 
+}
+	
 .right{
 	text-align: right;
 }

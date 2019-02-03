@@ -16,22 +16,22 @@
 
 </style>
 <script>
-$(document).on('show','.accordion', function (e) {
-    //$('.accordion-heading i').toggleClass(' ');
-    $(e.target).prev('.collapse-head').addClass('show');
-});
 
-$(document).on('hide','.accordion', function (e) {
-   $(this).find('.collapse-head').not($(e.target)).removeClass('show');
-   //$('.accordion-heading i').toggleClass('fa-chevron-right fa-chevron-down');
-});
+
+$('.collapse').on('show', function () {
+    $(this).siblings('.collapse-head').addClass('active');
+  });
+
+  $('.collapse').on('hide', function () {
+    $(this).siblings('.collapse-head').removeClass('active');
+  });
 </script>
 
 
 <div id="accordion" class="w-75  bordershadow">
   <div class="card">
     <div class="card-header collapse-head" id="headingOne" >
-      <div class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+      <div class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
         <button class="btn btn-link font-weight-bold" >
           <span>Was ist das BBP?</span>
         </button>
@@ -51,7 +51,7 @@ $(document).on('hide','.accordion', function (e) {
   </div>
   <div class="card">
     <div class="card-header collapse-head" id="headingTwo" >
-      <div class="mb-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <div class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
         <button class="btn btn-link collapsed font-weight-bold" >
           <span>Was sind Projekte?</span>
         </button>
@@ -71,7 +71,7 @@ $(document).on('hide','.accordion', function (e) {
   </div>
   <div class="card">
     <div class="card-header collapse-head" id="headingThree" >
-      <div class="mb-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <div class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
         <button class="btn btn-link btn-block collapsed font-weight-bold" >
           <span>Wie geht es nach der Veröffentlichung des Projektantrages weiter?</span> 
         </button>
@@ -91,7 +91,7 @@ $(document).on('hide','.accordion', function (e) {
   </div>
   <div class="card">
     <div class="card-header collapse-head" id="headingFour" >
-      <div class="mb-0" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+      <div class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
         <button class="btn btn-link collapsed font-weight-bold" >
           <span>Was sind Abstimmungen?</span>
         </button>
@@ -113,7 +113,7 @@ $(document).on('hide','.accordion', function (e) {
   </div>
   <div class="card">
     <div class="card-header collapse-head" id="headingFive" >
-      <div class="mb-0" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+      <div class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
         <button class="btn btn-link collapsed font-weight-bold" >
           <span>Wie unterstütze ich Projekte?</span>
         </button>
