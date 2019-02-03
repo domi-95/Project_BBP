@@ -91,7 +91,7 @@ for ( OpinionPoll op: oplist){
 	<br>
 	
 	<!-- only show when button "Abstimmen" was clicked -->
-	<div class="voteopBox bg-light text-dark " id="voteopBox<%out.print(op.getId());%>">
+	<div class="voteopBox bg-light text-dark" id="voteopBox<%out.print(op.getId());%>">
 	<form>
 	<img src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2"  class="mb-2" height="200px"/>
 	<h5><%out.print(op.getTitle()); %></h5>
