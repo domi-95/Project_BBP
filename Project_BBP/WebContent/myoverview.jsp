@@ -69,6 +69,7 @@ function changeActive(){
 <div class="content">
 <br>
 <%
+if(u != null && u.getRole().getId() == 1){
 int state;
 if(request.getParameter("z") != null){
 	state = Integer.parseInt(request.getParameter("z"));%>
@@ -380,6 +381,51 @@ List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
   </div>
+  <%if(op.getNostatistic() == 0){ %>
+  <div class="card-footer border-success opindex">
+  <div class="row p-1">
+  <div class="col d-flex justify-content-center">
+      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block">Abstimmung einsehen</a>
+  </div>
+</div>
+</div>
+<%} %>
+  <%if(op.getNostatistic() == 1){ %>
+  <div class="card-footer border-success opindex">
+  <div class="row p-1">
+  <div class="col d-flex justify-content-center">
+      <a href="#" class="btn btn-outline-success btn-block disabled" disabled>Abstimmung einsehen</a>
+  </div>
+</div>
+</div>
+<%} %>
+</div>
+</div>
+	<% } %>
+	</div>
+	</div>
+	<%
+			
+		break;}
+	}
+	}
+if(u != null && u.getRole().getId() == 3){%>
+	<div id="snackbar_message"></div>
+	<div class="container text-center" id="voteReload">
+	<div class="row">
+	<%
+List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
+	for (OpinionPoll op : oplist){
+		int[] choice = op.getChoice().getChoice();
+		List<String> header = op.getHeader();
+%>
+
+<div class="col-md-4" style="margin:0 0 1% 0%;">
+<div class="card card-op border-success">
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
+  <div class="card-body opindex opoverview-card-body">
+    <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
+  </div>
   <div class="card-footer border-success opindex">
   <div class="row p-1">
   <div class="col d-flex justify-content-center">
@@ -392,13 +438,8 @@ List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
 	<% } %>
 	</div>
 	</div>
-	<%
-			
-		break;}
-	} %>
-	
 
-
+<%} %>
 <br>
 <br>
 </div>
