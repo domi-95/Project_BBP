@@ -98,7 +98,7 @@ public class OpinionPollDao {
 
 		return null;
 	}
-	public static List<OpinionPoll> getAllOpByUser(int user_id) {
+	public static List<OpinionPoll> getAllOpByChoice(int user_id) {
 		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
 		Connection con = null;
 		try {
@@ -107,6 +107,26 @@ public class OpinionPollDao {
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.id = c.opinion_poll_id AND st.id = op.state_op_id AND c.user_id = '"
 							+ user_id + "'");
+			while (myRs.next()) {
+				result.add(resultSetCreateOpinionPoll(myRs));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("Error while selecting all projects");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static List<OpinionPoll> getAllOpByUser(int user_id) {
+		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
+		Connection con = null;
+		try {
+			con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.id = '"+user_id+"'");
 			while (myRs.next()) {
 				result.add(resultSetCreateOpinionPoll(myRs));
 			}
