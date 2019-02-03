@@ -20,6 +20,8 @@ import org.w3c.dom.Element;
 
 public class EvaluationXML {
 	
+	//class to create XML file
+	
 	public static String generateXML (int op_id) {
 		OpinionPoll op = OpinionPoll.getOp(op_id);
 		List<String> header = op.getHeader();
@@ -103,27 +105,14 @@ public class EvaluationXML {
 			Element dynamic = null;
 			
 			for (int i = 0; i<headerWithoutBlanks.size(); i++) {
-				System.out.println("Auswahl_"+headerWithoutBlanks.get(i));
 				dynamic = doc.createElement("Auswahl_"+headerWithoutBlanks.get(i));
-				System.out.println(choice[i]+"");
 				dynamic.appendChild(doc.createTextNode(choice[i]+""));
 				evaluation.appendChild(dynamic);
 			}
-			//doc.createElement("testerie").appendChild(doc.createTextNode("test von einem element"));
-			
-//			Element teste = doc.createElement("test");
-//			test.appendChild(doc.createTextNode(op.getMax_choice() + ""));
-//			evaluation.appendChild(teste);
-//			
-//			teste = doc.createElement("test");
-//			test.appendChild(doc.createTextNode(op.getMax_choice() + ""));
-//			evaluation.appendChild(teste);
-//			
 
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
 			
 			TransformerFactory tf = TransformerFactory.newInstance();
 			Transformer transformer1 = tf.newTransformer();
