@@ -65,7 +65,6 @@ public class BlogDao {
 					);
 		} catch (SQLException e) {
 			System.out.println("Error while creating blog user");
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

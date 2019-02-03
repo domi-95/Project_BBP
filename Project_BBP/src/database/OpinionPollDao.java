@@ -18,9 +18,12 @@ import project.Project;
 import user.User;
 
 public class OpinionPollDao {
+	
+	//safe an opinion poll
 
 	public static boolean safeOpinionPoll(String title, String short_description, String description,
-			InputStream picture, Date date_from, Date date_to, List<String> header, int user_id, int state_op_id, int anonymous) {
+			InputStream picture, Date date_from, Date date_to, List<String> header, int user_id, int state_op_id,
+			int anonymous) {
 		Connection con = null;
 		int choice_header_id = insertChoiceHeader(header);
 		if (choice_header_id == -1) {
@@ -53,8 +56,10 @@ public class OpinionPollDao {
 
 		return true;
 	}
+	
+	//private method to safe the selection options
 
-	public static int insertChoiceHeader(List<String> header) {
+	private static int insertChoiceHeader(List<String> header) {
 		Connection con = null;
 
 		try {
@@ -77,6 +82,8 @@ public class OpinionPollDao {
 
 		return -1;
 	}
+	
+	//fetch all opinion polls an returns a list of it
 
 	public static List<OpinionPoll> getAllOp(int state_id) {
 		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
@@ -98,6 +105,9 @@ public class OpinionPollDao {
 
 		return null;
 	}
+	
+	//so that in my overview citizens can see all the opinion polls they have voted on
+
 	public static List<OpinionPoll> getAllOpByChoice(int user_id) {
 		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
 		Connection con = null;
@@ -115,10 +125,12 @@ public class OpinionPollDao {
 			System.out.println("Error while selecting all projects");
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 	
+	//so that in my overview councils can see all the opinion polls they have created.
+
 	public static List<OpinionPoll> getAllOpByUser(int user_id) {
 		List<OpinionPoll> result = new LinkedList<OpinionPoll>();
 		Connection con = null;
@@ -126,7 +138,7 @@ public class OpinionPollDao {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.id = '"+user_id+"'");
+					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.id = '" + user_id + "'");
 			while (myRs.next()) {
 				result.add(resultSetCreateOpinionPoll(myRs));
 			}
@@ -135,22 +147,24 @@ public class OpinionPollDao {
 			System.out.println("Error while selecting all projects");
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 	
+	//for only one specific opinion poll
+
 	public static OpinionPoll getOp(int op_id) {
 		Connection con = null;
 		try {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * FROM opinion_poll op, state_op st WHERE op.state_op_id = st.id and op.id = '"
-							+ op_id + "'");
-			if(myRs.next()) {
+					"SELECT * FROM opinion_poll op, state_op st WHERE op.state_op_id = st.id and op.id = '" + op_id
+							+ "'");
+			if (myRs.next()) {
 				return resultSetCreateOpinionPoll(myRs);
 			}
-			
+
 		} catch (SQLException e) {
 			System.out.println("Error while selecting all projects");
 			e.printStackTrace();
@@ -158,8 +172,10 @@ public class OpinionPollDao {
 
 		return null;
 	}
+	
+	//private method to count the votes on an opinion poll
 
-	public static OpChoice getChoice(int op_id) {
+	private static OpChoice getChoice(int op_id) {
 
 		Connection con = null;
 
@@ -186,6 +202,8 @@ public class OpinionPollDao {
 
 		return null;
 	}
+	
+	//fetch selection options
 
 	public static List<String> getHeader(int header_id) {
 		List<String> result = new LinkedList<String>();
@@ -212,6 +230,8 @@ public class OpinionPollDao {
 
 		return null;
 	}
+	
+	//to check if a citizen has already hit a choice
 
 	public static Map<Integer, Integer> getAllChoices(int user_id) {
 		Map<Integer, Integer> result = new HashMap<Integer, Integer>();
@@ -232,8 +252,9 @@ public class OpinionPollDao {
 		return null;
 	}
 	
+	//private method to create a opinion poll object
 
-	public static OpinionPoll resultSetCreateOpinionPoll(ResultSet myRs) {
+	private static OpinionPoll resultSetCreateOpinionPoll(ResultSet myRs) {
 		try {
 			return new OpinionPoll(myRs.getInt("op.id"), myRs.getString("op.title"),
 					myRs.getString("op.short_description"), myRs.getString("op.description"),
@@ -248,6 +269,8 @@ public class OpinionPollDao {
 		}
 		return null;
 	}
+	
+	//when a citizen hit a choice on a opinion poll
 
 	public static boolean voteSingle(int column, int user_id, int opinion_poll_id) {
 		Connection con = null;
@@ -270,6 +293,8 @@ public class OpinionPollDao {
 
 		return false;
 	}
+	
+	//for updating the status of a opinion poll with the statechanger class
 
 	public static boolean updateState(OpinionPoll op) {
 		Connection con = null;

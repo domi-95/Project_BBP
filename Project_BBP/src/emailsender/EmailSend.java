@@ -12,6 +12,8 @@ import project.*;
 import user.*;
 
 public class EmailSend {
+	
+	//constants for the email dispatch
 	private static final String host ="smtp.gmail.com" ;
 	private static final String user = "mosbach.buergerbeteiligung@gmail.com";
 	private static final String pass = "bbpadmin";
@@ -21,7 +23,7 @@ public class EmailSend {
 
 
     
-    public static boolean sendEmail(String email, String subject, String message) {
+    public static boolean sendEmail(String email, String subject, String message) {		//to dispatch an email
 		try {
 			String to = email;
 			String messageText = message;
@@ -58,6 +60,8 @@ public class EmailSend {
 		}
 	}
     
+    //email when someone creates a project
+    
     public static boolean sendSubmitted (Project project) {
 		User user = project.getUser();
 		String message = null;
@@ -84,6 +88,8 @@ public class EmailSend {
     	return sendEmail(user.getEmail(), subject, message);
     }
     
+    //email send to creator when his projects is approved by administration
+    
     public static boolean sendApproveAdministration (Project project) {
     	User user = project.getUser();
 		String message = null;
@@ -99,6 +105,9 @@ public class EmailSend {
 		return sendEmail(user.getEmail(), subject, message);
     }
     
+    // email send to the creator when the project has as many votes as 1,5 percent of the total
+	// population
+    
     public static boolean sendMinimumVotes(Project project) {
     	User user = project.getUser();
 		String message = null;
@@ -112,6 +121,8 @@ public class EmailSend {
 		
 		return sendEmail(user.getEmail(), subject, message);
     }
+    
+    //email send to creator when his projects is declined by administration
     
     public static boolean sendDeclinedAdministration (Project project) {
     	User user = project.getUser();
@@ -134,6 +145,8 @@ public class EmailSend {
     	return sendEmail(user.getEmail(), subject, message);
     }
     
+    //email send to creator when his projects is declined by council
+    
     public static boolean sendDeclineCouncil (Project project) {
     	User user = project.getUser();
 		String message = null;
@@ -147,6 +160,8 @@ public class EmailSend {
 		end();	
 		return sendEmail(user.getEmail(), subject, message);
     }
+    
+    //email send to creator when his projects is approved by council
     
     public static boolean sendApproveCouncil (Project project) {
     	User user = project.getUser();
@@ -163,6 +178,8 @@ public class EmailSend {
 				
 		return sendEmail(user.getEmail(), subject, message);
     }
+    
+    //methods to avoid duplicate code
     
     private static String introduction(User user) {
     	return "Sehr geehrte/r "+ user.getFirstname()+" "+user.getname()+",\n"+"\n"+

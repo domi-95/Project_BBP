@@ -14,6 +14,8 @@ import project.State;
 
 public class ProjectDao {
 
+	// safe project
+
 	public static Project safeProject(String title, String category, String shortDescription, String description,
 			String location, String investmentGrade, String phoneNumber, String period, int anonymous,
 			InputStream picture, int user_id, int state_id) {
@@ -51,6 +53,8 @@ public class ProjectDao {
 		return null;
 	}
 
+	// search a specific project
+
 	public static Project searchProject(int id) {
 		Connection con = null;
 
@@ -74,7 +78,9 @@ public class ProjectDao {
 
 		return null;
 	}
-	
+
+	// fetch project by user_id
+
 	public static List<Project> searchProjectCreator(int user_id) {
 		Connection con = null;
 		List<Project> result = new LinkedList<Project>();
@@ -83,8 +89,8 @@ public class ProjectDao {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
-			ResultSet myRs = myst
-					.executeQuery("SELECT * from project p, state s where p.user_id = " + user_id + " and p.state_id = s.id ");
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from project p, state s where p.user_id = " + user_id + " and p.state_id = s.id ");
 
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
@@ -98,8 +104,8 @@ public class ProjectDao {
 
 		return null;
 	}
-	
-	
+
+	// fetch all projects by state
 
 	public static List<Project> getAllProject(int state_id) {
 		List<Project> result = new LinkedList<Project>();
@@ -108,8 +114,8 @@ public class ProjectDao {
 			con = ConnectionProvider.getCon();
 
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery(
-					"SELECT * from project p, state s where s.id = " + state_id + " and p.state_id = s.id ORDER BY stamp_created desc");
+			ResultSet myRs = myst.executeQuery("SELECT * from project p, state s where s.id = " + state_id
+					+ " and p.state_id = s.id ORDER BY stamp_created desc");
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
@@ -121,32 +127,33 @@ public class ProjectDao {
 
 		return null;
 	}
-	
+
+	// fetch project by filter criteria
+
 	public static List<Project> getAllProject(int state_id, String category, String title) {
 		String sql = null;
 		String sqlCategory = "";
 		String sqlTitle = "";
 		String sqlState_id = "";
 		if (category != null && !(category.equals("*"))) {
-		 sqlCategory = "AND p.category = '"+category+"' ";
+			sqlCategory = "AND p.category = '" + category + "' ";
 		}
 		if (title != null) {
-		 sqlTitle = "AND p.title LIKE '"+title+"%' ";
+			sqlTitle = "AND p.title LIKE '" + title + "%' ";
 		}
 		if (state_id != 0) {
-		sqlState_id = "s.id = " + state_id +" AND";
+			sqlState_id = "s.id = " + state_id + " AND";
 		}
-		//create sql
-		
-		
+		// create sql
+
 		List<Project> result = new LinkedList<Project>();
 		Connection con = null;
 		try {
 			con = ConnectionProvider.getCon();
 
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery(
-					"SELECT * from project p, state s where "+sqlState_id+" p.state_id = s.id "+sqlCategory+sqlTitle+" ORDER BY stamp_created desc");
+			ResultSet myRs = myst.executeQuery("SELECT * from project p, state s where " + sqlState_id
+					+ " p.state_id = s.id " + sqlCategory + sqlTitle + " ORDER BY stamp_created desc");
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
@@ -158,6 +165,8 @@ public class ProjectDao {
 
 		return null;
 	}
+
+	// to check if citizen already has voted on projects
 
 	public static Map<Integer, Integer> getAllVotesHash(int user_id) {
 		Map<Integer, Integer> result = new HashMap<Integer, Integer>();
@@ -177,7 +186,10 @@ public class ProjectDao {
 		}
 		return null;
 	}
-	
+
+	// for myoverview for citizen to look what happened with projects they already
+	// voted
+
 	public static List<Project> getAllVotesList(int user_id) {
 		List<Project> result = new LinkedList<Project>();
 		Connection con = null;
@@ -185,7 +197,9 @@ public class ProjectDao {
 			con = ConnectionProvider.getCon();
 
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * from vote v, project p, state s where p.state_id = s.id and p.id = v.project_id and v.user_id = " + user_id + "");
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from vote v, project p, state s where p.state_id = s.id and p.id = v.project_id and v.user_id = "
+							+ user_id + "");
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
@@ -197,7 +211,9 @@ public class ProjectDao {
 		return null;
 	}
 
-	public static int countVotes(int project_id) {
+	// private method to count votes
+
+	private static int countVotes(int project_id) {
 		Connection con = null;
 		try {
 			con = ConnectionProvider.getCon();
@@ -216,6 +232,8 @@ public class ProjectDao {
 		return 0;
 	}
 
+	// update the state of a specific project
+
 	public static boolean updateState(Project p) {
 		Connection con = null;
 		try {
@@ -230,6 +248,8 @@ public class ProjectDao {
 		}
 		return false;
 	}
+
+	// insert a vote from a citizen
 
 	public static boolean projectVote(int user_id, int project_id) {
 		Connection con = null;
@@ -251,28 +271,33 @@ public class ProjectDao {
 		return true;
 
 	}
-	
+
+	// special case when the project has as many votes as 1,5 percent of the total
+	// population an expiry date  3 months after today will updated in the db
+
 	public static boolean projectVoteWithExpiryDate(int user_id, int project_id, Calendar expiryDate) {
 		ProjectDao.projectVote(user_id, project_id);
 		Connection con = null;
-		
 
 		try {
 			con = ConnectionProvider.getCon();
-			String sql = "INSERT INTO project (stamp_expirydate) VALUES (?) WHERE id = = '"+project_id+"'";
+			String sql = "update project set stamp_expirydate = ? WHERE id  = '" + project_id + "'";
 			PreparedStatement st = con.prepareStatement(sql);
 
-			st.setTimestamp(1, new Timestamp (expiryDate.getTimeInMillis()));
+			st.setTimestamp(1, new Timestamp(expiryDate.getTimeInMillis()));
 
 			st.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("Error while inserting vote");
 			e.printStackTrace();
+			return false;
 		}
 
 		return true;
 
 	}
+
+	// insert an comment for declined cases
 
 	public static boolean updateComment(Project project, String comment) {
 		Connection con = null;
@@ -290,7 +315,9 @@ public class ProjectDao {
 		return false;
 	}
 
-	public static Project resultSetCreateProject(ResultSet myRs) {
+	// private method for creating an project object
+
+	private static Project resultSetCreateProject(ResultSet myRs) {
 		try {
 			return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
 					myRs.getString("p.short_description"), myRs.getString("p.description"),
@@ -298,7 +325,8 @@ public class ProjectDao {
 					myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 					new State(myRs.getInt("s.id"), myRs.getString("s.description")), myRs.getString("stamp_created"),
 					myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
-					myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")), myRs.getString("stamp_expiryDate"));
+					myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")),
+					myRs.getString("stamp_expiryDate"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error while creating project object");

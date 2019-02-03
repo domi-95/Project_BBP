@@ -9,6 +9,8 @@ import user.User;
 
 public class UserDao {
 
+	// for login without hashcode
+
 	public static User searchUserWithPw(String email, String password) {
 		Connection con = null;
 
@@ -32,17 +34,10 @@ public class UserDao {
 			System.out.println("Error while search user with password");
 		}
 
-	/*	finally {
-			try {
-				con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Exception while closing DB Connection");
-			}
-
-		}*/
 		return null;
 	}
+
+	// safe user
 
 	public static boolean safeUser(String email, String name, String firstname, String password, int role_id) {
 		Connection con = null;
@@ -57,18 +52,10 @@ public class UserDao {
 			e.printStackTrace();
 		}
 
-		/*finally {
-			try {
-				con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Exception while closing DB Connection");
-			}
-
-		}*/
-
 		return true;
 	}
+
+	// serach specific user by id
 
 	public static User searchUser(int id) {
 		Connection con = null;
@@ -93,27 +80,19 @@ public class UserDao {
 			System.out.println("Error while searching user with email");
 		}
 
-		/*finally {
-			try {
-				con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Exception while closing DB Connection");
-			}
-
-		}*/
 		return null;
 	}
-	
-	public static String getHash (String email) {
+
+	// fetch the hashcode by email
+
+	public static String getHash(String email) {
 		Connection con = null;
 
 		try {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
-			ResultSet myRs = myst
-					.executeQuery("SELECT * from user WHERE email = '" + email + "'");
+			ResultSet myRs = myst.executeQuery("SELECT * from user WHERE email = '" + email + "'");
 
 			if (myRs.next())
 				return myRs.getString("password");
@@ -124,7 +103,9 @@ public class UserDao {
 		}
 		return null;
 	}
-	
+
+	// serach specific user by email
+
 	public static User searchUser(String email) {
 		Connection con = null;
 
@@ -150,6 +131,5 @@ public class UserDao {
 
 		return null;
 	}
-
 
 }
