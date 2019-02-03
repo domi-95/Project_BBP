@@ -1,7 +1,7 @@
 <%
 User u = (User)session.getAttribute("user"); 
-if (u == null || u.getRole().getId() != 1){
-	response.sendRedirect("login.jsp?prevUrl=projectapprove.jsp");
+if (u == null || u.getRole().getId() == 2 ){
+	response.sendRedirect("login.jsp?prevUrl=myoverview.jsp");
 }
 %>
 
@@ -414,7 +414,7 @@ if(u != null && u.getRole().getId() == 3){%>
 	<div class="container text-center" id="voteReload">
 	<div class="row">
 	<%
-List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
+List<OpinionPoll>oplist = OpinionPoll.getCouncilOp(u.getId());
 	for (OpinionPoll op : oplist){
 		int[] choice = op.getChoice().getChoice();
 		List<String> header = op.getHeader();
