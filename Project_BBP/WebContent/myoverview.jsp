@@ -296,6 +296,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	 <%
 	 break; }
 	case 2:{%>
+	<div class="formular-bd w-75 m-auto opindex">
 <div id="snackbar_message"></div>
 <div class="container text-center" id="voteReload">
 <div class="row">
@@ -359,12 +360,14 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 <% } %>
 </div>
 </div>
+</div>
 <%
 		
 	break;}
 	
 	
 	case 3:{%>
+	<div class="formular-bd w-75 m-auto opindex">
 	<div id="snackbar_message"></div>
 	<div class="container text-center" id="voteReload">
 	<div class="row">
@@ -402,6 +405,7 @@ List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 </div>
 </div>
 	<% } %>
+	</div>
 	</div>
 	</div>
 	<%
