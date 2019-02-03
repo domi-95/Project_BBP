@@ -369,7 +369,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	<div class="container text-center" id="voteReload">
 	<div class="row">
 	<%
-List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
+List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 	for (OpinionPoll op : oplist){
 		int[] choice = op.getChoice().getChoice();
 		List<String> header = op.getHeader();
@@ -414,7 +414,7 @@ if(u != null && u.getRole().getId() == 3){%>
 	<div class="container text-center" id="voteReload">
 	<div class="row">
 	<%
-List<OpinionPoll>oplist = OpinionPoll.getMyOps(u.getId());
+List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 	for (OpinionPoll op : oplist){
 		int[] choice = op.getChoice().getChoice();
 		List<String> header = op.getHeader();

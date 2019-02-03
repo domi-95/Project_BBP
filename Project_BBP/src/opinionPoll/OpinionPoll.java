@@ -110,7 +110,7 @@ public class OpinionPoll {
 		return stateOp;
 	}
 
-	public static List<OpinionPoll> getMyOps (int user_id) {
+	public static List<OpinionPoll> getCitizenOp (int user_id) {
 		return OpinionPollDao.getAllOpByUser(user_id);
 	}
 	public void setStateOp(StateOp stateOp) {
