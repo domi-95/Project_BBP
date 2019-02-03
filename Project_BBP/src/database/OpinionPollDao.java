@@ -138,7 +138,7 @@ public class OpinionPollDao {
 			con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
-					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.id = '" + user_id + "'");
+					"SELECT * FROM opinion_poll op, choice c, state_op st WHERE op.user_id = '" + user_id + "'");
 			while (myRs.next()) {
 				result.add(resultSetCreateOpinionPoll(myRs));
 			}
