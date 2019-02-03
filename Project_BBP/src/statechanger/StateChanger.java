@@ -24,7 +24,6 @@ public class StateChanger extends TimerTask {
 		calendar.set(Calendar.HOUR_OF_DAY, 24);
 		calendar.set(Calendar.MINUTE, 00);
 		calendar.set(Calendar.SECOND, 0);
-		//System.out.println(calendar);
 		Date time = calendar.getTime();
 
 		Timer timer = new Timer();
@@ -104,51 +103,7 @@ public class StateChanger extends TimerTask {
 				continue;
 			}
 			
-			// date_from == today --> er�ffnet
-
-			/*if (cal_date_from.compareTo(cal_date_today) == 0) {
-				System.out.println("Ist gleich: Er�ffnet");
-				op.setStateOp(new StateOp(2, "er�ffnet"));
-				continue;
-			}
-
-			// date_from < today --> erstellt
-			if (cal_date_from.compareTo(cal_date_today) == -1 && cal_date_to.compareTo(cal_date_today) == -1) {
-
-				System.out.println("Datum from liegt in der Vergangenheit");
-				System.out.println("Datum to liegt in der Vergangenheit: abgeschlossen");
-				op.setStateOp(new StateOp(3, "abgeschlossen"));
-				continue;
-
-			}
-			if (cal_date_from.compareTo(cal_date_today) == -1 && cal_date_to.compareTo(cal_date_today) == 1) {
-				
-				op.setStateOp(new StateOp(2, "er�ffnet"));
-				System.out.println("Datum from liegt nach heute");
-				System.out.println("Datum to liegt in der Zukunft");
-				System.out.println("Also er�ffnet");
-				continue;
-			}
-
-			if (cal_date_from.compareTo(cal_date_today) == -1) {
-
-				System.out.println("Datum from liegt in der Vergangenheit: erstellt");
-				op.setStateOp(new StateOp(1, "erstellt"));
-				continue;
-
-			}
-
-			// date_from > today && date_to< today --> er�ffnet
-			// if method did not run daily
-
-
-			// date_to > today --> abgeschlossen
-
-			if (cal_date_to.compareTo(cal_date_today) == 1) {
-				op.setStateOp(new StateOp(3, "abgeschlossen"));
-				System.out.println("abgeschlossen");
-				continue;
-			}*/
+		
 			System.out.println("--------------------------------");
 		}
 	}
