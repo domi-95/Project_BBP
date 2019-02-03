@@ -152,7 +152,7 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		else {
 			is = inputStream;
 		}
-		boolean successful = OpinionPoll.createProject(title, short_description, description, is, result, date_from, date_to, user_id, nostatistic);
+		boolean successful = OpinionPoll.createOpinionPoll(title, short_description, description, is, result, date_from, date_to, user_id, nostatistic);
 		if (successful == true) {
 		message = "Das Abstimmung wurde erfolgreich erstellt";
 		}

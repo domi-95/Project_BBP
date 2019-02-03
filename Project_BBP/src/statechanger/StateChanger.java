@@ -46,8 +46,8 @@ public class StateChanger extends TimerTask {
 			System.out.println("Datum from: " + op.getDate_from());
 			System.out.println("Datum to: " + op.getDate_to());
 			System.out.println("Datum heute: " + new Date());
-			Date date_from = op.getDate_from();
-			Date date_to = op.getDate_to();
+			Date date_from = op.getDate_from_timestamp();
+			Date date_to = op.getDate_to_timestamp();
 
 			Calendar cal_date_from = Calendar.getInstance();
 			Calendar cal_date_to = Calendar.getInstance();

@@ -77,20 +77,30 @@ public class OpinionPoll {
 		return max_choice;
 	}
 
+	public Timestamp getDate_from_timestamp() {
+		return date_from;
+
+	}
+
+	public Timestamp getDate_to_timestamp() {
+		return date_to;
+
+	}
+
 	public String getDate_from() {
-		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'"); // timstamp converted to readable string
 		return f.format(created);
 
 	}
 
 	public String getDate_to() {
-		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'"); // timstamp converted to readable string
 		return f.format(created);
 
 	}
 
 	public String getCreated() {
-		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'");
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'"); // timstamp converted to readable string
 		return f.format(created);
 	}
 
@@ -110,24 +120,34 @@ public class OpinionPoll {
 		return stateOp;
 	}
 
-	public static List<OpinionPoll> getCitizenOp(int user_id) {
+	//fetch all opinion polls where a certain citizen has ever hit a choice on
+	
+	public static List<OpinionPoll> getCitizenOp(int user_id) {		
 		return OpinionPollDao.getAllOpByChoice(user_id);
 	}
+	
+	//fetch all opinion polls by creator user_id
 	
 	public static List<OpinionPoll> getCouncilOp (int user_id){
 		return OpinionPollDao.getAllOpByUser(user_id);
 	}
+	
+	//update state
 
 	public void setStateOp(StateOp stateOp) {
 		this.stateOp = stateOp;
 		OpinionPollDao.updateState(this);
 	}
+	
+	//fetch op by id
 
 	public static OpinionPoll getOp(int op_id) {
 		return OpinionPollDao.getOp(op_id);
 	}
+	
+	//insert an opinion poll
 
-	public static boolean createProject(String title, String short_description, String description, InputStream is,
+	public static boolean createOpinionPoll(String title, String short_description, String description, InputStream is,
 			List<String> header, String date_from, String date_to, int user_id, int nostatistic) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date startDate = null;
@@ -150,6 +170,8 @@ public class OpinionPoll {
 
 	}
 
+	//fetch all opinion polls by state
+	
 	public static List<OpinionPoll> getAll(int state_id) {
 		return OpinionPollDao.getAllOp(state_id);
 	}

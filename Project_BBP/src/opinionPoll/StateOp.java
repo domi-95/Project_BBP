@@ -1,6 +1,8 @@
 package opinionPoll;
 
 public class StateOp {
+	//this class is used to image the status of an opinion poll
+	
 	int id;
 	String description;
 	
