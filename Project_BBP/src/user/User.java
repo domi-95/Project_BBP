@@ -5,6 +5,8 @@ import parameters.Parameters;
 
 public class User {
 
+	// this class represents a user in our system
+
 	private int id;
 	private String email;
 	private String firstname;
@@ -24,42 +26,31 @@ public class User {
 		return role;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getFirstname() {
 		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
 	}
 
 	public String getname() {
 		return name;
 	}
 
-	public void setname(String name) {
-		this.name = name;
+	public static User getUser(int user_id) {
+		return UserDao.searchUser(user_id);
 	}
-	
+
+	public static User getUser(String email) {
+		return UserDao.searchUser(email);
+	}
+
+	// this method validates the user login
 
 	public static boolean getUserLogin(String email, String password) {
 		if (Parameters.HASHENABLE) {
@@ -79,14 +70,12 @@ public class User {
 		return false;
 
 	}
-	
-	public static User getUser (int user_id) {
-		return UserDao.searchUser(user_id);
-	}
-	
-	public static User getUser (String email) {
-		return UserDao.searchUser(email);
-	}
+
+	/*
+	 * this method first checks whether a user already exists in the database with
+	 * this email and then inserts a user into the database with or without hashkey
+	 * proceed depending on the parameter
+	 */
 
 	public static boolean createUser(String email, String name, String firstname, String password, int role_id) {
 
@@ -104,6 +93,5 @@ public class User {
 		return UserDao.safeUser(email, name, firstname, password, role_id);
 
 	}
-
 
 }
