@@ -193,7 +193,7 @@ public class OpinionPollDao {
 				return new OpChoice(myRs.getInt("opinion_poll_id"), choice);
 
 			}
-			int[] choice = new int[9];
+			int[] choice = new int[10];
 			return new OpChoice(op_id, choice);
 		} catch (SQLException e) {
 			System.out.println("Error while selecting choice");
