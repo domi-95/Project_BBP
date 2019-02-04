@@ -26,7 +26,7 @@ if (u == null || u.getRole().getId() != 2){
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Blogeintrag erstellen</title>
 </head>
-<body class="bg">
+<body>
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="content">
 <div class="formular-bd w-75 mx-auto">
