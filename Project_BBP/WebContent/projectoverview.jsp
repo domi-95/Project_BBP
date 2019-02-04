@@ -200,7 +200,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 	  strokeWidth: 4,
 	  easing: 'easeInOut',
 	  duration: 1400,
-	  color: '#FFEA82',
+	  color: '#28a745',
 	  trailColor: '#eee',
 	  trailWidth: 1,
 	  svgStyle: {width: '100%', height: '100%'},
@@ -210,8 +210,9 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 	      // Default: same as stroke color (options.color)
 	      color: '#999',
 	      position: 'absolute',
-	      right: '0',
-	      top: '30px',
+	      right: '125px',
+	      top: '-15px',
+	      
 	      padding: 0,
 	      margin: 0,
 	      transform: null
