@@ -54,7 +54,7 @@
 
             <ul class="list-unstyled" >
               <li>
-                <a href="dataprotection.jsp">Datenschutz</a>
+                <a href="privacypolicy.jsp">Datenschutz</a>
               </li>
               </ul>
 
