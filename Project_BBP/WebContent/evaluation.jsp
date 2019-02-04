@@ -29,16 +29,24 @@ if (u == null || u.getRole().getId() != 2){
 <br>
 
 <div class="row">
-  <div class="col-xs-12 col-md-3">
+  <div class="col-xs-12 col-md-2">
    <p class="font-weight-bold">Indentifikationsnummer</p>
     
   </div>
-  <div class="col-xs-12 col-md-3">
+  <div class="col-xs-12 col-md-2">
     <p class="font-weight-bold">Titel</p>
     
   </div>
-  <div class="col-xs-12 col-md-3">
-    <p class="font-weight-bold">Datum</p>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Erstellungsdatum</p>
+    
+  </div>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Startdatum</p>
+    
+  </div>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Enddatum</p>
     
   </div>
 </div>
@@ -61,18 +69,24 @@ for (OpinionPoll op : all){
 	
 	
 	<div class="row border-bottom">
-	<div class="col-xs-12 col-md-3">
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getId()); %>
 	</div>
-	<div class="col-xs-12 col-md-3">
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getTitle());%> 
 	</div>
 	
-	<div class="col-xs-12 col-md-3">
+	<div class="col-xs-12 col-md-2">
+	<%out.print(op.getCreated()); %>
+	</div>
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getDate_from()); %>
 	</div>
-	<div class="col-xs-12 col-md-3">
-	<a class="text-success"href="downloadXML?id=<%out.print(op.getId()); %>" accesskey="1" title="">
+	<div class="col-xs-12 col-md-2">
+	<%out.print(op.getDate_to()); %>
+	</div>
+	<div class="col-xs-12 col-md-2">
+	<a class="text-success float-right"href="downloadXML?id=<%out.print(op.getId()); %>" accesskey="1" title="">
 	<i class="fa fa-download"></i> Herunterladen</a>
 	</div>
 	</div>
