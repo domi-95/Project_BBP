@@ -22,6 +22,8 @@ if (u == null || u.getRole().getId() != 1){
 <script src="script/cscript.js"></script>
 <!-- Animate.css -->
 	<link rel="stylesheet" type="text/css" href="style/animate.css" media="screen" />
+	
+	<script src="script/progressbar.min.js"></script>
 
 <style>
 
@@ -39,6 +41,12 @@ if (u == null || u.getRole().getId() != 1){
     height: 15vw;
     object-fit: cover;
 }
+.progressbar {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+  position: relative;
+}
 
 </style>
 <meta charset="ISO-8859-1">
@@ -49,7 +57,7 @@ if (u == null || u.getRole().getId() != 1){
 <div class="content">
 <%
 
-
+int x = 0;
 int z = 1;
 String category = null;
 Map<Integer, Integer> alreadyVote = null;
@@ -126,12 +134,15 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
   <div class="card-footer border-success opindex">
   
   <div class="row p-1">
+  <div id="container<%out.print(p.getId());%>" class="progressbar"></div>
   <div class="col-xs-12 col-lg-6">
       <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-work">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
   <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
+  <input type="hidden" id="pid<%out.print(x); %>" class="pid" name="pid" value= "<%out.print(p.getId()); %>" />
+  <input type="hidden" id="vote<%out.print(x); %>" class="pid" name="pid" value= "<%out.print(p.getVote()); %>" />
       <% 
       if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%> 
@@ -161,12 +172,62 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 </div>
 
 
-<% }%>
+
+<%x++; }%>
+<input type="hidden" id="x" class="pid" name="pid" value= "<%out.print(x); %>" />
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+	<script>
+	// progressbar.js@1.0.0 version is used
+	// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+	var x = document.getElementById("x").value;
+	
+	var z = 0;
+	while(z<x){
+		var id = "pid" + z;
+		var vote = "vote" + z;
+	var pid = document.getElementById(id).value;
+	var pvote = document.getElementById(vote).value;
+	var barvotes = ((100/360) * pvote)/100;
+	pvote = barvotes;
+	
+	alert(pid);
+	var container = "#container"+pid;
+	var bar = new ProgressBar.Line(container, {
+	  strokeWidth: 4,
+	  easing: 'easeInOut',
+	  duration: 1400,
+	  color: '#FFEA82',
+	  trailColor: '#eee',
+	  trailWidth: 1,
+	  svgStyle: {width: '100%', height: '100%'},
+	  text: {
+	    style: {
+	      // Text color.
+	      // Default: same as stroke color (options.color)
+	      color: '#999',
+	      position: 'absolute',
+	      right: '0',
+	      top: '30px',
+	      padding: 0,
+	      margin: 0,
+	      transform: null
+	    },
+	    autoStyleContainer: false
+	  },
+	  from: {color: '#FFEA82'},
+	  to: {color: '#ED6A5A'},
+	  step: (state, bar) => {
+	    bar.setText(Math.round(bar.value() * 100) + ' %');
+	  }
+	});
+	z++;
+	bar.animate(pvote);  // Number from 0.0 to 1.0
+	}
+	</script>
 </body>
 </html>
