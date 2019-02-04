@@ -72,8 +72,8 @@ public class StateChanger extends TimerTask {
 			//today is date_from AND today is before date_to
 			
 			if (cal_date_today.equals(cal_date_to) && cal_date_today.before(cal_date_to)){
-				System.out.println("Ist gleich: Erï¿½ffnet");
-				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
+				System.out.println("Ist gleich: Eröffnet");
+				op.setStateOp(new StateOp(2, "eröffnet"));
 				continue;
 			}
 			
@@ -81,7 +81,7 @@ public class StateChanger extends TimerTask {
 			
 			if (cal_date_today.after(cal_date_from) && cal_date_today.before(cal_date_to)) {
 				System.out.println("Ist gleich: Erï¿½ffnet");
-				op.setStateOp(new StateOp(2, "erï¿½ffnet"));
+				op.setStateOp(new StateOp(2, "eröffnet"));
 				continue;
 			}
 			
@@ -91,7 +91,7 @@ public class StateChanger extends TimerTask {
 			
 			if (cal_date_today.after(cal_date_from) && cal_date_today.after(cal_date_to)) {
 				System.out.println("Ist gleich: geschlossen");
-				op.setStateOp(new StateOp(3, "closed"));
+				op.setStateOp(new StateOp(3, "abgeschlossen"));
 				continue;
 			}
 			
@@ -99,7 +99,7 @@ public class StateChanger extends TimerTask {
 			
 			if (cal_date_today.after(cal_date_from) && cal_date_today.equals(cal_date_to)) {
 				System.out.println("Ist gleich: geschlossen");
-				op.setStateOp(new StateOp(3, "closed"));
+				op.setStateOp(new StateOp(3, "abgeschlossen"));
 				continue;
 			}
 			
