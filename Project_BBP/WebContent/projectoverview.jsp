@@ -192,10 +192,9 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 		var vote = "vote" + z;
 	var pid = document.getElementById(id).value;
 	var pvote = document.getElementById(vote).value;
-	var barvotes = ((100/360) * pvote)/100;
+	var barvotes = ((100/360)*pvote)/100;
 	pvote = barvotes;
 	
-	alert(pid);
 	var container = "#container"+pid;
 	var bar = new ProgressBar.Line(container, {
 	  strokeWidth: 4,
