@@ -16,7 +16,7 @@
 	
 <title>Blog</title>
 </head>
-<body class="lingradbg">
+<body class="gradbg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="content">
 <div class="newsblog w-75">
