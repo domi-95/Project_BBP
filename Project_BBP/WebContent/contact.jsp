@@ -31,8 +31,8 @@
                             <div class="card-header p-0">
                                 <div class="text-center py-2 bg-light text-secondary">
 								    <h2>Kontaktformular</h2>
-                                    <h3 ><i class="fa fa-envelope "></i> Stadt Mosbach</h3>
-                                    <h6 >Wir bemühen uns um Ihre Anfrage!</h6>
+                                    <h3 ><i class="fa fa-envelope "></i> BBP Mosbach</h3>
+                                    
                                 </div>
                             </div>
                             <div class="card-body p-3 bg-light">

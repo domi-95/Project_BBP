@@ -25,18 +25,28 @@ if (u == null || u.getRole().getId() != 2){
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include>
 <div class="formular-bd w-75 m-auto ">
+<h2>Auswertung für Abstimmungen erstellen</h2>
+<br>
 
 <div class="row">
-  <div class="col-xs-12 col-md-4">
-    <p>Indentifikationsnummer</p>
+  <div class="col-xs-12 col-md-2">
+   <p class="font-weight-bold">Indentifikationsnummer</p>
     
   </div>
-  <div class="col-md-4">
-    <p>Titel</p>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Titel</p>
     
   </div>
-  <div class="col-md-4">
-    <p>Datum</p>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Erstellungsdatum</p>
+    
+  </div>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Startdatum</p>
+    
+  </div>
+  <div class="col-xs-12 col-md-2">
+    <p class="font-weight-bold">Enddatum</p>
     
   </div>
 </div>
@@ -55,19 +65,29 @@ for (OpinionPoll op : all){
 	//out.print(op.getId());
 	//System.out.println(op.getId()+"");
 	
-	%><a class="text-success"href="downloadXML?id=<%out.print(op.getId()); %>" accesskey="1" title="">
-	<i class="fa fa-download"></i> Herunterladen</a>
+	%>
 	
-	<div class="row">
-	<div class="col-xs-12 col-md-4">
+	
+	<div class="row border-bottom">
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getId()); %>
 	</div>
-	<div class="col-md-4">
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getTitle());%> 
 	</div>
 	
-	<div class="col-md-4">
+	<div class="col-xs-12 col-md-2">
+	<%out.print(op.getCreated()); %>
+	</div>
+	<div class="col-xs-12 col-md-2">
 	<%out.print(op.getDate_from()); %>
+	</div>
+	<div class="col-xs-12 col-md-2">
+	<%out.print(op.getDate_to()); %>
+	</div>
+	<div class="col-xs-12 col-md-2">
+	<a class="text-success float-right"href="downloadXML?id=<%out.print(op.getId()); %>" accesskey="1" title="">
+	<i class="fa fa-download"></i> Herunterladen</a>
 	</div>
 	</div>
 	<%

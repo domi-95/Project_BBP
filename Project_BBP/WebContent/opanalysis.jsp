@@ -50,75 +50,20 @@ for (OpinionPoll op : oplist){
 <!-- AZE -->
 <div class="col-md-4" style="margin:0 0 1% 0%;">
 <div class="card border-success">
-<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="https://www.iabaustralia.com.au/images/easyblog_images/2583/ThumbsUP_DOWN.png" class="img-fluid" alt="Card image"></a>
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="" alt="Card image" height="200px"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
   </div>
   <div class="card-footer border-success opindex">
   <div class="row p-1">
   <div class="col d-flex justify-content-center">
-      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block">Abstimmung einsehen</a>
+      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block btn-work text-truncate">Abstimmung einsehen</a>
   </div>
 </div>
 </div>
 </div>
 </div>
-<!-- AZE -->
-<script>
-  var ctxB = document.getElementById("barChart<%out.print(op.getId()); %>").getContext('2d');
-  var myBarChart = new Chart(ctxB, {
-    type: 'bar',
-    data: {
-      labels:<% out.print("[");
-      	for (int i = 0; i<header.size();i++) {
-    		out.print("\""+header.get(i)+"\"");
-    		if(i<header.size()-1) {
-    		out.print(", ");
-    		}
-    	}
-    	out.print("]"); %>,
-      datasets: [{
-        label: 'Number of Votes',
-       // data: [12, 19, 3, 5, 2, 3],
-       data: <%out.print("[");
-		for (int i = 0; i < header.size(); i++) {
-			out.print(choice[i]);
-			if(i<header.size()-1) {
-				out.print(",");
-				}
-		}
-		out.print("]"); %>,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            callback: function(value) {if (value % 1 === 0) {return value;}}
-          }
-        }]
-      }
-    }
-  });
-</script>
+
 <br>
 <%} %>
 </div>
