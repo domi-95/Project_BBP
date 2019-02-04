@@ -22,6 +22,11 @@ oplist.addAll(oplist2);
 .card {
     min-height: 300px;
 }
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
 
 </style>
 <title>Abstimmungsergebnisse</title>
@@ -50,7 +55,7 @@ for (OpinionPoll op : oplist){
 <!-- AZE -->
 <div class="col-md-4" style="margin:0 0 1% 0%;">
 <div class="card border-success">
-<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="" alt="Card image" height="200px"></a>
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
   </div>
