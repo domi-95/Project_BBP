@@ -57,7 +57,7 @@ for (OpinionPoll op : oplist){
   <div class="card-footer border-success opindex">
   <div class="row p-1">
   <div class="col d-flex justify-content-center">
-      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block">Abstimmung einsehen</a>
+      <a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>" class="btn btn-outline-success btn-block btn-work text-truncate">Abstimmung einsehen</a>
   </div>
 </div>
 </div>
