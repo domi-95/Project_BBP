@@ -88,14 +88,14 @@ public class OpinionPoll {
 	}
 
 	public String getDate_from() {
-		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'"); // timstamp converted to readable string
-		return f.format(created);
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy"); // timstamp converted to readable string without time
+		return f.format(date_from);
 
 	}
 
 	public String getDate_to() {
-		DateFormat f = new SimpleDateFormat("dd.MM.yyyy' 'HH:mm 'Uhr'"); // timstamp converted to readable string
-		return f.format(created);
+		DateFormat f = new SimpleDateFormat("dd.MM.yyyy"); // timstamp converted to readable string without time
+		return f.format(date_to);
 
 	}
 

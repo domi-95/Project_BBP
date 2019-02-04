@@ -119,8 +119,8 @@ for ( OpinionPoll op: oplist){
 	
 	%></div>
 	<br>
-	<input type="button" id="voteopsend" class="btn btn-lg btn-success btn-block" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
-	<input type="button" class="btn btn-lg btn-secondary btn-block" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
+	<input type="button" id="voteopsend" class="btn btn-lg btn-success btn-block btn-work text-truncate" value="Abstimmung senden" onClick="doOpVote(<%out.print(op.getId());%>);">
+	<input type="button" class="btn btn-lg btn-secondary btn-block btn-work text-truncate" value="Abbrechen" onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
 	
 	</div>
 	</div></form>
