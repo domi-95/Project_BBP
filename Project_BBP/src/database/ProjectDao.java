@@ -135,6 +135,7 @@ public class ProjectDao {
 		String sqlCategory = "";
 		String sqlTitle = "";
 		String sqlState_id = "";
+		String orderby = "stamp_created desc";
 		if (category != null && !(category.equals("*"))) {
 			sqlCategory = "AND p.category = '" + category + "' ";
 		}
@@ -143,6 +144,9 @@ public class ProjectDao {
 		}
 		if (state_id != 0) {
 			sqlState_id = "s.id = " + state_id + " AND";
+			if (state_id == 2 ) {
+				orderby = "stamp_expirydate is null";
+			}
 		}
 		// create sql
 
@@ -153,7 +157,7 @@ public class ProjectDao {
 
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery("SELECT * from project p, state s where " + sqlState_id
-					+ " p.state_id = s.id " + sqlCategory + sqlTitle + " ORDER BY stamp_created desc");
+					+ " p.state_id = s.id " + sqlCategory + sqlTitle + " ORDER BY "+orderby+" ");
 			while (myRs.next()) {
 				result.add(resultSetCreateProject(myRs));
 			}
