@@ -64,6 +64,11 @@ public class Project {
 			Calendar today = Calendar.getInstance();
 			long differenceinMillis = expiryDate.getTimeInMillis() - today.getTimeInMillis();
 			int differenceinDays = (int) (differenceinMillis / (1000 * 60 * 60 * 24));
+			if (differenceinDays < 0  ) {
+				DateFormat f = new SimpleDateFormat("dd.MM.yyyy");
+				f.format(ts);
+				return "Abgelaufen am "+f.format(ts);
+			}
 			return differenceinDays + " Tage";
 		}
 		return "";

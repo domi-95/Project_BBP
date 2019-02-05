@@ -145,7 +145,8 @@ public class ProjectDao {
 		if (state_id != 0) {
 			sqlState_id = "s.id = " + state_id + " AND";
 			if (state_id == 2 ) {
-				orderby = "stamp_expirydate is null";
+				//orderby = "stamp_expirydate is null, id asc";
+				orderby = "ISNULL(stamp_expirydate) ASC, stamp_expirydate ASC;";
 			}
 		}
 		// create sql
