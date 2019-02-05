@@ -85,7 +85,11 @@ $(window).on('load', function(){
 								<p class="card-text">
 									Ersteller:
 									<%
+									if(op.getCreator() != null){
 									out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());
+									}else{
+										out.print("Benutzer nicht mehr vorhanden.");
+									}
 								%>
 								</p>
 							</div>
@@ -158,7 +162,11 @@ $(window).on('load', function(){
 										%></li>
 									<li><h6>Ersteller:</h6>
 										<%
-											out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());
+										if(op.getCreator() != null){
+											out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());									
+										}else{
+											out.print("Benutzer nicht mehr vorhanden.");
+										}
 										%></li>
 								</ul>
 							</div>
