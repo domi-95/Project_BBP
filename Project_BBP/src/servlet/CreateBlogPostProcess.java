@@ -47,7 +47,7 @@ public class CreateBlogPostProcess extends HttpServlet {
 		int user_id = 0;
 		String message = null;
 
-		InputStream inputStream = null; // input stream of the upload file
+		InputStream inputStream = null; // input stream of the upload image
 		InputStream is = null;
 		
 		
@@ -74,15 +74,11 @@ public class CreateBlogPostProcess extends HttpServlet {
 		
 		user_id = Integer.parseInt(request.getParameter("user"));
 		
-		// bezieht das Bild aus dem multipart request
+		// gets image out of multipart request
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
-			// prints out some information for debugging
-			//System.out.println(filePart.getName());
-			//System.out.println(filePart.getSize());
-			//System.out.println(filePart.getContentType());
 
-			// bezieht den input stream vom bild
+			// gets input stream of image
 
 			inputStream = filePart.getInputStream();
 
@@ -104,7 +100,7 @@ public class CreateBlogPostProcess extends HttpServlet {
 	        System.out.println("Height : " + height);
 	        System.out.println("Width : " + width);
 	        BufferedImage bi = this.createResizedCopy(image, width, height, true);
-	       // ImageIO.write(bi, "jpg", new File("C:\\ImagenesAlmacen\\QR\\olaKeAse.jpg"));
+
 	        ImageIO.write(bi, "jpg", baos);
 	        System.out.println(baos.size());
 	        szf = szf - 0.1;
@@ -115,11 +111,7 @@ public class CreateBlogPostProcess extends HttpServlet {
 	    	message = "Es ist ein Fehler aufgetreten!";
 	        System.out.println("Error by resizing picture");
 	    }
-	/*	finally {
-			// close input stream
-			if (inputStream != null) {
-				inputStream.close();
-			}*/
+
 		}
 		else {
 			is = inputStream;
@@ -127,15 +119,15 @@ public class CreateBlogPostProcess extends HttpServlet {
 		
 		boolean successful = Blog.createBlogPost(title, category, content, user_id, is);
 		if (successful == true) {
-		message = "Der Blogeintrag wurde erfolgreich erstellt";
+		message = "Der Blogeintrag wurde erfolgreich erstellt"; //sets variable for message which is displayed in the message.jsp
 		}
 		else {
-		message = "Der Blogeintrag wurde nicht erfolgreich erstellt";
+		message = "Der Blogeintrag wurde nicht erfolgreich erstellt"; //sets variable for message which is displayed in the message.jsp
 		}
 		// sets the message in request scope
 					request.setAttribute("Message", message);
 
-					// zur message page
+					// forward to message page
 					getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 				//}
 
@@ -148,7 +140,7 @@ public class CreateBlogPostProcess extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
+	//resizing method for the image
 	BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
 	    int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
 	    BufferedImage scaledBI = new BufferedImage(scaledWidth, scaledHeight, imageType);

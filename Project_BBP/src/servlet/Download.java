@@ -69,10 +69,10 @@ public class Download extends HttpServlet {
 		try 
 		{
 			ServletOutputStream out = response.getOutputStream();
-			//StringBuffer sb = generateCsvFileBuffer();
+			
 				String s;
 				byte[] byteArray = EvaluationXML.generateXML(id).toString().getBytes("UTF-8");
-		//	InputStream in =  new ByteArrayInputStream(sb.toString().getBytes("UTF-8"));
+		
 			InputStream in = new ByteArrayInputStream(byteArray);
 			
 			byte[] outputByte = new byte[4096];

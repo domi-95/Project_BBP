@@ -34,33 +34,29 @@ public class LoginProcess extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String message = null;
-		String prevUrlp2 = request.getParameter("prevUrl2");
-		String prevUrlp1 = request.getParameter("prevUrl1");
+		String prevUrlp2 = request.getParameter("prevUrl2"); //gets part 2 of previous url
+		String prevUrlp1 = request.getParameter("prevUrl1"); // gets part 1 of preious url
 		String prevUrl = "";
-		//String prevUrl = request.getHeader("Referer");
+		
 		if(prevUrlp2.equals("null")) {
 			prevUrlp2 = "index.jsp";
-			prevUrl = prevUrlp1 + prevUrlp2;			
+			prevUrl = prevUrlp1 + prevUrlp2; //creates index.jsp as previous url to forward to index after login			
 		}else {
-			prevUrl = prevUrlp1 + prevUrlp2;			
+			prevUrl = prevUrlp1 + prevUrlp2;	// creates previous url to forword to last called page after login		
 		}
 
 		if (email != null && password != null) {
 
-			// out.print(email + password);
-
-		
-
-			if (User.getUserLogin(email, password) == false) {
-				message = "Das hat leider nicht funktioniert. Versicheren Sie sich, dass Ihre E-Mail-Adresse und das Passwort korrekt ist.";
+			if (User.getUserLogin(email, password) == false) { //checks if user and password are correct and belongs to an user
+				message = "Das hat leider nicht funktioniert. Versicheren Sie sich, dass Ihre E-Mail-Adresse und das Passwort korrekt ist."; //sets variable for message which is displayed on login page
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 				System.out.println("Sorry, invalid Email or Password ");
 			}
 			else {
 				User u = User.getUser(email);
-				HttpSession session = request.getSession();
-				session.setAttribute("user", u);
+				HttpSession session = request.getSession(); 
+				session.setAttribute("user", u); // create session with user object
 				response.sendRedirect(prevUrl);
 				
 			}

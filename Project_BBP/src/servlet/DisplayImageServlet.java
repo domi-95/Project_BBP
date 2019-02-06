@@ -44,20 +44,22 @@ public class DisplayImageServlet extends HttpServlet {
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
 				select = Integer.parseInt(request.getParameter("select"));
-			//	System.out.println(id);
-			//	System.out.println(select);
+		
 			} catch (Exception e) {
 				System.out.println("keine ID mitgegeben");
 			}
-			 //Project project = ProjectDao.searchProject(id);
+			 
 			if (select == 1) {
+				// gets file of projects
 			file = File.getFileProject(id);
 			}
 			
 			if( select == 2) {
+				// gets file of opinion polls
 				file = File.getFileOp(id);
 			}
 			if(select == 3) {
+				// gets file of blogs
 				file = File.getFileBlog(id);
 			}
 
@@ -69,10 +71,10 @@ public class DisplayImageServlet extends HttpServlet {
 
 			
 			String imageFileName = "test.png";
-			//System.out.println("File Name: " + imageFileName);
+			
 
 			String contentType = this.getServletContext().getMimeType(imageFileName);
-			//System.out.println("Content Type: " + contentType);
+			
 
 			response.setHeader("Content-Type", contentType);
 
@@ -80,7 +82,7 @@ public class DisplayImageServlet extends HttpServlet {
 
 			response.setHeader("Content-Disposition", "inline; filename=\"" + imageFileName + "\"");
 
-			// Schreibe das Bild als Response
+			// write image as Response
 			response.getOutputStream().write(file.getFile());
 
 		} catch (Exception e) {

@@ -30,12 +30,12 @@ public class VoteProject extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id = (request.getParameter("id"));
-		System.out.println("ID:"+id);
+		
 		int p_id =Integer.parseInt(id);
-		System.out.println("ID:"+id);
+		
 		int user_id = Integer.parseInt(request.getParameter("user"));
-		if (Project.Vote(user_id, p_id) == true) {
-			//response.getWriter().print("Erfolgreich");
+		if (Project.Vote(user_id, p_id) == true) { // votes project
+			
 		}else {
 			response.getWriter().print("nicht erfolgreich");
 		}

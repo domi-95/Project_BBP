@@ -34,23 +34,23 @@ public class ApproveProject extends HttpServlet {
 		String comment = request.getParameter("comment");
 		System.out.println(comment);
 		Project p = Project.getProject(id);
-	//	p.approve(new State(2,"freigegeben"));
+
 		
 		switch(role){
 		case 2:{
-			if(request.getParameter("acceptreject").equals("approve")) {
+			if(request.getParameter("acceptreject").equals("approve")) { // Check if approve or reject button was clicked to call servlet
 				
 				p.approveAdministration();
-				message = "Projekt wurde freigegeben";
+				message = "Projekt wurde freigegeben"; //sets variable for message which is displayed in the snackbar after approve/reject
 			}
 			else {
-				if(request.getParameter("acceptreject").equals("reject")) {
+				if(request.getParameter("acceptreject").equals("reject")) { // Check if approve or reject button was clicked to call servlet
 					
 					p.declineAdministration(comment);			//give him here your comment with which is necessary
 					message = "Projekt wurde abgelehnt";
 				}
 				else {
-					message = "Es ist ein Fehler aufgetreten";
+					message = "Es ist ein Fehler aufgetreten"; //sets variable for message which is displayed in the snackbar after approve/reject
 				}
 			}
 			break;
@@ -59,26 +59,22 @@ public class ApproveProject extends HttpServlet {
 			if(request.getParameter("acceptreject").equals("approve")) {
 				
 				p.approveCouncil( comment);	//give him here your comment with which is necessary
-				message = "Projekt wurde genehmigt";
+				message = "Projekt wurde genehmigt"; //sets variable for message which is displayed in the snackbar after approve/reject
 			}
 			else {
 				if(request.getParameter("acceptreject").equals("reject")) {
 					
 					p.declineCouncil(comment);			//give him here your comment with which is necessary
-					message = "Projekt wurde zurückgewiesen";
+					message = "Projekt wurde zurückgewiesen"; //sets variable for message which is displayed in the snackbar after approve/reject
 				}
 				else {
-					message = "Es ist ein Fehler aufgetreten";
+					message = "Es ist ein Fehler aufgetreten"; //sets variable for message which is displayed in the snackbar after approve/reject
 				}
 			}
 			break;
 		}
 		}
 		
-		
-		
-		//request.setAttribute("message", message);
-		//request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}
 
 	/**

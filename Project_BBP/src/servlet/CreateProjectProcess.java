@@ -93,15 +93,12 @@ public class CreateProjectProcess extends HttpServlet {
 			period = request.getParameter("period");
 		}
 
-		// bezieht das Bild aus dem multipart request
+		// gets image out of multipart request
 		Part filePart = request.getPart("photo");
 		if (filePart != null) {
-			// prints out some information for debugging
-			//System.out.println(filePart.getName());
-			//System.out.println(filePart.getSize());
-			//System.out.println(filePart.getContentType());
 
-			// bezieht den input stream vom bild
+
+			// gets input stream of image
 
 			inputStream = filePart.getInputStream();
 
@@ -123,7 +120,7 @@ public class CreateProjectProcess extends HttpServlet {
 	        System.out.println("Height : " + height);
 	        System.out.println("Width : " + width);
 	        BufferedImage bi = this.createResizedCopy(image, width, height, true);
-	       // ImageIO.write(bi, "jpg", new File("C:\\ImagenesAlmacen\\QR\\olaKeAse.jpg"));
+	      
 	        ImageIO.write(bi, "jpg", baos);
 	        System.out.println(baos.size());
 	        szf = szf - 0.1;
@@ -134,11 +131,7 @@ public class CreateProjectProcess extends HttpServlet {
 	    	message = "Es ist ein Fehler aufgetreten!";
 	        System.out.println("Error by resizing picture");
 	    }
-	/*	finally {
-			// close input stream
-			if (inputStream != null) {
-				inputStream.close();
-			}*/
+
 		}
 		else {
 			is = inputStream;
@@ -154,13 +147,13 @@ public class CreateProjectProcess extends HttpServlet {
 		// sets the message in request scope
 					request.setAttribute("Message", message);
 
-					// zur message page
+					// forward to message page
 					getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 				//}
 
 
 	}
-
+		// resizing method for images
 		BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
 	    int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
 	    BufferedImage scaledBI = new BufferedImage(scaledWidth, scaledHeight, imageType);

@@ -66,7 +66,7 @@ public class RegisterProcess extends HttpServlet {
 			// Check if user exists
 			if (user != null) {
 				if (email.equals(user.getEmail())) {
-					message = "Es gibt bereits einen Account mit der gleichen E-Mail Adresse";
+					message = "Es gibt bereits einen Account mit der gleichen E-Mail Adresse"; //sets variable for message which is displayed on register.jsp
 					request.setAttribute("message", message);
 					request.getRequestDispatcher("register.jsp").forward(request, response);
 					System.out.println("Sorry, you are already registered");
@@ -74,7 +74,7 @@ public class RegisterProcess extends HttpServlet {
 			} else {
 				// Check if passwords match
 				if (!password1.equals(password2)) {
-					message = "Passw�rterr stimmen nicht �berein" + password1 + password2;
+					message = "Passw&ouml;rterr stimmen nicht &uuml;berein" + password1 + password2; //sets variable for message which is displayed on register.jsp
 					request.setAttribute("message", message);
 					request.getRequestDispatcher("register.jsp").forward(request, response);
 				}
@@ -86,30 +86,30 @@ public class RegisterProcess extends HttpServlet {
 						if (n.getRole().getId() == 1) {
 							if (u == null) {
 								session.setAttribute("user", n);
-								message = "Sie haben sich erfolgreich registriert und werden angemeldet!";
+								message = "Sie haben sich erfolgreich registriert und werden angemeldet!"; //sets variable for message which is displayed in the message.jsp
 								request.setAttribute("Message", message);
 								getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 								return;
 							}
 							if (u != null) {
 
-								message = "Sie haben sich erfolgreich einen B&uuml;rger registriert!";
+								message = "Sie haben sich erfolgreich einen B&uuml;rger registriert!"; //sets variable for message which is displayed on register.jsp
 							}
 						}
 						if (n.getRole().getId() == 2) {
 							// response.sendRedirect("index.jsp");
-							message = "Sie haben erfolgreich ein Verwaltungsmitarbeiter registriert!";
+							message = "Sie haben erfolgreich ein Verwaltungsmitarbeiter registriert!"; //sets variable for message which is displayed on register.jsp
 						}
 						if (n.getRole().getId() == 3) {
 							// response.sendRedirect("index.jsp");
-							message = "Sie haben erfolgreich ein Gemeinderatsmitglied registriert!";
+							message = "Sie haben erfolgreich ein Gemeinderatsmitglied registriert!"; //sets variable for message which is displayed on register.jsp
 						}
 						// sets the message in request scope
 						request.setAttribute("Message", message);
 						getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 
 					} else {
-						message = "Fehler beim registrieren!";
+						message = "Fehler beim registrieren!"; //sets variable for message which is displayed on register.jsp
 						request.setAttribute("message", message);
 						getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 

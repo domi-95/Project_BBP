@@ -155,31 +155,27 @@ public class CreateOpinionPollProcess extends HttpServlet {
 		    	message = "Es ist ein Fehler aufgetreten!";
 		        System.out.println("Error by resizing picture");
 		    }
-		/*	finally {
-				// close input stream
-				if (inputStream != null) {
-					inputStream.close();
-				}*/
+	
 			}
 		else {
 			is = inputStream;
 		}
 		boolean successful = OpinionPoll.createOpinionPoll(title, short_description, description, is, result, date_from, date_to, user_id, nostatistic);
 		if (successful == true) {
-		message = "Das Abstimmung wurde erfolgreich erstellt";
+		message = "Das Abstimmung wurde erfolgreich erstellt"; //sets variable for message which is displayed in the message.jsp
 		}
 		else {
-		message = "Das Abstimmung wurde nicht erfolgreich erstellt";
+		message = "Das Abstimmung wurde nicht erfolgreich erstellt"; //sets variable for message which is displayed in the message.jsp
 		}
 		// sets the message in request scope
 					request.setAttribute("Message", message);
 
-					// zur message page
+					// forward to message page
 					getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 				//}
 
 	}
-	
+	//Resizing method for images
 	BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
 	    int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
 	    BufferedImage scaledBI = new BufferedImage(scaledWidth, scaledHeight, imageType);
