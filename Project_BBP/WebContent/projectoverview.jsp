@@ -25,30 +25,7 @@ if (u == null || u.getRole().getId() != 1){
 	
 	<script src="script/progressbar.min.js"></script>
 
-<style>
 
-.card-text{
-    font-size:19px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.card {
-    min-height: 450px;
-}
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-.progressbar {
-  margin: 20px;
-  width: 400px;
-  height: 8px;
-  position: relative;
-}
-
-</style>
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
 </head>
@@ -71,7 +48,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 
 
 %>
-<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+<!-- --------------------------Search and filter bar-------------------------------------------------------------- -->
 <div id="reloadDiv">
 
 <div class="formular-bd1 w-75 mx-auto mt-0 mb-3">
@@ -111,7 +88,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 </div>
 
 
-	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+	<!-- --------------------------end Search and filter bar-------------------------------------------------------------- -->
 <div id="snackbar_message"></div>
 <div class="formular-bd w-75 m-auto opindex">
 <div class="container text-center" id="voteReload">
@@ -193,8 +170,11 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 	var pid = document.getElementById(id).value;
 	var pvote = document.getElementById(vote).value;
 	var barvotes = ((100/360)*pvote)/100;
+	if(barvotes >= 1){
+		pvote = 1;
+	}else{
 	pvote = barvotes;
-	
+	}
 	var container = "#container"+pid;
 	var bar = new ProgressBar.Line(container, {
 	  strokeWidth: 4,
