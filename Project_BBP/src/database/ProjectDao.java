@@ -11,6 +11,7 @@ import java.util.*;
 
 import project.Project;
 import project.State;
+import user.User;
 
 public class ProjectDao {
 
@@ -324,13 +325,17 @@ public class ProjectDao {
 
 	private static Project resultSetCreateProject(ResultSet myRs) {
 		try {
+			User u =UserDao.searchUser(myRs.getInt("user_id"));					
+			if (u == null) {
+				u =	new User(0, "Benutzer nicht mehr vorhanden", "Benutzer", "nicht mehr vorhanden", null);	//if user not longer exists
+			}
 			return new Project(myRs.getInt("p.id"), myRs.getString("p.title"), myRs.getString("p.category"),
 					myRs.getString("p.short_description"), myRs.getString("p.description"),
 					myRs.getString("p.location"), myRs.getString("p.period"), myRs.getString("investment_grade"),
 					myRs.getString("p.phone_number"), myRs.getBoolean("p.anonymous"),
 					new State(myRs.getInt("s.id"), myRs.getString("s.description")), myRs.getString("stamp_created"),
 					myRs.getString("stamp_updated"), ProjectDao.countVotes(myRs.getInt("p.id")),
-					myRs.getString("comment"), UserDao.searchUser(myRs.getInt("user_id")),
+					myRs.getString("comment"), u,
 					myRs.getString("stamp_expiryDate"));
 		} catch (Exception e) {
 			e.printStackTrace();
