@@ -34,7 +34,7 @@ public class VoteProject extends HttpServlet {
 		int p_id =Integer.parseInt(id);
 		
 		int user_id = Integer.parseInt(request.getParameter("user"));
-		if (Project.Vote(user_id, p_id) == true) { // votes project
+		if (Project.vote(user_id, p_id) == true) { // votes project
 			
 		}else {
 			response.getWriter().print("nicht erfolgreich");

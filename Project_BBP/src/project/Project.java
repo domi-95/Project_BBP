@@ -149,7 +149,7 @@ public class Project {
 
 	// insert a vote from an citizen to a project
 
-	public static boolean Vote(int user_id, int project_id) {
+	public static boolean vote(int user_id, int project_id) {
 		if (Project.getProject(project_id).getVote() >= Parameters.EXPIRYDATEPOPULATION) {
 			Calendar expiryDate = Calendar.getInstance();
 			expiryDate.add(Calendar.MONTH, 3);
