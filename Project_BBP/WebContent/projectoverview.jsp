@@ -28,6 +28,28 @@ if (u == null || u.getRole().getId() != 1){
 
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
+<style>
+.card-text{
+    font-size:19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card {
+    min-height: 450px;
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+.progressbar {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+  position: relative;
+}
+</style>
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include><br>
