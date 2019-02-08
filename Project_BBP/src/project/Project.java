@@ -153,7 +153,9 @@ public class Project {
 		if (Project.getProject(project_id).getVote() >= Parameters.EXPIRYDATEPOPULATION) {
 			Calendar expiryDate = Calendar.getInstance();
 			expiryDate.add(Calendar.MONTH, 3);
+			if(Project.getProject(project_id).getVote() == Parameters.EXPIRYDATEPOPULATION) {
 			EmailSend.sendMinimumVotes(ProjectDao.searchProject(project_id));
+			}
 			return ProjectDao.projectVoteWithExpiryDate(user_id, project_id, expiryDate);
 		} else {
 			return ProjectDao.projectVote(user_id, project_id);
