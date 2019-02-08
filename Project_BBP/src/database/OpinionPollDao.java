@@ -256,11 +256,15 @@ public class OpinionPollDao {
 
 	private static OpinionPoll resultSetCreateOpinionPoll(ResultSet myRs) {
 		try {
+			User u =UserDao.searchUser(myRs.getInt("op.user_id"));					
+			if (u == null) {
+				u =	new User(0, "Benutzer nicht mehr vorhanden", "Benutzer", "nicht mehr vorhanden", null);	//if user not longer exists
+			}
 			return new OpinionPoll(myRs.getInt("op.id"), myRs.getString("op.title"),
 					myRs.getString("op.short_description"), myRs.getString("op.description"),
 					myRs.getBytes("op.picture"), myRs.getInt("op.max_choice"), myRs.getTimestamp("op.date_from"),
 					myRs.getTimestamp("op.date_to"), myRs.getTimestamp("op.created"),
-					getHeader(myRs.getInt("op.choice_header_id")), UserDao.searchUser(myRs.getInt("op.user_id")),
+					getHeader(myRs.getInt("op.choice_header_id")), u,
 					getChoice(myRs.getInt("op.id")),
 					new StateOp(myRs.getInt("st.id"), myRs.getString("st.description")), myRs.getInt("anonymous"));
 		} catch (SQLException e) {
