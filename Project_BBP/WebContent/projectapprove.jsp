@@ -31,7 +31,7 @@ if (u == null || u.getRole().getId() == 1 ){
 <div class="content">
 
 <script>
-
+// submit form by selecting an state in dropdown
 $(document).ready(function() { 
 	  $('input[name=stateSelect]').change(function(){
 	       $('form[name=selectState]').submit();
@@ -44,6 +44,7 @@ $(document).ready(function() {
 
 
 <%
+// changes shown category and state in selection dropdown
 int state;
 String category = null;
 if(request.getParameter("category")!=null){
@@ -88,6 +89,7 @@ $(document).ready(function changeActive1(){
 	});
 });
 
+// changes from "mehr anzeigen" to "weniger anzeigen" after obening of collapse menu
 function changeValue(id){
 	var element = document.getElementById('collapseButton'+id);
     element.value = (element.value == 'Mehr anzeigen' ? 'Weniger anzeigen' : 'Mehr anzeigen');
@@ -103,14 +105,17 @@ function changeValue(id){
 	List<Project> projectlist = null;
 	switch(state){
 	case 1:{
+		// fills projectlist with created projects
 		projectlist = Project.getCreatedProjects();
 		break;
 	}
 	case 2: {
+		// fills projectlist with projects which are approved by administration
 		projectlist = Project.getApprovedAdministrationProjects();
 		break;
 	}
 	case 6: {
+		//fills projectlist with projects wich are approved by the council
 		projectlist = Project.getApprovedCouncilProjects();
 		break;
 	}
@@ -119,6 +124,7 @@ function changeValue(id){
 	String invest = "question.png";
 	String period = "question.png";
 	
+	// sets category, state and search field to the value before the click on filter to show the user what he selected before
 	category = request.getParameter("category");
 	if(request.getParameter("stateSelect") != null){
 	state = Integer.parseInt(request.getParameter("stateSelect"));
@@ -128,11 +134,12 @@ function changeValue(id){
 
 	
 	%>
-	<!-- --------------------------Kevin Filterversuch.-------------------------------------------------------------- -->
+	<!-- --------------------------search and filter function-------------------------------------------------------------- -->
 	<div class="formular-bd1 w-75 mx-auto mt-0 mb-3">
 	<form id="regForm" action = "#" method = "post" onsubmit="reloadDiv();">
   <div class="form-row align-items-center mx-auto content-center text-center">
      <div class="col-auto" >
+     <!-- shows state filter options for administration users -->
      <% if(u != null && u.getRole().getId() == 2){ %>
       <select id="inputstatus" name="stateSelect" class="form-control" onchange="this.form.submit()">
        		<option value="1"  <%if(state == 1){out.print(" selected");} %>>Angelegt Bürger</option>
@@ -142,6 +149,7 @@ function changeValue(id){
 			<option value="4" <%if(state == 4){out.print(" selected");} %>>Zurückgewiesen Gemeinderat</option>
       </select>
       <%} %>
+      <!-- shows state filter options for council users -->
      <% if(u != null && u.getRole().getId() == 3){ %>
       <select id="inputstatus" name="stateSelect" class="form-control" onchange="this.form.submit()">
 			<option value="2" <%if(state == 2){out.print(" selected");} %>>Freigegeben Verwaltung</option>
@@ -169,6 +177,7 @@ function changeValue(id){
       <input type="text" class="form-control" name = "search" id="search" placeholder="Freitext..." value="<%if(request.getParameter("search") != null){out.print(request.getParameter("search"));}%>" maxlength="50" list="laender">
        <datalist id="laender">
        <%
+       // gets all titles of all projects for free text search
        for (Project p : projectlist){
     	   %><option value=<%out.print(p.getTitle());%>><%
        }
@@ -184,11 +193,11 @@ function changeValue(id){
   </div>
 </form>
 </div>
-	<!-- --------------------------Kevin Suchversuch.-------------------------------------------------------------- -->
+	<!-- -------------------------- search and filter function-------------------------------------------------------------- -->
 
 
 <% 
-
+	// loops over all projects that are filtered
 	for (Project p : projectlist){
 	%>
 	<div class="mx-auto w-75" id="dynamic_divs<%out.print(p.getId());%>">
@@ -370,10 +379,6 @@ function changeValue(id){
   </div>
 </div>
 </div>
-		
-		 
-			
-			<!-- <h3> Nachricht: ${message}</h3> -->
 
 			
 	</div><br>
