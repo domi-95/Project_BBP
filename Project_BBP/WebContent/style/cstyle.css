@@ -444,3 +444,18 @@ z-index: 1;
 	}
 	
 
+/* CSS-Part only for Index */
+.img-fluid-cover {
+object-fit: cover !important;
+width: 100% !important;
+  height: 100% !important;
+}
+
+.imgCon{
+width: 100% !important;
+height: 85% !important;
+}
+.card-body-index{
+padding: 0.8rem;
+
+}

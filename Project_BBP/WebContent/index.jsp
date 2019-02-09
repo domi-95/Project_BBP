@@ -21,22 +21,7 @@ User u = (User)session.getAttribute("user");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <title>Startseite BBP</title>
-<style>
-.img-fluid {
-object-fit: cover !important;
-width: 100% !important;
-  height: 100% !important;
-}
 
-.imgCon{
-width: 100% !important;
-height: 85% !important;
-}
-.card-body{
-padding: 0.8rem;
-
-}
-</style>
 </head>
 <body class="lingradbg bg">
 
@@ -44,19 +29,22 @@ padding: 0.8rem;
 <div class="content">
 
 <div class="spaceholder text-center d-flex justify-content-center  w-50 d-block m-auto">
-<img src="Images/welcome2.png" alt="Welcome to Mos" class="img-fluid" ></div>
+<img src="Images/welcome2.png" alt="Welcome to Mos" class="img-fluid img-fluid-cover" ></div>
 <div class="spaceholder d-flex justify-content-center">
 
+<!-- include of carousel which display images -->
 <jsp:include page="/include/carousel.jsp"></jsp:include>
 
 </div><br>
 <div class="spaceholder d-flex justify-content-center">
+<!-- includes collapse menu which displays the onboarding guide -->
 <jsp:include page="/include/collapse.jsp"></jsp:include>
 <br>
 
 </div>
 <br>
 <br>
+<!-- displays three random projects which are approved by the administration -->
 <div class="text-center formular-bd opindex  w-75 m-auto"> 
  
 
@@ -84,9 +72,9 @@ padding: 0.8rem;
 
 	<div class="col-sm-3 p-0 m-auto bordershadow" style="height: 400px;">
 		<div class="imgCon d-inline-block" >
-      	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Image"></a>
+      	<a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid img-fluid-cover" alt="Image"></a>
       </div>
-      <div class="card-body project-body p-2" >
+      <div class="card-body card-body-index project-body p-2" >
       <p style="color: white;"><%out.print(p.getTitle()); %></p>
 
       
@@ -103,6 +91,7 @@ padding: 0.8rem;
     </div>
    
   </div> 
+  <!-- end random projects -->
 <br>
 <br>
 </div>
