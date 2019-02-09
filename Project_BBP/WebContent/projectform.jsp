@@ -38,6 +38,7 @@ if (u == null || u.getRole().getId() != 1){
 <!-- LOAD -->
 <div id="cover"></div>  
 <div id="loader"></div> 
+<!-- script for loader which is shown by sending the form -->
 <script>
 $(window).bind("pageshow", function() {
 	$('#cover').removeClass('activate');
@@ -46,11 +47,6 @@ $(window).bind("pageshow", function() {
 $(document).ready(function(){
 		  $('#cover').removeClass('activate');
 		  $('#loader').removeClass('activate');
-//	$('#regForm').submit(function(){
-//		  $('#cover').addClass('activate');
-//		  $('#loader').addClass('activate');
-//		});
-
 	
 	});
 </script>
@@ -147,6 +143,7 @@ $(document).ready(function(){
   
   <input type="file" class="form-control custom-file-input" name="photo" id="loadFile" accept="image/x-png,image/gif,image/jpeg">
   <label for="loadFile" class="custom-file-label text-truncate">Datei auswählen</label>
+  <!--  fills the select file field with the name and path of the selected file -->
  <script>
             $('#loadFile').on('change',function(){
                 //get the file name
