@@ -135,7 +135,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
   <div class="row p-1">
   <div id="container<%out.print(p.getId());%>" class="progressbar"></div>
   <div class="col-xs-12 col-lg-6">
-      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-work">Projekt einsehen</a>
+      <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>" class="btn btn-outline-success btn-work mb-2">Projekt einsehen</a>
     
   </div>
   <div class="col-lg-6">
