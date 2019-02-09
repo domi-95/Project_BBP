@@ -26,7 +26,10 @@
 <body class="bg">
 	<jsp:include page="include/header.jsp"></jsp:include>
 	<div class="content">
+
+
 		<script>
+		// loader script
 $(window).on('load', function(){
 	  $('#cover').removeClass('activate');
 	  $('#loader').removeClass('activate');
@@ -45,10 +48,12 @@ $(window).on('load', function(){
 			<form>
 
 				<%
+				//get already voted opinionpolls 
 					Map<Integer, Integer> alreadyVote = null;
 					if (u != null) {
 						alreadyVote = OpChoice.getUserChoices(u.getId());
 					}
+					// get all opened opinionpolls
 					List<OpinionPoll> oplist = OpinionPoll.getAll(2);
 					for (OpinionPoll op : oplist) {
 				%>
@@ -85,17 +90,18 @@ $(window).on('load', function(){
 								<p class="card-text">
 									Ersteller:
 									<%
-									if(op.getCreator() != null){
-									out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());
-									}else{
-										out.print("Benutzer nicht mehr vorhanden.");
-									}
+									// check --> existence of the opinionpoll creater
+									if (op.getCreator() != null) {
+											out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());
+										} else {
+											out.print("Benutzer nicht mehr vorhanden.");
+										}
 								%>
 								</p>
 							</div>
 							<div class="card-footer bg-transparent border-secondary"
 								id="reloadButton<%out.print(op.getId());%>">
-								<%
+								<%// check --> user already voted
 									if (alreadyVote != null) {
 											if (alreadyVote.get(op.getId()) == null) {
 								%>
@@ -108,6 +114,7 @@ $(window).on('load', function(){
 								<div class="row ">
 									<%
 										if (op.getNostatistic() == 0) {
+											// checks --> checkbox "Nostatistics" activated
 									%>
 									<div class="col-xs-12 col-xl-6">
 										<input class="btn  btn-outline-success btn-block disabled "
@@ -156,61 +163,60 @@ $(window).on('load', function(){
 								<ul class="list-unstyled">
 									<li class="mb-2"><h6>Beschreibung:</h6> <%
  	out.print(op.getShort_description());
- %>
-										<%
-											
-										%></li>
-									<li><h6>Ersteller:</h6>
-										<%
-										if(op.getCreator() != null){
-											out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());									
-										}else{
-											out.print("Benutzer nicht mehr vorhanden.");
-										}
-										%></li>
+ %> <%
+ 	
+ %></li>
+									<li><h6>Ersteller:</h6> <%
+									//check --> existence of the opinionpoll creater
+ 	if (op.getCreator() != null) {
+ 			out.print(op.getCreator().getFirstname() + " " + op.getCreator().getname());
+ 		} else {
+ 			out.print("Benutzer nicht mehr vorhanden.");
+ 		}
+ %></li>
 								</ul>
 							</div>
 							<p>
 							<h6 class="text-left mb-2">Antwortmöglichkeiten:</h6>
-						
-						<div class="form-row">
-							<%
-								//List<String> header = new LinkedList<String>();
-									List<String> header = op.getHeader();
-									for (int i = 0; i < header.size() && header.get(i) != null; i++) {
-							%><div class="mb-1 form-group col-md-6 text-left">
-								<input type="radio"
-									class="selection<%out.print(op.getId());%> mr-1"
-									name="selection<%out.print(op.getId());%>"
-									value="<%out.print(i);%>">
-								<%
-									out.print(header.get(i));
-								%>
-								<br> <input type="hidden" name="id"
-									value="<%out.print(op.getId());%>"> <input
-									type="hidden" class="user" name="user"
-									value="<%if (u != null)
-						out.print(u.getId());%>" />
-							</div>
-							<%
-								}
-							%>
-						</div>
-						<br> <input type="button" id="voteopsend"
-							class="btn btn-lg btn-success btn-block btn-work text-truncate"
-							value="Abstimmung senden"
-							onClick="doOpVote(<%out.print(op.getId());%>);"> <input
-							type="button"
-							class="btn btn-lg btn-secondary btn-block btn-work text-truncate"
-							value="Abbrechen"
-							onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
 
-			</form>
+							<div class="form-row">
+								<%
+									//List<String> header = new LinkedList<String>();
+										List<String> header = op.getHeader();
+										for (int i = 0; i < header.size() && header.get(i) != null; i++) {
+								%><div class="mb-1 form-group col-md-6 text-left">
+									<input type="radio"
+										class="selection<%out.print(op.getId());%> mr-1"
+										name="selection<%out.print(op.getId());%>"
+										value="<%out.print(i);%>">
+									<%
+										out.print(header.get(i));
+									%>
+									<br> <input type="hidden" name="id"
+										value="<%out.print(op.getId());%>"> <input
+										type="hidden" class="user" name="user"
+										value="<%if (u != null)
+						out.print(u.getId());%>" />
+								</div>
+								<%
+									}
+								%>
+							</div>
+							<br> <input type="button" id="voteopsend"
+								class="btn btn-lg btn-success btn-block btn-work text-truncate"
+								value="Abstimmung senden"
+								onClick="doOpVote(<%out.print(op.getId());%>);"> <input
+								type="button"
+								class="btn btn-lg btn-secondary btn-block btn-work text-truncate"
+								value="Abbrechen"
+								onClick="voteopBox(<%out.print(op.getId());%>, 'close');">
+
+						</form>
 					</div>
 				</div>
-			<%
-				}
-			%>
+				<%
+					}
+				%>
 			</form>
 		</div>
 		<br> <br>
