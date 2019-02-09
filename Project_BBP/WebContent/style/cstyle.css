@@ -241,11 +241,7 @@ position: absolute;
   font-size: 17px;
 }
 
-.card-body{
-	
-	background-color: #597943;
-	
-}
+
 .project-body{
 		height: 60px !important;
 }
@@ -457,5 +453,29 @@ height: 85% !important;
 }
 .card-body-index{
 padding: 0.8rem;
+background-color: #597943;
 
+}
+
+
+/* CSS-Part only for myoverview */
+.card-text-myoverview{
+	d-flex ;
+	flex-column;
+    font-size:19px !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+.card-myoverview {
+    min-height: 450px !important;
+}
+
+.card-op{
+	min-height: 350px !important;
+}
+.card-img-top-myoverview {
+    width: 100% !important;
+    height: 15vw !important;
+    object-fit: cover !important;
 }

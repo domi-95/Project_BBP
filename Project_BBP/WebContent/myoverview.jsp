@@ -19,37 +19,12 @@ if (u == null || u.getRole().getId() == 2 ){
 <head>
 <meta charset="ISO-8859-1">
 <title>Meine Übersicht</title>
-<style>
 
-.card-text{
-	d-flex;
-	flex-column;
-    font-size:19px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.card {
-    min-height: 450px;
-}
-
-.card-op{
-	min-height: 350px;
-}
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-.card-body {
-    background-color: #597943;
-}
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="bg">
 
-
+<!-- Script adds the active function (dark highlighting) of the selectet state -->
 <script>
 $(document).ready(function() { 
 	  $('input[name=z]').change(function(){
@@ -69,11 +44,15 @@ function changeActive(){
 <div class="content">
 <br>
 <%
+//checks if a user is loged in and if he is an citizen
 if(u != null && u.getRole().getId() == 1){
 int state;
+// gets varlue of the state selection
 if(request.getParameter("z") != null){
 	state = Integer.parseInt(request.getParameter("z"));%>
+	<!-- creates an hidden field with the state variable -->
 	<input type="hidden" id="state" value="<%out.print(state); %>">
+	<!-- calls the function to set the state selection bar highlighting on the selected state -->
 	<script>
 	
 	changeActive();
@@ -83,6 +62,8 @@ if(request.getParameter("z") != null){
 	else{
 	state = 1;
 	}%>
+	
+	<!-- state selection -->
 <form name="selectState" method="post" action="myoverview.jsp">
 <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
 
@@ -97,6 +78,7 @@ if(request.getParameter("z") != null){
   </label>
 </div>
 </form>
+<!-- end state selection -->
 <br>
 
 <script>
@@ -121,32 +103,39 @@ $(document).ready(function changeActive1(){
 </script>
 
 <% 
+// sets an default image for invest and period
 String invest = "question.png";
 String period = "question.png";
+// creates new List of type Project
 List<Project> projectlist = null;
 state=1;
+// sets state to 1 when no state is selected
 if(request.getParameter("z") == null){
 	state = 1;
 }
 else{
+	// sets state on selected state
 state = Integer.parseInt(request.getParameter("z"));
 }
 	switch(state){
 	case 1:{
 		if (u != null){
+			// puts all projects which are created by a user in a list
 			projectlist = Project.getAllWithCreator(u.getId());	 //use this method to get all projects by creator
-			//projectlist = Vote.getUserVotesList(u.getId());		// use this method to get all projects where the user has already voted
+			
 			}													 
 			
 			
 			
 			Map<Integer, Integer> alreadyVote = null;
 			if (u != null){
+				//gets all ids of projects which are already votesd by the user
 			alreadyVote = Vote.getUserVotesHash(u.getId());
 			}
+			// loops ofer all projects and displays them
 			for (Project p : projectlist){
 				%>
-<div class="card mx-auto listbordershadow" style="width: 80%;">
+<div class="card card-myoverview mx-auto listbordershadow" style="width: 80%;">
 <div class="row m-2">
   <div class="col-xl-12 border-bottom" >
      <h4><%out.print(p.getTitle()); %></h4>
@@ -275,14 +264,14 @@ state = Integer.parseInt(request.getParameter("z"));
 <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 
 <% 
-
+// checks if the user has already voted for the project
 if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
     	%>	 
       <a href="#" class="btn btn-success" style=" margin: 5px" onClick="doPVote(<%out.print(p.getId());%>);">Unterstützen</a>  	
     	<%  
       }else{
     	%>
-      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützt!</a> 
+      <a href="#" class="btn btn-success disabled" style=" margin: 5px">Unterstützt</a> 
       <%
       }
     %>
@@ -302,23 +291,25 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 <div class="row">
 <%
 		if(u != null){
+			// gets a list of all projects the user already voted for
 			projectlist = Vote.getUserVotesList(u.getId());
 		}
 		Map<Integer, Integer> alreadyVote = null;
 		if (u != null){
 		alreadyVote = Vote.getUserVotesHash(u.getId());
 		}
+		//loops over all projects the user already voted for
 		for (Project p : projectlist){
 		
 			%>
 
 <div class="col-md-4" style="margin:0 0 1% 0;">
-<div class="card">
-  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
-  <div class="card-body opindex ">
+<div class="card card-myoverview boder border-success">
+  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top card-img-top-myoverview" src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
+  <div class="card-body opindex boder border-success">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
 
-    <h5 class="card-text align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
+    <h5 class="card-text card-text-myoverview align-self-end"><small><b>in: </b><%out.print(p.getCategory()); %></small></h5>
 
   </div>
   <div class="card-footer border-success opindex">
@@ -372,6 +363,7 @@ if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	<div class="container text-center" id="voteReload">
 	<div class="row">
 	<%
+	// creates a list of all opinionpolls the user voted for
 List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 	for (OpinionPoll op : oplist){
 		int[] choice = op.getChoice().getChoice();
@@ -379,8 +371,8 @@ List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 %>
 
 <div class="col-md-4" style="margin:0 0 1% 0%;">
-<div class="card card-op border-success">
-<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
+<div class="card card-myoverview card-op border-success">
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top card-img-top-myoverview " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
   </div>
@@ -413,11 +405,13 @@ List<OpinionPoll>oplist = OpinionPoll.getCitizenOp(u.getId());
 		break;}
 	}
 	}
+//checks if the user is an council member
 if(u != null && u.getRole().getId() == 3){%>
 	<div id="snackbar_message"></div>
 	<div class="container text-center" id="voteReload">
 	<div class="row">
 	<%
+	//gets all opinionpolls a council member created
 List<OpinionPoll>oplist = OpinionPoll.getCouncilOp(u.getId());
 	for (OpinionPoll op : oplist){
 		int[] choice = op.getChoice().getChoice();
@@ -425,8 +419,8 @@ List<OpinionPoll>oplist = OpinionPoll.getCouncilOp(u.getId());
 %>
 
 <div class="col-md-4" style="margin:0 0 1% 0%;">
-<div class="card card-op border-success">
-<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
+<div class="card card-myoverview card-op border-success">
+<a href="opdetailview.jsp?opinionpollid=<% out.print(op.getId()); %>"><img class="card-img-top card-img-myoverview" src="DisplayImageServlet?id=<%out.print(op.getId()); %>&select=2" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(op.getTitle()); %></h5>
   </div>
