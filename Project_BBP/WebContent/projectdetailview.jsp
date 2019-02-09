@@ -50,7 +50,7 @@ if (u == null){
 	<div class="container px-0 pt-3 w-75"  id="voteReload">
 	<div class="card mx-auto listbordershadow border-0">
 	
-	<div class="row m-0 text-white bg-dark" style="height: 10%;">
+	<div class="row m-0 text-white color-mosbach" style="height: 10%;">
   <div class="col-xs-4 col-xl-6 pl-4">
    <span class="d-inline-block"> Aktiv seit: <%out.print(p.getStamp_updated()); %></span>
 
