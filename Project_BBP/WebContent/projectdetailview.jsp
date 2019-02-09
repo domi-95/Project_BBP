@@ -56,8 +56,9 @@ if (u == null){
 
   </div>
   <div class="col-xs-4 col-xl-6 pr-4">
+  <!-- shows expire date when the projects has more than 360 votes -->
   <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
-    <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
+      <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
 <%} %>
   </div>
 </div>
@@ -118,6 +119,7 @@ if (u == null){
 
 <div class="row m-2">
 <%	
+//shows a image for investmentgrade depending on the amount
 	if(p.getInvestment_grade().equals("Gering")){
 		invest = "euro_less.png";	
 	}
@@ -145,6 +147,7 @@ if (u == null){
 
 </div>
 <%	
+// shows a image for period depending on the timespan
 	if(p.getPeriod().equals("Kurz")){
 		period = "time_less.png";	
 	}
@@ -190,6 +193,7 @@ if (u == null){
 <input type="hidden" class="user" name="user" value= "<%if (u != null)out.print(u.getId()); %>" />
 
 <% 
+// shows different buttons depending on if the project is already voted or not
 if(u != null && u.getRole().getId() == 1){
 	if (alreadyVote != null && alreadyVote.get(p.getId()) == null){
 	    	%>	 
