@@ -25,7 +25,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="w-75 m-auto ">
 	
-
+			<!-- form to send an email -->
                     <form action="mail.php" method="post" class="mx-auto w-50">
                         <div class="card border-secondary rounded mb-auto">
                             <div class="card-header p-0">
