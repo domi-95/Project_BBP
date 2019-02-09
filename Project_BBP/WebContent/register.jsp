@@ -3,9 +3,9 @@ User u = null;
 if((User)session.getAttribute("user") != null){
 	u = (User)session.getAttribute("user"); 
 }
-//if (request.getParameter("message") != null){
+
 	String message = (String)request.getAttribute("message");
-//}
+
 
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -110,12 +110,13 @@ if((User)session.getAttribute("user") != null){
 					<div class="invalidbox">
 					<p class="invalid"><%if(message!=null){out.print(message);} %></p>
 						</div>
+						<!-- shows message if anything went wrong with registration -->
 						<%if(request.getAttribute("Message") != null){ %>
       				<input type="hidden" class="Message" name="Message" value= "<% out.print(request.getAttribute("Message")); %>" />
       					<script type="text/javascript">
       					$('document').ready(function(){
       						var message = $(".Message").val();
-      						alert(message);
+      						
       						smessage(message);
       					});
       					
