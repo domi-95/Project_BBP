@@ -28,28 +28,7 @@ if (u == null || u.getRole().getId() != 1){
 
 <meta charset="ISO-8859-1">
 <title>Projektübersicht</title>
-<style>
-.card-text{
-    font-size:19px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.card {
-    min-height: 450px;
-}
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-.progressbar {
-  margin: 20px;
-  width: 400px;
-  height: 8px;
-  position: relative;
-}
-</style>
+
 </head>
 <body class="bg">
 <jsp:include page="/include/header.jsp"></jsp:include><br>
@@ -124,11 +103,11 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 
 
 <div class="col-md-4" style="margin:0 0 1% 0%;">
-<div class="card border-success">
-  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top " src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
+<div class="card card-projectoverview border-success">
+  <a href="projectdetailview.jsp?projectid=<% out.print(p.getId()); %>"><img class="card-img-top card-img-top-projectoverview " src="DisplayImageServlet?id=<%out.print(p.getId()); %>&select=1" class="img-fluid" alt="Card image"></a>
   <div class="card-body opindex opoverview-card-body">
     <h5 class="card-title text-truncate"><%out.print(p.getTitle()); %></h5>
-    <h6 class="card-text"><small><b>in </b> <%out.print(p.getCategory()); %></small></h6>
+    <h6 class="card-text card-text-projectoverview"><small><b>in </b> <%out.print(p.getCategory()); %></small></h6>
   </div>
   <div class="card-footer border-success opindex">
   
@@ -180,6 +159,7 @@ List<Project> projectlist = Project.getAllFiltered(2, category, search);
 	</div>
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+	<!-- script for progressbar -->
 	<script>
 	// progressbar.js@1.0.0 version is used
 	// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
