@@ -27,13 +27,15 @@
 	<!-- Section description -->
 	<p class="text-center w-responsive mx-auto mb-5">In diesem Blog haben Sie die Möglichkeit erfolgreiche Projekte einzusehen, um einen Einblick in die thematische Arbeit des Gemeinderats sowie die Funktionsweise des BBP zu erhalten. Diese Projekte wurden durch den Gemeinderat bereits genehmigt und in ersten Instanzen durchgeführt. </p>
 	<%
+	//set blogposts in a list
 	List<Blog> result = Blog.getAll();
 	int counter = 1;
+	//Loop over blogpostlist
 	for (Blog b : result){
 			if (counter == 1){
 			
 			%>
-		<!-- -------------------first time------------------------- -->
+		<!-- -------------------first blogpost------------------------- -->
 	
 	
 	<div class="row">
@@ -83,11 +85,12 @@
 
 
 	<%
+	//counts up number of blogposts
 		counter++;
 		continue;
 	} %>
 	
-		<!-- -------------------ungerade------------------------- -->
+		<!-- -------------------uneven number of blogpost------------------------- -->
 		<%
 		if ((counter % 2 )== 0){
 		
@@ -144,12 +147,14 @@
 	</div>
 	
 	<%
+	
+//counts up number of blogposts
 	counter++;
 	continue;
 		} else{
 		%>
 		
-	<!-- Grid row third row---------------------------------------------------------------------------------------------->
+	<!-- even blogpost---------------------------------------------------------------------------------------------->
 
 	<hr class="my-5">
 
@@ -200,6 +205,7 @@
 	</div>
 	
 	<%
+	//counts up number of blogposts
 	counter++;
 		} 
 }
