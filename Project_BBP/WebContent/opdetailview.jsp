@@ -31,7 +31,9 @@ if (u == null){
 <div class="content">
 <div class="formular-bd w-75 m-auto opindex">
 <form>
-<% 	OpinionPoll op = OpinionPoll.getOp(Integer.parseInt(request.getParameter("opinionpollid")));
+<%
+//selected opinion poll gets showed
+OpinionPoll op = OpinionPoll.getOp(Integer.parseInt(request.getParameter("opinionpollid")));
 	int[] choice = op.getChoice().getChoice();
 	List<String> header = op.getHeader(); %>
 <div class="card opindex">
@@ -44,6 +46,8 @@ if (u == null){
   </div>
   </div>
 <div class="card-body opoverview-card-body">
+
+<!-- chart design & script-->
 <canvas id="barChart<%out.print(op.getId()); %>"></canvas>
 <script>
   var ctxB = document.getElementById("barChart<%out.print(op.getId()); %>").getContext('2d');
@@ -104,6 +108,7 @@ if (u == null){
 <br>
 <h6><b>Beschreibung:</b></h6>
 <br>
+
 <p><% out.print(op.getDescription()); %></p>
 </div>
 </div>
