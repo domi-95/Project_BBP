@@ -59,9 +59,11 @@ if (u != null ){
           <input type="checkbox" value="remember-me"> Angemeldet bleiben
         </label>
       </div>
+      <!-- displays a message if something went wrong while login -->
       <div class="invalidbox rounded">
 	<p class="invalid">${message}</p>
 		</div>
+		<!-- gets previous URL in an hiddenfield to use in loginprocess.java to forward user after login to the last called URL -->
 	<input type="hidden" id="prevUrl2" name="prevUrl2" value="<%out.print(request.getParameter("prevUrl"));%>">
 		<input type="hidden" id="prevUrl1" name="prevUrl1" value="">	
 		</div>
@@ -105,12 +107,6 @@ if (u != null ){
 	<script src="script/cscript.js"></script>
 
 <!--===============================================================================================-->
-<script>
-var prevUrl = window.location.protocol + "//" + window.location.host + "/" + "Project_BBP" + "/" + document.getElementById("prevUrl").value
- alert(prevUrl);
- alert(document.getElementById("prevUrl").value);
- document.getElementById("prevUrl").value = prevUrl;
- alert(document.getElementById("prevUrl").value);
- </script>
+
 </body>
 </html>
