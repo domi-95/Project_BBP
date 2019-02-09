@@ -490,3 +490,27 @@ background-color: #597943;
     height: 15vw;
     object-fit: cover;
 }
+
+/* CSS-Part only for projektoverview */
+.card-text-projectoverview{
+    font-size:19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card-projectoverview {
+    min-height: 450px;
+}
+.card-img-top-projectoverview {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+.progressbar {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+  position: relative;
+}
+
+
