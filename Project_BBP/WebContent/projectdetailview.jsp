@@ -51,11 +51,11 @@ if (u == null){
 	<div class="card mx-auto listbordershadow border-0">
 	
 	<div class="row m-0 text-white bg-dark" style="height: 10%;">
-  <div class="col-xs-4 col-xl-6 ml-2">
+  <div class="col-xs-4 col-xl-6 pl-4">
    <span class="d-inline-block"> Aktiv seit: <%out.print(p.getStamp_updated()); %></span>
 
   </div>
-  <div class="col-xs-4 col-xl-6 mr-2">
+  <div class="col-xs-4 col-xl-6 pr-4">
   <%if(p.getStamp_expiryDate().compareTo("") != 0){ %>
     <span class="float-right">Ablaufdatum: <%if(p.getStamp_expiryDate() != null){ out.print(p.getStamp_expiryDate());} %></span>
 <%} %>
